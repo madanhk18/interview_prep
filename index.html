@@ -353,7 +353,7 @@ body.light-mode .fs-back-btn:hover { background: rgba(255,255,255,0.80); }
 
 .fs-topic-title { display:flex; align-items:center; gap:12px; }
 .fs-content {
-  max-width: 860px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 36px 40px 100px;
   position: relative; z-index: 1;
@@ -408,12 +408,29 @@ body.light-mode .accordion:hover {
 
 .accordion-header {
   width:100%; display:flex; align-items:center; justify-content:space-between;
-  padding: 17px 22px;
+  padding: 17px 84px 17px 22px;
   cursor:pointer; background:transparent;
   color:var(--text); font-size:14px; font-weight:600;
   transition: background 0.18s; border:none; text-align:left;
   letter-spacing: 0.01em;
+  gap: 10px;
 }
+/* Reserve room for the star + arrow so long titles wrap instead of
+   running underneath them (was overlapping on narrow/mobile screens) */
+.accordion-header > span:first-child {
+  min-width: 0; flex: 1 1 auto;
+  overflow-wrap: break-word; word-break: break-word;
+}
+/* The title wrapper span above is itself a flex row (icon + text). Its
+   text child is a flex item too, and flex items default to min-width:auto,
+   which stops them from shrinking/wrapping — causing long sentences to
+   overflow past the reserved padding and sit under the arrow/star on
+   mobile. Force it to shrink and wrap properly. */
+.accordion-header > span:first-child > span:last-child {
+  min-width: 0; flex: 1 1 auto;
+  overflow-wrap: break-word; word-break: break-word;
+}
+.accordion-arrow { flex-shrink: 0; }
 .accordion-header:hover { background: rgba(255,255,255,0.04); }
 .accordion-header.open { background: rgba(255,255,255,0.04); }
 body.light-mode .accordion-header:hover { background: rgba(0,0,0,0.025); }
@@ -766,23 +783,27 @@ body.light-mode .search-dropdown {
 .search-dropdown.visible { display: block; }
 
 /* Topics quick-jump dropdown (next to search bar) */
-.topics-dropdown-wrap{position:relative;flex-shrink:0}
-.topics-dropdown-btn{
-  display:flex;align-items:center;gap:8px;
-  padding:10px 14px;height:100%;
-  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);
-  border-radius:12px;color:var(--text);font-size:13px;font-weight:600;
-  font-family:'Inter',sans-serif;cursor:pointer;white-space:nowrap;
-  transition:border-color 0.18s,background 0.18s;
+.topics-dropdown-wrap{
+  position:relative;flex-shrink:0;
 }
-.topics-dropdown-btn:hover{background:rgba(124,111,224,0.10);border-color:rgba(124,111,224,0.35)}
+.topics-dropdown-btn{
+  position:relative;z-index:1;
+  display:flex;align-items:center;gap:9px;
+  padding:12px 20px;height:100%;
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.14);
+  border-radius:999px;color:var(--text);font-size:14px;font-weight:600;
+  font-family:'Inter',sans-serif;cursor:pointer;white-space:nowrap;
+  box-shadow:0 3px 10px rgba(0,0,0,0.22);
+  transition:border-color 0.18s,background 0.18s,transform 0.18s;
+}
+.topics-dropdown-btn:hover{background:rgba(124,111,224,0.10);border-color:rgba(124,111,224,0.35);transform:translateY(-1px)}
 .topics-dropdown-btn svg.chev{transition:transform 0.2s;color:var(--text3)}
 .topics-dropdown-wrap.open .topics-dropdown-btn svg.chev{transform:rotate(180deg)}
-body.light-mode .topics-dropdown-btn{background:rgba(255,255,255,0.6);border-color:rgba(0,0,0,0.12)}
+body.light-mode .topics-dropdown-btn{background:rgba(255,255,255,0.6);border-color:rgba(0,0,0,0.12);box-shadow:0 3px 10px rgba(0,0,0,0.08)}
 body.light-mode .topics-dropdown-btn:hover{background:rgba(99,85,199,0.10)}
 
 .topics-dropdown-panel{
-  position:absolute;top:calc(100% + 6px);right:0;min-width:240px;
+  position:absolute;top:calc(100% - 2px);right:10px;min-width:240px;
   background:rgba(12,12,26,0.97);
   border:1px solid rgba(124,111,224,0.25);
   border-radius:14px;
@@ -951,13 +972,13 @@ body.light-mode .profile-social-btn-gfg:hover{
   box-shadow:0 6px 16px rgba(46,139,54,0.22);
 }
 .accordion-star-btn{
-  position:absolute;top:50%;right:46px;transform:translateY(-50%);
+  position:absolute;top:15px;right:46px;
   z-index:3;width:26px;height:26px;border-radius:50%;border:none;padding:0;
   display:flex;align-items:center;justify-content:center;
   background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.32);
   cursor:pointer;transition:all 0.18s;
 }
-.accordion-star-btn:hover{background:rgba(251,191,36,0.16);color:#fbbf24;transform:translateY(-50%) scale(1.1)}
+.accordion-star-btn:hover{background:rgba(251,191,36,0.16);color:#fbbf24;transform:scale(1.1)}
 .accordion-star-btn.starred{color:#fbbf24;background:rgba(251,191,36,0.14)}
 .accordion-star-btn.starred svg{fill:#fbbf24}
 body.light-mode .accordion-star-btn{background:rgba(0,0,0,0.05);color:rgba(0,0,0,0.28)}
@@ -1146,6 +1167,27 @@ body.light-mode .sidebar-toggle-btn:hover {
   .card{padding:14px !important}
 }
 
+/* Slightly larger subsection (accordion) rows on mobile — the compact
+   desktop sizing read as too small/cramped on narrow screens. */
+@media(max-width:768px){
+  .accordion{border-radius:16px}
+  .accordion-header{
+    padding:19px 84px 19px 18px;
+    font-size:15px;
+    gap:12px;
+  }
+  .acc-icon{
+    width:34px;height:34px;border-radius:9px;
+    font-size:16px;margin-right:13px;
+  }
+  .accordion-arrow{width:16px;height:16px}
+  .accordion-star-btn{
+    top:17px;right:50px;
+    width:30px;height:30px;
+  }
+  .accordion-star-btn svg{width:15px;height:15px}
+}
+
 /* Section label */
 .section-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text3);margin-bottom:8px;margin-top:14px}
 .section-label:first-child{margin-top:0}
@@ -1328,8 +1370,8 @@ body.light-mode .qrev-card {
       <!-- Topics quick-jump dropdown -->
       <div class="topics-dropdown-wrap" id="topicsDropdownWrap">
         <button type="button" class="topics-dropdown-btn" onclick="toggleTopicsDropdown(event)">
-          <span style="font-size:15px;line-height:1">⬡</span>
-          <span>Topics</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polygon points="4 4 20 4 14 12.5 14 19 10 21 10 12.5 4 4"/></svg>
+          <span>All Topics</span>
           <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="topics-dropdown-panel" id="topicsDropdownPanel">
@@ -8622,9 +8664,35 @@ function openFullscreen(topic) {
       enhanceAccordionStars(topic.id);
     });
   });
+
+  // Push a history entry so the mobile/browser "Back" button closes the
+  // overlay instead of navigating away from the page.
+  if (!_fsHistoryPushed) {
+    history.pushState({ fsOverlay: true }, '', location.href);
+    _fsHistoryPushed = true;
+  }
 }
 
+// Tracks whether we currently own a pushed history entry for the overlay
+let _fsHistoryPushed = false;
+
+// Public close function — used by the "Back to Topics" button, Escape key,
+// and anywhere else in the UI. If we pushed a history entry when opening,
+// go back through it (this fires popstate, which actually closes the
+// overlay via doCloseFullscreen). Otherwise close directly.
 function closeFullscreen() {
+  if (_fsHistoryPushed) {
+    _fsHistoryPushed = false;
+    history.back();
+  } else {
+    doCloseFullscreen();
+  }
+}
+
+// Does the actual closing animation/cleanup. Called either directly
+// (no history entry was pushed) or from the popstate handler (when the
+// user pressed the phone/browser back button).
+function doCloseFullscreen() {
   const overlay = document.getElementById('fullscreenOverlay');
   overlay.classList.add('closing');
   setTimeout(() => {
@@ -8644,6 +8712,17 @@ function closeFullscreen() {
     }
   }, 280);
 }
+
+// Fires when the user taps the phone/browser Back button (or swipes back).
+// If the overlay is open, close it instead of letting the browser navigate
+// away from the page.
+window.addEventListener('popstate', () => {
+  const overlay = document.getElementById('fullscreenOverlay');
+  if (overlay && overlay.classList.contains('active') && !overlay.classList.contains('closing')) {
+    _fsHistoryPushed = false;
+    doCloseFullscreen();
+  }
+});
 
 function toggleSidebar() {
   const sidebar = document.getElementById('sidebar');
