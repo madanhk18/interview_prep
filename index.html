@@ -463,15 +463,28 @@ body.light-mode .acc-icon {
 body.light-mode .content-area { border-top-color: rgba(0,0,0,0.06); }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',-apple-system,sans-serif;background:radial-gradient(circle at top left,#2c1f63 0%,transparent 40%),radial-gradient(circle at top right,#103e5f 0%,transparent 35%),#09090f;background-attachment:fixed;color:var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{font-family:'Inter',-apple-system,sans-serif;background:radial-gradient(circle at top left,#241c3f 0%,transparent 32%),radial-gradient(circle at top right,#103e5f 0%,transparent 35%),#09090f;background-attachment:fixed;color:var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 
 /* Animated gradient background */
 body::before{
   content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
   background:
-    radial-gradient(ellipse 80% 60% at 0% 0%, rgba(120,80,255,0.10) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(99,102,241,0.07) 0%, transparent 55%),
+    radial-gradient(ellipse 80% 60% at 0% 0%, rgba(120,80,255,0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(99,102,241,0.045) 0%, transparent 50%),
     radial-gradient(ellipse 50% 50% at 50% 100%, rgba(20,184,166,0.05) 0%, transparent 60%);
+}
+
+/* Mobile: the violet blob covers proportionally more of a narrow, tall
+   viewport than it does on desktop, which is what reads as "too violet"
+   on phones — dial it back further here. */
+@media(max-width:768px){
+  body{background:radial-gradient(circle at top left,#1c1730 0%,transparent 24%),radial-gradient(circle at top right,#0e2f47 0%,transparent 26%),#09090f;background-attachment:scroll}
+  body::before{
+    background:
+      radial-gradient(ellipse 60% 40% at 0% 0%, rgba(120,80,255,0.045) 0%, transparent 45%),
+      radial-gradient(ellipse 45% 30% at 100% 0%, rgba(99,102,241,0.035) 0%, transparent 42%),
+      radial-gradient(ellipse 50% 40% at 50% 100%, rgba(20,184,166,0.04) 0%, transparent 55%);
+  }
 }
 
 /* Glass effect */
@@ -826,6 +839,12 @@ body.light-mode .topics-dropdown-panel{
 }
 .tdp-group-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--text3);padding:10px 10px 4px}
 .tdp-group-label:first-child{padding-top:6px}
+@media(max-width:768px){
+  .topics-dropdown-panel{
+    left:0;right:auto;
+    width:min(280px, calc(100vw - 32px));
+  }
+}
 .tdp-item{
   display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:9px;
   font-size:13px;font-weight:500;color:rgba(255,255,255,0.65);cursor:pointer;
@@ -1155,7 +1174,7 @@ body.light-mode .sidebar-toggle-btn:hover {
   .sidebar{transform:translateX(-100%);transition:transform 0.3s; width:var(--sidebar) !important; overflow-y:auto}
   .sidebar.open{transform:translateX(0)}
   .sidebar.collapsed{width:var(--sidebar) !important; overflow-y:auto !important; border-right-color:rgba(255,255,255,0.10) !important}
-  .main{margin-left:0 !important;padding:20px 8px 80px !important}
+  .main{margin-left:0 !important;padding:20px 16px 80px !important}
   .main.sidebar-collapsed{margin-left:0 !important;padding-left:16px !important}
   .sidebar-toggle-btn{display:none !important}
   .mobile-menu-btn{display:flex;position:fixed;bottom:24px;right:24px;z-index:100;
@@ -1168,7 +1187,7 @@ body.light-mode .sidebar-toggle-btn:hover {
 }
 
 @media(max-width:480px){
-  .main{padding:16px 6px 80px !important}
+  .main{padding:16px 14px 80px !important}
   .card{padding:14px !important}
 }
 
@@ -9157,6 +9176,7 @@ function getContent(topic) {
 
 /* ── Per-topic SVG icon map (Lucide/Phosphor style) ── */
 const TOPIC_ICONS = {
+  'maven':              `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 8v8l9 5 9-5V8z"/><path d="M3 8l9 5 9-5"/><path d="M12 13v8"/></svg>`,
   'arrays':             `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="3" height="8" rx="1"/><rect x="8" y="5" width="3" height="14" rx="1"/><rect x="13" y="8" width="3" height="8" rx="1"/><rect x="18" y="6" width="3" height="12" rx="1"/></svg>`,
   'graphs':             `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="5" cy="12" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="19" cy="19" r="2"/><circle cx="12" cy="12" r="2"/><line x1="7" y1="12" x2="10" y2="12"/><line x1="14" y1="12" x2="17" y2="11"/><line x1="14" y1="13" x2="17" y2="18"/></svg>`,
   'trees':              `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="4" r="2"/><circle cx="6" cy="12" r="2"/><circle cx="18" cy="12" r="2"/><circle cx="4" cy="20" r="2"/><circle cx="8" cy="20" r="2"/><line x1="12" y1="6" x2="7" y2="11"/><line x1="12" y1="6" x2="17" y2="11"/><line x1="6" y1="14" x2="5" y2="18"/><line x1="6" y1="14" x2="7" y2="18"/></svg>`,
@@ -9230,7 +9250,7 @@ function renderCard(topic) {
             color:${accent.color};
             box-shadow:0 0 20px ${accent.glow}, 0 0 8px ${accent.glow};
           ">
-            ${svgIcon || `<span style="font-size:20px">${topic.icon}</span>`}
+            ${svgIcon}
           </div>
           <div>
             <h3 style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px">${topic.name}</h3>
@@ -9255,19 +9275,11 @@ function toggleExpand(id) {
 }
 
 function openFullscreen(topic) {
-  const cat = CATEGORIES[topic.category];
   const overlay = document.getElementById('fullscreenOverlay');
   const titleEl = document.getElementById('fsTopicTitle');
   const contentEl = document.getElementById('fsContent');
 
-  titleEl.innerHTML = `
-    <div style="display:flex;align-items:center;gap:10px">
-      <div class="icon-box" style="background:${topic.color}20;border:1px solid ${topic.color}30;width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px">${topic.icon}</div>
-      <div>
-        <div style="font-size:15px;font-weight:700;color:var(--text)">${topic.name}</div>
-        <span class="cat-badge" style="background:${cat.color}15;color:${cat.color};border:1px solid ${cat.color}22">${cat.label}</span>
-      </div>
-    </div>`;
+  titleEl.innerHTML = `<div style="font-size:15px;font-weight:700;color:var(--text)">${topic.name}</div>`;
 
   // Show overlay immediately so animation starts, inject content after paint
   contentEl.innerHTML = '<div style="padding:40px 0;text-align:center;color:var(--text3);font-size:13px">Loading…</div>';
