@@ -1236,6 +1236,40 @@ body.light-mode .qrev-card {
 }
 .qrev-key{color:rgba(255,255,255,0.65);font-weight:500}
 .qrev-val{font-family:'JetBrains Mono',monospace;color:#7dd3fc;font-size:12px}
+
+/* Interview Questions — Add Your Own panel */
+.iq-add-panel{border:1px solid var(--border);border-radius:12px;padding:16px;margin:10px 0 20px;background:rgba(251,191,36,0.04)}
+.iq-label{display:block;font-size:11px;font-weight:600;letter-spacing:0.03em;text-transform:uppercase;color:var(--text3);margin-bottom:6px}
+.iq-input{width:100%;box-sizing:border-box;padding:10px 12px;border-radius:8px;border:1px solid var(--border);background:rgba(255,255,255,0.04);color:var(--text);font-size:13px;font-family:inherit;outline:none;transition:border-color 0.15s}
+.iq-input:focus{border-color:rgba(251,191,36,0.5)}
+.iq-input::placeholder{color:var(--text3)}
+body.light-mode .iq-input{background:rgba(255,255,255,0.6)}
+.iq-textarea{resize:vertical;min-height:90px;line-height:1.6;font-family:inherit}
+.iq-mode-toggle{display:flex;gap:8px;margin-bottom:10px}
+.iq-mode-btn{flex:1;padding:9px 10px;border-radius:8px;border:1px solid var(--border);background:rgba(255,255,255,0.03);color:var(--text2);font-size:12px;font-weight:600;cursor:pointer;transition:all 0.15s;font-family:inherit}
+.iq-mode-btn:hover{border-color:rgba(251,191,36,0.35);color:var(--text)}
+.iq-mode-btn.active{background:rgba(251,191,36,0.14);border-color:rgba(251,191,36,0.45);color:#fbbf24}
+body.light-mode .iq-mode-btn{background:rgba(0,0,0,0.03)}
+.iq-results{max-height:230px;overflow-y:auto;margin-top:8px;border-radius:8px}
+.iq-result-item{display:flex;align-items:flex-start;gap:8px;padding:9px 10px;border-radius:8px;cursor:pointer;font-size:12px;line-height:1.5;border:1px solid transparent}
+.iq-result-item:hover{background:rgba(251,191,36,0.10);border-color:rgba(251,191,36,0.22)}
+.iq-result-breadcrumb{font-size:10.5px;color:var(--text3);margin-bottom:2px}
+.iq-result-title{color:var(--text);font-weight:600}
+.iq-result-preview{color:var(--text2);font-size:11.5px;margin-top:2px}
+.iq-selected-box{margin-top:10px;padding:10px 12px;border-radius:8px;background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.25);font-size:12px}
+.iq-add-btn{margin-top:14px;width:100%;padding:11px;border-radius:9px;border:none;background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#1a1200;font-weight:700;font-size:13px;cursor:pointer;transition:opacity 0.15s,transform 0.15s}
+.iq-add-btn:hover:not(:disabled){transform:translateY(-1px)}
+.iq-add-btn:disabled{opacity:0.4;cursor:not-allowed}
+.iq-user-card{border:1px solid var(--border);border-radius:12px;padding:14px 60px 14px 16px;margin-bottom:10px;position:relative}
+.iq-user-badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:#fbbf24;background:rgba(251,191,36,0.12);border:1px solid rgba(251,191,36,0.25);border-radius:6px;padding:2px 7px;margin-bottom:8px}
+.iq-user-q{font-size:13.5px;font-weight:700;color:var(--text);margin-bottom:8px}
+.iq-user-source{font-size:10.5px;color:var(--text3);margin-top:8px;cursor:pointer;display:inline-flex;align-items:center;gap:4px}
+.iq-user-source:hover{color:#fbbf24}
+.iq-card-actions{position:absolute;top:12px;right:12px;display:flex;gap:4px}
+.iq-action-btn{background:none;border:none;color:var(--text3);cursor:pointer;padding:5px;border-radius:6px;line-height:0;transition:all 0.15s}
+.iq-action-btn:hover{color:#fbbf24;background:rgba(251,191,36,0.1)}
+.iq-action-btn-danger:hover{color:#ef4444;background:rgba(239,68,68,0.1)}
+.iq-empty-hint{font-size:12px;color:var(--text3);text-align:center;padding:16px 0}
 </style>
 </head>
 <body>
@@ -1412,6 +1446,9 @@ body.light-mode .qrev-card {
           <a class="tdp-item" href="#" data-cat="frontend" onclick="selectTopicsDropdown('frontend');return false"><span class="nav-dot" style="background:#eab308"></span>Frontend</a>
           <a class="tdp-item" href="#" data-cat="ai" onclick="selectTopicsDropdown('ai');return false"><span class="nav-dot" style="background:#a855f7"></span>AI Concepts</a>
           <a class="tdp-item" href="#" data-cat="apis" onclick="selectTopicsDropdown('apis');return false"><span class="nav-dot" style="background:#f43f5e"></span>APIs &amp; HTTP</a>
+
+          <div class="tdp-group-label">Interview Prep</div>
+          <a class="tdp-item" href="#" data-cat="interview" onclick="selectTopicsDropdown('interview');return false"><span class="nav-dot" style="background:#fbbf24"></span>Interview Questions</a>
         </div>
       </div>
     </div>
@@ -1443,6 +1480,7 @@ const CATEGORIES = {
   frameworks:      { label:'Frameworks',       color:'#22c55e' },
   ai:              { label:'AI/ML',            color:'#a855f7' },
   apis:            { label:'APIs & HTTP',      color:'#f43f5e' },
+  interview:       { label:'Interview Prep',   color:'#fbbf24' },
 };
 
 const TOPICS = [
@@ -1476,6 +1514,7 @@ const TOPICS = [
   {id:'html-css',name:'HTML & CSS',icon:'🎨',color:'#e879f9',gradient:'',category:'frontend',hasContent:true},
   {id:'ai-concepts',name:'AI Related Concepts',icon:'🤖',color:'#a855f7',gradient:'',category:'ai'},
   {id:'apis-http',name:'APIs & HTTP Codes',icon:'🌐',color:'#f43f5e',gradient:'',category:'apis',hasContent:true},
+  {id:'interview-questions',name:'Interview Questions',icon:'🎯',color:'#fbbf24',gradient:'',category:'interview',hasContent:true},
 ];
 
 const HTML_CSS_CONTENT = `
@@ -8531,6 +8570,565 @@ Deploy</div>
 </div>
 `;
 
+const INTERVIEW_QUESTIONS_CONTENT = `
+<div class="content-area">
+
+  <div style="background:rgba(251,191,36,0.08);border:1px solid rgba(251,191,36,0.25);border-radius:10px;padding:13px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.7;color:var(--text2)">
+    🎯 <strong style="color:#fbbf24">Curated Interview Q&A</strong> — The most frequently asked questions across Java, JVM, DSA, OOPs, MySQL, DBMS, Computer Networks, OS, JDBC, Docker, Kubernetes and Python. Tap any question to reveal the answer. Scroll down to add your own questions using answers already on this site.
+  </div>
+
+  <p class="section-label">☕ Java, JVM &amp; OOPs</p>
+
+  <!-- Q1: HashMap internal working -->
+  <div class="accordion" id="acc-iq-hashmap">
+    <button class="accordion-header" onclick="toggleAcc('iq-hashmap')">
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#fbbf24">Q</span><span>How does a HashMap work internally in Java?</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-iq-hashmap">
+      <div class="hbox">A HashMap stores entries in an internal array called the <strong>bucket table (table[])</strong>. Every key's <code>hashCode()</code> is passed through an internal hash function, then reduced with <code>(n - 1) &amp; hash</code> — where n is the array length — to pick a bucket index. Each bucket holds a linked list (or a red-black tree, since Java 8) of entries whose keys landed on the same index.</div>
+
+      <p class="section-label">Visualizing the bucket array</p>
+      <div class="tbl-wrap" style="padding:14px 8px;overflow-x:auto">
+        <svg width="720" height="230" viewBox="0 0 720 230" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:0 auto;min-width:680px">
+          <text x="360" y="14" text-anchor="middle" font-size="11" font-family="JetBrains Mono, monospace" fill="#fbbf24">index = (n - 1) &amp; hash(key)   —  n = table.length = 8</text>
+
+          <!-- bucket array cells -->
+          <g font-family="JetBrains Mono, monospace">
+            <rect x="20" y="30" width="65" height="40" rx="6" fill="none" stroke="#3b82f6" stroke-width="1.8"/>
+            <text x="52" y="55" text-anchor="middle" font-size="11" fill="#3b82f6">null</text>
+            <text x="52" y="85" text-anchor="middle" font-size="10" fill="var(--text3)">[0]</text>
+
+            <rect x="105" y="30" width="65" height="40" rx="6" fill="none" stroke="#3b82f6" stroke-width="1.8"/>
+            <text x="137" y="55" text-anchor="middle" font-size="11" fill="#3b82f6">null</text>
+            <text x="137" y="85" text-anchor="middle" font-size="10" fill="var(--text3)">[1]</text>
+
+            <rect x="190" y="30" width="65" height="40" rx="6" fill="none" stroke="#8b5cf6" stroke-width="2.2"/>
+            <text x="222" y="55" text-anchor="middle" font-size="11" fill="#8b5cf6">●</text>
+            <text x="222" y="85" text-anchor="middle" font-size="10" fill="var(--text3)">[2]</text>
+
+            <rect x="275" y="30" width="65" height="40" rx="6" fill="none" stroke="#3b82f6" stroke-width="1.8"/>
+            <text x="307" y="55" text-anchor="middle" font-size="11" fill="#3b82f6">null</text>
+            <text x="307" y="85" text-anchor="middle" font-size="10" fill="var(--text3)">[3]</text>
+
+            <rect x="360" y="30" width="65" height="40" rx="6" fill="none" stroke="#8b5cf6" stroke-width="2.2"/>
+            <text x="392" y="55" text-anchor="middle" font-size="11" fill="#8b5cf6">●</text>
+            <text x="392" y="85" text-anchor="middle" font-size="10" fill="var(--text3)">[4]</text>
+
+            <rect x="445" y="30" width="65" height="40" rx="6" fill="none" stroke="#3b82f6" stroke-width="1.8"/>
+            <text x="477" y="55" text-anchor="middle" font-size="11" fill="#3b82f6">null</text>
+            <text x="477" y="85" text-anchor="middle" font-size="10" fill="var(--text3)">[5]</text>
+
+            <rect x="530" y="30" width="65" height="40" rx="6" fill="none" stroke="#8b5cf6" stroke-width="2.2"/>
+            <text x="562" y="55" text-anchor="middle" font-size="11" fill="#8b5cf6">●</text>
+            <text x="562" y="85" text-anchor="middle" font-size="10" fill="var(--text3)">[6]</text>
+
+            <rect x="615" y="30" width="65" height="40" rx="6" fill="none" stroke="#3b82f6" stroke-width="1.8"/>
+            <text x="647" y="55" text-anchor="middle" font-size="11" fill="#3b82f6">null</text>
+            <text x="647" y="85" text-anchor="middle" font-size="10" fill="var(--text3)">[7]</text>
+          </g>
+
+          <!-- chain for bucket 2: collision of two keys -->
+          <line x1="222" y1="70" x2="222" y2="105" stroke="#8b5cf6" stroke-width="1.6" marker-end="url(#arrow)"/>
+          <rect x="167" y="105" width="110" height="34" rx="6" fill="rgba(139,92,246,0.12)" stroke="#8b5cf6" stroke-width="1.4"/>
+          <text x="222" y="126" text-anchor="middle" font-size="10.5" font-family="JetBrains Mono, monospace" fill="var(--text)">"apple" → 100</text>
+          <line x1="222" y1="139" x2="222" y2="160" stroke="#8b5cf6" stroke-width="1.6" marker-end="url(#arrow)"/>
+          <text x="248" y="152" font-size="9" fill="var(--text3)">next</text>
+          <rect x="167" y="160" width="110" height="34" rx="6" fill="rgba(139,92,246,0.12)" stroke="#8b5cf6" stroke-width="1.4"/>
+          <text x="222" y="181" text-anchor="middle" font-size="10.5" font-family="JetBrains Mono, monospace" fill="var(--text)">"grape" → 55</text>
+          <text x="222" y="212" text-anchor="middle" font-size="9.5" fill="var(--text3)">collision — same bucket, linked</text>
+
+          <!-- bucket 4 single entry -->
+          <line x1="392" y1="70" x2="392" y2="105" stroke="#8b5cf6" stroke-width="1.6" marker-end="url(#arrow)"/>
+          <rect x="337" y="105" width="110" height="34" rx="6" fill="rgba(139,92,246,0.12)" stroke="#8b5cf6" stroke-width="1.4"/>
+          <text x="392" y="126" text-anchor="middle" font-size="10.5" font-family="JetBrains Mono, monospace" fill="var(--text)">"cat" → 7</text>
+          <text x="392" y="152" text-anchor="middle" font-size="9.5" fill="var(--text3)">next → null</text>
+
+          <!-- bucket 6 single entry -->
+          <line x1="562" y1="70" x2="562" y2="105" stroke="#8b5cf6" stroke-width="1.6" marker-end="url(#arrow)"/>
+          <rect x="507" y="105" width="110" height="34" rx="6" fill="rgba(139,92,246,0.12)" stroke="#8b5cf6" stroke-width="1.4"/>
+          <text x="562" y="126" text-anchor="middle" font-size="10.5" font-family="JetBrains Mono, monospace" fill="var(--text)">"dog" → 23</text>
+          <text x="562" y="152" text-anchor="middle" font-size="9.5" fill="var(--text3)">next → null</text>
+
+          <defs>
+            <marker id="arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+              <path d="M0,0 L8,4 L0,8 Z" fill="#8b5cf6"/>
+            </marker>
+          </defs>
+        </svg>
+      </div>
+
+      <p class="section-label">Step by step — put("apple", 100)</p>
+      <ul style="padding-left:18px;font-size:12.5px;line-height:1.9;color:var(--text2)">
+        <li><strong style="color:var(--text)">1. Hash it</strong> — call <code>key.hashCode()</code>, then spread the bits: <code>h ^ (h &gt;&gt;&gt; 16)</code>, to reduce collisions from poor hashCode implementations.</li>
+        <li><strong style="color:var(--text)">2. Locate bucket</strong> — <code>index = hash &amp; (table.length - 1)</code>. This only works because capacity is always a power of 2 — it's a fast substitute for the slower <code>% length</code>.</li>
+        <li><strong style="color:var(--text)">3. Insert</strong> — if the bucket is empty, place the node directly. If not, walk the chain comparing <code>hashCode()</code> then <code>equals()</code> — if a match is found, the value is replaced; otherwise the new node is appended.</li>
+        <li><strong style="color:var(--text)">4. Resize</strong> — once size exceeds <code>capacity × loadFactor</code> (default 0.75), the table doubles and every entry is rehashed into the new, larger array.</li>
+        <li><strong style="color:var(--text)">5. Treeification</strong> — since Java 8, if a single bucket's chain grows past 8 nodes (and table capacity ≥ 64), that bucket converts from a linked list to a red-black tree, dropping worst-case lookup from O(n) to O(log n).</li>
+      </ul>
+
+      <div class="sbox">✅ <strong>Average case:</strong> O(1) for get/put/remove because a good hash spreads keys evenly across buckets. <strong>Worst case:</strong> O(n) with a linked-list bucket (all keys collide), or O(log n) once that bucket has treeified.</div>
+      <div class="ybox">⚠ Two objects that are <code>equals()</code> must return the <strong>same</strong> <code>hashCode()</code> — breaking this contract is the #1 cause of "my HashMap lost my entry" bugs.</div>
+    </div>
+  </div>
+
+  <!-- Q2: equals vs hashCode -->
+  <div class="accordion" id="acc-iq-equals-hashcode">
+    <button class="accordion-header" onclick="toggleAcc('iq-equals-hashcode')">
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#fbbf24">Q</span><span>What is the contract between equals() and hashCode()?</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-iq-equals-hashcode">
+      <div class="hbox">If two objects are equal according to <code>equals()</code>, they <strong>must</strong> produce the same <code>hashCode()</code>. The reverse isn't required — unequal objects are allowed to share a hash code (that's just a collision).</div>
+      <ul style="padding-left:18px;font-size:12.5px;line-height:1.9;color:var(--text2)">
+        <li>Breaking this contract means a hash-based collection (HashMap, HashSet) can't find an entry it already stored, because it looks in the wrong bucket.</li>
+        <li>Always override both together — most IDEs and Lombok's <code>@EqualsAndHashCode</code> generate a matching pair automatically.</li>
+      </ul>
+      <div class="sbox">✅ Interview one-liner: "equal objects must have equal hash codes; equal hash codes don't require equal objects."</div>
+    </div>
+  </div>
+
+  <!-- Q3: OOP pillars -->
+  <div class="accordion" id="acc-iq-oop-pillars">
+    <button class="accordion-header" onclick="toggleAcc('iq-oop-pillars')">
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#fbbf24">Q</span><span>What are the four pillars of OOP?</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-iq-oop-pillars">
+      <div class="tbl-wrap"><table class="bit-table">
+        <thead><tr><th>Pillar</th><th>What it means</th><th>Java example</th></tr></thead>
+        <tbody>
+          <tr><td style="color:#fbbf24">Encapsulation</td><td>Bundle data + behavior, hide internal state</td><td>private fields + public getters/setters</td></tr>
+          <tr><td style="color:#fbbf24">Abstraction</td><td>Expose only what's necessary, hide implementation details</td><td>interfaces, abstract classes</td></tr>
+          <tr><td style="color:#fbbf24">Inheritance</td><td>Reuse behavior by extending a parent class</td><td>class Dog extends Animal</td></tr>
+          <tr><td style="color:#fbbf24">Polymorphism</td><td>Same method call, different behavior at runtime/compile time</td><td>method overriding &amp; overloading</td></tr>
+        </tbody>
+      </table></div>
+      <div class="sbox">✅ Runtime polymorphism uses dynamic method dispatch (overriding); compile-time polymorphism is overloading, resolved by the compiler.</div>
+    </div>
+  </div>
+
+  <!-- Q4: abstract vs interface -->
+  <div class="accordion" id="acc-iq-abstract-interface">
+    <button class="accordion-header" onclick="toggleAcc('iq-abstract-interface')">
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#fbbf24">Q</span><span>Abstract class vs Interface — when do you use which?</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-iq-abstract-interface">
+      <div class="tbl-wrap"><table class="bit-table">
+        <thead><tr><th>Abstract class</th><th>Interface</th></tr></thead>
+        <tbody>
+          <tr><td>Can have state (instance fields)</td><td>Only constants (public static final)</td></tr>
+          <tr><td>Single inheritance only</td><td>A class can implement many interfaces</td></tr>
+          <tr><td>Can mix abstract + concrete methods</td><td>Since Java 8: default &amp; static methods allowed too</td></tr>
+          <tr><td>Use for a strong "is-a" relationship sharing code</td><td>Use to define a capability/contract ("can-do")</td></tr>
+        </tbody>
+      </table></div>
+      <div class="sbox">✅ Rule of thumb: prefer interfaces for flexibility; reach for an abstract class when subclasses genuinely share implementation, not just a signature.</div>
+    </div>
+  </div>
+
+  <!-- Q5: String immutability -->
+  <div class="accordion" id="acc-iq-string-pool">
+    <button class="accordion-header" onclick="toggleAcc('iq-string-pool')">
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#fbbf24">Q</span><span>Why is String immutable in Java, and what is the String pool?</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-iq-string-pool">
+      <div class="hbox">Once created, a String's character content can never change — any "modification" (concat, replace, substring) returns a brand-new String object.</div>
+      <ul style="padding-left:18px;font-size:12.5px;line-height:1.9;color:var(--text2)">
+        <li><strong style="color:var(--text)">Security</strong> — Strings are used for class names, file paths, network connections; immutability stops them being altered mid-use.</li>
+        <li><strong style="color:var(--text)">Thread safety</strong> — an immutable object is automatically safe to share across threads, no synchronization needed.</li>
+        <li><strong style="color:var(--text)">Caching / String pool</strong> — literal strings are stored once in a special heap area (the string pool) and reused. <code>String a = "hi"; String b = "hi";</code> — a and b point to the same object.</li>
+        <li><strong style="color:var(--text)">Safe hashCode caching</strong> — since content never changes, the hash code is computed once and cached, making Strings excellent HashMap keys.</li>
+      </ul>
+      <div class="ybox">⚠ <code>new String("hi")</code> forces a new object outside the pool, even though the content is identical — that's why <code>==</code> comparisons on Strings are a classic interview trap.</div>
+    </div>
+  </div>
+
+  <p class="section-label">🧬 JVM Internals</p>
+
+  <!-- Q6: JVM architecture -->
+  <div class="accordion" id="acc-iq-jvm-architecture">
+    <button class="accordion-header" onclick="toggleAcc('iq-jvm-architecture')">
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#fbbf24">Q</span><span>Explain the JVM architecture.</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-iq-jvm-architecture">
+      <div class="hbox">The JVM has three major subsystems that turn a compiled .class file into a running program.</div>
+      <ul style="padding-left:18px;font-size:12.5px;line-height:1.9;color:var(--text2)">
+        <li><strong style="color:var(--text)">1. Class Loader Subsystem</strong> — loads, links (verify/prepare/resolve) and initializes .class files, using Bootstrap → Extension → Application loaders (delegation model).</li>
+        <li><strong style="color:var(--text)">2. Runtime Data Areas</strong> — Method Area (class metadata), Heap (all objects, shared), Stack (one per thread, holds frames for local variables), PC Register, Native Method Stack.</li>
+        <li><strong style="color:var(--text)">3. Execution Engine</strong> — Interpreter (reads bytecode line by line), JIT Compiler (compiles "hot" methods to native machine code for speed), and the Garbage Collector.</li>
+      </ul>
+      <div class="sbox">✅ Interview line: "Class loader loads it, runtime data areas store it, execution engine runs it."</div>
+    </div>
+  </div>
+
+  <!-- Q7: GC -->
+  <div class="accordion" id="acc-iq-gc">
+    <button class="accordion-header" onclick="toggleAcc('iq-gc')">
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#fbbf24">Q</span><span>How does Garbage Collection work in Java?</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-iq-gc">
+      <div class="hbox">The GC automatically reclaims heap memory occupied by objects that are no longer <strong>reachable</strong> from any GC root (local variables, active threads, static fields).</div>
+      <p class="section-label">Generational heap</p>
+      <div class="tbl-wrap"><table class="bit-table">
+        <thead><tr><th>Region</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td>Young Gen (Eden + 2 Survivor)</td><td>New objects; most die young → frequent, cheap Minor GC</td></tr>
+          <tr><td>Old Gen (Tenured)</td><td>Objects that survived several Minor GCs → less frequent Major/Full GC</td></tr>
+          <tr><td>Metaspace</td><td>Class metadata (off-heap, replaced PermGen since Java 8)</td></tr>
+        </tbody>
+      </table></div>
+      <div class="sbox">✅ Most modern collectors (G1, ZGC, Shenandoah) use a mark → sweep → compact cycle and aim to keep pause times short even on large heaps.</div>
+    </div>
+  </div>
+
+  <!-- Q8: JVM vs JRE vs JDK -->
+  <div class="accordion" id="acc-iq-jvm-jre-jdk">
+    <button class="accordion-header" onclick="toggleAcc('iq-jvm-jre-jdk')">
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#fbbf24">Q</span><span>Difference between JVM, JRE and JDK?</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-iq-jvm-jre-jdk">
+      <div class="hbox"><strong>JDK ⊃ JRE ⊃ JVM</strong> — each one contains the previous.</div>
+      <ul style="padding-left:18px;font-size:12.5px;line-height:1.9;color:var(--text2)">
+        <li><strong style="color:var(--text)">JVM</strong> — the abstract engine that actually executes bytecode. Platform-specific.</li>
+        <li><strong style="color:var(--text)">JRE</strong> — JVM + core class libraries (java.lang, java.util, etc.) needed to <em>run</em> Java programs.</li>
+        <li><strong style="color:var(--text)">JDK</strong> — JRE + development tools (javac compiler, debugger, javadoc) needed to <em>build</em> Java programs.</li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="section-label">🧮 Data Structures &amp; Algorithms</p>
+
+  <!-- Q9: ArrayList vs LinkedList -->
+  <div class="accordion" id="acc-iq-arraylist-linkedlist">
+    <button class="accordion-header" onclick="toggleAcc('iq-arraylist-linkedlist')">
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#fbbf24">Q</span><span>ArrayList vs LinkedList — which one and why?</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-iq-arraylist-linkedlist">
+      <div class="tbl-wrap"><table class="bit-table">
+        <thead><tr><th>Operation</th><th>ArrayList</th><th>LinkedList</th></tr></thead>
+        <tbody>
+          <tr><td>Random access get(i)</td><td>O(1) — contiguous array</td><td>O(n) — must walk the chain</td></tr>
+          <tr><td>Insert/delete at start</td><td>O(n) — shifts elements</td><td>O(1) — just relink pointers</td></tr>
+          <tr><td>Insert/delete at end</td><td>O(1) amortized</td><td>O(1)</td></tr>
+          <tr><td>Memory</td><td>Compact, cache-friendly</td><td>Extra pointer overhead per node</td></tr>
+        </tbody>
+      </table></div>
+      <div class="sbox">✅ Default to ArrayList — it's cache-friendly and covers 90% of use cases. Reach for LinkedList only with heavy insert/delete at both ends (it also implements Deque).</div>
+    </div>
+  </div>
+
+  <!-- Q10: quicksort vs mergesort -->
+  <div class="accordion" id="acc-iq-quicksort-mergesort">
+    <button class="accordion-header" onclick="toggleAcc('iq-quicksort-mergesort')">
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#fbbf24">Q</span><span>QuickSort vs MergeSort — how do they compare?</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-iq-quicksort-mergesort">
+      <div class="tbl-wrap"><table class="bit-table">
+        <thead><tr><th></th><th>QuickSort</th><th>MergeSort</th></tr></thead>
+        <tbody>
+          <tr><td>Average time</td><td>O(n log n)</td><td>O(n log n)</td></tr>
+          <tr><td>Worst case</td><td>O(n²) — bad pivot choice</td><td>O(n log n) — always</td></tr>
+          <tr><td>Space</td><td>O(log n) — in-place</td><td>O(n) — needs auxiliary array</td></tr>
+          <tr><td>Stable?</td><td>No</td><td>Yes</td></tr>
+        </tbody>
+      </table></div>
+      <div class="sbox">✅ QuickSort usually wins in practice (better cache locality, in-place). MergeSort wins when you need guaranteed O(n log n) or stability — e.g. sorting linked lists or external/disk sorting.</div>
+    </div>
+  </div>
+
+  <!-- Q11: recursion & stack overflow -->
+  <div class="accordion" id="acc-iq-recursion-stack">
+    <button class="accordion-header" onclick="toggleAcc('iq-recursion-stack')">
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#fbbf24">Q</span><span>How does recursion use the call stack, and what causes StackOverflowError?</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-iq-recursion-stack">
+      <div class="hbox">Every method call pushes a new stack frame (local variables, return address) onto the thread's call stack. Recursion keeps pushing frames until the base case is hit, then pops them off one by one while returning.</div>
+      <div class="ybox">⚠ Missing or unreachable base case → frames keep piling up until the fixed-size stack runs out of memory → <code>StackOverflowError</code>. Deep recursion (e.g. traversing a huge tree) can trigger this even with a correct base case.</div>
+      <div class="sbox">✅ Fix: rewrite as iteration with an explicit stack/queue, or use tail recursion where the language/JVM supports optimizing it (note: standard JVM does not optimize tail calls).</div>
+    </div>
+  </div>
+
+  <p class="section-label">🐬 MySQL &amp; DBMS</p>
+
+  <!-- Q12: Normalization -->
+  <div class="accordion" id="acc-iq-normalization">
+    <button class="accordion-header" onclick="toggleAcc('iq-normalization')">
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#fbbf24">Q</span><span>What is normalization? Explain 1NF, 2NF, 3NF.</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-iq-normalization">
+      <div class="hbox">Normalization organizes tables to reduce data redundancy and avoid update/insert/delete anomalies, by progressively removing dependency problems.</div>
+      <div class="tbl-wrap"><table class="bit-table">
+        <thead><tr><th>Form</th><th>Rule</th></tr></thead>
+        <tbody>
+          <tr><td style="color:#10b981">1NF</td><td>Every column holds atomic (indivisible) values — no repeating groups or arrays in a cell</td></tr>
+          <tr><td style="color:#10b981">2NF</td><td>1NF + no partial dependency — every non-key column depends on the <em>whole</em> composite primary key</td></tr>
+          <tr><td style="color:#10b981">3NF</td><td>2NF + no transitive dependency — non-key columns depend only on the key, not on other non-key columns</td></tr>
+        </tbody>
+      </table></div>
+      <div class="sbox">✅ Trade-off: normalization reduces redundancy but can require more joins; denormalization is sometimes used deliberately for read-heavy reporting workloads.</div>
+    </div>
+  </div>
+
+  <!-- Q13: ACID -->
+  <div class="accordion" id="acc-iq-acid">
+    <button class="accordion-header" onclick="toggleAcc('iq-acid')">
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#fbbf24">Q</span><span>What are ACID properties in a database transaction?</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-iq-acid">
+      <div class="tbl-wrap"><table class="bit-table">
+        <thead><tr><th>Property</th><th>Guarantee</th></tr></thead>
+        <tbody>
+          <tr><td style="color:#10b981">Atomicity</td><td>All statements in a transaction succeed, or none do (all-or-nothing)</td></tr>
+          <tr><td style="color:#10b981">Consistency</td><td>A transaction moves the DB from one valid state to another, respecting constraints</td></tr>
+          <tr><td style="color:#10b981">Isolation</td><td>Concurrent transactions don't interfere — controlled by isolation levels</td></tr>
+          <tr><td style="color:#10b981">Durability</td><td>Once committed, changes survive a crash (written to disk/log)</td></tr>
+        </tbody>
+      </table></div>
+      <div class="sbox">✅ MySQL's InnoDB engine is ACID-compliant by default; MyISAM is not (no transaction support).</div>
+    </div>
+  </div>
+
+  <!-- Q14: index/btree -->
+  <div class="accordion" id="acc-iq-index-btree">
+    <button class="accordion-header" onclick="toggleAcc('iq-index-btree')">
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#fbbf24">Q</span><span>How do database indexes speed up queries?</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-iq-index-btree">
+      <div class="hbox">Without an index, MySQL performs a <strong>full table scan</strong> — reading every row to find matches (O(n)). An index builds a separate, sorted <strong>B-Tree</strong> structure on the indexed column(s), so lookups become O(log n).</div>
+      <ul style="padding-left:18px;font-size:12.5px;line-height:1.9;color:var(--text2)">
+        <li>A B-Tree keeps data sorted and balanced, so range queries (<code>BETWEEN</code>, <code>&gt;</code>, <code>ORDER BY</code>) and equality lookups both stay fast.</li>
+        <li><strong style="color:var(--text)">Trade-off</strong> — every INSERT/UPDATE/DELETE must also update the index, so over-indexing slows writes.</li>
+        <li>A <strong>composite index</strong> on (a, b) only helps queries that filter on a, or on a and b together — not on b alone (leftmost-prefix rule).</li>
+      </ul>
+      <div class="sbox">✅ Interview line: "Indexes use B-Trees to enable faster data access, at the cost of slower writes and extra storage."</div>
+    </div>
+  </div>
+
+  <p class="section-label">🌐 Computer Networks &amp; Operating Systems</p>
+
+  <!-- Q15: TCP handshake -->
+  <div class="accordion" id="acc-iq-tcp-handshake">
+    <button class="accordion-header" onclick="toggleAcc('iq-tcp-handshake')">
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#fbbf24">Q</span><span>Explain the TCP 3-way handshake.</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-iq-tcp-handshake">
+      <div class="hbox">Before any data flows, client and server synchronize sequence numbers to establish a reliable, ordered connection:</div>
+      <ul style="padding-left:18px;font-size:12.5px;line-height:1.9;color:var(--text2)">
+        <li><strong style="color:var(--text)">1. SYN</strong> — client sends a SYN packet with an initial sequence number, requesting a connection.</li>
+        <li><strong style="color:var(--text)">2. SYN-ACK</strong> — server acknowledges and replies with its own SYN, containing its own sequence number.</li>
+        <li><strong style="color:var(--text)">3. ACK</strong> — client acknowledges the server's SYN. Connection is now established.</li>
+      </ul>
+      <div class="sbox">✅ Closing a connection uses a 4-way handshake (FIN/ACK from each side) since either side may still have data to finish sending.</div>
+    </div>
+  </div>
+
+  <!-- Q16: OSI vs TCP/IP -->
+  <div class="accordion" id="acc-iq-osi-tcpip">
+    <button class="accordion-header" onclick="toggleAcc('iq-osi-tcpip')">
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#fbbf24">Q</span><span>OSI model vs TCP/IP model?</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-iq-osi-tcpip">
+      <div class="tbl-wrap"><table class="bit-table">
+        <thead><tr><th>OSI (7 layers)</th><th>TCP/IP (4 layers)</th></tr></thead>
+        <tbody>
+          <tr><td>Application, Presentation, Session</td><td>Application</td></tr>
+          <tr><td>Transport</td><td>Transport</td></tr>
+          <tr><td>Network</td><td>Internet</td></tr>
+          <tr><td>Data Link, Physical</td><td>Network Access</td></tr>
+        </tbody>
+      </table></div>
+      <div class="sbox">✅ OSI is a theoretical/teaching reference model; TCP/IP is the practical model the real internet runs on.</div>
+    </div>
+  </div>
+
+  <!-- Q17: process vs thread -->
+  <div class="accordion" id="acc-iq-process-thread">
+    <button class="accordion-header" onclick="toggleAcc('iq-process-thread')">
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#fbbf24">Q</span><span>Process vs Thread — what's the difference?</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-iq-process-thread">
+      <div class="tbl-wrap"><table class="bit-table">
+        <thead><tr><th>Process</th><th>Thread</th></tr></thead>
+        <tbody>
+          <tr><td>Independent execution unit with its own memory space</td><td>Lightweight unit inside a process, shares its memory</td></tr>
+          <tr><td>Heavier to create/switch</td><td>Cheaper to create/switch</td></tr>
+          <tr><td>Communication needs IPC (pipes, sockets)</td><td>Communicates directly via shared variables</td></tr>
+          <tr><td>One process crashing doesn't affect others</td><td>One thread crashing can take down the whole process</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- Q18: deadlock -->
+  <div class="accordion" id="acc-iq-deadlock">
+    <button class="accordion-header" onclick="toggleAcc('iq-deadlock')">
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#fbbf24">Q</span><span>What is a deadlock, and what are its four necessary conditions?</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-iq-deadlock">
+      <div class="hbox">A deadlock is a state where two or more threads/processes are each waiting on a resource the other holds, so none can proceed. All four Coffman conditions must hold simultaneously:</div>
+      <ul style="padding-left:18px;font-size:12.5px;line-height:1.9;color:var(--text2)">
+        <li><strong style="color:var(--text)">Mutual exclusion</strong> — a resource can be held by only one thread at a time.</li>
+        <li><strong style="color:var(--text)">Hold and wait</strong> — a thread holds a resource while waiting for another.</li>
+        <li><strong style="color:var(--text)">No preemption</strong> — a resource can't be forcibly taken away; it must be released voluntarily.</li>
+        <li><strong style="color:var(--text)">Circular wait</strong> — a closed chain of threads, each waiting on the next.</li>
+      </ul>
+      <div class="sbox">✅ Prevention: break any one condition — e.g. always acquire locks in the same global order to eliminate circular wait.</div>
+    </div>
+  </div>
+
+  <p class="section-label">🗄️ JDBC, Docker &amp; Kubernetes</p>
+
+  <!-- Q19: JDBC steps -->
+  <div class="accordion" id="acc-iq-jdbc-steps">
+    <button class="accordion-header" onclick="toggleAcc('iq-jdbc-steps')">
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#fbbf24">Q</span><span>What are the steps to connect a Java application to a database using JDBC?</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-iq-jdbc-steps">
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">JdbcExample.java</span></div>
+        <pre style="margin:0;padding:12px 14px;font-size:12px;line-height:1.7;overflow-x:auto"><code>Class.forName("com.mysql.cj.jdbc.Driver");           // 1. Load driver
+Connection con = DriverManager.getConnection(         // 2. Open connection
+    "jdbc:mysql://localhost:3306/mydb", "user", "pass");
+Statement st = con.createStatement();                 // 3. Create statement
+ResultSet rs = st.executeQuery("SELECT * FROM users"); // 4. Execute query
+while (rs.next()) {                                    // 5. Process results
+    System.out.println(rs.getString("name"));
+}
+con.close();                                           // 6. Close connection</code></pre>
+      </div>
+      <div class="sbox">✅ Since JDBC 4.0, <code>Class.forName()</code> is optional — drivers auto-register via ServiceLoader. Prefer <code>PreparedStatement</code> over <code>Statement</code> to avoid SQL injection and get query plan caching.</div>
+    </div>
+  </div>
+
+  <!-- Q20: docker vs vm -->
+  <div class="accordion" id="acc-iq-docker-vs-vm">
+    <button class="accordion-header" onclick="toggleAcc('iq-docker-vs-vm')">
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#fbbf24">Q</span><span>Docker container vs Virtual Machine — what's the real difference?</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-iq-docker-vs-vm">
+      <div class="hbox">A VM virtualizes hardware and runs a full guest OS on top of a hypervisor. A container shares the host machine's OS kernel and only isolates the process, filesystem and network — making it far lighter.</div>
+      <div class="tbl-wrap"><table class="bit-table">
+        <thead><tr><th>VM</th><th>Container</th></tr></thead>
+        <tbody>
+          <tr><td>Boots in minutes, GBs in size</td><td>Starts in seconds, MBs in size</td></tr>
+          <tr><td>Full isolated guest OS + kernel</td><td>Shares host kernel, isolated via namespaces/cgroups</td></tr>
+          <tr><td>Stronger isolation boundary</td><td>Lighter, but weaker isolation than a VM</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- Q21: k8s why -->
+  <div class="accordion" id="acc-iq-k8s-why">
+    <button class="accordion-header" onclick="toggleAcc('iq-k8s-why')">
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#fbbf24">Q</span><span>Why do we need Kubernetes if we already have Docker?</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-iq-k8s-why">
+      <div class="hbox">Docker runs containers on a single machine. In production you have dozens or thousands of containers spread across many machines — Kubernetes is the <strong>orchestrator</strong> that manages them all as one system.</div>
+      <ul style="padding-left:18px;font-size:12.5px;line-height:1.9;color:var(--text2)">
+        <li><strong style="color:var(--text)">Self-healing</strong> — restarts or reschedules a Pod automatically if a container crashes or a node dies.</li>
+        <li><strong style="color:var(--text)">Scaling</strong> — a Deployment can scale replica Pods up/down automatically based on load.</li>
+        <li><strong style="color:var(--text)">Service discovery &amp; load balancing</strong> — a Service gives a stable network identity to a set of ever-changing Pods.</li>
+        <li><strong style="color:var(--text)">Rolling updates &amp; rollbacks</strong> — deploy new versions with zero downtime, roll back instantly if something breaks.</li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="section-label">🐍 Python Basics</p>
+
+  <!-- Q22: list vs tuple -->
+  <div class="accordion" id="acc-iq-list-tuple">
+    <button class="accordion-header" onclick="toggleAcc('iq-list-tuple')">
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#fbbf24">Q</span><span>Python List vs Tuple — when do you use each?</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-iq-list-tuple">
+      <div class="tbl-wrap"><table class="bit-table">
+        <thead><tr><th>List</th><th>Tuple</th></tr></thead>
+        <tbody>
+          <tr><td>Mutable — can add/remove/change items</td><td>Immutable — fixed once created</td></tr>
+          <tr><td><code>[1, 2, 3]</code></td><td><code>(1, 2, 3)</code></td></tr>
+          <tr><td>Slightly slower, more memory</td><td>Faster, less memory overhead</td></tr>
+          <tr><td>Not hashable — can't be a dict key</td><td>Hashable (if contents are) — can be a dict key</td></tr>
+        </tbody>
+      </table></div>
+      <div class="sbox">✅ Use a tuple for fixed, heterogeneous data (like coordinates) and as dict keys; use a list for a growing, homogeneous collection.</div>
+    </div>
+  </div>
+
+  <!-- Q23: GIL -->
+  <div class="accordion" id="acc-iq-gil">
+    <button class="accordion-header" onclick="toggleAcc('iq-gil')">
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#fbbf24">Q</span><span>What is the GIL (Global Interpreter Lock) in Python?</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-iq-gil">
+      <div class="hbox">The GIL is a mutex in CPython that allows only <strong>one thread</strong> to execute Python bytecode at a time, even on a multi-core machine.</div>
+      <ul style="padding-left:18px;font-size:12.5px;line-height:1.9;color:var(--text2)">
+        <li>It exists to keep CPython's memory management (reference counting) simple and thread-safe.</li>
+        <li><strong style="color:var(--text)">Impact</strong> — CPU-bound multithreaded code doesn't get true parallelism; threads are still useful for I/O-bound work (network, disk) since the GIL is released during I/O waits.</li>
+        <li><strong style="color:var(--text)">Workarounds</strong> — use the <code>multiprocessing</code> module (separate processes, separate GILs) for CPU-bound parallelism, or use libraries like NumPy that release the GIL during heavy computation.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ADD YOUR OWN QUESTION -->
+  <div class="section-label" style="margin-top:26px">➕ Add Your Own Question</div>
+  <div class="hbox">Type a question, then either pick an existing answer from any card on this site, or write your own answer. Your questions are saved locally in this browser.</div>
+
+  <div id="iqAddPanel" class="iq-add-panel">
+    <div id="iqEditingBanner" style="display:none;align-items:center;justify-content:space-between;background:rgba(251,191,36,0.12);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:8px 12px;margin-bottom:12px;font-size:11.5px;color:#fbbf24;font-weight:600">
+      <span>✏️ Editing your question</span>
+      <button type="button" onclick="cancelEditUserQuestion()" style="background:none;border:none;color:#fbbf24;cursor:pointer;font-size:11.5px;font-weight:700;text-decoration:underline">Cancel</button>
+    </div>
+
+    <label class="iq-label">Question</label>
+    <input type="text" id="iqQuestionInput" class="iq-input" placeholder="e.g. What is the difference between == and .equals() in Java?" autocomplete="off"/>
+
+    <label class="iq-label" style="margin-top:14px">Answer</label>
+    <div class="iq-mode-toggle" role="tablist">
+      <button type="button" id="iqModeBtnSearch" class="iq-mode-btn active" onclick="setIQAnswerMode('search')">🔍 Select from site</button>
+      <button type="button" id="iqModeBtnManual" class="iq-mode-btn" onclick="setIQAnswerMode('manual')">✍️ Type my own</button>
+    </div>
+
+    <div id="iqSearchMode">
+      <input type="text" id="iqAnswerSearch" class="iq-input" placeholder="Search topics, sections, keywords…" autocomplete="off" oninput="onIQAnswerSearch()"/>
+      <div id="iqSearchResults" class="iq-results"></div>
+      <div id="iqSelectedAnswer" style="display:none"></div>
+    </div>
+
+    <div id="iqManualMode" style="display:none">
+      <textarea id="iqManualAnswerInput" class="iq-input iq-textarea" placeholder="Write the answer here…" oninput="updateIQAddBtnState()"></textarea>
+    </div>
+
+    <button type="button" id="iqAddBtn" class="iq-add-btn" disabled onclick="addUserQuestion()">+ Add Question</button>
+  </div>
+
+  <div id="userQuestionsList"></div>
+
+</div>
+
+`;
+
 function getContent(topic) {
   if (topic.id === 'bit-manipulation') return BIT_MANIPULATION_CONTENT;
   if (topic.id === 'html-css') return HTML_CSS_CONTENT;
@@ -8550,6 +9148,7 @@ function getContent(topic) {
   if (topic.id === 'jdbc') return JDBC_CONTENT;
   if (topic.id === 'spring-mvc') return SPRING_MVC_CONTENT;
   if (topic.id === 'spring-boot') return SPRING_BOOT_CONTENT;
+  if (topic.id === 'interview-questions') return INTERVIEW_QUESTIONS_CONTENT;
   return `<div class="content-area"><div style="padding:20px 0;text-align:center">
     <div style="font-size:24px;margin-bottom:8px;opacity:0.3">◦ ◦ ◦</div>
     <p style="font-size:13px;color:var(--text3)">No content added yet for this topic</p>
@@ -8587,6 +9186,7 @@ const TOPIC_ICONS = {
   'ai-concepts':        `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 2a4 4 0 0 1 4 4v1h1a3 3 0 0 1 3 3v3a3 3 0 0 1-3 3h-1v1a4 4 0 0 1-8 0v-1H7a3 3 0 0 1-3-3V10a3 3 0 0 1 3-3h1V6a4 4 0 0 1 4-4z"/><line x1="9" y1="10" x2="9" y2="14"/><line x1="12" y1="9" x2="12" y2="15"/><line x1="15" y1="10" x2="15" y2="14"/></svg>`,
   'apis-http':          `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>`,
   'jdbc':               `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><ellipse cx="12" cy="7" rx="8" ry="3"/><path d="M4 7v5c0 1.66 3.58 3 8 3s8-1.34 8-3V7"/><path d="M4 12v5c0 1.66 3.58 3 8 3s8-1.34 8-3v-5"/></svg>`,
+  'interview-questions':`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg>`,
 };
 
 /* Per-topic accent colors — only 5% saturation, just a tint */
@@ -8602,6 +9202,7 @@ const TOPIC_COLORS = {
   'linked-list':         { color:'#8b5cf6', glow:'rgba(139,92,246,0.20)' },
   'stack-queue':         { color:'#f97316', glow:'rgba(249,115,22,0.20)' },
   'strings':             { color:'#10b981', glow:'rgba(16,185,129,0.20)' },
+  'interview-questions': { color:'#fbbf24', glow:'rgba(251,191,36,0.20)' },
   'default':             { color:'#7c6fe0', glow:'rgba(124,111,224,0.20)'},
 };
 
@@ -8681,6 +9282,20 @@ function openFullscreen(topic) {
     requestAnimationFrame(() => {
       contentEl.innerHTML = getContent(topic);
       enhanceAccordionStars(topic.id);
+      if (topic.id === 'interview-questions') {
+        _iqAnswerMode = 'search';
+        _iqSelectedAnswer = null;
+        renderUserQuestions();
+        const searchInp = document.getElementById('iqAnswerSearch');
+        if (searchInp) searchInp.addEventListener('keydown', (e) => { if (e.key === 'Escape') e.stopPropagation(); });
+      } else {
+        // Every other card gets a lightweight "add your own Q&A" panel —
+        // manual question + manual answer only, no site-wide search.
+        _cqaCurrentTopicId = topic.id;
+        _cqaEditingId = null;
+        contentEl.insertAdjacentHTML('beforeend', renderCustomQAPanel(topic));
+        renderCustomQAList(topic.id);
+      }
     });
   });
 
@@ -9530,6 +10145,403 @@ document.addEventListener('keydown', (e) => {
     ? '⌘F to search  —  topics, sections, keywords…'
     : 'Ctrl+F to search  —  topics, sections, keywords…';
 })();
+
+// ─────────────────────────────────────────────
+//  INTERVIEW QUESTIONS — "Add Your Own" feature
+// ─────────────────────────────────────────────
+const IQ_STORAGE_KEY = 'kv_user_interview_questions';
+let _iqSearchResults = [];
+let _iqSelectedAnswer = null; // { topicId, topicName, sectionId, title, preview }
+let _iqAnswerMode = 'search'; // 'search' | 'manual'
+let _iqEditingId = null; // id of the user question currently being edited, or null when adding new
+
+function setIQAnswerMode(mode) {
+  _iqAnswerMode = mode;
+  document.getElementById('iqModeBtnSearch').classList.toggle('active', mode === 'search');
+  document.getElementById('iqModeBtnManual').classList.toggle('active', mode === 'manual');
+  document.getElementById('iqSearchMode').style.display = mode === 'search' ? 'block' : 'none';
+  document.getElementById('iqManualMode').style.display = mode === 'manual' ? 'block' : 'none';
+  updateIQAddBtnState();
+}
+
+function getUserQuestions() {
+  try {
+    const raw = localStorage.getItem(IQ_STORAGE_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch (e) { return []; }
+}
+
+function saveUserQuestions(list) {
+  try { localStorage.setItem(IQ_STORAGE_KEY, JSON.stringify(list)); } catch (e) {}
+}
+
+// Live-search the entire site (reuses the same deep search index as the
+// main search bar) as the user types an answer query inside the
+// Interview Questions "Add Your Own" panel.
+function onIQAnswerSearch() {
+  const q = (document.getElementById('iqAnswerSearch').value || '').trim();
+  const resultsEl = document.getElementById('iqSearchResults');
+  if (!q) { resultsEl.innerHTML = ''; _iqSearchResults = []; return; }
+
+  // Exclude the Interview Questions card itself from its own answer pool
+  _iqSearchResults = deepSearch(q).filter(r => r.topicId !== 'interview-questions').slice(0, 12);
+
+  if (!_iqSearchResults.length) {
+    resultsEl.innerHTML = `<div class="iq-empty-hint">No matching content found for "${escapeHtml(q)}"</div>`;
+    return;
+  }
+
+  resultsEl.innerHTML = _iqSearchResults.map((r, i) => `
+    <div class="iq-result-item" onclick="selectIQAnswer(${i})">
+      <div style="flex:1;min-width:0">
+        <div class="iq-result-breadcrumb">${r.topicIcon || '📄'} ${escapeHtml(r.topicName)}${r.sectionId && r.title !== r.topicName ? ' › ' + escapeHtml(r.title) : ''}</div>
+        <div class="iq-result-title">${escapeHtml(r.title)}</div>
+        ${r.preview ? `<div class="iq-result-preview">${escapeHtml(r.preview.slice(0, 140))}</div>` : ''}
+      </div>
+    </div>`).join('');
+}
+
+function selectIQAnswer(idx) {
+  const r = _iqSearchResults[idx];
+  if (!r) return;
+  _iqSelectedAnswer = {
+    topicId: r.topicId,
+    topicName: r.topicName,
+    topicIcon: r.topicIcon,
+    sectionId: r.sectionId,
+    title: r.title,
+    preview: r.preview
+  };
+
+  document.getElementById('iqSearchResults').innerHTML = '';
+  document.getElementById('iqAnswerSearch').value = '';
+
+  const box = document.getElementById('iqSelectedAnswer');
+  box.style.display = 'block';
+  box.className = 'iq-selected-box';
+  box.innerHTML = `
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px">
+      <div style="min-width:0">
+        <div style="font-size:10px;color:#22c55e;font-weight:700;letter-spacing:0.03em;text-transform:uppercase;margin-bottom:3px">✓ Answer selected</div>
+        <div style="font-size:12px;color:var(--text3);margin-bottom:2px">${r.topicIcon || '📄'} ${escapeHtml(r.topicName)}</div>
+        <div style="font-size:12.5px;font-weight:600;color:var(--text)">${escapeHtml(r.title)}</div>
+      </div>
+      <button type="button" onclick="clearIQAnswer()" style="background:none;border:none;color:var(--text3);cursor:pointer;font-size:16px;line-height:1;padding:2px" title="Remove">&times;</button>
+    </div>`;
+
+  updateIQAddBtnState();
+}
+
+function clearIQAnswer() {
+  _iqSelectedAnswer = null;
+  const box = document.getElementById('iqSelectedAnswer');
+  box.style.display = 'none';
+  box.innerHTML = '';
+  updateIQAddBtnState();
+}
+
+function updateIQAddBtnState() {
+  const q = (document.getElementById('iqQuestionInput').value || '').trim();
+  let hasAnswer = false;
+  if (_iqAnswerMode === 'manual') {
+    const manualText = (document.getElementById('iqManualAnswerInput').value || '').trim();
+    hasAnswer = manualText.length > 0;
+  } else {
+    hasAnswer = !!_iqSelectedAnswer;
+  }
+  document.getElementById('iqAddBtn').disabled = !(q && hasAnswer);
+}
+
+function addUserQuestion() {
+  const qInput = document.getElementById('iqQuestionInput');
+  const question = qInput.value.trim();
+  if (!question) return;
+
+  let answerObj = null;
+  if (_iqAnswerMode === 'manual') {
+    const manualText = document.getElementById('iqManualAnswerInput').value.trim();
+    if (!manualText) return;
+    answerObj = { manual: true, text: manualText };
+  } else {
+    if (!_iqSelectedAnswer) return;
+    answerObj = _iqSelectedAnswer;
+  }
+
+  const list = getUserQuestions();
+
+  if (_iqEditingId) {
+    // Update the existing entry in place, keep its original position & createdAt
+    const idx = list.findIndex(q => q.id === _iqEditingId);
+    if (idx !== -1) {
+      list[idx] = { ...list[idx], question, answer: answerObj, updatedAt: Date.now() };
+    }
+  } else {
+    list.unshift({
+      id: 'uq-' + Date.now(),
+      question,
+      answer: answerObj,
+      createdAt: Date.now()
+    });
+  }
+
+  saveUserQuestions(list);
+  resetIQForm();
+  renderUserQuestions();
+}
+
+// Populate the Add/Edit panel with an existing question so it can be edited,
+// then scroll the panel into view.
+function editUserQuestion(id, e) {
+  if (e) e.stopPropagation();
+  const item = getUserQuestions().find(q => q.id === id);
+  if (!item) return;
+
+  _iqEditingId = id;
+
+  document.getElementById('iqQuestionInput').value = item.question;
+  document.getElementById('iqEditingBanner').style.display = 'flex';
+  document.getElementById('iqAddBtn').textContent = '💾 Save Changes';
+
+  if (item.answer && item.answer.manual) {
+    setIQAnswerMode('manual');
+    document.getElementById('iqManualAnswerInput').value = item.answer.text || '';
+  } else {
+    setIQAnswerMode('search');
+    _iqSelectedAnswer = item.answer;
+    document.getElementById('iqAnswerSearch').value = '';
+    document.getElementById('iqSearchResults').innerHTML = '';
+    const box = document.getElementById('iqSelectedAnswer');
+    box.style.display = 'block';
+    box.className = 'iq-selected-box';
+    box.innerHTML = `
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px">
+        <div style="min-width:0">
+          <div style="font-size:10px;color:#22c55e;font-weight:700;letter-spacing:0.03em;text-transform:uppercase;margin-bottom:3px">✓ Answer selected</div>
+          <div style="font-size:12px;color:var(--text3);margin-bottom:2px">${item.answer.topicIcon || '📄'} ${escapeHtml(item.answer.topicName || '')}</div>
+          <div style="font-size:12.5px;font-weight:600;color:var(--text)">${escapeHtml(item.answer.title || '')}</div>
+        </div>
+        <button type="button" onclick="clearIQAnswer()" style="background:none;border:none;color:var(--text3);cursor:pointer;font-size:16px;line-height:1;padding:2px" title="Remove">&times;</button>
+      </div>`;
+  }
+
+  updateIQAddBtnState();
+
+  const panel = document.getElementById('iqAddPanel');
+  if (panel) panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function cancelEditUserQuestion() {
+  resetIQForm();
+}
+
+// Clears the Add/Edit panel back to its default "add new" state.
+function resetIQForm() {
+  _iqEditingId = null;
+  document.getElementById('iqQuestionInput').value = '';
+  document.getElementById('iqManualAnswerInput').value = '';
+  document.getElementById('iqAnswerSearch').value = '';
+  document.getElementById('iqSearchResults').innerHTML = '';
+  document.getElementById('iqEditingBanner').style.display = 'none';
+  document.getElementById('iqAddBtn').textContent = '+ Add Question';
+  clearIQAnswer();
+  setIQAnswerMode('search');
+}
+
+function deleteUserQuestion(id, e) {
+  if (e) e.stopPropagation();
+  const list = getUserQuestions().filter(q => q.id !== id);
+  saveUserQuestions(list);
+  // If the deleted question was mid-edit, reset the form too
+  if (_iqEditingId === id) resetIQForm();
+  renderUserQuestions();
+}
+
+function renderUserQuestions() {
+  const wrap = document.getElementById('userQuestionsList');
+  if (!wrap) return;
+  const list = getUserQuestions();
+
+  const qInput = document.getElementById('iqQuestionInput');
+  if (qInput) qInput.oninput = updateIQAddBtnState;
+  const manualInput = document.getElementById('iqManualAnswerInput');
+  if (manualInput) manualInput.oninput = updateIQAddBtnState;
+
+  if (!list.length) {
+    wrap.innerHTML = '';
+    return;
+  }
+
+  wrap.innerHTML = `<div class="section-label" style="margin-top:8px">Your Added Questions (${list.length})</div>` +
+    list.map(item => {
+      const a = item.answer || {};
+      const isManual = !!a.manual;
+      const badgeLabel = isManual ? 'Your Question · Manual answer' : 'Your Question';
+      const bodyText = isManual ? a.text : (a.preview || 'See full answer on the source card →');
+      const sourceLink = !isManual && a.topicId
+        ? `<div class="iq-user-source" onclick="${a.sectionId
+            ? `openBookmark('${a.topicId}', '${a.sectionId.replace(/^acc-/, '')}')`
+            : `(function(){const t=TOPICS.find(x=>x.id==='${a.topicId}'); if(t) openFullscreen(t);})()`}">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+            Answer from: ${a.topicIcon || '📄'} ${escapeHtml(a.topicName || '')}${a.sectionId ? ' › ' + escapeHtml(a.title || '') : ''}
+          </div>`
+        : '';
+
+      return `
+      <div class="iq-user-card">
+        <div class="iq-card-actions">
+          <button type="button" class="iq-action-btn" onclick="editUserQuestion('${item.id}', event)" title="Edit">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>
+          </button>
+          <button type="button" class="iq-action-btn iq-action-btn-danger" onclick="deleteUserQuestion('${item.id}', event)" title="Delete">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0-1 14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2L4 6"/></svg>
+          </button>
+        </div>
+        <span class="iq-user-badge">${badgeLabel}</span>
+        <div class="iq-user-q">${escapeHtml(item.question)}</div>
+        <div style="font-size:12.5px;line-height:1.7;color:var(--text2);white-space:pre-wrap">${escapeHtml(bodyText)}</div>
+        ${sourceLink}
+      </div>`;
+    }).join('');
+}
+
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = String(str == null ? '' : str);
+  return div.innerHTML;
+}
+
+// ─────────────────────────────────────────────
+//  GENERIC "ADD YOUR OWN Q&A" — every non-interview card
+//  Manual question + manual answer only, no site search.
+//  One Q&A list per topic, stored under its own localStorage key.
+// ─────────────────────────────────────────────
+const CQA_STORAGE_PREFIX = 'kv_custom_qa_';
+let _cqaCurrentTopicId = null;
+let _cqaEditingId = null;
+
+function renderCustomQAPanel(topic) {
+  return `
+    <div class="content-area" style="padding-top:2px">
+      <div class="section-label" style="margin-top:22px">➕ Add Your Own Question</div>
+      <div class="hbox">Type your own question and answer for ${escapeHtml(topic.name)}. Saved locally in this browser.</div>
+      <div class="iq-add-panel">
+        <div id="cqaEditingBanner" style="display:none;align-items:center;justify-content:space-between;background:rgba(251,191,36,0.12);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:8px 12px;margin-bottom:12px;font-size:11.5px;color:#fbbf24;font-weight:600">
+          <span>✏️ Editing your question</span>
+          <button type="button" onclick="cancelEditCustomQA()" style="background:none;border:none;color:#fbbf24;cursor:pointer;font-size:11.5px;font-weight:700;text-decoration:underline">Cancel</button>
+        </div>
+        <label class="iq-label">Question</label>
+        <input type="text" id="cqaQuestionInput" class="iq-input" placeholder="Type your own question…" autocomplete="off" oninput="updateCQAAddBtnState()"/>
+        <label class="iq-label" style="margin-top:12px">Answer</label>
+        <textarea id="cqaAnswerInput" class="iq-input iq-textarea" placeholder="Type your own answer…" oninput="updateCQAAddBtnState()"></textarea>
+        <button type="button" id="cqaAddBtn" class="iq-add-btn" disabled onclick="addCustomQA()">+ Add Question</button>
+      </div>
+      <div id="cqaList"></div>
+    </div>`;
+}
+
+function getCustomQA(topicId) {
+  try {
+    const raw = localStorage.getItem(CQA_STORAGE_PREFIX + topicId);
+    return raw ? JSON.parse(raw) : [];
+  } catch (e) { return []; }
+}
+
+function saveCustomQA(topicId, list) {
+  try { localStorage.setItem(CQA_STORAGE_PREFIX + topicId, JSON.stringify(list)); } catch (e) {}
+}
+
+function updateCQAAddBtnState() {
+  const qEl = document.getElementById('cqaQuestionInput');
+  const aEl = document.getElementById('cqaAnswerInput');
+  if (!qEl || !aEl) return;
+  const q = qEl.value.trim();
+  const a = aEl.value.trim();
+  document.getElementById('cqaAddBtn').disabled = !(q && a);
+}
+
+function addCustomQA() {
+  const qInput = document.getElementById('cqaQuestionInput');
+  const aInput = document.getElementById('cqaAnswerInput');
+  const question = qInput.value.trim();
+  const answer = aInput.value.trim();
+  if (!question || !answer || !_cqaCurrentTopicId) return;
+
+  const list = getCustomQA(_cqaCurrentTopicId);
+
+  if (_cqaEditingId) {
+    const idx = list.findIndex(x => x.id === _cqaEditingId);
+    if (idx !== -1) list[idx] = { ...list[idx], question, answer, updatedAt: Date.now() };
+  } else {
+    list.unshift({ id: 'cqa-' + Date.now(), question, answer, createdAt: Date.now() });
+  }
+
+  saveCustomQA(_cqaCurrentTopicId, list);
+  resetCQAForm();
+  renderCustomQAList(_cqaCurrentTopicId);
+}
+
+function editCustomQA(id, e) {
+  if (e) e.stopPropagation();
+  const item = getCustomQA(_cqaCurrentTopicId).find(x => x.id === id);
+  if (!item) return;
+
+  _cqaEditingId = id;
+  document.getElementById('cqaQuestionInput').value = item.question;
+  document.getElementById('cqaAnswerInput').value = item.answer;
+  document.getElementById('cqaEditingBanner').style.display = 'flex';
+  document.getElementById('cqaAddBtn').textContent = '💾 Save Changes';
+  updateCQAAddBtnState();
+
+  const panel = document.getElementById('cqaQuestionInput');
+  if (panel) panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function cancelEditCustomQA() {
+  resetCQAForm();
+}
+
+function resetCQAForm() {
+  _cqaEditingId = null;
+  const qEl = document.getElementById('cqaQuestionInput'); if (qEl) qEl.value = '';
+  const aEl = document.getElementById('cqaAnswerInput'); if (aEl) aEl.value = '';
+  const banner = document.getElementById('cqaEditingBanner'); if (banner) banner.style.display = 'none';
+  const btn = document.getElementById('cqaAddBtn'); if (btn) { btn.textContent = '+ Add Question'; btn.disabled = true; }
+}
+
+function deleteCustomQA(id, e) {
+  if (e) e.stopPropagation();
+  const list = getCustomQA(_cqaCurrentTopicId).filter(x => x.id !== id);
+  saveCustomQA(_cqaCurrentTopicId, list);
+  if (_cqaEditingId === id) resetCQAForm();
+  renderCustomQAList(_cqaCurrentTopicId);
+}
+
+function renderCustomQAList(topicId) {
+  const wrap = document.getElementById('cqaList');
+  if (!wrap) return;
+  const list = getCustomQA(topicId);
+
+  if (!list.length) {
+    wrap.innerHTML = '';
+    return;
+  }
+
+  wrap.innerHTML = `<div class="section-label" style="margin-top:8px">Your Added Questions (${list.length})</div>` +
+    list.map(item => `
+      <div class="iq-user-card">
+        <div class="iq-card-actions">
+          <button type="button" class="iq-action-btn" onclick="editCustomQA('${item.id}', event)" title="Edit">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>
+          </button>
+          <button type="button" class="iq-action-btn iq-action-btn-danger" onclick="deleteCustomQA('${item.id}', event)" title="Delete">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0-1 14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2L4 6"/></svg>
+          </button>
+        </div>
+        <span class="iq-user-badge">Your Question</span>
+        <div class="iq-user-q">${escapeHtml(item.question)}</div>
+        <div style="font-size:12.5px;line-height:1.7;color:var(--text2);white-space:pre-wrap">${escapeHtml(item.answer)}</div>
+      </div>`).join('');
+}
 
 // Initial render
 renderAll();
