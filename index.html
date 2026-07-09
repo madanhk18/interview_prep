@@ -25,6 +25,30 @@
   <div class="fs-content" id="fsContent"></div>
 </div>
 
+<!-- Roadmap overlay -->
+<div class="roadmap-overlay" id="roadmapOverlay">
+  <div class="rm-header">
+    <button class="fs-back-btn" onclick="closeRoadmap()" aria-label="Back" title="Back">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m15 18-6-6 6-6"/></svg>
+    </button>
+    <div class="rm-header-mid">
+      <div class="rm-header-title" id="rmHeaderTitle">Roadmap</div>
+      <div class="rm-header-progress-wrap">
+        <div class="rm-header-progress-track"><div class="rm-header-progress-fill" id="rmHeaderProgressFill"></div></div>
+        <span class="rm-header-progress-text" id="rmHeaderProgressText">0/0 completed</span>
+      </div>
+    </div>
+    <button class="rm-reset-btn" id="rmResetBtn" onclick="resetRoadmapProgress()" title="Reset progress">Reset</button>
+  </div>
+  <div class="rm-scroll">
+    <div class="rm-canvas" id="rmCanvas">
+      <svg class="rm-svg" id="rmSvg"></svg>
+      <div class="rm-rows" id="rmRows"></div>
+    </div>
+    <p class="rm-hint">Tap a topic to mark it complete. Your progress is saved automatically on this device.</p>
+  </div>
+</div>
+
 <!-- Sidebar Toggle Button -->
 <button class="sidebar-toggle-btn" id="sidebarToggleBtn" onclick="toggleSidebar()" title="Toggle sidebar">
   <span class="stb-bars">
@@ -72,6 +96,30 @@
   </div>
 
   <div style="padding:0 10px;flex:1">
+    <!-- Roadmaps -->
+    <div id="roadmapsSection">
+      <div style="padding:8px 8px 4px">
+        <span style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--text3)">Roadmaps</span>
+      </div>
+      <button type="button" class="rm-nav-btn" onclick="openRoadmap('ai-engineer')">
+        <span class="rm-nav-icon" style="background:linear-gradient(135deg,#a855f7,#6366f1)">🤖</span>
+        <span class="rm-nav-text">
+          <span class="rm-nav-title">AI Engineer</span>
+          <span class="rm-nav-sub" id="rmNavSubAi">0/0 done</span>
+        </span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text3);flex-shrink:0"><polyline points="9 6 15 12 9 18"/></svg>
+      </button>
+      <button type="button" class="rm-nav-btn" onclick="openRoadmap('java-backend')">
+        <span class="rm-nav-icon" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">☕</span>
+        <span class="rm-nav-text">
+          <span class="rm-nav-title">Java Backend Dev</span>
+          <span class="rm-nav-sub" id="rmNavSubJava">0/0 done</span>
+        </span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text3);flex-shrink:0"><polyline points="9 6 15 12 9 18"/></svg>
+      </button>
+      <div style="height:6px"></div>
+    </div>
+
     <!-- Bookmarks -->
     <div id="bookmarksSection" style="display:none">
       <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 8px 4px">
