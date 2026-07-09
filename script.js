@@ -8817,6 +8817,10 @@ document.addEventListener('keydown', (e) => {
     if (overlay && overlay.classList.contains('active') && !overlay.classList.contains('closing')) {
       closeFullscreen();
     }
+    const rmOverlay = document.getElementById('roadmapOverlay');
+    if (rmOverlay && rmOverlay.classList.contains('active') && !rmOverlay.classList.contains('closing')) {
+      closeRoadmap();
+    }
     return;
   }
 
@@ -9241,3 +9245,245 @@ function renderCustomQAList(topicId) {
 renderAll();
 renderBookmarks();
 syncTopicsDropdownActive();
+
+// ══════════════════════════════════════════════════════════════
+// ROADMAPS — AI Engineer & Java Backend Dev
+// ══════════════════════════════════════════════════════════════
+const ROADMAPS = {
+  'ai-engineer': {
+    title: 'AI Engineer Roadmap',
+    nodes: [
+      {id:'python-ai', label:'Python for AI', row:0},
+      {id:'math-foundations', label:'Math Foundations (Linear Algebra & Probability)', row:1},
+      {id:'ml-basics', label:'Machine Learning Basics', row:1},
+      {id:'neural-networks', label:'Neural Networks', row:2},
+      {id:'nlp', label:'NLP (Natural Language Processing)', row:2},
+      {id:'deep-learning', label:'Deep Learning', row:3},
+      {id:'transformers', label:'Transformers & Attention', row:3},
+      {id:'llm', label:'LLM (Large Language Models)', row:4},
+      {id:'latency', label:'Latency & Performance', row:4},
+      {id:'ai-tokens', label:'AI Tokens & Tokenization', row:5},
+      {id:'hallucination', label:'AI Hallucination', row:5},
+      {id:'embeddings', label:'Embeddings & Vector DBs', row:6},
+      {id:'prompt-engineering', label:'Prompt Engineering', row:6},
+      {id:'rag', label:'RAG (Retrieval-Augmented Gen)', row:7},
+      {id:'fine-tuning', label:'Fine-tuning & LoRA', row:7},
+      {id:'genai', label:'GenAI (Generative AI)', row:8},
+      {id:'langchain', label:'LangChain / LlamaIndex', row:8},
+      {id:'tts', label:'TTS (Text-to-Speech)', row:9},
+      {id:'stt', label:'STT (Speech-to-Text)', row:9},
+      {id:'vad', label:'VAD (Voice Activity Detection)', row:9},
+      {id:'s2s', label:'S2S (Speech-to-Speech)', row:10},
+      {id:'agentic-ai', label:'Agentic AI', row:11},
+      {id:'mlops', label:'MLOps & Deployment', row:11},
+      {id:'ai-safety', label:'AI Safety & Guardrails', row:12},
+      {id:'evaluation', label:'Evaluation & Benchmarking', row:12},
+      {id:'agi', label:'AGI (Artificial General Intelligence)', row:13},
+      {id:'vibe-coding', label:'Vibe Coding', row:13},
+      {id:'ai-interview', label:'AI Engineer Interview Prep', row:14},
+    ],
+    edges: [
+      ['python-ai','math-foundations'], ['python-ai','ml-basics'],
+      ['math-foundations','neural-networks'], ['ml-basics','neural-networks'], ['ml-basics','nlp'],
+      ['neural-networks','deep-learning'], ['nlp','transformers'], ['deep-learning','transformers'],
+      ['transformers','llm'], ['transformers','latency'],
+      ['llm','ai-tokens'], ['llm','hallucination'], ['latency','ai-tokens'],
+      ['ai-tokens','embeddings'], ['hallucination','prompt-engineering'],
+      ['embeddings','rag'], ['prompt-engineering','rag'], ['prompt-engineering','fine-tuning'], ['embeddings','fine-tuning'],
+      ['rag','genai'], ['fine-tuning','langchain'],
+      ['genai','tts'], ['genai','stt'], ['langchain','vad'],
+      ['tts','s2s'], ['stt','s2s'], ['vad','s2s'],
+      ['s2s','agentic-ai'], ['s2s','mlops'],
+      ['agentic-ai','ai-safety'], ['mlops','evaluation'],
+      ['ai-safety','agi'], ['evaluation','vibe-coding'],
+      ['agi','ai-interview'], ['vibe-coding','ai-interview'],
+    ]
+  },
+  'java-backend': {
+    title: 'Java Backend Developer Roadmap',
+    nodes: [
+      {id:'java-fundamentals', label:'Java Fundamentals', row:0},
+      {id:'oop-concepts', label:'OOP Concepts', row:1},
+      {id:'collections', label:'Collections Framework', row:1},
+      {id:'exception-handling', label:'Exception Handling', row:2},
+      {id:'multithreading', label:'Multithreading & Concurrency', row:2},
+      {id:'java8-features', label:'Java 8 / 17 / 21 Features', row:2},
+      {id:'generics', label:'Generics', row:2},
+      {id:'jdbc', label:'JDBC', row:3},
+      {id:'git-github', label:'Git & GitHub', row:4},
+      {id:'maven-gradle', label:'Maven / Gradle', row:4},
+      {id:'sql-databases', label:'SQL & Databases', row:4},
+      {id:'spring-core', label:'Spring Core (IoC & DI)', row:5},
+      {id:'hibernate-jpa', label:'Hibernate / JPA', row:5},
+      {id:'spring-boot', label:'Spring Boot', row:6},
+      {id:'rest-apis', label:'REST APIs & HTTP', row:7},
+      {id:'spring-security', label:'Spring Security', row:7},
+      {id:'microservices', label:'Microservices Architecture', row:8},
+      {id:'redis-caching', label:'Caching (Redis)', row:8},
+      {id:'oauth-jwt', label:'OAuth2 / JWT', row:8},
+      {id:'docker', label:'Docker & Containerization', row:9},
+      {id:'kubernetes', label:'Kubernetes', row:10},
+      {id:'message-queues', label:'Message Queues (Kafka/RabbitMQ)', row:10},
+      {id:'cicd', label:'CI/CD Pipelines', row:11},
+      {id:'system-design', label:'System Design & Scalability', row:12},
+      {id:'monitoring-logging', label:'Monitoring & Logging', row:12},
+      {id:'interview-prep', label:'Interview Prep & Mock Design', row:13},
+    ],
+    edges: [
+      ['java-fundamentals','oop-concepts'], ['java-fundamentals','collections'],
+      ['oop-concepts','exception-handling'], ['oop-concepts','multithreading'],
+      ['collections','java8-features'], ['collections','generics'],
+      ['exception-handling','jdbc'], ['multithreading','jdbc'], ['java8-features','jdbc'], ['generics','jdbc'],
+      ['jdbc','git-github'], ['jdbc','maven-gradle'], ['jdbc','sql-databases'],
+      ['maven-gradle','spring-core'], ['sql-databases','hibernate-jpa'],
+      ['spring-core','spring-boot'], ['hibernate-jpa','spring-boot'],
+      ['spring-boot','rest-apis'], ['spring-boot','spring-security'],
+      ['rest-apis','microservices'], ['rest-apis','redis-caching'], ['spring-security','oauth-jwt'],
+      ['microservices','docker'], ['redis-caching','docker'], ['oauth-jwt','docker'],
+      ['docker','kubernetes'], ['docker','message-queues'],
+      ['kubernetes','cicd'], ['message-queues','cicd'],
+      ['cicd','system-design'], ['cicd','monitoring-logging'],
+      ['system-design','interview-prep'], ['monitoring-logging','interview-prep'],
+    ]
+  }
+};
+
+let _rmCurrentId = null;
+
+function rmGetProgress(roadmapId) {
+  try {
+    const raw = localStorage.getItem('rm_progress_' + roadmapId);
+    return raw ? JSON.parse(raw) : [];
+  } catch (e) { return []; }
+}
+function rmSaveProgress(roadmapId, arr) {
+  try { localStorage.setItem('rm_progress_' + roadmapId, JSON.stringify(arr)); } catch (e) {}
+}
+
+function openRoadmap(id) {
+  const rm = ROADMAPS[id];
+  if (!rm) return;
+  _rmCurrentId = id;
+  const titleEl = document.getElementById('rmHeaderTitle');
+  if (titleEl) titleEl.textContent = rm.title;
+  renderRoadmap(id);
+  const overlay = document.getElementById('roadmapOverlay');
+  if (!overlay) return;
+  overlay.classList.remove('closing');
+  overlay.classList.add('active');
+  overlay.scrollTop = 0;
+  document.body.style.overflow = 'hidden';
+  if (typeof closeMobileSidebar === 'function') closeMobileSidebar();
+  requestAnimationFrame(() => requestAnimationFrame(rmDrawEdges));
+}
+
+function closeRoadmap() {
+  const overlay = document.getElementById('roadmapOverlay');
+  if (!overlay) return;
+  overlay.classList.add('closing');
+  document.body.style.overflow = '';
+  setTimeout(() => {
+    overlay.classList.remove('active');
+    overlay.classList.remove('closing');
+  }, 280);
+}
+
+function renderRoadmap(id) {
+  const rm = ROADMAPS[id];
+  if (!rm) return;
+  const done = new Set(rmGetProgress(id));
+  const rowsWrap = document.getElementById('rmRows');
+  if (!rowsWrap) return;
+  const maxRow = rm.nodes.reduce((m, n) => Math.max(m, n.row), 0);
+  let html = '';
+  for (let r = 0; r <= maxRow; r++) {
+    const rowNodes = rm.nodes.filter(n => n.row === r);
+    if (!rowNodes.length) continue;
+    html += `<div class="rm-row" data-row="${r}">` + rowNodes.map(n => `
+      <div class="rm-node ${done.has(n.id) ? 'done' : ''}" data-id="${n.id}" onclick="rmToggleNode('${id}','${n.id}')">
+        <div class="rm-node-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="rm-node-label">${n.label}</div>
+        <div class="rm-node-bar"><div class="rm-node-bar-fill"></div></div>
+      </div>`).join('') + `</div>`;
+  }
+  rowsWrap.innerHTML = html;
+  rmUpdateHeaderProgress(id);
+  rmSyncNavSubs();
+}
+
+function rmToggleNode(roadmapId, nodeId) {
+  const done = new Set(rmGetProgress(roadmapId));
+  if (done.has(nodeId)) done.delete(nodeId); else done.add(nodeId);
+  rmSaveProgress(roadmapId, Array.from(done));
+  const el = document.querySelector(`.rm-node[data-id="${nodeId}"]`);
+  if (el) el.classList.toggle('done');
+  rmUpdateHeaderProgress(roadmapId);
+  rmDrawEdges();
+  rmSyncNavSubs();
+}
+
+function rmUpdateHeaderProgress(roadmapId) {
+  const rm = ROADMAPS[roadmapId];
+  if (!rm) return;
+  const done = rmGetProgress(roadmapId);
+  const validIds = new Set(rm.nodes.map(n => n.id));
+  const doneCount = done.filter(id => validIds.has(id)).length;
+  const total = rm.nodes.length;
+  const pct = total ? Math.round((doneCount / total) * 100) : 0;
+  const fill = document.getElementById('rmHeaderProgressFill');
+  const text = document.getElementById('rmHeaderProgressText');
+  if (fill) fill.style.width = pct + '%';
+  if (text) text.textContent = `${doneCount}/${total} completed`;
+}
+
+function rmSyncNavSubs() {
+  Object.keys(ROADMAPS).forEach(rid => {
+    const rm = ROADMAPS[rid];
+    const validIds = new Set(rm.nodes.map(n => n.id));
+    const doneCount = rmGetProgress(rid).filter(id => validIds.has(id)).length;
+    const subEl = document.getElementById(rid === 'ai-engineer' ? 'rmNavSubAi' : 'rmNavSubJava');
+    if (subEl) subEl.textContent = `${doneCount}/${rm.nodes.length} done`;
+  });
+}
+
+function resetRoadmapProgress() {
+  if (!_rmCurrentId) return;
+  if (!confirm('Reset all progress for this roadmap? This cannot be undone.')) return;
+  rmSaveProgress(_rmCurrentId, []);
+  renderRoadmap(_rmCurrentId);
+  requestAnimationFrame(() => requestAnimationFrame(rmDrawEdges));
+}
+
+function rmDrawEdges() {
+  if (!_rmCurrentId) return;
+  const rm = ROADMAPS[_rmCurrentId];
+  const svg = document.getElementById('rmSvg');
+  const canvas = document.getElementById('rmCanvas');
+  if (!svg || !canvas || !rm) return;
+  const canvasRect = canvas.getBoundingClientRect();
+  if (!canvasRect.width || !canvasRect.height) return;
+  svg.setAttribute('width', canvasRect.width);
+  svg.setAttribute('height', canvasRect.height);
+  svg.setAttribute('viewBox', `0 0 ${canvasRect.width} ${canvasRect.height}`);
+  const done = new Set(rmGetProgress(_rmCurrentId));
+  let paths = '';
+  rm.edges.forEach(([fromId, toId]) => {
+    const fromEl = document.querySelector(`.rm-node[data-id="${fromId}"]`);
+    const toEl = document.querySelector(`.rm-node[data-id="${toId}"]`);
+    if (!fromEl || !toEl) return;
+    const fr = fromEl.getBoundingClientRect(), tr = toEl.getBoundingClientRect();
+    const x1 = fr.left + fr.width / 2 - canvasRect.left;
+    const y1 = fr.bottom - canvasRect.top;
+    const x2 = tr.left + tr.width / 2 - canvasRect.left;
+    const y2 = tr.top - canvasRect.top;
+    const midY = (y1 + y2) / 2;
+    const edgeDone = done.has(fromId) && done.has(toId);
+    paths += `<path class="rm-edge ${edgeDone ? 'done' : ''}" d="M${x1},${y1} C${x1},${midY} ${x2},${midY} ${x2},${y2}"/>`;
+  });
+  svg.innerHTML = paths;
+}
+
+window.addEventListener('resize', () => { if (_rmCurrentId) rmDrawEdges(); });
+
+// Sync nav subtitle counts on initial load
+rmSyncNavSubs();
