@@ -8050,6 +8050,11 @@ window.addEventListener('popstate', () => {
     _fsHistoryPushed = false;
     doCloseFullscreen();
   }
+  const rmOverlay = document.getElementById('roadmapOverlay');
+  if (rmOverlay && rmOverlay.classList.contains('active') && !rmOverlay.classList.contains('closing')) {
+    _rmHistoryPushed = false;
+    doCloseRoadmap();
+  }
 });
 
 function toggleSidebar() {
@@ -9375,9 +9380,35 @@ function openRoadmap(id) {
   document.body.style.overflow = 'hidden';
   if (typeof closeMobileSidebar === 'function') closeMobileSidebar();
   requestAnimationFrame(() => requestAnimationFrame(rmDrawEdges));
+
+  // Push a history entry so the mobile/browser "Back" button closes the
+  // roadmap overlay instead of navigating away from the page.
+  if (!_rmHistoryPushed) {
+    history.pushState({ rmOverlay: true }, '', location.href);
+    _rmHistoryPushed = true;
+  }
 }
 
+// Tracks whether we currently own a pushed history entry for the roadmap overlay
+let _rmHistoryPushed = false;
+
+// Public close function — used by the back button, Escape key, and
+// anywhere else in the UI. If we pushed a history entry when opening,
+// go back through it (this fires popstate, which actually closes the
+// overlay via doCloseRoadmap). Otherwise close directly.
 function closeRoadmap() {
+  if (_rmHistoryPushed) {
+    _rmHistoryPushed = false;
+    history.back();
+  } else {
+    doCloseRoadmap();
+  }
+}
+
+// Does the actual closing animation/cleanup. Called either directly
+// (no history entry was pushed) or from the popstate handler (when the
+// user pressed the phone/browser back button).
+function doCloseRoadmap() {
   const overlay = document.getElementById('roadmapOverlay');
   if (!overlay) return;
   overlay.classList.add('closing');
