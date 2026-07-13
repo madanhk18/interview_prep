@@ -7903,7 +7903,7 @@ const TOPIC_COLORS = {
   'stack-queue':         { color:'#f97316', glow:'rgba(249,115,22,0.20)' },
   'strings':             { color:'#10b981', glow:'rgba(16,185,129,0.20)' },
   'interview-questions': { color:'#fbbf24', glow:'rgba(251,191,36,0.20)' },
-  'default':             { color:'#7c6fe0', glow:'rgba(124,111,224,0.20)'},
+  'default':             { color:'#3a3a42', glow:'rgba(58,58,66,0.20)'},
 };
 
 function getAccent(id) {
@@ -8622,7 +8622,7 @@ function renderSearchDropdown(results, query) {
   let html = `<div class="search-results-header">${count} result${count>1?'s':''} for "${query}"</div>`;
 
   results.forEach((r, i) => {
-    const accent = (typeof TOPIC_COLORS !== 'undefined' && TOPIC_COLORS[r.topicId]) || { color:'#7c6fe0', glow:'rgba(124,111,224,0.2)' };
+    const accent = (typeof TOPIC_COLORS !== 'undefined' && TOPIC_COLORS[r.topicId]) || { color:'#3a3a42', glow:'rgba(58,58,66,0.2)' };
     const badge  = r.sectionId ? 'Section' : 'Topic';
     const crumbSection = r.sectionId && r.title !== r.topicName
       ? `<span class="sri-arrow">›</span><span>${highlight(r.title, query)}</span>`
