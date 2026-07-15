@@ -7903,11 +7903,24 @@ const TOPIC_COLORS = {
   'stack-queue':         { color:'#f97316', glow:'rgba(249,115,22,0.20)' },
   'strings':             { color:'#10b981', glow:'rgba(16,185,129,0.20)' },
   'interview-questions': { color:'#fbbf24', glow:'rgba(251,191,36,0.20)' },
-  'default':             { color:'#3a3a42', glow:'rgba(58,58,66,0.20)'},
+  'default':             { color:'#7c3aed', glow:'rgba(124,58,237,0.20)'},
 };
 
 function getAccent(id) {
-  return TOPIC_COLORS[id] || TOPIC_COLORS['default'];
+  if (TOPIC_COLORS[id]) return TOPIC_COLORS[id];
+  const topic = TOPICS.find(t => t.id === id);
+  if (topic && topic.color) {
+    const hex = topic.color.replace('#','');
+    const r = parseInt(hex.substring(0,2),16), g = parseInt(hex.substring(2,4),16), b = parseInt(hex.substring(4,6),16);
+    return { color: topic.color, glow: `rgba(${r},${g},${b},0.20)` };
+  }
+  if (topic && CATEGORIES[topic.category]) {
+    const catColor = CATEGORIES[topic.category].color;
+    const hex = catColor.replace('#','');
+    const r = parseInt(hex.substring(0,2),16), g = parseInt(hex.substring(2,4),16), b = parseInt(hex.substring(4,6),16);
+    return { color: catColor, glow: `rgba(${r},${g},${b},0.20)` };
+  }
+  return TOPIC_COLORS['default'];
 }
 
 function renderCard(topic) {
@@ -8183,7 +8196,23 @@ function toggleTopicsDropdown(e) {
   const opening = !panel.classList.contains('visible');
   panel.classList.toggle('visible', opening);
   wrap.classList.toggle('open', opening);
-  if (opening) syncTopicsDropdownActive();
+  if (opening) {
+    syncTopicsDropdownActive();
+    positionTopicsDropdownPanel();
+  }
+}
+
+function positionTopicsDropdownPanel() {
+  if (window.innerWidth > 768) { // desktop uses CSS-anchored positioning
+    const panel = document.getElementById('topicsDropdownPanel');
+    if (panel) { panel.style.top = ''; }
+    return;
+  }
+  const wrap = document.getElementById('topicsDropdownWrap');
+  const panel = document.getElementById('topicsDropdownPanel');
+  if (!wrap || !panel) return;
+  const rect = wrap.getBoundingClientRect();
+  panel.style.top = Math.round(rect.bottom + 8) + 'px';
 }
 
 function closeTopicsDropdown() {
@@ -8208,6 +8237,11 @@ function syncTopicsDropdownActive() {
 document.addEventListener('click', (e) => {
   const wrap = document.getElementById('topicsDropdownWrap');
   if (wrap && !wrap.contains(e.target)) closeTopicsDropdown();
+});
+
+window.addEventListener('resize', () => {
+  const panel = document.getElementById('topicsDropdownPanel');
+  if (panel && panel.classList.contains('visible')) positionTopicsDropdownPanel();
 });
 
 // ─────────────────────────────────────────────
@@ -8622,7 +8656,7 @@ function renderSearchDropdown(results, query) {
   let html = `<div class="search-results-header">${count} result${count>1?'s':''} for "${query}"</div>`;
 
   results.forEach((r, i) => {
-    const accent = (typeof TOPIC_COLORS !== 'undefined' && TOPIC_COLORS[r.topicId]) || { color:'#3a3a42', glow:'rgba(58,58,66,0.2)' };
+    const accent = (typeof TOPIC_COLORS !== 'undefined' && TOPIC_COLORS[r.topicId]) || (typeof getAccent === 'function' && r.topicId ? getAccent(r.topicId) : { color:'#7c3aed', glow:'rgba(124,58,237,0.2)' });
     const badge  = r.sectionId ? 'Section' : 'Topic';
     const crumbSection = r.sectionId && r.title !== r.topicName
       ? `<span class="sri-arrow">›</span><span>${highlight(r.title, query)}</span>`
