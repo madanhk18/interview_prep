@@ -6840,6 +6840,385 @@ public Order createOrderBean(
     </div>
   </div>
 
+  <!-- @ConditionalOnProperty -->
+  <div class="accordion" id="acc-boot-conditionalprop">
+    <button class="accordion-header" onclick="toggleAcc('boot-conditionalprop')">
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#22c55e">🧩</span><span>12. @ConditionalOnProperty</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-boot-conditionalprop">
+
+      <div class="hbox">@ConditionalOnProperty is used to create a Bean <strong>conditionally</strong>. The Bean is created or not created based on the value of a property — useful when Bean creation depends on configuration.</div>
+
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>1️⃣</span><span>Existing Problem</span></div>
+      <div class="hbox">Two independent Beans, <code style="background:rgba(34,197,94,0.12);padding:1px 5px;border-radius:4px;font-size:12px">MySQLConnection</code> and <code style="background:rgba(34,197,94,0.12);padding:1px 5px;border-radius:4px;font-size:12px">NoSQLConnection</code>, both implement a common <code style="background:rgba(34,197,94,0.12);padding:1px 5px;border-radius:4px;font-size:12px">Connection</code> interface and are autowired into a <code style="background:rgba(34,197,94,0.12);padding:1px 5px;border-radius:4px;font-size:12px">User</code> class.</div>
+
+      <div class="code-block" style="margin-top:10px">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">Connection.java (interface)</span></div>
+        <div class="code-body">public interface Connection {
+
+    void connect();
+}</div>
+      </div>
+      <div class="code-block" style="margin-top:8px">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">MySQLConnection.java</span></div>
+        <div class="code-body">@Component
+public class MySQLConnection implements Connection {
+
+    public MySQLConnection() {
+        System.out.println("Initialization of MySQLConnection Bean");
+    }
+}</div>
+      </div>
+      <div class="code-block" style="margin-top:8px">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">NoSQLConnection.java</span></div>
+        <div class="code-body">@Component
+public class NoSQLConnection implements Connection {
+
+    public NoSQLConnection() {
+        System.out.println("Initialization of NoSQLConnection Bean");
+    }
+}</div>
+      </div>
+      <div class="code-block" style="margin-top:8px">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">User.java</span></div>
+        <div class="code-body">@Component
+public class User {
+
+    @Autowired
+    MySQLConnection mySQLConnection;
+
+    @Autowired
+    NoSQLConnection noSQLConnection;
+
+    @PostConstruct
+    public void init() {
+
+        System.out.println("No Connection Bean Created with dependencies below:");
+
+        System.out.println("Is MySQLConnection object Null : "
+                + Objects.isNull(mySQLConnection));
+
+        System.out.println("Is NoSQLConnection object Null : "
+                + Objects.isNull(noSQLConnection));
+    }
+}</div>
+      </div>
+      <div class="code-block" style="margin-top:8px">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">Console Output</span></div>
+        <div class="code-body"><span class="cmt">Initialization of MySQLConnection Bean</span>
+Initialization of NoSQLConnection Bean
+
+No Connection Bean Created with dependencies below:
+
+Is MySQLConnection object Null : false
+Is NoSQLConnection object Null : false</div>
+      </div>
+      <div class="sbox">⭐ <strong>Observation:</strong> Both Beans are created during application startup — Spring has no way to skip either one.</div>
+
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>2️⃣</span><span>Use Cases</span></div>
+      <div class="tbl-wrap"><table class="bit-table">
+        <thead><tr><th colspan="2">Use Case 1 — Create only one Bean</th></tr></thead>
+        <tbody>
+          <tr><td colspan="2">Either MySQLConnection or NoSQLConnection should be created — not both</td></tr>
+        </tbody>
+      </table></div>
+      <div class="tbl-wrap" style="margin-top:10px"><table class="bit-table">
+        <thead><tr><th colspan="2">Use Case 2 — Shared codebase, different needs</th></tr></thead>
+        <tbody>
+          <tr><td colspan="2">Two components share the same codebase</td></tr>
+          <tr><td colspan="2">One component needs MySQLConnection, the other needs NoSQLConnection</td></tr>
+        </tbody>
+      </table></div>
+      <div class="hbox">Both use cases can be handled using <code style="background:rgba(34,197,94,0.12);padding:1px 5px;border-radius:4px;font-size:12px">@ConditionalOnProperty</code>.</div>
+
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>3️⃣</span><span>Solution using @ConditionalOnProperty</span></div>
+      <div class="code-block" style="margin-top:8px">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">MySQLConnection.java</span></div>
+        <div class="code-body">@Component
+@ConditionalOnProperty(
+        name = "connection",
+        havingValue = "mysql",
+        matchIfMissing = false
+)
+public class MySQLConnection {
+
+    public MySQLConnection() {
+
+        System.out.println("Initialization of MySQLConnection Bean");
+    }
+}</div>
+      </div>
+      <div class="code-block" style="margin-top:8px">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">NoSQLConnection.java</span></div>
+        <div class="code-body">@Component
+@ConditionalOnProperty(
+        name = "connection",
+        havingValue = "nosql",
+        matchIfMissing = false
+)
+public class NoSQLConnection {
+
+    public NoSQLConnection() {
+
+        System.out.println("Initialization of NoSQLConnection Bean");
+    }
+}</div>
+      </div>
+      <div class="code-block" style="margin-top:8px">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">application.properties</span></div>
+        <div class="code-body">connection=mysql</div>
+      </div>
+      <div class="code-block" style="margin-top:8px">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">Console Output</span></div>
+        <div class="code-body"><span class="cmt">Initialization of MySQLConnection Bean</span>
+
+No Connection Bean Created with dependencies below:
+
+Is MySQLConnection object Null : false
+Is NoSQLConnection object Null : true</div>
+      </div>
+      <div class="sbox">⭐ <strong>Observation:</strong> Only the MySQLConnection Bean is created, because <code style="background:rgba(34,197,94,0.12);padding:1px 5px;border-radius:4px;font-size:12px">connection=mysql</code> matches its condition.</div>
+
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>4️⃣</span><span>Changing the Property</span></div>
+      <div class="code-block" style="margin-top:8px">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">application.properties</span></div>
+        <div class="code-body">connection=nosql</div>
+      </div>
+      <div class="code-block" style="margin-top:8px">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">Console Output</span></div>
+        <div class="code-body"><span class="cmt">Initialization of NoSQLConnection Bean</span>
+
+No Connection Bean Created with dependencies below:
+
+Is MySQLConnection object Null : true
+Is NoSQLConnection object Null : false</div>
+      </div>
+      <div class="sbox">⭐ <strong>Observation:</strong> Only the NoSQLConnection Bean is created.</div>
+
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>5️⃣</span><span>Parameters Used</span></div>
+      <div class="tbl-wrap"><table class="bit-table">
+        <thead><tr><th>Parameter</th><th>Meaning</th></tr></thead>
+        <tbody>
+          <tr><td><code>name</code></td><td>Specifies the property name to check — e.g. <code>name = "connection"</code></td></tr>
+          <tr><td><code>havingValue</code></td><td>Specifies the property value required to create the Bean — e.g. <code>havingValue = "mysql"</code> or <code>havingValue = "nosql"</code></td></tr>
+          <tr><td><code>matchIfMissing</code></td><td>If the property is missing and this is <code>false</code>, the Bean will not be created</td></tr>
+        </tbody>
+      </table></div>
+
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>✅</span><span>Advantages</span></div>
+      <div class="tbl-wrap"><table class="bit-table">
+        <tbody>
+          <tr><td>Feature toggling</td></tr>
+          <tr><td>Avoids cluttering the Application Context with unnecessary Beans</td></tr>
+          <tr><td>Saves memory</td></tr>
+          <tr><td>Reduces application startup time</td></tr>
+        </tbody>
+      </table></div>
+
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#ef4444;border-bottom:1px solid rgba(239,68,68,0.2);padding-bottom:6px"><span>⚠️</span><span>Disadvantages</span></div>
+      <div class="tbl-wrap"><table class="bit-table">
+        <tbody>
+          <tr><td>Misconfiguration can happen</td></tr>
+          <tr><td>Code complexity when overused</td></tr>
+          <tr><td>Multiple Bean creation with the same configuration can create confusion</td></tr>
+          <tr><td>Complexity in managing the configuration</td></tr>
+        </tbody>
+      </table></div>
+
+      <div class="sbox">✅ <strong>Interview line:</strong> "@ConditionalOnProperty lets Spring Boot decide at startup, based on a property value, whether a Bean should be created at all — useful for toggling between implementations like MySQL vs NoSQL without touching code, only application.properties."</div>
+    </div>
+  </div>
+
+  <!-- @Profile Annotation -->
+  <div class="accordion" id="acc-boot-profile">
+    <button class="accordion-header" onclick="toggleAcc('boot-profile')">
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#22c55e">🗂️</span><span>13. @Profile Annotation</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-boot-profile">
+
+      <div class="hbox">@Profile is used to create a Bean only when a particular profile is active. It helps maintain different configurations for different environments — <strong>Development (Dev)</strong>, <strong>QA/Stage</strong>, and <strong>Production (Prod)</strong> — without changing code manually; we simply change the active profile.</div>
+
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>1️⃣</span><span>Why Do We Need Profiles?</span></div>
+      <div class="hbox">The same application is deployed across three environments, and each one needs its own username/password (and, in general, its own URL/port, connection timeout, request timeout, throttle, and retry values).</div>
+      <div class="tbl-wrap"><table class="bit-table">
+        <thead><tr><th>Environment</th><th>Config</th><th>Connects To</th></tr></thead>
+        <tbody>
+          <tr><td>Development</td><td>username=devUsername · password=devPassword</td><td>Development Database</td></tr>
+          <tr><td>QA / Stage</td><td>username=qaUsername · password=qaPassword</td><td>QA Database</td></tr>
+          <tr><td>Production</td><td>username=prodUsername · password=prodPassword</td><td>Production Database</td></tr>
+        </tbody>
+      </table></div>
+      <div class="hbox">Normally configuration lives in <code style="background:rgba(34,197,94,0.12);padding:1px 5px;border-radius:4px;font-size:12px">application.properties</code> — but how do we maintain different configs for different environments? <strong>Profiling</strong> solves this.</div>
+
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>2️⃣</span><span>Properties Files Structure</span></div>
+      <div class="hbox">Each environment gets its own properties file: <code style="background:rgba(34,197,94,0.12);padding:1px 5px;border-radius:4px;font-size:12px">application.properties</code>, <code style="background:rgba(34,197,94,0.12);padding:1px 5px;border-radius:4px;font-size:12px">application-dev.properties</code>, <code style="background:rgba(34,197,94,0.12);padding:1px 5px;border-radius:4px;font-size:12px">application-qa.properties</code>, <code style="background:rgba(34,197,94,0.12);padding:1px 5px;border-radius:4px;font-size:12px">application-prod.properties</code>.</div>
+      <div class="code-block" style="margin-top:10px">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">application.properties</span></div>
+        <div class="code-body">username=defaultUsername
+password=defaultPassword</div>
+      </div>
+      <div class="code-block" style="margin-top:8px">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">application-dev.properties</span></div>
+        <div class="code-body">username=devUsername
+password=devPassword</div>
+      </div>
+      <div class="code-block" style="margin-top:8px">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">application-qa.properties</span></div>
+        <div class="code-body">username=qaUsername
+password=qaPassword</div>
+      </div>
+      <div class="code-block" style="margin-top:8px">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">application-prod.properties</span></div>
+        <div class="code-body">username=prodUsername
+password=prodPassword</div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>3️⃣</span><span>Reading Values</span></div>
+      <div class="code-block" style="margin-top:8px">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">MyApplication.java</span></div>
+        <div class="code-body">@SpringBootApplication
+public class MyApplication {
+
+    @Value("\${username}")
+    String username;
+
+    @Value("\${password}")
+    String password;
+
+    @PostConstruct
+    public void init() {
+
+        System.out.println(
+            "Username : " + username +
+            " Password : " + password
+        );
+    }
+}</div>
+      </div>
+      <div class="hbox">Without any active profile, Spring Boot reads values from <code style="background:rgba(34,197,94,0.12);padding:1px 5px;border-radius:4px;font-size:12px">application.properties</code>.</div>
+      <div class="code-block" style="margin-top:8px">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">Output</span></div>
+        <div class="code-body">Username : defaultUsername Password : defaultPassword</div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>4️⃣</span><span>Activating a Profile</span></div>
+      <div class="hbox">Specify the active profile inside <code style="background:rgba(34,197,94,0.12);padding:1px 5px;border-radius:4px;font-size:12px">application.properties</code>:</div>
+      <div class="code-block" style="margin-top:8px">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">application.properties</span></div>
+        <div class="code-body">spring.profiles.active=dev</div>
+      </div>
+      <div class="hbox">Spring Boot now loads <code style="background:rgba(34,197,94,0.12);padding:1px 5px;border-radius:4px;font-size:12px">application-dev.properties</code>.</div>
+      <div class="code-block" style="margin-top:8px">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">Output</span></div>
+        <div class="code-body">Username : devUsername Password : devPassword</div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>5️⃣</span><span>Activate Profile During Application Startup</span></div>
+      <div class="hbox">Instead of editing the properties file, activate a profile while running the application.</div>
+      <div class="code-block" style="margin-top:8px">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">Method 1 — CLI flag</span></div>
+        <div class="code-body">mvn spring-boot:run -Dspring-boot.run.profiles=prod</div>
+      </div>
+      <div class="sbox">⭐ This activates the Production profile.</div>
+      <div class="code-block" style="margin-top:8px">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">Method 2 — pom.xml profile + run</span></div>
+        <div class="code-body">mvn spring-boot:run -Pproduction</div>
+      </div>
+      <div class="sbox">⭐ Add the profile configuration inside pom.xml first, then this starts the application using the Production profile.</div>
+
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>6️⃣</span><span>Using @Profile</span></div>
+      <div class="hbox">@Profile tells Spring Boot to create a Bean only when the specified profile is active.</div>
+      <div class="code-block" style="margin-top:8px">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">MySQLConnection.java</span></div>
+        <div class="code-body">@Component
+@Profile("dev")
+public class MySQLConnection {
+
+    @Value("\${username}")
+    String username;
+
+    @Value("\${password}")
+    String password;
+
+    @PostConstruct
+    public void init() {
+
+        System.out.println(
+            "MySQL Username : " + username +
+            " Password : " + password
+        );
+    }
+}</div>
+      </div>
+      <div class="sbox">⭐ If <code style="background:rgba(34,197,94,0.12);padding:1px 5px;border-radius:4px;font-size:12px">spring.profiles.active=dev</code>, only this Bean is created.</div>
+
+      <div class="tbl-wrap" style="margin-top:10px"><table class="bit-table">
+        <thead><tr><th>Command</th><th>Result</th></tr></thead>
+        <tbody>
+          <tr><td><code>mvn spring-boot:run</code></td><td>Spring Boot loads only application.properties (no profile)</td></tr>
+          <tr><td><code>mvn spring-boot:run -Dspring-boot.run.profiles=prod</code></td><td>Loads application-prod.properties; Beans with @Profile("prod") are created</td></tr>
+        </tbody>
+      </table></div>
+
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>7️⃣</span><span>Multiple Active Profiles</span></div>
+      <div class="hbox">We can activate more than one profile at a time.</div>
+      <div class="code-block" style="margin-top:8px">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">application.properties</span></div>
+        <div class="code-body">spring.profiles.active=prod,qa</div>
+      </div>
+      <div class="sbox">⭐ Spring Boot loads configuration from both active profiles.</div>
+
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>8️⃣</span><span>Real Interview Scenario</span></div>
+      <div style="background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.18);border-radius:8px;padding:12px 14px;font-size:13px">
+        <span style="color:var(--text2)">Two applications share the same common codebase. Application 1 should create Bean A; Application 2 should not create Bean A.</span>
+      </div>
+      <div class="code-block" style="margin-top:10px">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">NoSQLConnection.java</span></div>
+        <div class="code-body">@Component
+@Profile("app1")
+public class NoSQLConnection {
+
+    @Value("\${username}")
+    String username;
+
+    @Value("\${password}")
+    String password;
+
+    @PostConstruct
+    public void init() {
+
+        System.out.println(
+            "NoSQL Username : " + username +
+            " Password : " + password
+        );
+    }
+}</div>
+      </div>
+      <div class="tbl-wrap" style="margin-top:10px"><table class="bit-table">
+        <thead><tr><th>Application</th><th>Active Profile</th><th>Bean Created?</th></tr></thead>
+        <tbody>
+          <tr><td>Application 1</td><td>spring.profiles.active=app1</td><td>Yes</td></tr>
+          <tr><td>Application 2</td><td>spring.profiles.active=app2</td><td>No</td></tr>
+        </tbody>
+      </table></div>
+
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>✅</span><span>Advantages</span></div>
+      <div class="tbl-wrap"><table class="bit-table">
+        <tbody>
+          <tr><td>Different configurations for different environments</td></tr>
+          <tr><td>No need to modify code while deploying</td></tr>
+          <tr><td>Easy switching between Dev, QA, and Production</td></tr>
+          <tr><td>Environment-specific Bean creation</td></tr>
+          <tr><td>Supports multiple active profiles</td></tr>
+        </tbody>
+      </table></div>
+
+      <div class="sbox">✅ <strong>Interview line:</strong> "@Profile scopes Bean creation to an environment. Combined with per-environment properties files, it means the same codebase can connect to Dev, QA, or Prod resources just by switching spring.profiles.active — no code change, no redeploy."</div>
+    </div>
+  </div>
+
   <!-- Quick Revision -->
   <div class="accordion" id="acc-boot-qrev">
     <button class="accordion-header" onclick="toggleAcc('boot-qrev')">
@@ -6898,6 +7277,9 @@ public Order createOrderBean(
       <div class="qrev-card"><span class="qrev-key">Dynamic Bean Initialization</span><span class="qrev-val">Create Bean in @Configuration, pick implementation via @Value-injected property</span></div>
       <div class="qrev-card"><span class="qrev-key">@Qualifier limitation</span><span class="qrev-val">Switching implementation means editing source code</span></div>
       <div class="qrev-card"><span class="qrev-key">@Value</span><span class="qrev-val">Injects values from property file, env vars, or inline literals — e.g. @Value("false")</span></div>
+      <div class="qrev-card"><span class="qrev-key">@ConditionalOnProperty</span><span class="qrev-val">Creates a Bean only if a property matches a given value</span></div>
+      <div class="qrev-card"><span class="qrev-key">name / havingValue</span><span class="qrev-val">name = property key to check · havingValue = value required to create the Bean</span></div>
+      <div class="qrev-card"><span class="qrev-key">matchIfMissing</span><span class="qrev-val">false → Bean not created if the property is missing</span></div>
     </div>
   </div>
 
