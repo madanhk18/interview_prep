@@ -30,7 +30,6 @@ const TOPICS = [
   {id:'projects',name:'Projects Explanation',icon:'🚀',color:'#f97316',gradient:'',category:'backend',hasContent:true},
   {id:'spring-mvc',name:'Spring MVC',icon:'🍃',color:'#84cc16',gradient:'',category:'frameworks',hasContent:true},
   {id:'spring-boot',name:'Spring Boot',icon:'🌱',color:'#22c55e',gradient:'',category:'frameworks',hasContent:true},
-  {id:'aop',name:'AOP (Aspect Oriented Programming)',icon:'🧵',color:'#84cc16',gradient:'',category:'frameworks',hasContent:true},
   {id:'docker',name:'Docker',icon:'🐳',color:'#0ea5e9',gradient:'',category:'devops',hasContent:true},
   {id:'kubernetes',name:'Kubernetes',icon:'⚙️',color:'#3b82f6',gradient:'',category:'devops',hasContent:true},
   {id:'git',name:'Git & GitHub',icon:'🌿',color:'#f97316',gradient:'',category:'devops',hasContent:true},
@@ -7361,6 +7360,271 @@ public class NoSQLConnection {
     </div>
   </div>
 
+  <!-- 14. AOP - What is AOP -->
+  <div class="accordion" id="acc-boot-aop-intro">
+    <button class="accordion-header" onclick="toggleAcc('boot-aop-intro')">
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#22c55e">🧵</span><span>14. AOP — What is AOP?</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-boot-aop-intro">
+      <div class="hbox"><strong>Aspect Oriented Programming (AOP)</strong> is a programming paradigm used to separate <strong>cross-cutting concerns</strong> (common functionalities) from the main business logic. Instead of writing the same code in multiple places, AOP lets us execute common logic <strong>before</strong>, <strong>after</strong>, or <strong>around</strong> a method.</div>
+
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>🔁</span><span>Common Use Cases</span></div>
+      <div class="tbl-wrap"><table class="bit-table">
+        <tbody>
+          <tr><td>Logging</td></tr>
+          <tr><td>Security</td></tr>
+          <tr><td>Transaction Management</td></tr>
+          <tr><td>Exception Handling</td></tr>
+          <tr><td>Performance Monitoring</td></tr>
+          <tr><td>Auditing</td></tr>
+        </tbody>
+      </table></div>
+
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>✅</span><span>Advantages</span></div>
+      <div class="tbl-wrap"><table class="bit-table">
+        <tbody>
+          <tr><td>Reduces boilerplate code</td></tr>
+          <tr><td>Better code reusability</td></tr>
+          <tr><td>Improves maintainability</td></tr>
+          <tr><td>Keeps business logic clean</td></tr>
+        </tbody>
+      </table></div>
+
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>📦</span><span>Dependency Required</span></div>
+      <div class="code-block" style="margin-top:8px">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">pom.xml</span></div>
+        <div class="code-body">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-aop&lt;/artifactId&gt;
+&lt;/dependency&gt;</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 15. AOP - Terminologies -->
+  <div class="accordion" id="acc-boot-aop-terms">
+    <button class="accordion-header" onclick="toggleAcc('boot-aop-terms')">
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#22c55e">📖</span><span>15. AOP — Important Terminologies</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-boot-aop-terms">
+
+      <div style="display:flex;align-items:center;gap:8px;margin:0 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>1️⃣</span><span>Aspect</span></div>
+      <div class="hbox">An <strong>Aspect</strong> is a class that contains cross-cutting logic.</div>
+      <div class="code-block" style="margin-top:8px">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">LoggingAspect.java</span></div>
+        <div class="code-body">@Aspect
+@Component
+public class LoggingAspect {
+
+}</div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>2️⃣</span><span>Advice</span></div>
+      <div class="hbox"><strong>Advice</strong> is the action performed by an Aspect — it specifies <strong>when</strong> the code should execute.</div>
+      <div class="tbl-wrap" style="margin-top:8px"><table class="bit-table">
+        <thead><tr><th colspan="2">Types</th></tr></thead>
+        <tbody>
+          <tr><td colspan="2"><code>@Before</code></td></tr>
+          <tr><td colspan="2"><code>@After</code></td></tr>
+          <tr><td colspan="2"><code>@AfterReturning</code></td></tr>
+          <tr><td colspan="2"><code>@AfterThrowing</code></td></tr>
+          <tr><td colspan="2"><code>@Around</code></td></tr>
+        </tbody>
+      </table></div>
+      <div class="code-block" style="margin-top:8px">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">Example</span></div>
+        <div class="code-body">@Before("execution(* com.example.service.*.*(..))")
+public void beforeMethod(){
+
+    System.out.println("Inside Before Advice");
+
+}</div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>3️⃣</span><span>Pointcut</span></div>
+      <div class="hbox">A <strong>Pointcut</strong> is an expression that tells Spring <em>"Where should this Advice execute?"</em></div>
+      <div class="code-block" style="margin-top:8px">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">Example</span></div>
+        <div class="code-body">@Before("execution(* com.example.service.Employee.fetchEmployee(..))")</div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>4️⃣</span><span>Join Point</span></div>
+      <div class="hbox">A <strong>Join Point</strong> is the actual point where a method execution happens. Whenever the method is invoked, that location is called a Join Point.</div>
+
+      <div class="sbox">⭐ Aspect = the class · Advice = the action + when · Pointcut = the expression (where) · Join Point = the actual point it fires at.</div>
+    </div>
+  </div>
+
+  <!-- 16. AOP - Pointcut Expressions -->
+  <div class="accordion" id="acc-boot-aop-pointcuts">
+    <button class="accordion-header" onclick="toggleAcc('boot-aop-pointcuts')">
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#22c55e">🎯</span><span>16. AOP — Types of Pointcut Expressions</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-boot-aop-pointcuts">
+
+      <div class="tbl-wrap"><table class="bit-table">
+        <thead><tr><th>Expression</th><th>Matches</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><td><code>execution()</code></td><td>Method execution — used most frequently</td><td><code>execution(* com.example.service.Employee.fetchEmployee(..))</code></td></tr>
+          <tr><td><code>within()</code></td><td>Every method inside a class or package</td><td><code>within(com.example.service.*)</code></td></tr>
+          <tr><td><code>@within</code></td><td>All methods inside a class having a particular annotation</td><td><code>@within(org.springframework.stereotype.Service)</code></td></tr>
+          <tr><td><code>@annotation</code></td><td>Methods annotated with a specific annotation</td><td><code>@annotation(PostMapping)</code></td></tr>
+          <tr><td><code>args()</code></td><td>Methods having particular arguments</td><td><code>args(String)</code></td></tr>
+          <tr><td><code>@args</code></td><td>Methods whose parameters have a particular annotation</td><td>—</td></tr>
+          <tr><td><code>target()</code></td><td>Methods of a particular target object</td><td>—</td></tr>
+        </tbody>
+      </table></div>
+
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>➕</span><span>Combining Pointcuts</span></div>
+      <div class="tbl-wrap"><table class="bit-table">
+        <thead><tr><th>Operator</th><th>Meaning</th></tr></thead>
+        <tbody>
+          <tr><td><code>&&</code></td><td>AND — used to combine multiple Pointcut expressions</td></tr>
+          <tr><td><code>||</code></td><td>OR — used to combine multiple Pointcut expressions</td></tr>
+        </tbody>
+      </table></div>
+
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>♻️</span><span>Named Pointcuts</span></div>
+      <div class="hbox">Instead of writing the same expression multiple times, create a reusable Pointcut.</div>
+      <div class="code-block" style="margin-top:8px">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">Define</span></div>
+        <div class="code-body">@Pointcut("execution(* com.example.service.Employee.fetchEmployee(..))")
+public void employeePointcut(){
+
+}</div>
+      </div>
+      <div class="code-block" style="margin-top:8px">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">Reuse</span></div>
+        <div class="code-body">@Before("employeePointcut()")
+public void beforeMethod(){
+
+}</div>
+      </div>
+      <div class="sbox">⭐ <strong>Advantage:</strong> cleaner code, easy maintenance, reusable expressions.</div>
+    </div>
+  </div>
+
+  <!-- 17. AOP - Types of Advice -->
+  <div class="accordion" id="acc-boot-aop-advice">
+    <button class="accordion-header" onclick="toggleAcc('boot-aop-advice')">
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#22c55e">🛎️</span><span>17. AOP — Types of Advice</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-boot-aop-advice">
+
+      <div style="display:flex;align-items:center;gap:8px;margin:0 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>1️⃣</span><span>@Before</span></div>
+      <div class="hbox">Executes <strong>before</strong> the target method.</div>
+      <div class="code-block" style="margin-top:8px">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">Example</span></div>
+        <div class="code-body">@Before("employeePointcut()")
+public void before(){
+
+    System.out.println("Before Method");
+
+}</div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>2️⃣</span><span>@After</span></div>
+      <div class="hbox">Executes <strong>after</strong> the target method.</div>
+      <div class="code-block" style="margin-top:8px">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">Example</span></div>
+        <div class="code-body">@After("employeePointcut()")</div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>3️⃣</span><span>@Around</span></div>
+      <div class="hbox">Executes <strong>before and after</strong> the target method.</div>
+      <div class="code-block" style="margin-top:8px">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">Example</span></div>
+        <div class="code-body">@Around("employeePointcut()")
+public Object around(ProceedingJoinPoint joinPoint) throws Throwable{
+
+    System.out.println("Before");
+
+    Object obj = joinPoint.proceed();
+
+    System.out.println("After");
+
+    return obj;
+
+}</div>
+      </div>
+      <div class="sbox">⭐ <code style="background:rgba(34,197,94,0.14);padding:1px 5px;border-radius:4px;font-size:12px">joinPoint.proceed()</code> calls the actual method — skip it and the target method never runs at all.</div>
+    </div>
+  </div>
+
+  <!-- 18. AOP - Internal Working -->
+  <div class="accordion" id="acc-boot-aop-internal">
+    <button class="accordion-header" onclick="toggleAcc('boot-aop-internal')">
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#22c55e">⚙️</span><span>18. AOP — Internal Working</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-boot-aop-internal">
+
+      <div style="display:flex;align-items:center;gap:8px;margin:0 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>🚀</span><span>During Application Startup</span></div>
+      <div class="tbl-wrap"><table class="bit-table">
+        <tbody>
+          <tr><td>1. Spring scans all @Aspect classes</td></tr>
+          <tr><td>2. Parses all Pointcut expressions</td></tr>
+          <tr><td>3. Stores them internally</td></tr>
+          <tr><td>4. Finds eligible Beans (@Component, @Service, @Controller, etc.)</td></tr>
+          <tr><td>5. Checks whether they match any Pointcut</td></tr>
+          <tr><td>6. If matched, Spring creates a Proxy Object using JDK Dynamic Proxy or CGLIB Proxy</td></tr>
+          <tr><td>7. The original Bean is replaced with the Proxy Bean</td></tr>
+        </tbody>
+      </table></div>
+
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>📞</span><span>During Method Invocation</span></div>
+      <div class="tbl-wrap"><table class="bit-table">
+        <tbody>
+          <tr><td>1. Client calls the method</td></tr>
+          <tr><td>2. Proxy intercepts the request</td></tr>
+          <tr><td>3. Executes Before Advice</td></tr>
+          <tr><td>4. Calls the actual business method</td></tr>
+          <tr><td>5. Executes After Advice</td></tr>
+          <tr><td>6. Returns the response</td></tr>
+        </tbody>
+      </table></div>
+      <div class="sbox">⭐ The Bean you autowire is often not the real object — it's a <strong>Proxy</strong> that wraps Advice around the real method call.</div>
+
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>🌐</span><span>Real-Time Use Cases</span></div>
+      <div class="tbl-wrap"><table class="bit-table">
+        <tbody>
+          <tr><td>Logging API requests</td></tr>
+          <tr><td>Authentication & Authorization</td></tr>
+          <tr><td>Transaction Management</td></tr>
+          <tr><td>Exception Logging</td></tr>
+          <tr><td>Performance Monitoring</td></tr>
+          <tr><td>Audit Trails</td></tr>
+          <tr><td>Security Validation</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- 19. AOP - Interview Questions -->
+  <div class="accordion" id="acc-boot-aop-interview">
+    <button class="accordion-header" onclick="toggleAcc('boot-aop-interview')">
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#22c55e">❓</span><span>19. AOP — Interview Questions</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-boot-aop-interview">
+
+      <div class="wbox"><strong>Q: What is AOP?</strong><br>AOP is a programming paradigm used to separate cross-cutting concerns such as logging, security, and transaction management from business logic.</div>
+      <div class="wbox" style="margin-top:8px"><strong>Q: What is an Aspect?</strong><br>A class containing Advice and Pointcuts.</div>
+      <div class="wbox" style="margin-top:8px"><strong>Q: What is Advice?</strong><br>The action executed before, after, or around a method.</div>
+      <div class="wbox" style="margin-top:8px"><strong>Q: What is Pointcut?</strong><br>An expression that specifies where Advice should execute.</div>
+      <div class="wbox" style="margin-top:8px"><strong>Q: What is Join Point?</strong><br>The point where the actual method execution occurs.</div>
+      <div class="wbox" style="margin-top:8px"><strong>Q: What is the most commonly used Pointcut?</strong><br><code style="background:rgba(34,197,94,0.14);padding:1px 5px;border-radius:4px;font-size:12px">execution()</code></div>
+      <div class="wbox" style="margin-top:8px"><strong>Q: Difference between @Before and @Around?</strong><br>@Before executes only before the method. @Around executes before and after the method, and can even control whether the method executes at all.</div>
+      <div class="wbox" style="margin-top:8px"><strong>Q: How does Spring AOP work internally?</strong><br>Spring creates a Proxy Object for matching Beans. The proxy intercepts method calls, executes the configured Advice, invokes the actual method, and then executes any post-processing Advice.</div>
+
+      <div class="sbox" style="margin-top:12px">✅ <strong>Interview line:</strong> "Spring AOP works by wrapping matching Beans in a Proxy at startup — the proxy intercepts every call, runs the configured Advice around it, and only then hits the real method."</div>
+    </div>
+  </div>
+
   <!-- Quick Revision -->
   <div class="accordion" id="acc-boot-qrev">
     <button class="accordion-header" onclick="toggleAcc('boot-qrev')">
@@ -7422,291 +7686,8 @@ public class NoSQLConnection {
       <div class="qrev-card"><span class="qrev-key">@ConditionalOnProperty</span><span class="qrev-val">Creates a Bean only if a property matches a given value</span></div>
       <div class="qrev-card"><span class="qrev-key">name / havingValue</span><span class="qrev-val">name = property key to check · havingValue = value required to create the Bean</span></div>
       <div class="qrev-card"><span class="qrev-key">matchIfMissing</span><span class="qrev-val">false → Bean not created if the property is missing</span></div>
-    </div>
-  </div>
-
-</div>
-`;
-
-const AOP_CONTENT = `
-<div class="content-area">
-
-  <div style="background:rgba(132,204,22,0.07);border:1px solid rgba(132,204,22,0.2);border-radius:10px;padding:13px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.7;color:var(--text2)">
-    🎯 <strong style="color:#84cc16">Interview scope</strong> — Know the core vocabulary (Aspect, Advice, Pointcut, Join Point), the 5 Advice types, the most-used Pointcut expression (execution()), and how Spring builds a Proxy internally.
-  </div>
-
-  <!-- 1. What is AOP -->
-  <div class="accordion" id="acc-aop-intro">
-    <button class="accordion-header" onclick="toggleAcc('aop-intro')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#84cc16">🧵</span><span>1. What is AOP?</span></span>
-      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
-    </button>
-    <div class="accordion-body" id="body-aop-intro">
-      <div class="hbox"><strong>Aspect Oriented Programming (AOP)</strong> is a programming paradigm used to separate <strong>cross-cutting concerns</strong> (common functionalities) from the main business logic. Instead of writing the same code in multiple places, AOP lets us execute common logic <strong>before</strong>, <strong>after</strong>, or <strong>around</strong> a method.</div>
-
-      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#84cc16;border-bottom:1px solid rgba(132,204,22,0.2);padding-bottom:6px"><span>🔁</span><span>Common Use Cases</span></div>
-      <div class="tbl-wrap"><table class="bit-table">
-        <tbody>
-          <tr><td>Logging</td></tr>
-          <tr><td>Security</td></tr>
-          <tr><td>Transaction Management</td></tr>
-          <tr><td>Exception Handling</td></tr>
-          <tr><td>Performance Monitoring</td></tr>
-          <tr><td>Auditing</td></tr>
-        </tbody>
-      </table></div>
-
-      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#84cc16;border-bottom:1px solid rgba(132,204,22,0.2);padding-bottom:6px"><span>✅</span><span>Advantages</span></div>
-      <div class="tbl-wrap"><table class="bit-table">
-        <tbody>
-          <tr><td>Reduces boilerplate code</td></tr>
-          <tr><td>Better code reusability</td></tr>
-          <tr><td>Improves maintainability</td></tr>
-          <tr><td>Keeps business logic clean</td></tr>
-        </tbody>
-      </table></div>
-
-      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#84cc16;border-bottom:1px solid rgba(132,204,22,0.2);padding-bottom:6px"><span>📦</span><span>Dependency Required</span></div>
-      <div class="code-block" style="margin-top:8px">
-        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">pom.xml</span></div>
-        <div class="code-body">&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-boot-starter-aop&lt;/artifactId&gt;
-&lt;/dependency&gt;</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 2. Important Terminologies -->
-  <div class="accordion" id="acc-aop-terms">
-    <button class="accordion-header" onclick="toggleAcc('aop-terms')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#84cc16">📖</span><span>2. Important AOP Terminologies</span></span>
-      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
-    </button>
-    <div class="accordion-body" id="body-aop-terms">
-
-      <div style="display:flex;align-items:center;gap:8px;margin:0 0 10px;font-size:13.5px;font-weight:700;color:#84cc16;border-bottom:1px solid rgba(132,204,22,0.2);padding-bottom:6px"><span>1️⃣</span><span>Aspect</span></div>
-      <div class="hbox">An <strong>Aspect</strong> is a class that contains cross-cutting logic.</div>
-      <div class="code-block" style="margin-top:8px">
-        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">LoggingAspect.java</span></div>
-        <div class="code-body">@Aspect
-@Component
-public class LoggingAspect {
-
-}</div>
-      </div>
-
-      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#84cc16;border-bottom:1px solid rgba(132,204,22,0.2);padding-bottom:6px"><span>2️⃣</span><span>Advice</span></div>
-      <div class="hbox"><strong>Advice</strong> is the action performed by an Aspect — it specifies <strong>when</strong> the code should execute.</div>
-      <div class="tbl-wrap" style="margin-top:8px"><table class="bit-table">
-        <thead><tr><th colspan="2">Types</th></tr></thead>
-        <tbody>
-          <tr><td colspan="2"><code>@Before</code></td></tr>
-          <tr><td colspan="2"><code>@After</code></td></tr>
-          <tr><td colspan="2"><code>@AfterReturning</code></td></tr>
-          <tr><td colspan="2"><code>@AfterThrowing</code></td></tr>
-          <tr><td colspan="2"><code>@Around</code></td></tr>
-        </tbody>
-      </table></div>
-      <div class="code-block" style="margin-top:8px">
-        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">Example</span></div>
-        <div class="code-body">@Before("execution(* com.example.service.*.*(..))")
-public void beforeMethod(){
-
-    System.out.println("Inside Before Advice");
-
-}</div>
-      </div>
-
-      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#84cc16;border-bottom:1px solid rgba(132,204,22,0.2);padding-bottom:6px"><span>3️⃣</span><span>Pointcut</span></div>
-      <div class="hbox">A <strong>Pointcut</strong> is an expression that tells Spring <em>"Where should this Advice execute?"</em></div>
-      <div class="code-block" style="margin-top:8px">
-        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">Example</span></div>
-        <div class="code-body">@Before("execution(* com.example.service.Employee.fetchEmployee(..))")</div>
-      </div>
-
-      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#84cc16;border-bottom:1px solid rgba(132,204,22,0.2);padding-bottom:6px"><span>4️⃣</span><span>Join Point</span></div>
-      <div class="hbox">A <strong>Join Point</strong> is the actual point where a method execution happens. Whenever the method is invoked, that location is called a Join Point.</div>
-
-      <div class="sbox">⭐ Aspect = the class · Advice = the action + when · Pointcut = the expression (where) · Join Point = the actual point it fires at.</div>
-    </div>
-  </div>
-
-  <!-- 3. Pointcut Expressions -->
-  <div class="accordion" id="acc-aop-pointcuts">
-    <button class="accordion-header" onclick="toggleAcc('aop-pointcuts')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#84cc16">🎯</span><span>3. Types of Pointcut Expressions</span></span>
-      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
-    </button>
-    <div class="accordion-body" id="body-aop-pointcuts">
-
-      <div class="tbl-wrap"><table class="bit-table">
-        <thead><tr><th>Expression</th><th>Matches</th><th>Example</th></tr></thead>
-        <tbody>
-          <tr><td><code>execution()</code></td><td>Method execution — used most frequently</td><td><code>execution(* com.example.service.Employee.fetchEmployee(..))</code></td></tr>
-          <tr><td><code>within()</code></td><td>Every method inside a class or package</td><td><code>within(com.example.service.*)</code></td></tr>
-          <tr><td><code>@within</code></td><td>All methods inside a class having a particular annotation</td><td><code>@within(org.springframework.stereotype.Service)</code></td></tr>
-          <tr><td><code>@annotation</code></td><td>Methods annotated with a specific annotation</td><td><code>@annotation(PostMapping)</code></td></tr>
-          <tr><td><code>args()</code></td><td>Methods having particular arguments</td><td><code>args(String)</code></td></tr>
-          <tr><td><code>@args</code></td><td>Methods whose parameters have a particular annotation</td><td>—</td></tr>
-          <tr><td><code>target()</code></td><td>Methods of a particular target object</td><td>—</td></tr>
-        </tbody>
-      </table></div>
-
-      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#84cc16;border-bottom:1px solid rgba(132,204,22,0.2);padding-bottom:6px"><span>➕</span><span>Combining Pointcuts</span></div>
-      <div class="tbl-wrap"><table class="bit-table">
-        <thead><tr><th>Operator</th><th>Meaning</th></tr></thead>
-        <tbody>
-          <tr><td><code>&&</code></td><td>AND — used to combine multiple Pointcut expressions</td></tr>
-          <tr><td><code>||</code></td><td>OR — used to combine multiple Pointcut expressions</td></tr>
-        </tbody>
-      </table></div>
-
-      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#84cc16;border-bottom:1px solid rgba(132,204,22,0.2);padding-bottom:6px"><span>♻️</span><span>Named Pointcuts</span></div>
-      <div class="hbox">Instead of writing the same expression multiple times, create a reusable Pointcut.</div>
-      <div class="code-block" style="margin-top:8px">
-        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">Define</span></div>
-        <div class="code-body">@Pointcut("execution(* com.example.service.Employee.fetchEmployee(..))")
-public void employeePointcut(){
-
-}</div>
-      </div>
-      <div class="code-block" style="margin-top:8px">
-        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">Reuse</span></div>
-        <div class="code-body">@Before("employeePointcut()")
-public void beforeMethod(){
-
-}</div>
-      </div>
-      <div class="sbox">⭐ <strong>Advantage:</strong> cleaner code, easy maintenance, reusable expressions.</div>
-    </div>
-  </div>
-
-  <!-- 4. Types of Advice -->
-  <div class="accordion" id="acc-aop-advice">
-    <button class="accordion-header" onclick="toggleAcc('aop-advice')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#84cc16">🛎️</span><span>4. Types of Advice</span></span>
-      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
-    </button>
-    <div class="accordion-body" id="body-aop-advice">
-
-      <div style="display:flex;align-items:center;gap:8px;margin:0 0 10px;font-size:13.5px;font-weight:700;color:#84cc16;border-bottom:1px solid rgba(132,204,22,0.2);padding-bottom:6px"><span>1️⃣</span><span>@Before</span></div>
-      <div class="hbox">Executes <strong>before</strong> the target method.</div>
-      <div class="code-block" style="margin-top:8px">
-        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">Example</span></div>
-        <div class="code-body">@Before("employeePointcut()")
-public void before(){
-
-    System.out.println("Before Method");
-
-}</div>
-      </div>
-
-      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#84cc16;border-bottom:1px solid rgba(132,204,22,0.2);padding-bottom:6px"><span>2️⃣</span><span>@After</span></div>
-      <div class="hbox">Executes <strong>after</strong> the target method.</div>
-      <div class="code-block" style="margin-top:8px">
-        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">Example</span></div>
-        <div class="code-body">@After("employeePointcut()")</div>
-      </div>
-
-      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#84cc16;border-bottom:1px solid rgba(132,204,22,0.2);padding-bottom:6px"><span>3️⃣</span><span>@Around</span></div>
-      <div class="hbox">Executes <strong>before and after</strong> the target method.</div>
-      <div class="code-block" style="margin-top:8px">
-        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">Example</span></div>
-        <div class="code-body">@Around("employeePointcut()")
-public Object around(ProceedingJoinPoint joinPoint) throws Throwable{
-
-    System.out.println("Before");
-
-    Object obj = joinPoint.proceed();
-
-    System.out.println("After");
-
-    return obj;
-
-}</div>
-      </div>
-      <div class="sbox">⭐ <code style="background:rgba(132,204,22,0.14);padding:1px 5px;border-radius:4px;font-size:12px">joinPoint.proceed()</code> calls the actual method — skip it and the target method never runs at all.</div>
-    </div>
-  </div>
-
-  <!-- 5. Internal Working -->
-  <div class="accordion" id="acc-aop-internal">
-    <button class="accordion-header" onclick="toggleAcc('aop-internal')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#84cc16">⚙️</span><span>5. Internal Working of AOP</span></span>
-      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
-    </button>
-    <div class="accordion-body" id="body-aop-internal">
-
-      <div style="display:flex;align-items:center;gap:8px;margin:0 0 10px;font-size:13.5px;font-weight:700;color:#84cc16;border-bottom:1px solid rgba(132,204,22,0.2);padding-bottom:6px"><span>🚀</span><span>During Application Startup</span></div>
-      <div class="tbl-wrap"><table class="bit-table">
-        <tbody>
-          <tr><td>1. Spring scans all @Aspect classes</td></tr>
-          <tr><td>2. Parses all Pointcut expressions</td></tr>
-          <tr><td>3. Stores them internally</td></tr>
-          <tr><td>4. Finds eligible Beans (@Component, @Service, @Controller, etc.)</td></tr>
-          <tr><td>5. Checks whether they match any Pointcut</td></tr>
-          <tr><td>6. If matched, Spring creates a Proxy Object using JDK Dynamic Proxy or CGLIB Proxy</td></tr>
-          <tr><td>7. The original Bean is replaced with the Proxy Bean</td></tr>
-        </tbody>
-      </table></div>
-
-      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#84cc16;border-bottom:1px solid rgba(132,204,22,0.2);padding-bottom:6px"><span>📞</span><span>During Method Invocation</span></div>
-      <div class="tbl-wrap"><table class="bit-table">
-        <tbody>
-          <tr><td>1. Client calls the method</td></tr>
-          <tr><td>2. Proxy intercepts the request</td></tr>
-          <tr><td>3. Executes Before Advice</td></tr>
-          <tr><td>4. Calls the actual business method</td></tr>
-          <tr><td>5. Executes After Advice</td></tr>
-          <tr><td>6. Returns the response</td></tr>
-        </tbody>
-      </table></div>
-      <div class="sbox">⭐ The Bean you autowire is often not the real object — it's a <strong>Proxy</strong> that wraps Advice around the real method call.</div>
-
-      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#84cc16;border-bottom:1px solid rgba(132,204,22,0.2);padding-bottom:6px"><span>🌐</span><span>Real-Time Use Cases</span></div>
-      <div class="tbl-wrap"><table class="bit-table">
-        <tbody>
-          <tr><td>Logging API requests</td></tr>
-          <tr><td>Authentication & Authorization</td></tr>
-          <tr><td>Transaction Management</td></tr>
-          <tr><td>Exception Logging</td></tr>
-          <tr><td>Performance Monitoring</td></tr>
-          <tr><td>Audit Trails</td></tr>
-          <tr><td>Security Validation</td></tr>
-        </tbody>
-      </table></div>
-    </div>
-  </div>
-
-  <!-- 6. Interview Questions -->
-  <div class="accordion" id="acc-aop-interview">
-    <button class="accordion-header" onclick="toggleAcc('aop-interview')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#84cc16">❓</span><span>6. Interview Questions</span></span>
-      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
-    </button>
-    <div class="accordion-body" id="body-aop-interview">
-
-      <div class="wbox"><strong>Q: What is AOP?</strong><br>AOP is a programming paradigm used to separate cross-cutting concerns such as logging, security, and transaction management from business logic.</div>
-      <div class="wbox" style="margin-top:8px"><strong>Q: What is an Aspect?</strong><br>A class containing Advice and Pointcuts.</div>
-      <div class="wbox" style="margin-top:8px"><strong>Q: What is Advice?</strong><br>The action executed before, after, or around a method.</div>
-      <div class="wbox" style="margin-top:8px"><strong>Q: What is Pointcut?</strong><br>An expression that specifies where Advice should execute.</div>
-      <div class="wbox" style="margin-top:8px"><strong>Q: What is Join Point?</strong><br>The point where the actual method execution occurs.</div>
-      <div class="wbox" style="margin-top:8px"><strong>Q: What is the most commonly used Pointcut?</strong><br><code style="background:rgba(132,204,22,0.14);padding:1px 5px;border-radius:4px;font-size:12px">execution()</code></div>
-      <div class="wbox" style="margin-top:8px"><strong>Q: Difference between @Before and @Around?</strong><br>@Before executes only before the method. @Around executes before and after the method, and can even control whether the method executes at all.</div>
-      <div class="wbox" style="margin-top:8px"><strong>Q: How does Spring AOP work internally?</strong><br>Spring creates a Proxy Object for matching Beans. The proxy intercepts method calls, executes the configured Advice, invokes the actual method, and then executes any post-processing Advice.</div>
-
-      <div class="sbox" style="margin-top:12px">✅ <strong>Interview line:</strong> "Spring AOP works by wrapping matching Beans in a Proxy at startup — the proxy intercepts every call, runs the configured Advice around it, and only then hits the real method."</div>
-    </div>
-  </div>
-
-  <!-- Quick Revision -->
-  <div class="accordion" id="acc-aop-qrev">
-    <button class="accordion-header" onclick="toggleAcc('aop-qrev')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#84cc16">⚡</span><span>Quick Revision</span></span>
-      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
-    </button>
-    <div class="accordion-body" id="body-aop-qrev">
+      <div class="qrev-card"><span class="qrev-key">@Profile</span><span class="qrev-val">Creates a Bean only when a given profile is active</span></div>
+      <div class="qrev-card"><span class="qrev-key">spring.profiles.active</span><span class="qrev-val">Sets which application-{profile}.properties file(s) load — supports comma-separated multiple profiles</span></div>
       <div class="qrev-card"><span class="qrev-key">AOP</span><span class="qrev-val">Separates cross-cutting concerns (logging, security, transactions) from business logic</span></div>
       <div class="qrev-card"><span class="qrev-key">Aspect</span><span class="qrev-val">Class containing cross-cutting logic — annotated @Aspect @Component</span></div>
       <div class="qrev-card"><span class="qrev-key">Advice</span><span class="qrev-val">The action performed — @Before, @After, @AfterReturning, @AfterThrowing, @Around</span></div>
@@ -7716,7 +7697,7 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable{
       <div class="qrev-card"><span class="qrev-key">within() / @within</span><span class="qrev-val">within() = every method in a class/package · @within = methods in a class with an annotation</span></div>
       <div class="qrev-card"><span class="qrev-key">@annotation / args()</span><span class="qrev-val">@annotation = methods carrying a specific annotation · args() = methods with particular argument types</span></div>
       <div class="qrev-card"><span class="qrev-key">@Around + proceed()</span><span class="qrev-val">Runs before & after; joinPoint.proceed() actually invokes the target method</span></div>
-      <div class="qrev-card"><span class="qrev-key">Proxy</span><span class="qrev-val">Spring replaces the matched Bean with a JDK Dynamic Proxy or CGLIB Proxy that intercepts calls</span></div>
+      <div class="qrev-card"><span class="qrev-key">AOP Proxy</span><span class="qrev-val">Spring replaces the matched Bean with a JDK Dynamic Proxy or CGLIB Proxy that intercepts calls</span></div>
     </div>
   </div>
 
@@ -8667,7 +8648,6 @@ function getContent(topic) {
   if (topic.id === 'jdbc') return JDBC_CONTENT;
   if (topic.id === 'spring-mvc') return SPRING_MVC_CONTENT;
   if (topic.id === 'spring-boot') return SPRING_BOOT_CONTENT;
-  if (topic.id === 'aop') return AOP_CONTENT;
   if (topic.id === 'interview-questions') return INTERVIEW_QUESTIONS_CONTENT;
   return `<div class="content-area"><div style="padding:20px 0;text-align:center">
     <div style="font-size:24px;margin-bottom:8px;opacity:0.3">◦ ◦ ◦</div>
@@ -8695,7 +8675,6 @@ const TOPIC_ICONS = {
   'projects':           `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12l7-7 7 7"/></svg>`,
   'spring-mvc':         `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 8v8M8 12h8"/></svg>`,
   'spring-boot':        `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 8v8"/><circle cx="12" cy="12" r="3"/></svg>`,
-  'aop':                `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><line x1="8" y1="7.5" x2="16" y2="7.5"/><line x1="7" y1="8.5" x2="11" y2="16"/><line x1="17" y1="8.5" x2="13" y2="16"/></svg>`,
   'docker':             `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="8" width="3" height="3" rx="0.5"/><rect x="6" y="8" width="3" height="3" rx="0.5"/><rect x="10" y="8" width="3" height="3" rx="0.5"/><rect x="6" y="4" width="3" height="3" rx="0.5"/><rect x="10" y="4" width="3" height="3" rx="0.5"/><path d="M2 14c0 2 1.5 3 4 3h10c3 0 5-1.5 5-4 0-1-.5-2-1.5-2.5C19 9 18 8 16 8h-3"/><path d="M20 11.5c1-.2 2 .3 2 1.5"/></svg>`,
   'kubernetes':         `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polygon points="12 2 22 8 22 16 12 22 2 16 2 8"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="9" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="15"/><line x1="9" y1="10.5" x2="2.5" y2="7"/><line x1="21.5" y1="17" x2="15" y2="13.5"/><line x1="9" y1="13.5" x2="2.5" y2="17"/><line x1="21.5" y1="7" x2="15" y2="10.5"/></svg>`,
   'git':                `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 9v6M9 6h6"/><path d="M15 6c0 6-9 9-9 9"/></svg>`,
