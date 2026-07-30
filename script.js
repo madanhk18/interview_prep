@@ -1326,6 +1326,263 @@ Window 3 : 2 + 3 + 4</div>
     </div>
   </div>
 
+  <!-- 7. Kadane's Algorithm -->
+  <div class="accordion" id="acc-sw-kadane">
+    <button class="accordion-header" onclick="toggleAcc('sw-kadane')">
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#ec4899">📈</span><span>7. Kadane's Algorithm</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-sw-kadane">
+      <div class="hbox"><strong>Goal:</strong> Find the <strong>maximum sum contiguous subarray</strong> from a given array (the window size here is not fixed — it grows/shrinks on the fly, so this is the "variable size" sibling of sliding window, solved as a running-sum DP).</div>
+      <p class="section-label">Intuition</p>
+      <div class="ybox">At every index, we ask one question: <strong>"Is it better to extend the previous subarray, or start a fresh subarray from here?"</strong> We track two things — <code>curSum</code> (best sum ending exactly at the current index) and <code>maxSum</code> (best sum seen so far anywhere). If <code>curSum</code> ever drops below the current element itself, it's more profitable to restart the subarray at that element (drop the negative baggage).</div>
+      <p class="section-label">Java Code</p>
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">Kadane.java</span></div>
+        <div class="code-body"><span class="typ">int</span> curSum = arr[<span class="num">0</span>];
+<span class="typ">int</span> maxSum = arr[<span class="num">0</span>];
+<span class="kw">for</span> (<span class="typ">int</span> i = <span class="num">1</span>; i &lt; arr.length; i++) {
+    curSum = Math.max(curSum + arr[i], arr[i]);  <span class="cmt">// extend or restart</span>
+    maxSum = Math.max(maxSum, curSum);           <span class="cmt">// track best-so-far</span>
+}</div>
+      </div>
+      <p class="section-label">Dry Run</p>
+      <div class="tbl-wrap"><table class="bit-table">
+        <thead><tr><th>arr</th><th>curSum progression</th><th>maxSum</th></tr></thead>
+        <tbody>
+          <tr><td>[-2, 1, -3, 4, -1, 2, 1, -5, 4]</td><td>-2 → 1 → -2 → 4 → 3 → 5 → 6 → 1 → 5</td><td>6</td></tr>
+        </tbody>
+      </table></div>
+      <div class="sbox">✅ <strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(1) — single pass, two variables, no extra space.</div>
+    </div>
+  </div>
+
+  <!-- 8. Maximum Sum Subarray of size K -->
+  <div class="accordion" id="acc-sw-maxsumk">
+    <button class="accordion-header" onclick="toggleAcc('sw-maxsumk')">
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#ec4899">🪟</span><span>8. Maximum Sum Subarray of size K</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-sw-maxsumk">
+      <div class="hbox"><strong>Goal:</strong> Given an array and a fixed window size <code>K</code>, find the maximum sum among all contiguous subarrays of exactly size <code>K</code>. This is the textbook <strong>Fixed Size Sliding Window</strong> problem.</div>
+      <p class="section-label">Intuition</p>
+      <div class="ybox">Compute the sum of the first <code>K</code> elements to prime the window. Then slide right one step at a time: <strong>add the new right element, subtract the outgoing left element</strong>, and update <code>maxSum</code> — no need to re-sum the whole window each time.</div>
+      <p class="section-label">Java Code</p>
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">p32.java</span></div>
+        <div class="code-body"><span class="kw">public class</span> <span class="typ">p32</span> {
+    <span class="kw">public static</span> <span class="typ">void</span> <span class="fn">main</span>(<span class="typ">String</span>[] args) {
+        <span class="cmt">/*
+        arr = [2, 1, 5, 1, 3, 2]
+        K = 3
+        Maximum Sum Subarray of size K | Sliding Window
+        */</span>
+
+        <span class="typ">int</span> arr[] = {<span class="num">2</span>, <span class="num">1</span>, <span class="num">5</span>, <span class="num">1</span>, <span class="num">3</span>, <span class="num">2</span>};
+        <span class="typ">int</span> k = <span class="num">3</span>;
+        <span class="typ">int</span> l = <span class="num">0</span>;
+        <span class="typ">int</span> r = k;
+        <span class="typ">int</span> maxSum = <span class="num">0</span>;
+        <span class="typ">int</span> sum = <span class="num">0</span>;
+        <span class="kw">for</span> (<span class="typ">int</span> i = l; i &lt; r; i++) {
+             sum += arr[i];
+        }
+        maxSum = sum;
+        <span class="kw">while</span> (r &lt; arr.length) {
+            sum += arr[r++];   <span class="cmt">// add new right element</span>
+            sum -= arr[l++];   <span class="cmt">// remove outgoing left element</span>
+            maxSum = Math.max(sum, maxSum);
+        }
+        System.out.println(maxSum);
+    }
+}</span></div>
+      </div>
+      <p class="section-label">Dry Run (arr = [2, 1, 5, 1, 3, 2], K = 3)</p>
+      <div class="tbl-wrap"><table class="bit-table">
+        <thead><tr><th>Window</th><th>Sum</th></tr></thead>
+        <tbody>
+          <tr><td>[2, 1, 5]</td><td>8</td></tr>
+          <tr><td>[1, 5, 1]</td><td>7</td></tr>
+          <tr><td>[5, 1, 3]</td><td>9</td></tr>
+          <tr><td>[1, 3, 2]</td><td>6</td></tr>
+        </tbody>
+      </table></div>
+      <div class="sbox">✅ <strong>Output:</strong> maxSum = 9 &nbsp;|&nbsp; <strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(1) — each element is added once and removed once, no recomputation of the whole window.</div>
+    </div>
+  </div>
+
+  <!-- 9. First Negative Number in every Window of Size K -->
+  <div class="accordion" id="acc-sw-firstneg">
+    <button class="accordion-header" onclick="toggleAcc('sw-firstneg')">
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#ec4899">🪟</span><span>9. First Negative Number in every Window of Size K</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-sw-firstneg">
+      <div class="hbox"><strong>Goal:</strong> Given an array and a fixed window size <code>K</code>, print the <strong>first negative number</strong> in every contiguous window of size <code>K</code>. If a window has no negative number, print <code>0</code> for that window.</div>
+      <p class="section-label">Intuition</p>
+      <div class="ybox">Maintain a <strong>Deque of indices</strong> that stores only the indices of negative elements currently inside the window, in order of appearance. As the window slides: <strong>push the new right index</strong> if <code>arr[j]</code> is negative, and <strong>pop the front index</strong> once it falls outside the window (i.e. equals the outgoing left index <code>i</code>). The front of the deque always holds the index of the first negative number for the current window — if the deque is empty, the window has no negatives.</div>
+      <p class="section-label">Java Code</p>
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">p33.java</span></div>
+        <div class="code-body"><span class="kw">import</span> java.util.ArrayDeque;
+<span class="kw">import</span> java.util.ArrayList;
+<span class="kw">import</span> java.util.Deque;
+
+<span class="kw">public class</span> <span class="typ">p33</span> {
+    <span class="kw">public static</span> <span class="typ">void</span> <span class="fn">main</span>(<span class="typ">String</span>[] args) {
+        <span class="cmt">// First Negative Number in every Window of Size K | Sliding Window</span>
+
+        <span class="typ">int</span> arr[] = {<span class="num">12</span>, <span class="num">-1</span>, <span class="num">-7</span>, <span class="num">8</span>, <span class="num">-15</span>, <span class="num">30</span>, <span class="num">16</span>, <span class="num">28</span>};
+        <span class="typ">int</span> k = <span class="num">3</span>;
+        <span class="typ">int</span> i = <span class="num">0</span>, j = <span class="num">0</span>;
+        <span class="typ">Deque</span>&lt;<span class="typ">Integer</span>&gt; dq = <span class="kw">new</span> <span class="typ">ArrayDeque</span>&lt;&gt;();
+
+        <span class="kw">while</span> (j &lt; arr.length) {
+            <span class="kw">if</span> (arr[j] &lt; <span class="num">0</span>)
+                dq.offerLast(j);
+
+            <span class="kw">if</span> ((j - i + <span class="num">1</span>) &lt; k) {
+                j++;
+            } <span class="kw">else if</span> ((j - i + <span class="num">1</span>) == k) {
+                <span class="kw">if</span> (!dq.isEmpty())
+                    System.out.print(arr[dq.peekFirst()] + <span class="str">" "</span>);
+                <span class="kw">else</span>
+                    System.out.println(<span class="str">"0"</span> + <span class="str">" "</span>);
+
+                <span class="kw">if</span> (!dq.isEmpty() &amp;&amp; dq.peekFirst() == i)
+                    dq.poll();
+
+                i++;
+                j++;
+            }
+        }
+    }
+}</span></div>
+      </div>
+      <p class="section-label">Dry Run (arr = [12, -1, -7, 8, -15, 30, 16, 28], K = 3)</p>
+      <div class="tbl-wrap"><table class="bit-table">
+        <thead><tr><th>Window</th><th>First Negative</th></tr></thead>
+        <tbody>
+          <tr><td>[12, -1, -7]</td><td>-1</td></tr>
+          <tr><td>[-1, -7, 8]</td><td>-1</td></tr>
+          <tr><td>[-7, 8, -15]</td><td>-7</td></tr>
+          <tr><td>[8, -15, 30]</td><td>-15</td></tr>
+          <tr><td>[-15, 30, 16]</td><td>-15</td></tr>
+          <tr><td>[30, 16, 28]</td><td>0</td></tr>
+        </tbody>
+      </table></div>
+      <div class="sbox">✅ <strong>Output:</strong> -1 -1 -7 -15 -15 0 &nbsp;|&nbsp; <strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(k) — each index is pushed and popped from the deque at most once; the deque holds at most <code>k</code> indices.</div>
+    </div>
+  </div>
+
+  <!-- 10. Count Occurrences of Anagrams -->
+  <div class="accordion" id="acc-sw-countanag">
+    <button class="accordion-header" onclick="toggleAcc('sw-countanag')">
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#ec4899">🪟</span><span>10. Count Occurrences Of Anagrams</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-sw-countanag">
+      <div class="hbox"><strong>Goal:</strong> Given a text <code>txt</code> and a pattern <code>pat</code>, count how many <strong>contiguous substrings of <code>txt</code></strong> (window size = <code>pat.length()</code>) are an <strong>anagram</strong> of <code>pat</code> — i.e. contain the exact same characters with the exact same frequency, in any order.</div>
+      <p class="section-label">Intuition</p>
+      <div class="ybox">Build a <strong>frequency array</strong> (size 26, for lowercase letters) of the pattern once — <code>arrPat</code>. Slide a window of size <code>pat.length()</code> across <code>txt</code>, maintaining a second frequency array <code>arrOcc</code> for the current window: <strong>add the incoming right character's count, and once the window reaches size <code>K</code>, compare the two frequency arrays with <code>Arrays.equals()</code></strong> — if they match, it's an anagram, so increment the counter. Then <strong>remove the outgoing left character's count</strong> before sliding forward.</div>
+      <p class="section-label">Java Code</p>
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">p34.java</span></div>
+        <div class="code-body"><span class="kw">import</span> java.util.Arrays;
+
+<span class="kw">public class</span> <span class="typ">p34</span> {
+    <span class="kw">public static</span> <span class="typ">void</span> <span class="fn">main</span>(<span class="typ">String</span>[] args) {
+        <span class="cmt">/*
+        txt = "forxxorfxdofr"
+        pat = "for"
+        */</span>
+        <span class="typ">String</span> str = <span class="str">"forxxorfxdofr"</span>;
+        <span class="typ">String</span> ptr = <span class="str">"for"</span>;
+
+        <span class="typ">int</span> arrPat[] = <span class="kw">new</span> <span class="typ">int</span>[<span class="num">26</span>];
+        <span class="typ">int</span> arrOcc[] = <span class="kw">new</span> <span class="typ">int</span>[<span class="num">26</span>];
+
+        <span class="kw">for</span> (<span class="typ">int</span> i = <span class="num">0</span>; i &lt; ptr.length(); i++) {
+            arrPat[ptr.charAt(i) - <span class="str">'a'</span>]++;
+        }
+
+        <span class="typ">int</span> i = <span class="num">0</span>, j = <span class="num">0</span>, c = <span class="num">0</span>;
+        <span class="kw">while</span> (j &lt; str.length()) {
+            arrOcc[str.charAt(j) - <span class="str">'a'</span>]++;
+
+            <span class="kw">if</span> ((j - i + <span class="num">1</span>) &lt; ptr.length())
+                j++;
+            <span class="kw">else if</span> ((j - i + <span class="num">1</span>) == ptr.length()) {
+                <span class="kw">if</span> (Arrays.equals(arrOcc, arrPat))
+                    c++;
+                arrOcc[str.charAt(i) - <span class="str">'a'</span>]--;
+
+                i++; j++;
+            }
+        }
+        System.out.println(c);
+    }
+}</span></div>
+      </div>
+      <p class="section-label">Dry Run (txt = "forxxorfxdofr", pat = "for")</p>
+      <div class="tbl-wrap"><table class="bit-table">
+        <thead><tr><th>Window</th><th>Anagram of "for"?</th></tr></thead>
+        <tbody>
+          <tr><td>for</td><td>✅ Yes</td></tr>
+          <tr><td>orx</td><td>❌ No</td></tr>
+          <tr><td>rxx</td><td>❌ No</td></tr>
+          <tr><td>xxo</td><td>❌ No</td></tr>
+          <tr><td>xor</td><td>✅ Yes (rearranged "for")</td></tr>
+          <tr><td>orf</td><td>✅ Yes (rearranged "for")</td></tr>
+          <tr><td>rfx</td><td>❌ No</td></tr>
+          <tr><td>fxd</td><td>❌ No</td></tr>
+          <tr><td>xdo</td><td>❌ No</td></tr>
+          <tr><td>dof</td><td>❌ No</td></tr>
+          <tr><td>ofr</td><td>✅ Yes (rearranged "for")</td></tr>
+        </tbody>
+      </table></div>
+      <div class="sbox">✅ <strong>Output:</strong> c = 4 &nbsp;|&nbsp; <strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(26) ≈ O(1) — two fixed-size frequency arrays; each character is added once and removed once from the window.</div>
+
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#ec4899;border-bottom:1px solid rgba(236,72,153,0.2);padding-bottom:6px"><span>🔁</span><span>LeetCode Variant — Find All Anagrams in a String</span></div>
+      <div class="hbox">Same sliding window + frequency array idea, but instead of just <strong>counting</strong> anagram windows, we <strong>collect the starting index</strong> <code>i</code> of every window whose frequency array matches the pattern's — returned as a <code>List&lt;Integer&gt;</code>.</div>
+      <p class="section-label">Java Code</p>
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">Solution.java — LeetCode 438</span></div>
+        <div class="code-body"><span class="kw">class</span> <span class="typ">Solution</span> {
+    <span class="typ">List</span>&lt;<span class="typ">Integer</span>&gt; <span class="fn">findAnagrams</span>(<span class="typ">String</span> s, <span class="typ">String</span> p) {
+        <span class="typ">List</span>&lt;<span class="typ">Integer</span>&gt; list = <span class="kw">new</span> <span class="typ">ArrayList</span>&lt;&gt;();
+        <span class="kw">if</span> (s.length() &lt; p.length()) <span class="kw">return</span> <span class="kw">new</span> <span class="typ">ArrayList</span>&lt;&gt;() {<span class="num">0</span>};
+
+        <span class="typ">int</span> arrS[] = <span class="kw">new</span> <span class="typ">int</span>[<span class="num">26</span>];
+        <span class="typ">int</span> arrP[] = <span class="kw">new</span> <span class="typ">int</span>[<span class="num">26</span>];
+
+        <span class="kw">for</span> (<span class="typ">int</span> i = <span class="num">0</span>; i &lt; p.length(); i++) {
+            arrP[p.charAt(i) - <span class="str">'a'</span>]++;
+        }
+
+        <span class="typ">int</span> i = <span class="num">0</span>, j = <span class="num">0</span>;
+        <span class="kw">while</span> (j &lt; s.length()) {
+            arrS[s.charAt(j) - <span class="str">'a'</span>]++;
+
+            <span class="kw">if</span> ((j - i + <span class="num">1</span>) &lt; p.length()) j++;
+            <span class="kw">else if</span> ((j - i + <span class="num">1</span>) == p.length()) {
+                <span class="kw">if</span> (Arrays.equal(arrS, arrP)) {
+                    list.add(i);
+                }
+
+                arrS[s.charAt(i) - <span class="str">'a'</span>]--;
+                i++; j++;
+            }
+        }
+        <span class="kw">return</span> list;
+    }
+}</span></div>
+      </div>
+      <div class="ybox">⚠️ <strong>Watch out:</strong> this is <code>Arrays.equal(...)</code> — the correct method is <code>Arrays.equals(...)</code> (with an <strong>s</strong>), otherwise it won't compile. Also <code>return new ArrayList&lt;&gt;(){0};</code> is invalid double-brace syntax for an early return — the safer early return is simply <code>return list;</code> (an empty list) when <code>s.length() &lt; p.length()</code>.</div>
+      <div class="sbox">✅ <strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(26) ≈ O(1) — identical sliding window technique as above, just storing matching start indices instead of a count.</div>
+    </div>
+  </div>
+
 </div>
 `;
 
@@ -8994,9 +9251,12 @@ function toggleTopicsDropdown(e) {
   if (e) e.stopPropagation();
   const wrap = document.getElementById('topicsDropdownWrap');
   const panel = document.getElementById('topicsDropdownPanel');
+  const backdrop = document.getElementById('topicsDropdownBackdrop');
   const opening = !panel.classList.contains('visible');
   panel.classList.toggle('visible', opening);
   wrap.classList.toggle('open', opening);
+  if (backdrop) backdrop.classList.toggle('visible', opening);
+  document.body.style.overflow = (opening && window.innerWidth <= 768) ? 'hidden' : '';
   if (opening) {
     syncTopicsDropdownActive();
     positionTopicsDropdownPanel();
@@ -9004,14 +9264,14 @@ function toggleTopicsDropdown(e) {
 }
 
 function positionTopicsDropdownPanel() {
-  if (window.innerWidth > 768) { // desktop uses CSS-anchored positioning
-    const panel = document.getElementById('topicsDropdownPanel');
-    if (panel) { panel.style.top = ''; }
+  const panel = document.getElementById('topicsDropdownPanel');
+  if (!panel) return;
+  if (window.innerWidth <= 768) { // mobile uses a fixed bottom-sheet, no JS positioning needed
+    panel.style.top = '';
     return;
   }
   const wrap = document.getElementById('topicsDropdownWrap');
-  const panel = document.getElementById('topicsDropdownPanel');
-  if (!wrap || !panel) return;
+  if (!wrap) return;
   const rect = wrap.getBoundingClientRect();
   panel.style.top = Math.round(rect.bottom + 8) + 'px';
 }
@@ -9019,8 +9279,11 @@ function positionTopicsDropdownPanel() {
 function closeTopicsDropdown() {
   const wrap = document.getElementById('topicsDropdownWrap');
   const panel = document.getElementById('topicsDropdownPanel');
+  const backdrop = document.getElementById('topicsDropdownBackdrop');
   panel.classList.remove('visible');
   wrap.classList.remove('open');
+  if (backdrop) backdrop.classList.remove('visible');
+  document.body.style.overflow = '';
 }
 
 function selectTopicsDropdown(cat) {
@@ -10185,20 +10448,49 @@ const ROADMAPS = {
       ['cicd','system-design'], ['cicd','monitoring-logging'],
       ['system-design','interview-prep'], ['monitoring-logging','interview-prep'],
     ]
+  },
+  'jcf': {
+    title: 'Java Collections Framework (JCF) Roadmap',
+    nodes: [
+      {id:'jcf-intro', label:'Introduction to Collections Framework', row:0},
+      {id:'collection-hierarchy', label:'Collection Interface & Hierarchy', row:1},
+      {id:'generics-collections', label:'Generics in Collections', row:1},
+      {id:'list-interface', label:'List Interface', row:2},
+      {id:'set-interface', label:'Set Interface', row:2},
+      {id:'queue-interface', label:'Queue / Deque Interface', row:2},
+      {id:'arraylist-linkedlist', label:'ArrayList vs LinkedList vs Vector', row:3},
+      {id:'hashset-treeset', label:'HashSet vs LinkedHashSet vs TreeSet', row:3},
+      {id:'priorityqueue-deque', label:'PriorityQueue & ArrayDeque', row:3},
+      {id:'map-interface', label:'Map Interface', row:4},
+      {id:'hashmap-internals', label:'HashMap Internal Working', row:5},
+      {id:'treemap-linkedhashmap', label:'TreeMap vs LinkedHashMap vs Hashtable', row:5},
+      {id:'iterator-listiterator', label:'Iterator & ListIterator', row:6},
+      {id:'comparable-comparator', label:'Comparable vs Comparator', row:6},
+      {id:'collections-utility', label:'Collections Utility Class (sort, sync, unmodifiable)', row:7},
+      {id:'fail-fast-safe', label:'Fail-Fast vs Fail-Safe Iterators', row:7},
+      {id:'concurrent-collections', label:'Concurrent Collections (ConcurrentHashMap, CopyOnWriteArrayList)', row:8},
+      {id:'time-complexity-jcf', label:'Time Complexity Cheat Sheet', row:9},
+      {id:'jcf-interview', label:'JCF Interview Prep', row:10},
+    ],
+    edges: [
+      ['jcf-intro','collection-hierarchy'], ['jcf-intro','generics-collections'],
+      ['collection-hierarchy','list-interface'], ['collection-hierarchy','set-interface'], ['collection-hierarchy','queue-interface'],
+      ['generics-collections','list-interface'],
+      ['list-interface','arraylist-linkedlist'],
+      ['set-interface','hashset-treeset'],
+      ['queue-interface','priorityqueue-deque'],
+      ['arraylist-linkedlist','map-interface'], ['hashset-treeset','map-interface'], ['priorityqueue-deque','map-interface'],
+      ['map-interface','hashmap-internals'], ['map-interface','treemap-linkedhashmap'],
+      ['hashmap-internals','iterator-listiterator'], ['treemap-linkedhashmap','comparable-comparator'],
+      ['iterator-listiterator','collections-utility'], ['comparable-comparator','fail-fast-safe'],
+      ['collections-utility','concurrent-collections'], ['fail-fast-safe','concurrent-collections'],
+      ['concurrent-collections','time-complexity-jcf'],
+      ['time-complexity-jcf','jcf-interview'],
+    ]
   }
 };
 
 let _rmCurrentId = null;
-
-function rmGetProgress(roadmapId) {
-  try {
-    const raw = localStorage.getItem('rm_progress_' + roadmapId);
-    return raw ? JSON.parse(raw) : [];
-  } catch (e) { return []; }
-}
-function rmSaveProgress(roadmapId, arr) {
-  try { localStorage.setItem('rm_progress_' + roadmapId, JSON.stringify(arr)); } catch (e) {}
-}
 
 function openRoadmap(id) {
   const rm = ROADMAPS[id];
@@ -10214,7 +10506,6 @@ function openRoadmap(id) {
   overlay.scrollTop = 0;
   document.body.style.overflow = 'hidden';
   if (typeof closeMobileSidebar === 'function') closeMobileSidebar();
-  requestAnimationFrame(() => requestAnimationFrame(rmDrawEdges));
 
   // Push a history entry so the mobile/browser "Back" button closes the
   // roadmap overlay instead of navigating away from the page.
@@ -10257,99 +10548,12 @@ function doCloseRoadmap() {
 function renderRoadmap(id) {
   const rm = ROADMAPS[id];
   if (!rm) return;
-  const done = new Set(rmGetProgress(id));
   const rowsWrap = document.getElementById('rmRows');
   if (!rowsWrap) return;
-  const maxRow = rm.nodes.reduce((m, n) => Math.max(m, n.row), 0);
-  let html = '';
-  for (let r = 0; r <= maxRow; r++) {
-    const rowNodes = rm.nodes.filter(n => n.row === r);
-    if (!rowNodes.length) continue;
-    html += `<div class="rm-row" data-row="${r}">` + rowNodes.map(n => `
-      <div class="rm-node ${done.has(n.id) ? 'done' : ''}" data-id="${n.id}" onclick="rmToggleNode('${id}','${n.id}')">
-        <div class="rm-node-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="rm-node-label">${n.label}</div>
-        <div class="rm-node-bar"><div class="rm-node-bar-fill"></div></div>
-      </div>`).join('') + `</div>`;
-  }
-  rowsWrap.innerHTML = html;
-  rmUpdateHeaderProgress(id);
-  rmSyncNavSubs();
+  const html = rm.nodes.map((n, i) => `
+    <div class="rm-item">
+      <div class="rm-item-marker"><span class="rm-item-num">${i + 1}</span></div>
+      <div class="rm-item-label">${n.label}</div>
+    </div>`).join('');
+  rowsWrap.innerHTML = `<div class="rm-list">${html}</div>`;
 }
-
-function rmToggleNode(roadmapId, nodeId) {
-  const done = new Set(rmGetProgress(roadmapId));
-  if (done.has(nodeId)) done.delete(nodeId); else done.add(nodeId);
-  rmSaveProgress(roadmapId, Array.from(done));
-  const el = document.querySelector(`.rm-node[data-id="${nodeId}"]`);
-  if (el) el.classList.toggle('done');
-  rmUpdateHeaderProgress(roadmapId);
-  rmDrawEdges();
-  rmSyncNavSubs();
-}
-
-function rmUpdateHeaderProgress(roadmapId) {
-  const rm = ROADMAPS[roadmapId];
-  if (!rm) return;
-  const done = rmGetProgress(roadmapId);
-  const validIds = new Set(rm.nodes.map(n => n.id));
-  const doneCount = done.filter(id => validIds.has(id)).length;
-  const total = rm.nodes.length;
-  const pct = total ? Math.round((doneCount / total) * 100) : 0;
-  const fill = document.getElementById('rmHeaderProgressFill');
-  const text = document.getElementById('rmHeaderProgressText');
-  if (fill) fill.style.width = pct + '%';
-  if (text) text.textContent = `${doneCount}/${total} completed`;
-}
-
-function rmSyncNavSubs() {
-  Object.keys(ROADMAPS).forEach(rid => {
-    const rm = ROADMAPS[rid];
-    const validIds = new Set(rm.nodes.map(n => n.id));
-    const doneCount = rmGetProgress(rid).filter(id => validIds.has(id)).length;
-    const subEl = document.getElementById(rid === 'ai-engineer' ? 'rmNavSubAi' : 'rmNavSubJava');
-    if (subEl) subEl.textContent = `${doneCount}/${rm.nodes.length} done`;
-  });
-}
-
-function resetRoadmapProgress() {
-  if (!_rmCurrentId) return;
-  if (!confirm('Reset all progress for this roadmap? This cannot be undone.')) return;
-  rmSaveProgress(_rmCurrentId, []);
-  renderRoadmap(_rmCurrentId);
-  requestAnimationFrame(() => requestAnimationFrame(rmDrawEdges));
-}
-
-function rmDrawEdges() {
-  if (!_rmCurrentId) return;
-  const rm = ROADMAPS[_rmCurrentId];
-  const svg = document.getElementById('rmSvg');
-  const canvas = document.getElementById('rmCanvas');
-  if (!svg || !canvas || !rm) return;
-  const canvasRect = canvas.getBoundingClientRect();
-  if (!canvasRect.width || !canvasRect.height) return;
-  svg.setAttribute('width', canvasRect.width);
-  svg.setAttribute('height', canvasRect.height);
-  svg.setAttribute('viewBox', `0 0 ${canvasRect.width} ${canvasRect.height}`);
-  const done = new Set(rmGetProgress(_rmCurrentId));
-  let paths = '';
-  rm.edges.forEach(([fromId, toId]) => {
-    const fromEl = document.querySelector(`.rm-node[data-id="${fromId}"]`);
-    const toEl = document.querySelector(`.rm-node[data-id="${toId}"]`);
-    if (!fromEl || !toEl) return;
-    const fr = fromEl.getBoundingClientRect(), tr = toEl.getBoundingClientRect();
-    const x1 = fr.left + fr.width / 2 - canvasRect.left;
-    const y1 = fr.bottom - canvasRect.top;
-    const x2 = tr.left + tr.width / 2 - canvasRect.left;
-    const y2 = tr.top - canvasRect.top;
-    const midY = (y1 + y2) / 2;
-    const edgeDone = done.has(fromId) && done.has(toId);
-    paths += `<path class="rm-edge ${edgeDone ? 'done' : ''}" d="M${x1},${y1} C${x1},${midY} ${x2},${midY} ${x2},${y2}"/>`;
-  });
-  svg.innerHTML = paths;
-}
-
-window.addEventListener('resize', () => { if (_rmCurrentId) rmDrawEdges(); });
-
-// Sync nav subtitle counts on initial load
-rmSyncNavSubs();

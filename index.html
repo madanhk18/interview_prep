@@ -21,8 +21,8 @@
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m15 18-6-6 6-6"/></svg>
     </button>
     <div class="fs-topic-title" id="fsTopicTitle"></div>
-    <div style="width:120px"></div>
   </div>
+
   <div class="fs-content" id="fsContent"></div>
 </div>
 
@@ -34,19 +34,12 @@
     </button>
     <div class="rm-header-mid">
       <div class="rm-header-title" id="rmHeaderTitle">Roadmap</div>
-      <div class="rm-header-progress-wrap">
-        <div class="rm-header-progress-track"><div class="rm-header-progress-fill" id="rmHeaderProgressFill"></div></div>
-        <span class="rm-header-progress-text" id="rmHeaderProgressText">0/0 completed</span>
-      </div>
     </div>
-    <button class="rm-reset-btn" id="rmResetBtn" onclick="resetRoadmapProgress()" title="Reset progress">Reset</button>
   </div>
   <div class="rm-scroll">
     <div class="rm-canvas" id="rmCanvas">
-      <svg class="rm-svg" id="rmSvg"></svg>
       <div class="rm-rows" id="rmRows"></div>
     </div>
-    <p class="rm-hint">Tap a topic to mark it complete. Your progress is saved automatically on this device.</p>
   </div>
 </div>
 
@@ -106,7 +99,7 @@
         <span class="rm-nav-icon" style="background:#000000;font-size:11px;font-weight:800;letter-spacing:-0.02em;color:rgba(255,255,255,0.92)">AI</span>
         <span class="rm-nav-text">
           <span class="rm-nav-title">AI Engineer</span>
-          <span class="rm-nav-sub" id="rmNavSubAi">0/0 done</span>
+          <span class="rm-nav-sub">28 topics</span>
         </span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text3);flex-shrink:0"><polyline points="9 6 15 12 9 18"/></svg>
       </button>
@@ -114,7 +107,15 @@
         <span class="rm-nav-icon" style="background:#000000">☕</span>
         <span class="rm-nav-text">
           <span class="rm-nav-title">Java Backend Dev</span>
-          <span class="rm-nav-sub" id="rmNavSubJava">0/0 done</span>
+          <span class="rm-nav-sub">26 topics</span>
+        </span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text3);flex-shrink:0"><polyline points="9 6 15 12 9 18"/></svg>
+      </button>
+      <button type="button" class="rm-nav-btn" onclick="openRoadmap('jcf')">
+        <span class="rm-nav-icon" style="background:#000000;font-size:11px;font-weight:800;letter-spacing:-0.01em;color:rgba(255,255,255,0.92)">JCF</span>
+        <span class="rm-nav-text">
+          <span class="rm-nav-title">Java Collections (JCF)</span>
+          <span class="rm-nav-sub">19 topics</span>
         </span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text3);flex-shrink:0"><polyline points="9 6 15 12 9 18"/></svg>
       </button>
@@ -212,6 +213,13 @@
           <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="topics-dropdown-panel" id="topicsDropdownPanel">
+          <div class="tdp-panel-header">
+            <span class="tdp-drag-handle"></span>
+            <span class="tdp-panel-title">Browse Topics</span>
+            <button type="button" class="tdp-close-btn" aria-label="Close" onclick="closeTopicsDropdown()">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </div>
           <a class="tdp-item" href="#" data-cat="all" onclick="selectTopicsDropdown('all');return false"><span style="font-size:14px">⬡</span> All Topics</a>
 
           <div class="tdp-group-label">DSA</div>
@@ -234,6 +242,7 @@
           <div class="tdp-group-label">Interview Prep</div>
           <a class="tdp-item" href="#" data-cat="interview" onclick="selectTopicsDropdown('interview');return false"><span class="nav-dot" style="background:#fbbf24"></span>Interview Questions</a>
         </div>
+        <div class="topics-dropdown-backdrop" id="topicsDropdownBackdrop" onclick="closeTopicsDropdown()"></div>
       </div>
     </div>
   </div>
