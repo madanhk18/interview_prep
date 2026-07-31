@@ -1551,7 +1551,7 @@ Window 3 : 2 + 3 + 4</div>
         <div class="code-body"><span class="kw">class</span> <span class="typ">Solution</span> {
     <span class="typ">List</span>&lt;<span class="typ">Integer</span>&gt; <span class="fn">findAnagrams</span>(<span class="typ">String</span> s, <span class="typ">String</span> p) {
         <span class="typ">List</span>&lt;<span class="typ">Integer</span>&gt; list = <span class="kw">new</span> <span class="typ">ArrayList</span>&lt;&gt;();
-        <span class="kw">if</span> (s.length() &lt; p.length()) <span class="kw">return</span> <span class="kw">new</span> <span class="typ">ArrayList</span>&lt;&gt;() {<span class="num">0</span>};
+        <span class="kw">if</span> (s.length() &lt; p.length()) <span class="kw">return</span> list;
 
         <span class="typ">int</span> arrS[] = <span class="kw">new</span> <span class="typ">int</span>[<span class="num">26</span>];
         <span class="typ">int</span> arrP[] = <span class="kw">new</span> <span class="typ">int</span>[<span class="num">26</span>];
@@ -1566,7 +1566,7 @@ Window 3 : 2 + 3 + 4</div>
 
             <span class="kw">if</span> ((j - i + <span class="num">1</span>) &lt; p.length()) j++;
             <span class="kw">else if</span> ((j - i + <span class="num">1</span>) == p.length()) {
-                <span class="kw">if</span> (Arrays.equal(arrS, arrP)) {
+                <span class="kw">if</span> (Arrays.equals(arrS, arrP)) {
                     list.add(i);
                 }
 
@@ -1578,8 +1578,70 @@ Window 3 : 2 + 3 + 4</div>
     }
 }</span></div>
       </div>
-      <div class="ybox">⚠️ <strong>Watch out:</strong> this is <code>Arrays.equal(...)</code> — the correct method is <code>Arrays.equals(...)</code> (with an <strong>s</strong>), otherwise it won't compile. Also <code>return new ArrayList&lt;&gt;(){0};</code> is invalid double-brace syntax for an early return — the safer early return is simply <code>return list;</code> (an empty list) when <code>s.length() &lt; p.length()</code>.</div>
+      <div class="ybox">⚠️ <strong>Watch out:</strong> always use <code>Arrays.equals(...)</code> (with an <strong>s</strong>) to compare array contents — <code>Arrays.equal(...)</code> doesn't exist and won't compile. Also note the early return above is simply <code>return list;</code> (an empty list) when <code>s.length() &lt; p.length()</code> — no need for double-brace initialization.</div>
       <div class="sbox">✅ <strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(26) ≈ O(1) — identical sliding window technique as above, just storing matching start indices instead of a count.</div>
+    </div>
+  </div>
+
+  <!-- 11. Maximum Element in every Subarray of size K -->
+  <div class="accordion" id="acc-sw-maxwindow">
+    <button class="accordion-header" onclick="toggleAcc('sw-maxwindow')">
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#ec4899">🪟</span><span>11. Maximum Element in every Subarray of size K</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-sw-maxwindow">
+      <div class="hbox"><strong>Goal:</strong> Given an array and a fixed window size <code>K</code>, find the <strong>maximum element</strong> in every contiguous window of size <code>K</code>, in O(n) instead of the O(n × k) brute force.</div>
+      <p class="section-label">Intuition</p>
+      <div class="ybox">Maintain a <strong>Deque of indices</strong>, kept in <strong>decreasing order of their values</strong> — so the front of the deque is always the index of the current window's maximum. As <code>j</code> moves right: <strong>pop from the back</strong> every index whose value is <code>&lt;= arr[j]</code> (they can never be the max again once a bigger element shows up to their right), then <strong>push <code>j</code></strong>. Once the window hits size <code>K</code>, the <strong>front</strong> of the deque is the answer for that window — and if the front's index equals the outgoing left index <code>i</code>, pop it before sliding on, since it's about to fall outside the window.</div>
+      <p class="section-label">Java Code</p>
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">Solution.java — Maximum of all Subarrays of size K</span></div>
+        <div class="code-body"><span class="kw">class</span> <span class="typ">Solution</span> {
+    <span class="kw">static</span> <span class="typ">ArrayList</span>&lt;<span class="typ">Integer</span>&gt; <span class="fn">maxOfSubarrays</span>(<span class="typ">int</span> arr[], <span class="typ">int</span> k) {
+        <span class="typ">ArrayList</span>&lt;<span class="typ">Integer</span>&gt; ans = <span class="kw">new</span> <span class="typ">ArrayList</span>&lt;&gt;();
+        <span class="typ">Deque</span>&lt;<span class="typ">Integer</span>&gt; dq = <span class="kw">new</span> <span class="typ">ArrayDeque</span>&lt;&gt;();
+        <span class="typ">int</span> i = <span class="num">0</span>, j = <span class="num">0</span>;
+
+        <span class="kw">while</span> (j &lt; arr.length) {
+            <span class="cmt">// Remove all smaller elements</span>
+            <span class="kw">while</span> (!dq.isEmpty() &amp;&amp; arr[dq.peekLast()] &lt;= arr[j]) {
+                dq.pollLast();
+            }
+            dq.offerLast(j);
+
+            <span class="kw">if</span> ((j - i + <span class="num">1</span>) &lt; k) {
+                j++;
+            } <span class="kw">else if</span> ((j - i + <span class="num">1</span>) == k) {
+                <span class="cmt">// Front is maximum</span>
+                ans.add(arr[dq.peekFirst()]);
+
+                <span class="cmt">// Remove expired index</span>
+                <span class="kw">if</span> (dq.peekFirst() == i) {
+                    dq.pollFirst();
+                }
+
+                i++;
+                j++;
+            }
+        }
+        <span class="kw">return</span> ans;
+    }
+}</span></div>
+      </div>
+      <p class="section-label">Dry Run (arr = [1, 3, -1, -3, 5, 3, 6, 7], K = 3)</p>
+      <div class="tbl-wrap"><table class="bit-table">
+        <thead><tr><th>Window</th><th>Deque (indices, front → back)</th><th>Max</th></tr></thead>
+        <tbody>
+          <tr><td>[1, 3, -1]</td><td>[1, 2] → val 3, -1</td><td>3</td></tr>
+          <tr><td>[3, -1, -3]</td><td>[1, 2, 3] → val 3, -1, -3</td><td>3</td></tr>
+          <tr><td>[-1, -3, 5]</td><td>[4] → val 5</td><td>5</td></tr>
+          <tr><td>[-3, 5, 3]</td><td>[4, 5] → val 5, 3</td><td>5</td></tr>
+          <tr><td>[5, 3, 6]</td><td>[6] → val 6</td><td>6</td></tr>
+          <tr><td>[3, 6, 7]</td><td>[7] → val 7</td><td>7</td></tr>
+        </tbody>
+      </table></div>
+      <div class="sbox">✅ <strong>Output:</strong> [3, 3, 5, 5, 6, 7] &nbsp;|&nbsp; <strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(k) — each index is pushed onto the deque exactly once and popped at most once, so the deque never holds more than <code>k</code> indices.</div>
+      <div class="ybox">⚠️ <strong>Watch out:</strong> the deque stores <strong>indices, not values</strong> — that's what lets you tell an expired element (<code>dq.peekFirst() == i</code>) apart from one that's simply no longer the max. Comparing values alone can't distinguish two equal elements at different positions.</div>
     </div>
   </div>
 
@@ -8961,7 +9023,7 @@ const TOPIC_COLORS = {
   'stack-queue':         { color:'#f97316', glow:'rgba(249,115,22,0.20)' },
   'strings':             { color:'#10b981', glow:'rgba(16,185,129,0.20)' },
   'interview-questions': { color:'#fbbf24', glow:'rgba(251,191,36,0.20)' },
-  'default':             { color:'#7c3aed', glow:'rgba(124,58,237,0.20)'},
+  'default':             { color:'#3b82f6', glow:'rgba(59,130,246,0.20)'},
 };
 
 function getAccent(id) {
@@ -9016,6 +9078,7 @@ function renderCard(topic) {
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
       </div>
     </div>
+    <div class="card-bottom-bar"></div>
   </div>`;
 }
 
@@ -9027,7 +9090,10 @@ function toggleExpand(id) {
   openFullscreen(topic);
 }
 
-function openFullscreen(topic) {
+// Renders a topic's content into the already-open fullscreen overlay,
+// without touching browser history. Shared by openFullscreen() and the
+// popstate handler (when stepping back to a previously-viewed topic).
+function renderFullscreenTopic(topic) {
   const overlay = document.getElementById('fullscreenOverlay');
   const titleEl = document.getElementById('fsTopicTitle');
   const contentEl = document.getElementById('fsContent');
@@ -9063,25 +9129,51 @@ function openFullscreen(topic) {
       }
     });
   });
-
-  // Push a history entry so the mobile/browser "Back" button closes the
-  // overlay instead of navigating away from the page.
-  if (!_fsHistoryPushed) {
-    history.pushState({ fsOverlay: true }, '', location.href);
-    _fsHistoryPushed = true;
-  }
 }
 
 // Tracks whether we currently own a pushed history entry for the overlay
 let _fsHistoryPushed = false;
+// Stack of topics visited while the overlay stays open (e.g. via an
+// "Answer from:" link, a bookmark, or a search result clicked from inside
+// an already-open topic). Lets the Back button step back one topic at a
+// time instead of jumping straight to the home page.
+let _fsStack = [];
+// The topic currently shown in the overlay, if any.
+let _fsCurrentTopic = null;
+
+function openFullscreen(topic) {
+  const overlay = document.getElementById('fullscreenOverlay');
+  const wasActive = overlay.classList.contains('active') && !overlay.classList.contains('closing');
+
+  if (wasActive && _fsCurrentTopic && _fsCurrentTopic.id !== topic.id) {
+    // Navigating to a different topic while the overlay is already open —
+    // remember where we came from and push a new history entry so Back
+    // returns here first, instead of closing straight to the home page.
+    _fsStack.push(_fsCurrentTopic);
+    history.pushState({ fsOverlay: true, nested: true }, '', location.href);
+    _fsHistoryPushed = true;
+  } else if (!wasActive) {
+    // Fresh open from the home page — start a clean navigation stack and
+    // push a single history entry so Back closes the overlay.
+    _fsStack = [];
+    if (!_fsHistoryPushed) {
+      history.pushState({ fsOverlay: true }, '', location.href);
+      _fsHistoryPushed = true;
+    }
+  }
+  // If the same topic is reopened while already active, do nothing extra.
+
+  _fsCurrentTopic = topic;
+  renderFullscreenTopic(topic);
+}
 
 // Public close function — used by the "Back to Topics" button, Escape key,
 // and anywhere else in the UI. If we pushed a history entry when opening,
-// go back through it (this fires popstate, which actually closes the
-// overlay via doCloseFullscreen). Otherwise close directly.
+// go back through it (this fires popstate, which decides whether to step
+// back to a previous topic or actually close the overlay). Otherwise
+// close directly.
 function closeFullscreen() {
   if (_fsHistoryPushed) {
-    _fsHistoryPushed = false;
     history.back();
   } else {
     doCloseFullscreen();
@@ -9090,10 +9182,13 @@ function closeFullscreen() {
 
 // Does the actual closing animation/cleanup. Called either directly
 // (no history entry was pushed) or from the popstate handler (when the
-// user pressed the phone/browser back button).
+// user pressed the phone/browser back button and the nested stack, if
+// any, is already empty).
 function doCloseFullscreen() {
   const overlay = document.getElementById('fullscreenOverlay');
   overlay.classList.add('closing');
+  _fsStack = [];
+  _fsCurrentTopic = null;
   setTimeout(() => {
     overlay.classList.remove('active','closing');
     document.body.style.overflow = '';
@@ -9113,13 +9208,24 @@ function doCloseFullscreen() {
 }
 
 // Fires when the user taps the phone/browser Back button (or swipes back).
-// If the overlay is open, close it instead of letting the browser navigate
-// away from the page.
+// If the overlay is open and there's a previous topic on the nested stack
+// (e.g. they followed an "Answer from:" or bookmark link), step back to
+// that topic instead of closing straight to the home page. Otherwise close
+// the overlay for real.
 window.addEventListener('popstate', () => {
   const overlay = document.getElementById('fullscreenOverlay');
   if (overlay && overlay.classList.contains('active') && !overlay.classList.contains('closing')) {
-    _fsHistoryPushed = false;
-    doCloseFullscreen();
+    if (_fsStack.length) {
+      const prevTopic = _fsStack.pop();
+      _fsCurrentTopic = prevTopic;
+      renderFullscreenTopic(prevTopic);
+      // An underlying history entry for this overlay still exists, so
+      // leave _fsHistoryPushed as-is (true) — Back will work again.
+    } else {
+      _fsHistoryPushed = false;
+      _fsCurrentTopic = null;
+      doCloseFullscreen();
+    }
   }
   const rmOverlay = document.getElementById('roadmapOverlay');
   if (rmOverlay && rmOverlay.classList.contains('active') && !rmOverlay.classList.contains('closing')) {
@@ -9720,7 +9826,7 @@ function renderSearchDropdown(results, query) {
   let html = `<div class="search-results-header">${count} result${count>1?'s':''} for "${query}"</div>`;
 
   results.forEach((r, i) => {
-    const accent = (typeof TOPIC_COLORS !== 'undefined' && TOPIC_COLORS[r.topicId]) || (typeof getAccent === 'function' && r.topicId ? getAccent(r.topicId) : { color:'#7c3aed', glow:'rgba(124,58,237,0.2)' });
+    const accent = (typeof TOPIC_COLORS !== 'undefined' && TOPIC_COLORS[r.topicId]) || (typeof getAccent === 'function' && r.topicId ? getAccent(r.topicId) : { color:'#3b82f6', glow:'rgba(59,130,246,0.2)' });
     const badge  = r.sectionId ? 'Section' : 'Topic';
     const crumbSection = r.sectionId && r.title !== r.topicName
       ? `<span class="sri-arrow">›</span><span>${highlight(r.title, query)}</span>`
