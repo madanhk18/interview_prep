@@ -265,6 +265,21 @@ body.light-mode .sidebar-theme-btn:hover {
   -webkit-background-clip:text; -webkit-text-fill-color:transparent;
   background-clip:text;
 }
+/* Overlay copy of the same word, positioned exactly on top — everything
+   invisible except the second "c", which gets a navy stroke only, so the
+   tricolor + this outline together read as the Indian flag (saffron,
+   white, green, navy). Text is duplicated (not colored via nth-child)
+   because a background-clip:text gradient can't be selectively stroked
+   on a single character within one element. */
+.tagline-accent-wrap{position:relative;display:inline-block}
+.tagline-accent-outline{position:absolute;top:0;left:0;pointer-events:none;white-space:pre}
+.tagline-accent-outline .tao-hide{color:transparent;-webkit-text-stroke:0}
+.tagline-accent-outline .tao-show{
+  color:transparent;
+  -webkit-text-stroke:1px #0b2f7a;
+  text-stroke:1px #0b2f7a;
+  paint-order:stroke fill;
+}
 
 /* ── LIQUID GLASS SIDEBAR ── */
 .sidebar {
@@ -1221,6 +1236,13 @@ body.light-mode .sidebar-toggle-btn:hover {
     width:48px;height:48px;border-radius:50%;align-items:center;justify-content:center;
     background:#3b82f6;border:none;cursor:pointer;transition:transform 0.15s, box-shadow 0.15s;
     box-shadow:0 8px 30px rgba(59,130,246,0.5)}
+  /* Arrow rotates in place to signal what tapping will do:
+     right = opens the menu · left = closes it · down = more content below · up = back to top */
+  .mobile-menu-btn svg{transition:transform 0.3s cubic-bezier(.4,0,.2,1)}
+  .mobile-menu-btn.dir-right svg{transform:rotate(0deg)}
+  .mobile-menu-btn.dir-left svg{transform:rotate(180deg)}
+  .mobile-menu-btn.dir-down svg{transform:rotate(90deg)}
+  .mobile-menu-btn.dir-up svg{transform:rotate(-90deg)}
   .mobile-menu-btn:hover{transform:translateY(-1px) scale(1.04)}
   .mobile-menu-btn:active{transform:translateY(0) scale(0.96)}
   .topics-grid{grid-template-columns:1fr}

@@ -9305,16 +9305,88 @@ function toggleMobileSidebar() {
   if (backdrop) backdrop.classList.toggle('show', isOpen);
   if (isOpen) sidebar.classList.remove('collapsed'); // never show a 0-width sidebar
   syncLoadMoreVisibility();
+  syncMobileMenuBtn();
 }
 function closeMobileSidebar() {
   document.getElementById('sidebar').classList.remove('open');
   const backdrop = document.getElementById('sidebarBackdrop');
   if (backdrop) backdrop.classList.remove('show');
   syncLoadMoreVisibility();
+  syncMobileMenuBtn();
 }
 window.addEventListener('resize', function(){
   if (window.innerWidth > 768) closeMobileSidebar();
 });
+
+// ── Mobile FAB (bottom-right arrow) — one button, four meanings ──
+// right = sidebar closed, at top      -> tap opens the sidebar
+// left  = sidebar open                -> tap closes the sidebar
+// down  = sidebar closed, scrolled,
+//         more content below          -> tap nudges the page down
+// up    = sidebar closed, at/near
+//         the bottom of the page      -> tap scrolls back to top
+const MOBILE_BTN_SCROLL_THRESHOLD = 80; // px scrolled before we switch from "menu" to "scroll" mode
+const MOBILE_BTN_BOTTOM_THRESHOLD = 120; // px from bottom counted as "reached the end"
+
+function getMobileMenuBtnDirection() {
+  const sidebar = document.getElementById('sidebar');
+  if (sidebar && sidebar.classList.contains('open')) return 'left';
+
+  const scrollY = window.scrollY || document.documentElement.scrollTop;
+  const viewportH = window.innerHeight;
+  const pageH = document.documentElement.scrollHeight;
+  const distanceFromBottom = pageH - viewportH - scrollY;
+
+  if (scrollY <= MOBILE_BTN_SCROLL_THRESHOLD) return 'right';
+  if (distanceFromBottom <= MOBILE_BTN_BOTTOM_THRESHOLD) return 'up';
+  return 'down';
+}
+
+function syncMobileMenuBtn() {
+  const btn = document.getElementById('mobileMenuBtn');
+  if (!btn || window.innerWidth > 768) return;
+
+  const dir = getMobileMenuBtnDirection();
+  btn.classList.remove('dir-right', 'dir-left', 'dir-down', 'dir-up');
+  btn.classList.add('dir-' + dir);
+
+  const labels = {
+    right: 'Open menu',
+    left: 'Close menu',
+    down: 'Scroll down for more',
+    up: 'Back to top'
+  };
+  btn.setAttribute('aria-label', labels[dir]);
+  btn.setAttribute('title', labels[dir]);
+}
+
+function handleMobileMenuBtnTap() {
+  const dir = getMobileMenuBtnDirection();
+  if (dir === 'right' || dir === 'left') {
+    toggleMobileSidebar(); // syncMobileMenuBtn() runs inside here
+    return;
+  }
+  if (dir === 'down') {
+    window.scrollBy({ top: Math.round(window.innerHeight * 0.7), behavior: 'smooth' });
+  } else if (dir === 'up') {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  // Scroll listener below will update the icon as the page moves.
+}
+
+let _mobileBtnScrollTicking = false;
+window.addEventListener('scroll', () => {
+  if (_mobileBtnScrollTicking) return;
+  _mobileBtnScrollTicking = true;
+  requestAnimationFrame(() => {
+    syncMobileMenuBtn();
+    _mobileBtnScrollTicking = false;
+  });
+}, { passive: true });
+
+window.addEventListener('resize', syncMobileMenuBtn);
+document.addEventListener('DOMContentLoaded', syncMobileMenuBtn);
+syncMobileMenuBtn();
 
 // Restore sidebar state
 (function(){
@@ -9657,6 +9729,7 @@ function renderAll() {
 
   // Content height just changed — re-check whether there's more to scroll to
   requestAnimationFrame(syncLoadMoreVisibility);
+  requestAnimationFrame(syncMobileMenuBtn);
 }
 
 // Shows the floating arrow whenever it's useful:
@@ -10535,54 +10608,75 @@ syncTopicsDropdownActive();
 // ══════════════════════════════════════════════════════════════
 const ROADMAPS = {
   'ai-engineer': {
-    title: 'AI Engineer Roadmap',
+    title: 'AI Backend / GenAI Engineer Roadmap',
     stages: [
-      { title: 'Foundations', points: [
-        'Python for AI — syntax, libraries (NumPy, Pandas)',
-        'Math Foundations — linear algebra & probability',
-        'Machine Learning Basics — supervised vs unsupervised',
+      { title: 'Computer Science Foundations', points: [
+        'DSA — problem solving & algorithms',
+        'OOP — object-oriented programming concepts',
+        'Operating Systems — processes, threads & memory',
+        'DBMS — SQL, normalization & transactions',
+        'Computer Networks — HTTP, TCP/IP & networking basics',
       ]},
-      { title: 'Core AI Concepts', points: [
-        'Neural Networks — layers, activations, backprop',
-        'NLP — tokenizing & understanding language',
-        'Deep Learning — CNNs, RNNs and beyond',
-        'Transformers & Attention — the modern backbone',
+      { title: 'Java Programming', points: [
+        'Core Java — syntax & OOP implementation',
+        'Collections Framework — List, Set, Map & Queue',
+        'Streams API & Lambdas — functional programming',
+        'Multithreading — concurrency & synchronization',
+        'Exception Handling & JVM Basics',
       ]},
-      { title: 'Language Models', points: [
-        'LLMs — how large language models work',
-        'Latency & Performance — making inference fast',
-        'AI Tokens & Tokenization — how text becomes numbers',
-        'AI Hallucination — why models make things up',
+      { title: 'Spring Boot', points: [
+         'Spring Core & IoC — dependency injection',
+          'REST APIs — build backend services',
+          'Spring Data JPA & Hibernate — database integration',
+          'Validation, Security & JWT Authentication',
+          'Microservices — scalable backend architecture',
       ]},
-      { title: 'Retrieval & Tuning', points: [
-        'Embeddings & Vector DBs — semantic search',
-        'Prompt Engineering — getting better outputs',
-        'RAG — grounding answers in real data',
-        'Fine-tuning & LoRA — customizing a model',
+      { title: 'Databases & Tools', points: [
+     'MySQL & PostgreSQL — relational databases',
+    'Redis — caching & performance',
+    'Git & GitHub — version control',
+    'Linux — essential commands & scripting',
+    'Docker — containerization basics',
+
       ]},
-      { title: 'Building with AI', points: [
-        'GenAI — generating text, images & more',
-        'LangChain / LlamaIndex — orchestrating AI apps',
+      { title: 'Python & Machine Learning', points: [
+       'Python — syntax, NumPy & Pandas',
+    'Regression & Classification',
+    'Evaluation Metrics — Accuracy, Precision & Recall',
+    'Overfitting, Underfitting & Model Training',
       ]},
-      { title: 'Voice AI', points: [
-        'TTS — text-to-speech',
-        'STT — speech-to-text',
-        'VAD — detecting when someone is speaking',
-        'S2S — real-time speech-to-speech pipelines',
+      { title: 'LLM Foundations', points: [
+    'LLMs — how large language models work',
+    'Tokens & Context Window',
+    'Temperature & Sampling',
+    'Prompt Engineering — better AI responses',
       ]},
-      { title: 'Production & Agents', points: [
-        'Agentic AI — models that plan & take actions',
-        'MLOps & Deployment — shipping models reliably',
+      { title: 'RAG & Vector Databases', points: [
+    'Embeddings — semantic representations',
+    'Vector Databases — ChromaDB, Pinecone & Qdrant',
+    'Chunking & Retrieval',
+    'Re-ranking — improving search quality',
       ]},
-      { title: 'Responsible AI', points: [
-        'AI Safety & Guardrails — keeping systems in check',
-        'Evaluation & Benchmarking — measuring quality',
+      { title: 'AI Agents', points: [
+      'LangChain & LangGraph',
+    'Tool Calling & MCP',
+    'Memory — conversational context',
+    'Multi-Agent Systems',
+
       ]},
-      { title: 'Future & Career', points: [
-        'AGI — where the field is headed',
-        'Vibe Coding — building fast with AI pair-programming',
-        'AI Engineer Interview Prep — land the role',
+      { title: 'Cloud & Deployment', points: [
+        'Docker — containerized applications',
+    'Kubernetes — orchestration basics',
+    'AWS — cloud fundamentals',
+    'CI/CD — automated deployment pipelines',
       ]},
+
+      {title: 'Career & Projects', points: [
+         'Build AI Backend Projects',
+    'System Design for AI Applications',
+    'AI Backend Interview Preparation',
+    'Portfolio & Open Source Contributions',
+    ]}
     ],
     nodes: [
       {id:'python-ai', label:'Python for AI', row:0},
@@ -10634,52 +10728,77 @@ const ROADMAPS = {
   'java-backend': {
     title: 'Java Backend Developer Roadmap',
     stages: [
-      { title: 'Java Core', points: [
-        'Java Fundamentals — syntax, data types, control flow',
-        'OOP Concepts — classes, inheritance, polymorphism',
-        'Collections Framework — Lists, Sets, Maps',
+      {    title: 'Computer Science Foundations',
+      points: [
+        'DSA — problem solving & algorithms',
+        'OOP — object-oriented programming concepts',
+        'Operating Systems — processes, threads & memory',
+        'DBMS — SQL, normalization & transactions',
+        'Computer Networks — HTTP, TCP/IP & networking',
       ]},
-      { title: 'Language Depth', points: [
-        'Exception Handling — writing robust code',
+      { title: 'Core Java',
+      points: [
+        'Java Fundamentals — syntax & programming basics',
+        'Collections Framework — List, Set, Map & Queue',
+        'Exception Handling — robust error handling',
+        'Generics — type-safe programming',
+        'JVM Basics — memory, GC & execution',
+      ]},
+      { title: 'Modern Java',
+      points: [
+        'Streams API & Lambdas',
+        'Functional Interfaces',
         'Multithreading & Concurrency',
-        'Java 8 / 17 / 21 Features — streams, records, lambdas',
-        'Generics — type-safe reusable code',
+        'Java 8 / 17 / 21 Features',
       ]},
-      { title: 'Data Access', points: [
-        'JDBC — talking to a database from Java',
-        'SQL & Databases — queries, joins, indexing',
+      {title: 'Databases',
+      points: [
+        'SQL — joins, indexing & optimization',
+        'JDBC — database connectivity',
+        'MySQL & NoSQL Databases',
+        'Redis — caching fundamentals',
       ]},
-      { title: 'Tooling', points: [
-        'Git & GitHub — version control basics',
-        'Maven / Gradle — build & dependency management',
-      ]},
-      { title: 'Spring Fundamentals', points: [
+      { title: 'Spring Framework',
+      points: [
         'Spring Core — IoC & Dependency Injection',
-        'Hibernate / JPA — ORM for Java',
+        'Spring Boot — rapid application development',
+        'Spring Data JPA & Hibernate',
+        'Validation & Configuration',
       ]},
-      { title: 'Spring Boot & APIs', points: [
-        'Spring Boot — rapid app development',
-        'REST APIs & HTTP — building web services',
-        'Spring Security — authN & authZ',
-      ]},
-      { title: 'Distributed Systems', points: [
+      { title: 'Backend Development',
+      points: [
+        'REST APIs & HTTP',
+        'Spring Security',
+        'JWT Authentication',
         'Microservices Architecture',
-        'Caching with Redis',
-        'OAuth2 / JWT — securing services',
       ]},
-      { title: 'Containers & Orchestration', points: [
-        'Docker & Containerization',
-        'Kubernetes — scaling containers',
+      { title: 'Development Tools',
+      points: [
+        'Git & GitHub',
+        'Maven / Gradle',
+        'Linux Commands',
+        'Postman & API Testing',
+      ]},
+      {  title: 'Deployment',
+      points: [
+        'Docker — containerization',
+        'Kubernetes — orchestration basics',
+        'CI/CD Pipelines',
+        'AWS Basics',
+      ]},
+      {  title: 'System Design',
+      points: [
+        'System Design Fundamentals',
+        'Caching Strategies',
         'Message Queues — Kafka / RabbitMQ',
-      ]},
-      { title: 'Delivery & Scale', points: [
-        'CI/CD Pipelines — automated delivery',
-        'System Design & Scalability',
         'Monitoring & Logging',
       ]},
-      { title: 'Interview Prep', points: [
-        'Mock system design rounds',
-        'Common Java & Spring interview questions',
+      {  title: 'Interview Preparation',
+      points: [
+        'Java Coding Interviews',
+        'Spring Boot Interview Questions',
+        'System Design Practice',
+        'Backend Project Portfolio',
       ]},
     ],
     nodes: [
@@ -10730,38 +10849,72 @@ const ROADMAPS = {
   'jcf': {
     title: 'Java Collections Framework (JCF) Roadmap',
     stages: [
-      { title: 'Foundations', points: [
-        'Introduction to the Collections Framework',
-        'Collection Interface & Hierarchy',
-        'Generics in Collections',
+      { title: 'Introduction',
+      points: [
+        'What is JCF?',
+        'Benefits of Collections',
+        'Collection Hierarchy',
+        'Generics Basics',
       ]},
-      { title: 'Core Interfaces', points: [
+      { title: 'Collection Interface',
+      points: [
+        'Collection Interface',
         'List Interface',
         'Set Interface',
-        'Queue / Deque Interface',
+        'Queue & Deque Interface',
       ]},
-      { title: 'Implementations', points: [
-        'ArrayList vs LinkedList vs Vector',
-        'HashSet vs LinkedHashSet vs TreeSet',
-        'PriorityQueue & ArrayDeque',
+      { title: 'List Implementations',
+      points: [
+        'ArrayList',
+        'LinkedList',
+        'Vector',
+        'Stack',
       ]},
-      { title: 'Maps', points: [
+      { title: 'Set Implementations',
+      points: [
+        'HashSet',
+        'LinkedHashSet',
+        'TreeSet',
+        'EnumSet',
+      ]},
+      { title: 'Queue & Deque',
+      points: [
+        'PriorityQueue',
+        'ArrayDeque',
+        'Queue Operations',
+        'Deque Operations',
+      ]},
+      {   title: 'Map Framework',
+      points: [
         'Map Interface',
-        'HashMap Internal Working',
-        'TreeMap vs LinkedHashMap vs Hashtable',
+        'HashMap',
+        'LinkedHashMap',
+        'TreeMap',
+        'Hashtable',
       ]},
-      { title: 'Iteration & Ordering', points: [
+      { title: 'Sorting & Traversal',
+      points: [
         'Iterator & ListIterator',
-        'Comparable vs Comparator',
+        'Comparable',
+        'Comparator',
+        'Collections.sort()',
       ]},
-      { title: 'Utilities & Safety', points: [
-        'Collections Utility Class — sort, sync, unmodifiable',
-        'Fail-Fast vs Fail-Safe Iterators',
-        'Concurrent Collections — ConcurrentHashMap, CopyOnWriteArrayList',
-      ]},
-      { title: 'Mastery', points: [
-        'Time Complexity Cheat Sheet',
-        'JCF Interview Prep',
+      {
+         title: 'Collections Utility',
+      points: [
+        'Collections Class',
+        'Arrays Utility Class',
+        'Immutable Collections',
+        'Unmodifiable Collections',
+      ]
+      },
+      {
+         title: 'Concurrent Collections',
+      points: [
+        'ConcurrentHashMap',
+        'CopyOnWriteArrayList',
+        'BlockingQueue',
+        'Fail-Fast vs Fail-Safe',
       ]},
     ],
     nodes: [
