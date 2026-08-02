@@ -12,37 +12,37 @@ const CATEGORIES = {
 };
 
 const TOPICS = [
-  {id:'bit-manipulation',name:'Bit Manipulation',icon:'🔢',color:'#14b8a6',gradient:'from-teal-400 to-cyan-600',category:'dsa',hasContent:true},
-  {id:'binary-search',name:'Binary Search',icon:'🔍',color:'#84cc16',gradient:'',category:'dsa',hasContent:true},
-  {id:'sorting',name:'Sorting Algorithms',icon:'📊',color:'#a855f7',gradient:'',category:'dsa'},
-  {id:'sliding-window',name:'Sliding Window',icon:'🪟',color:'#ec4899',gradient:'',category:'dsa',hasContent:true},
-  {id:'arrays',name:'Arrays',icon:'📦',color:'#6366f1',gradient:'',category:'dsa',hasContent:true},
-  {id:'strings',name:'Strings',icon:'🔤',color:'#10b981',gradient:'',category:'dsa'},
-  {id:'stack-queue',name:'Stack & Queue',icon:'📚',color:'#f97316',gradient:'',category:'dsa'},
-  {id:'linked-list',name:'Linked List',icon:'🔗',color:'#8b5cf6',gradient:'',category:'dsa',hasContent:true},
-  {id:'trees',name:'Trees',icon:'🌳',color:'#22c55e',gradient:'',category:'dsa'},
-  {id:'dynamic-programming',name:'Dynamic Programming',icon:'🧠',color:'#ef4444',gradient:'',category:'dsa'},
-  {id:'graphs',name:'Graphs',icon:'🕸️',color:'#06b6d4',gradient:'',category:'dsa'},
-  {id:'jdbc',name:'JDBC',icon:'🗄️',color:'#6366f1',gradient:'',category:'backend',hasContent:true},
-  {id:'java-oop',name:'Java + OOP Concepts',icon:'☕',color:'#f59e0b',gradient:'',category:'backend'},
-  {id:'java-features',name:'Java 8, 17 & 21 Features',icon:'⚡',color:'#f59e0b',gradient:'',category:'backend'},
-  {id:'built-in-functions',name:'Built-in Functions',icon:'🧰',color:'#f59e0b',gradient:'',category:'backend',hasContent:true},
-  {id:'projects',name:'Projects Explanation',icon:'🚀',color:'#f97316',gradient:'',category:'backend',hasContent:true},
-  {id:'spring-mvc',name:'Spring MVC',icon:'🍃',color:'#84cc16',gradient:'',category:'frameworks',hasContent:true},
-  {id:'spring-boot',name:'Spring Boot',icon:'🌱',color:'#22c55e',gradient:'',category:'frameworks',hasContent:true},
-  {id:'docker',name:'Docker',icon:'🐳',color:'#0ea5e9',gradient:'',category:'devops',hasContent:true},
-  {id:'kubernetes',name:'Kubernetes',icon:'⚙️',color:'#3b82f6',gradient:'',category:'devops',hasContent:true},
-  {id:'git',name:'Git & GitHub',icon:'🌿',color:'#f97316',gradient:'',category:'devops',hasContent:true},
-  {id:'maven',name:'Maven',icon:'📦',color:'#c71a36',gradient:'',category:'devops',hasContent:true},
-  {id:'mysql',name:'MySQL',icon:'🐬',color:'#10b981',gradient:'',category:'database'},
-  {id:'dbms',name:'DBMS Basics',icon:'💾',color:'#8b5cf6',gradient:'',category:'database',hasContent:true},
-  {id:'computer-networks',name:'Computer Networks',icon:'🌐',color:'#06b6d4',gradient:'',category:'cs-fundamentals',hasContent:true},
-  {id:'operating-systems',name:'Operating Systems',icon:'🖥️',color:'#ef4444',gradient:'',category:'cs-fundamentals',hasContent:true},
-  {id:'javascript',name:'JavaScript Basics',icon:'🟨',color:'#eab308',gradient:'',category:'frontend'},
-  {id:'html-css',name:'HTML & CSS',icon:'🎨',color:'#e879f9',gradient:'',category:'frontend',hasContent:true},
-  {id:'ai-concepts',name:'AI Related Concepts',icon:'🤖',color:'#a855f7',gradient:'',category:'ai'},
-  {id:'apis-http',name:'APIs & HTTP Codes',icon:'🌐',color:'#f43f5e',gradient:'',category:'apis',hasContent:true},
-  {id:'interview-questions',name:'Interview Questions',icon:'🎯',color:'#fbbf24',gradient:'',category:'interview',hasContent:true},
+  {id:'bit-manipulation',name:'Bit Manipulation',icon:'',color:'#14b8a6',gradient:'from-teal-400 to-cyan-600',category:'dsa',hasContent:true},
+  {id:'binary-search',name:'Binary Search',icon:'',color:'#84cc16',gradient:'',category:'dsa',hasContent:true},
+  {id:'sorting',name:'Sorting Algorithms',icon:'',color:'#a855f7',gradient:'',category:'dsa'},
+  {id:'sliding-window',name:'Sliding Window',icon:'',color:'#ec4899',gradient:'',category:'dsa',hasContent:true},
+  {id:'arrays',name:'Arrays',icon:'',color:'#6366f1',gradient:'',category:'dsa',hasContent:true},
+  {id:'strings',name:'Strings',icon:'',color:'#10b981',gradient:'',category:'dsa'},
+  {id:'stack-queue',name:'Stack & Queue',icon:'',color:'#f97316',gradient:'',category:'dsa'},
+  {id:'linked-list',name:'Linked List',icon:'',color:'#8b5cf6',gradient:'',category:'dsa',hasContent:true},
+  {id:'trees',name:'Trees',icon:'',color:'#22c55e',gradient:'',category:'dsa'},
+  {id:'dynamic-programming',name:'Dynamic Programming',icon:'',color:'#ef4444',gradient:'',category:'dsa'},
+  {id:'graphs',name:'Graphs',icon:'️',color:'#06b6d4',gradient:'',category:'dsa'},
+  {id:'jdbc',name:'JDBC',icon:'️',color:'#6366f1',gradient:'',category:'backend',hasContent:true},
+  {id:'java-oop',name:'Java + OOP Concepts',icon:'',color:'#f59e0b',gradient:'',category:'backend'},
+  {id:'java-features',name:'Java 8, 17 & 21 Features',icon:'',color:'#f59e0b',gradient:'',category:'backend'},
+  {id:'built-in-functions',name:'Built-in Functions',icon:'',color:'#f59e0b',gradient:'',category:'backend',hasContent:true},
+  {id:'projects',name:'Projects Explanation',icon:'',color:'#f97316',gradient:'',category:'backend',hasContent:true},
+  {id:'spring-mvc',name:'Spring MVC',icon:'',color:'#84cc16',gradient:'',category:'frameworks',hasContent:true},
+  {id:'spring-boot',name:'Spring Boot',icon:'',color:'#22c55e',gradient:'',category:'frameworks',hasContent:true},
+  {id:'docker',name:'Docker',icon:'',color:'#0ea5e9',gradient:'',category:'devops',hasContent:true},
+  {id:'kubernetes',name:'Kubernetes',icon:'️',color:'#3b82f6',gradient:'',category:'devops',hasContent:true},
+  {id:'git',name:'Git & GitHub',icon:'',color:'#f97316',gradient:'',category:'devops',hasContent:true},
+  {id:'maven',name:'Maven',icon:'',color:'#c71a36',gradient:'',category:'devops',hasContent:true},
+  {id:'mysql',name:'MySQL',icon:'',color:'#10b981',gradient:'',category:'database'},
+  {id:'dbms',name:'DBMS Basics',icon:'',color:'#8b5cf6',gradient:'',category:'database',hasContent:true},
+  {id:'computer-networks',name:'Computer Networks',icon:'',color:'#06b6d4',gradient:'',category:'cs-fundamentals',hasContent:true},
+  {id:'operating-systems',name:'Operating Systems',icon:'️',color:'#ef4444',gradient:'',category:'cs-fundamentals',hasContent:true},
+  {id:'javascript',name:'JavaScript Basics',icon:'',color:'#eab308',gradient:'',category:'frontend'},
+  {id:'html-css',name:'HTML & CSS',icon:'',color:'#e879f9',gradient:'',category:'frontend',hasContent:true},
+  {id:'ai-concepts',name:'AI Related Concepts',icon:'',color:'#a855f7',gradient:'',category:'ai'},
+  {id:'apis-http',name:'APIs & HTTP Codes',icon:'',color:'#f43f5e',gradient:'',category:'apis',hasContent:true},
+  {id:'interview-questions',name:'Interview Questions',icon:'',color:'#fbbf24',gradient:'',category:'interview',hasContent:true},
 ];
 
 const HTML_CSS_CONTENT = `
@@ -50,7 +50,11 @@ const HTML_CSS_CONTENT = `
 
   <!-- INTERVIEW NOTE -->
   <div style="background:rgba(232,121,249,0.07);border:1px solid rgba(232,121,249,0.2);border-radius:10px;padding:13px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.7;color:var(--text2)">
-    🎯 <strong style="color:#e879f9">Backend interview scope</strong> — You don't need deep frontend knowledge. Interviewers just check basic awareness of: semantic HTML, box model, flexbox centering, positioning, and specificity. That's it.
+    <strong style="color:#e879f9">Backend interview scope</strong> — You don't need deep frontend knowledge. Interviewers just check basic awareness of: semantic HTML, box model, flexbox centering, positioning, and specificity. That's it.
+  </div>
+  <div style="background:rgba(232,121,249,0.04);border:1px solid rgba(232,121,249,0.13);border-radius:10px;padding:13px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.7;color:var(--text2)">
+    <strong style="color:#e879f9">Why this matters</strong> — Backend-focused interviews still open with a couple of frontend basics to confirm you can hold a conversation across the stack. It's a low-stakes checkpoint, not a deep-dive — but stumbling on "how do you center a div" looks worse than the question deserves.<br><br>
+    <strong style="color:#e879f9">When to use it</strong> — Skim this before any full-stack or backend interview as a quick refresher, and lean on it specifically when asked to explain layout choices (flexbox vs grid), why a tag is semantic, or how CSS specificity resolves conflicting rules.
   </div>
 
   <!-- 1. Semantic HTML + Must-Know Tags -->
@@ -78,7 +82,7 @@ const HTML_CSS_CONTENT = `
           <tr><td style="color:#e879f9">&lt;aside&gt;</td><td>Sidebar / related content</td><td>&lt;div&gt;</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ Why it matters: better <strong>SEO</strong>, <strong>accessibility</strong> (screen readers), and cleaner code. Interviewers ask "what is semantic HTML?" — this table is your answer.</div>
+      <div class="sbox">Why it matters: better <strong>SEO</strong>, <strong>accessibility</strong> (screen readers), and cleaner code. Interviewers ask "what is semantic HTML?" — this table is your answer.</div>
 
       <p class="section-label">Inline vs Block Elements</p>
       <div class="tbl-wrap"><table class="bit-table">
@@ -89,7 +93,7 @@ const HTML_CSS_CONTENT = `
         </tbody>
       </table></div>
 
-      <p class="section-label">⚡ Interview Q&amp;A</p>
+      <p class="section-label">Interview Q&amp;A</p>
       <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:4px">
         <div style="background:rgba(232,121,249,0.06);border:1px solid rgba(232,121,249,0.15);border-radius:8px;padding:12px 14px;font-size:12.5px">
           <strong style="color:#e879f9">Q: What is semantic HTML and why use it?</strong><br>
@@ -138,8 +142,8 @@ const HTML_CSS_CONTENT = `
       <div class="tbl-wrap"><table class="bit-table">
         <thead><tr><th>box-sizing</th><th>What "width" means</th><th>Problem?</th></tr></thead>
         <tbody>
-          <tr><td style="color:#ef4444">content-box (default)</td><td>Content only. Total = width + padding + border</td><td>Adds padding = element grows ⚠</td></tr>
-          <tr><td style="color:#10b981">border-box (use this)</td><td>Content + padding + border. Total = width exactly</td><td>No surprise — stays predictable ✅</td></tr>
+          <tr><td style="color:#ef4444">content-box (default)</td><td>Content only. Total = width + padding + border</td><td>Adds padding = element grows</td></tr>
+          <tr><td style="color:#10b981">border-box (use this)</td><td>Content + padding + border. Total = width exactly</td><td>No surprise — stays predictable</td></tr>
         </tbody>
       </table></div>
       <div class="code-block">
@@ -151,7 +155,7 @@ const HTML_CSS_CONTENT = `
 <span class="cmt">/* margin  = space OUTSIDE (always transparent) */</span></div>
       </div>
 
-      <p class="section-label">⚡ Interview Q&amp;A</p>
+      <p class="section-label">Interview Q&amp;A</p>
       <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:4px">
         <div style="background:rgba(232,121,249,0.06);border:1px solid rgba(232,121,249,0.15);border-radius:8px;padding:12px 14px;font-size:12.5px">
           <strong style="color:#e879f9">Q: What is the CSS Box Model?</strong><br>
@@ -189,7 +193,7 @@ const HTML_CSS_CONTENT = `
           <tr><td>Class / Pseudo-class / Attribute</td><td style="color:#7dd3fc">.card { } &nbsp; :hover</td><td>10</td></tr>
           <tr><td>ID</td><td style="color:#7dd3fc">#header { }</td><td>100</td></tr>
           <tr><td>Inline style</td><td style="color:#7dd3fc">style="color:red"</td><td>1000</td></tr>
-          <tr><td>!important</td><td style="color:#ef4444">color: red !important</td><td>Overrides everything ⚠</td></tr>
+          <tr><td>!important</td><td style="color:#ef4444">color: red !important</td><td>Overrides everything</td></tr>
         </tbody>
       </table></div>
 
@@ -205,7 +209,7 @@ const HTML_CSS_CONTENT = `
 <span class="fn">p::before</span> { }   <span class="cmt">/* pseudo-element */</span></div>
       </div>
 
-      <p class="section-label">⚡ Interview Q&amp;A</p>
+      <p class="section-label">Interview Q&amp;A</p>
       <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:4px">
         <div style="background:rgba(232,121,249,0.06);border:1px solid rgba(232,121,249,0.15);border-radius:8px;padding:12px 14px;font-size:12.5px">
           <strong style="color:#e879f9">Q: What is specificity in CSS?</strong><br>
@@ -236,7 +240,7 @@ const HTML_CSS_CONTENT = `
 
       <p class="section-label">Flexbox — The One-Liner Everyone Asks</p>
       <div class="sbox" style="margin-bottom:12px">
-        ⭐ <strong>How to center anything:</strong> <code style="background:rgba(16,185,129,0.18);padding:2px 6px;border-radius:4px;font-size:12px">display:flex; justify-content:center; align-items:center;</code>
+        <strong>How to center anything:</strong> <code style="background:rgba(16,185,129,0.18);padding:2px 6px;border-radius:4px;font-size:12px">display:flex; justify-content:center; align-items:center;</code>
       </div>
 
       <div class="code-block">
@@ -273,9 +277,9 @@ const HTML_CSS_CONTENT = `
           <tr><td style="color:#e879f9">sticky</td><td>Acts relative until scroll threshold, then fixed</td><td>Table headers, section labels</td></tr>
         </tbody>
       </table></div>
-      <div class="ybox">⚠ <code style="font-family:'JetBrains Mono',monospace">position:absolute</code> needs a <code style="font-family:'JetBrains Mono',monospace">position:relative</code> parent — otherwise it positions relative to the entire &lt;html&gt; page!</div>
+      <div class="ybox"><code style="font-family:'JetBrains Mono',monospace">position:absolute</code> needs a <code style="font-family:'JetBrains Mono',monospace">position:relative</code> parent — otherwise it positions relative to the entire &lt;html&gt; page!</div>
 
-      <p class="section-label">⚡ Interview Q&amp;A</p>
+      <p class="section-label">Interview Q&amp;A</p>
       <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:4px">
         <div style="background:rgba(232,121,249,0.06);border:1px solid rgba(232,121,249,0.15);border-radius:8px;padding:12px 14px;font-size:12.5px">
           <strong style="color:#e879f9">Q: How do you center a div?</strong><br>
@@ -305,7 +309,7 @@ const HTML_CSS_CONTENT = `
   <div class="accordion" id="acc-html-qrev">
     <button class="accordion-header" onclick="toggleAcc('html-qrev')">
       <span style="display:flex;align-items:center;gap:8px">
-        <span style="color:#e879f9">⚡</span>
+        
         <span>Quick Revision — HTML &amp; CSS Cheatsheet</span>
       </span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
@@ -372,7 +376,7 @@ const LINKED_LIST_CONTENT = `
           <tr><td>2→1→3→5→6→4→7</td><td>2→3→6→7→1→5→4</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ <strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(1) — no extra list created, just pointer rewiring.</div>
+      <div class="sbox"><strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(1) — no extra list created, just pointer rewiring.</div>
     </div>
   </div>
 
@@ -417,7 +421,7 @@ const LINKED_LIST_CONTENT = `
     <span class="kw">return</span> zeroHead.next;
 }</div>
       </div>
-      <div class="sbox">✅ <strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(1) — only 3 dummy nodes used regardless of input size.</div>
+      <div class="sbox"><strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(1) — only 3 dummy nodes used regardless of input size.</div>
     </div>
   </div>
 
@@ -425,7 +429,7 @@ const LINKED_LIST_CONTENT = `
   <div class="accordion" id="acc-ll-remove-nth">
     <button class="accordion-header" onclick="toggleAcc('ll-remove-nth')">
       <span style="display:flex;align-items:center;gap:8px">
-        <span style="color:#8b5cf6">✂</span>
+        
         <span>3. Remove Nth Node from End</span>
       </span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
@@ -464,7 +468,7 @@ const LINKED_LIST_CONTENT = `
           <tr><td>1</td><td>1</td><td>[]</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ <strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(1) — dummy node handles edge case of deleting head.</div>
+      <div class="sbox"><strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(1) — dummy node handles edge case of deleting head.</div>
     </div>
   </div>
 
@@ -510,7 +514,7 @@ const LINKED_LIST_CONTENT = `
     <span class="kw">return</span> newHead;
 }</div>
       </div>
-      <div class="sbox">✅ Iterative: O(n) time, O(1) space &nbsp;|&nbsp; Recursive: O(n) time, O(n) stack space.</div>
+      <div class="sbox">Iterative: O(n) time, O(1) space &nbsp;|&nbsp; Recursive: O(n) time, O(n) stack space.</div>
     </div>
   </div>
 
@@ -593,9 +597,9 @@ const LINKED_LIST_CONTENT = `
         </tbody>
       </table></div>
 
-      <div class="sbox">✅ <strong>TC:</strong> O(n) — one recursive pass &nbsp;|&nbsp; <strong>SC:</strong> O(n) — call stack depth = list length</div>
+      <div class="sbox"><strong>TC:</strong> O(n) — one recursive pass &nbsp;|&nbsp; <strong>SC:</strong> O(n) — call stack depth = list length</div>
 
-      <p class="section-label">⚡ Interview Q&amp;A</p>
+      <p class="section-label">Interview Q&amp;A</p>
       <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:4px">
         <div style="background:rgba(139,92,246,0.06);border:1px solid rgba(139,92,246,0.15);border-radius:8px;padding:12px 14px;font-size:12.5px">
           <strong style="color:#8b5cf6">Q: Why use recursion instead of reversing the list?</strong><br>
@@ -617,7 +621,7 @@ const LINKED_LIST_CONTENT = `
   <div class="accordion" id="acc-ll-middle">
     <button class="accordion-header" onclick="toggleAcc('ll-middle')">
       <span style="display:flex;align-items:center;gap:8px">
-        <span style="color:#8b5cf6">⚡</span>
+        
         <span>6. Find the Middle Element of Linked List</span>
       </span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
@@ -649,7 +653,7 @@ const LINKED_LIST_CONTENT = `
           <tr><td>1→2→3→4→5→6</td><td>6 (even)</td><td>Node 4 (2nd middle)</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ <strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(1) — classic two-pointer trick.</div>
+      <div class="sbox"><strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(1) — classic two-pointer trick.</div>
     </div>
   </div>
 
@@ -657,7 +661,7 @@ const LINKED_LIST_CONTENT = `
   <div class="accordion" id="acc-ll-detect-cycle">
     <button class="accordion-header" onclick="toggleAcc('ll-detect-cycle')">
       <span style="display:flex;align-items:center;gap:8px">
-        <span style="color:#8b5cf6">🔄</span>
+        
         <span>7. Detect Loop / Cycle in Linked List</span>
       </span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
@@ -682,8 +686,8 @@ const LINKED_LIST_CONTENT = `
 
 <span class="kw">return false</span>;</div>
       </div>
-      <div class="wbox">⚠️ Do NOT use <code>HashSet</code> for this — it uses O(n) space. Floyd's is the optimal O(1) space solution.</div>
-      <div class="sbox">✅ <strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(1)</div>
+      <div class="wbox">️ Do NOT use <code>HashSet</code> for this — it uses O(n) space. Floyd's is the optimal O(1) space solution.</div>
+      <div class="sbox"><strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(1)</div>
     </div>
   </div>
 
@@ -691,7 +695,7 @@ const LINKED_LIST_CONTENT = `
   <div class="accordion" id="acc-ll-loop-length">
     <button class="accordion-header" onclick="toggleAcc('ll-loop-length')">
       <span style="display:flex;align-items:center;gap:8px">
-        <span style="color:#8b5cf6">📏</span>
+        
         <span>8. Find the Length of Loop in Linked List</span>
       </span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
@@ -732,7 +736,7 @@ const LINKED_LIST_CONTENT = `
     }
 }</div>
       </div>
-      <div class="sbox">✅ <strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(1)</div>
+      <div class="sbox"><strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(1)</div>
     </div>
   </div>
 
@@ -740,7 +744,7 @@ const LINKED_LIST_CONTENT = `
   <div class="accordion" id="acc-ll-delete-middle">
     <button class="accordion-header" onclick="toggleAcc('ll-delete-middle')">
       <span style="display:flex;align-items:center;gap:8px">
-        <span style="color:#8b5cf6">🗑</span>
+        
         <span>9. Delete the Middle Node of Linked List</span>
       </span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
@@ -781,7 +785,7 @@ const LINKED_LIST_CONTENT = `
           <tr><td>1→2→3→4</td><td>3 (idx 2)</td><td>1→2→4</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ <strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(1)</div>
+      <div class="sbox"><strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(1)</div>
     </div>
   </div>
 
@@ -789,7 +793,7 @@ const LINKED_LIST_CONTENT = `
   <div class="accordion" id="acc-ll-cycle-start">
     <button class="accordion-header" onclick="toggleAcc('ll-cycle-start')">
       <span style="display:flex;align-items:center;gap:8px">
-        <span style="color:#8b5cf6">🎯</span>
+        
         <span>10. Find Starting Point of the Cycle</span>
       </span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
@@ -838,7 +842,7 @@ const LINKED_LIST_CONTENT = `
     }
 }</div>
       </div>
-      <div class="sbox">✅ <strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(1) — most asked cycle question in interviews!</div>
+      <div class="sbox"><strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(1) — most asked cycle question in interviews!</div>
     </div>
   </div>
 
@@ -846,7 +850,7 @@ const LINKED_LIST_CONTENT = `
   <div class="accordion" id="acc-ll-remove-dup">
     <button class="accordion-header" onclick="toggleAcc('ll-remove-dup')">
       <span style="display:flex;align-items:center;gap:8px">
-        <span style="color:#8b5cf6">🧹</span>
+        
         <span>11. Remove Duplicates from Sorted Linked List</span>
       </span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
@@ -898,7 +902,7 @@ const LINKED_LIST_CONTENT = `
           <tr><td>1→2→3→3→4→4→5</td><td>1→2→3→4→5</td><td>1→2→5</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ <strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(1) — sorted property is the key advantage.</div>
+      <div class="sbox"><strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(1) — sorted property is the key advantage.</div>
     </div>
   </div>
 
@@ -906,7 +910,7 @@ const LINKED_LIST_CONTENT = `
   <div class="accordion" id="acc-ll-palindrome">
     <button class="accordion-header" onclick="toggleAcc('ll-palindrome')">
       <span style="display:flex;align-items:center;gap:8px">
-        <span style="color:#8b5cf6">🔁</span>
+        
         <span>12. Check Palindrome Linked List</span>
       </span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
@@ -979,9 +983,9 @@ const LINKED_LIST_CONTENT = `
         </tbody>
       </table></div>
 
-      <div class="sbox">✅ <strong>TC:</strong> O(n) — one pass to find middle + one pass to compare &nbsp;|&nbsp; <strong>SC:</strong> O(1) — only pointer variables used.</div>
+      <div class="sbox"><strong>TC:</strong> O(n) — one pass to find middle + one pass to compare &nbsp;|&nbsp; <strong>SC:</strong> O(1) — only pointer variables used.</div>
 
-      <p class="section-label" style="margin-top:16px">⚡ Interview Q&amp;A</p>
+      <p class="section-label" style="margin-top:16px">Interview Q&amp;A</p>
       <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:4px">
         <div style="background:rgba(139,92,246,0.06);border:1px solid rgba(139,92,246,0.15);border-radius:8px;padding:12px 14px;font-size:12.5px">
           <strong style="color:#8b5cf6">Q: Why check fast.next != null &amp;&amp; fast.next.next != null?</strong><br>
@@ -1007,7 +1011,7 @@ const LINKED_LIST_CONTENT = `
   <div class="accordion" id="acc-ll-add2">
     <button class="accordion-header" onclick="toggleAcc('ll-add2')">
       <span style="display:flex;align-items:center;gap:8px">
-        <span style="color:#8b5cf6">➕</span>
+        
         <span>Extra. Add Two Linked Lists</span>
       </span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
@@ -1057,9 +1061,9 @@ const LINKED_LIST_CONTENT = `
         </tbody>
       </table></div>
 
-      <div class="sbox">✅ <strong>TC:</strong> O(max(m, n)) — one pass through both lists &nbsp;|&nbsp; <strong>SC:</strong> O(max(m, n)) — for the result list nodes.</div>
+      <div class="sbox"><strong>TC:</strong> O(max(m, n)) — one pass through both lists &nbsp;|&nbsp; <strong>SC:</strong> O(max(m, n)) — for the result list nodes.</div>
 
-      <p class="section-label" style="margin-top:16px">⚡ Interview Q&amp;A</p>
+      <p class="section-label" style="margin-top:16px">Interview Q&amp;A</p>
       <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:4px">
         <div style="background:rgba(139,92,246,0.06);border:1px solid rgba(139,92,246,0.15);border-radius:8px;padding:12px 14px;font-size:12.5px">
           <strong style="color:#8b5cf6">Q: Why start carry = 0 and add to sum first?</strong><br>
@@ -1085,7 +1089,7 @@ const LINKED_LIST_CONTENT = `
   <div class="accordion" id="acc-ll-intersect">
     <button class="accordion-header" onclick="toggleAcc('ll-intersect')">
       <span style="display:flex;align-items:center;gap:8px">
-        <span style="color:#8b5cf6">🔀</span>
+        
         <span>Extra. Intersection of Y-Shaped Linked Lists</span>
       </span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
@@ -1143,9 +1147,9 @@ const LINKED_LIST_CONTENT = `
         </tbody>
       </table></div>
 
-      <div class="sbox">✅ <strong>TC:</strong> O(m + n) — two passes to find lengths + one pass to find intersection &nbsp;|&nbsp; <strong>SC:</strong> O(1) — only pointer variables.</div>
+      <div class="sbox"><strong>TC:</strong> O(m + n) — two passes to find lengths + one pass to find intersection &nbsp;|&nbsp; <strong>SC:</strong> O(1) — only pointer variables.</div>
 
-      <p class="section-label">⚡ Interview Q&amp;A</p>
+      <p class="section-label">Interview Q&amp;A</p>
       <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:4px">
         <div style="background:rgba(139,92,246,0.06);border:1px solid rgba(139,92,246,0.15);border-radius:8px;padding:12px 14px;font-size:12.5px">
           <strong style="color:#8b5cf6">Q: Why advance the longer list first?</strong><br>
@@ -1163,7 +1167,7 @@ const LINKED_LIST_CONTENT = `
   <div class="accordion" id="acc-ll-cheat">
     <button class="accordion-header" onclick="toggleAcc('ll-cheat')">
       <span style="display:flex;align-items:center;gap:8px">
-        <span style="color:#f59e0b">⚡</span>
+        
         <span>Quick Revision Cheatsheet</span>
       </span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
@@ -1192,13 +1196,17 @@ const SLIDING_WINDOW_CONTENT = `
 <div class="content-area">
 
   <div style="background:rgba(236,72,153,0.07);border:1px solid rgba(236,72,153,0.22);border-radius:10px;padding:13px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.7;color:var(--text2)">
-    🎯 <strong style="color:#ec4899">DSA scope</strong> — Know why Sliding Window beats Brute Force (O(n) vs O(n × k)), the "remove left, add right" reuse trick, and when to reach for Fixed vs Variable size windows.
+    <strong style="color:#ec4899">Interview scope</strong> — Know why Sliding Window beats Brute Force (O(n) vs O(n × k)), the "remove left, add right" reuse trick, and when to reach for Fixed vs Variable size windows.
+  </div>
+  <div style="background:rgba(236,72,153,0.04);border:1px solid rgba(236,72,153,0.14);border-radius:10px;padding:13px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.7;color:var(--text2)">
+    <strong style="color:#ec4899">Why this matters</strong> — Sliding Window shows up in a huge share of array/string interview questions (subarrays, substrings, streaming data) because it turns an O(n × k) or O(n²) brute force into a single O(n) pass. Interviewers use it to check whether you can spot repeated work and optimize it, not just get a correct-but-slow answer.<br><br>
+    <strong style="color:#ec4899">When to use it</strong> — Reach for this pattern whenever the problem involves a <strong>contiguous</strong> subarray/substring and asks for a max/min/count/existence answer (e.g. "longest substring without repeating characters", "max sum subarray of size k"). Use a <strong>Fixed-size window</strong> when the window length is given upfront; use a <strong>Variable-size window</strong> (expand/shrink pointers) when the window length depends on a condition you're tracking as you go.
   </div>
 
   <!-- 1. Introduction -->
   <div class="accordion" id="acc-sw-intro">
     <button class="accordion-header" onclick="toggleAcc('sw-intro')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#ec4899">🪟</span><span>1. Introduction</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>1. Introduction</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-sw-intro">
@@ -1209,12 +1217,12 @@ const SLIDING_WINDOW_CONTENT = `
   <!-- 2. Why Sliding Window -->
   <div class="accordion" id="acc-sw-why">
     <button class="accordion-header" onclick="toggleAcc('sw-why')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#ec4899">⚖️</span><span>2. Why Sliding Window?</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#ec4899">️</span><span>2. Why Sliding Window?</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-sw-why">
 
-      <div style="display:flex;align-items:center;gap:8px;margin:0 0 10px;font-size:13.5px;font-weight:700;color:#ec4899;border-bottom:1px solid rgba(236,72,153,0.2);padding-bottom:6px"><span>🐌</span><span>Brute Force Approach</span></div>
+      <div style="display:flex;align-items:center;gap:8px;margin:0 0 10px;font-size:13.5px;font-weight:700;color:#ec4899;border-bottom:1px solid rgba(236,72,153,0.2);padding-bottom:6px"><span></span><span>Brute Force Approach</span></div>
       <div class="hbox">For every possible subarray, we calculate the answer again — from scratch.</div>
       <p class="section-label">Example (Window Size = 3)</p>
       <div class="code-block">
@@ -1226,7 +1234,7 @@ const SLIDING_WINDOW_CONTENT = `
       </div>
       <div class="ybox">Here, values like <code>1</code>, <code>2</code>, <code>3</code> are calculated multiple times → <strong>Repeated Work</strong> → <strong>Higher Time Complexity O(n × k)</strong>.</div>
 
-      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#ec4899;border-bottom:1px solid rgba(236,72,153,0.2);padding-bottom:6px"><span>🚀</span><span>Sliding Window Approach</span></div>
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#ec4899;border-bottom:1px solid rgba(236,72,153,0.2);padding-bottom:6px"><span></span><span>Sliding Window Approach</span></div>
       <div class="hbox">Instead of calculating every window from scratch, we <strong>reuse the previous computation</strong>.</div>
       <div class="code-block" style="margin-top:8px">
         <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">Sliding Window — reuse previous result</span></div>
@@ -1245,14 +1253,14 @@ Window 3 : 2 + 3 + 4</div>
 
       <p class="section-label">Formula</p>
       <div class="formula-card" style="width:100%"><span class="formula-label">Sliding Window Update</span><span class="formula-val" style="color:#ec4899;font-size:13px">New Window = Previous Window − Left Element + New Right Element</span></div>
-      <div class="sbox" style="margin-top:10px">⭐ This single formula is the entire trick — it avoids repeated calculations by carrying the running total (or state) forward instead of rebuilding it.</div>
+      <div class="sbox" style="margin-top:10px">This single formula is the entire trick — it avoids repeated calculations by carrying the running total (or state) forward instead of rebuilding it.</div>
     </div>
   </div>
 
   <!-- 3. Advantages -->
   <div class="accordion" id="acc-sw-advantages">
     <button class="accordion-header" onclick="toggleAcc('sw-advantages')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#ec4899">✅</span><span>3. Advantages</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>3. Advantages</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-sw-advantages">
@@ -1270,7 +1278,7 @@ Window 3 : 2 + 3 + 4</div>
   <!-- 4. When to Use -->
   <div class="accordion" id="acc-sw-when">
     <button class="accordion-header" onclick="toggleAcc('sw-when')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#ec4899">🧭</span><span>4. When to Use Sliding Window?</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>4. When to Use Sliding Window?</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-sw-when">
@@ -1289,7 +1297,7 @@ Window 3 : 2 + 3 + 4</div>
   <!-- 5. Types of Sliding Window -->
   <div class="accordion" id="acc-sw-types">
     <button class="accordion-header" onclick="toggleAcc('sw-types')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#ec4899">🔀</span><span>5. Types of Sliding Window</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>5. Types of Sliding Window</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-sw-types">
@@ -1322,14 +1330,14 @@ Window 3 : 2 + 3 + 4</div>
           <tr><td>Sliding Window</td><td>O(n)</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox" style="margin-top:10px">✅ <strong>Interview line:</strong> "Sliding Window turns an O(n × k) brute force into O(n) by reusing the previous window's computation — subtract what leaves, add what enters — instead of recomputing the whole window every time."</div>
+      <div class="sbox" style="margin-top:10px"><strong>Interview line:</strong> "Sliding Window turns an O(n × k) brute force into O(n) by reusing the previous window's computation — subtract what leaves, add what enters — instead of recomputing the whole window every time."</div>
     </div>
   </div>
 
   <!-- 7. Kadane's Algorithm -->
   <div class="accordion" id="acc-sw-kadane">
     <button class="accordion-header" onclick="toggleAcc('sw-kadane')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#ec4899">📈</span><span>7. Kadane's Algorithm</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>7. Kadane's Algorithm</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-sw-kadane">
@@ -1353,14 +1361,14 @@ Window 3 : 2 + 3 + 4</div>
           <tr><td>[-2, 1, -3, 4, -1, 2, 1, -5, 4]</td><td>-2 → 1 → -2 → 4 → 3 → 5 → 6 → 1 → 5</td><td>6</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ <strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(1) — single pass, two variables, no extra space.</div>
+      <div class="sbox"><strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(1) — single pass, two variables, no extra space.</div>
     </div>
   </div>
 
   <!-- 8. Maximum Sum Subarray of size K -->
   <div class="accordion" id="acc-sw-maxsumk">
     <button class="accordion-header" onclick="toggleAcc('sw-maxsumk')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#ec4899">🪟</span><span>8. Maximum Sum Subarray of size K</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>8. Maximum Sum Subarray of size K</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-sw-maxsumk">
@@ -1407,14 +1415,14 @@ Window 3 : 2 + 3 + 4</div>
           <tr><td>[1, 3, 2]</td><td>6</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ <strong>Output:</strong> maxSum = 9 &nbsp;|&nbsp; <strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(1) — each element is added once and removed once, no recomputation of the whole window.</div>
+      <div class="sbox"><strong>Output:</strong> maxSum = 9 &nbsp;|&nbsp; <strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(1) — each element is added once and removed once, no recomputation of the whole window.</div>
     </div>
   </div>
 
   <!-- 9. First Negative Number in every Window of Size K -->
   <div class="accordion" id="acc-sw-firstneg">
     <button class="accordion-header" onclick="toggleAcc('sw-firstneg')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#ec4899">🪟</span><span>9. First Negative Number in every Window of Size K</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>9. First Negative Number in every Window of Size K</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-sw-firstneg">
@@ -1471,14 +1479,14 @@ Window 3 : 2 + 3 + 4</div>
           <tr><td>[30, 16, 28]</td><td>0</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ <strong>Output:</strong> -1 -1 -7 -15 -15 0 &nbsp;|&nbsp; <strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(k) — each index is pushed and popped from the deque at most once; the deque holds at most <code>k</code> indices.</div>
+      <div class="sbox"><strong>Output:</strong> -1 -1 -7 -15 -15 0 &nbsp;|&nbsp; <strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(k) — each index is pushed and popped from the deque at most once; the deque holds at most <code>k</code> indices.</div>
     </div>
   </div>
 
   <!-- 10. Count Occurrences of Anagrams -->
   <div class="accordion" id="acc-sw-countanag">
     <button class="accordion-header" onclick="toggleAcc('sw-countanag')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#ec4899">🪟</span><span>10. Count Occurrences Of Anagrams</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>10. Count Occurrences Of Anagrams</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-sw-countanag">
@@ -1528,22 +1536,22 @@ Window 3 : 2 + 3 + 4</div>
       <div class="tbl-wrap"><table class="bit-table">
         <thead><tr><th>Window</th><th>Anagram of "for"?</th></tr></thead>
         <tbody>
-          <tr><td>for</td><td>✅ Yes</td></tr>
-          <tr><td>orx</td><td>❌ No</td></tr>
-          <tr><td>rxx</td><td>❌ No</td></tr>
-          <tr><td>xxo</td><td>❌ No</td></tr>
-          <tr><td>xor</td><td>✅ Yes (rearranged "for")</td></tr>
-          <tr><td>orf</td><td>✅ Yes (rearranged "for")</td></tr>
-          <tr><td>rfx</td><td>❌ No</td></tr>
-          <tr><td>fxd</td><td>❌ No</td></tr>
-          <tr><td>xdo</td><td>❌ No</td></tr>
-          <tr><td>dof</td><td>❌ No</td></tr>
-          <tr><td>ofr</td><td>✅ Yes (rearranged "for")</td></tr>
+          <tr><td>for</td><td>Yes</td></tr>
+          <tr><td>orx</td><td>No</td></tr>
+          <tr><td>rxx</td><td>No</td></tr>
+          <tr><td>xxo</td><td>No</td></tr>
+          <tr><td>xor</td><td>Yes (rearranged "for")</td></tr>
+          <tr><td>orf</td><td>Yes (rearranged "for")</td></tr>
+          <tr><td>rfx</td><td>No</td></tr>
+          <tr><td>fxd</td><td>No</td></tr>
+          <tr><td>xdo</td><td>No</td></tr>
+          <tr><td>dof</td><td>No</td></tr>
+          <tr><td>ofr</td><td>Yes (rearranged "for")</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ <strong>Output:</strong> c = 4 &nbsp;|&nbsp; <strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(26) ≈ O(1) — two fixed-size frequency arrays; each character is added once and removed once from the window.</div>
+      <div class="sbox"><strong>Output:</strong> c = 4 &nbsp;|&nbsp; <strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(26) ≈ O(1) — two fixed-size frequency arrays; each character is added once and removed once from the window.</div>
 
-      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#ec4899;border-bottom:1px solid rgba(236,72,153,0.2);padding-bottom:6px"><span>🔁</span><span>LeetCode Variant — Find All Anagrams in a String</span></div>
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#ec4899;border-bottom:1px solid rgba(236,72,153,0.2);padding-bottom:6px"><span></span><span>LeetCode Variant — Find All Anagrams in a String</span></div>
       <div class="hbox">Same sliding window + frequency array idea, but instead of just <strong>counting</strong> anagram windows, we <strong>collect the starting index</strong> <code>i</code> of every window whose frequency array matches the pattern's — returned as a <code>List&lt;Integer&gt;</code>.</div>
       <p class="section-label">Java Code</p>
       <div class="code-block">
@@ -1578,15 +1586,15 @@ Window 3 : 2 + 3 + 4</div>
     }
 }</span></div>
       </div>
-      <div class="ybox">⚠️ <strong>Watch out:</strong> always use <code>Arrays.equals(...)</code> (with an <strong>s</strong>) to compare array contents — <code>Arrays.equal(...)</code> doesn't exist and won't compile. Also note the early return above is simply <code>return list;</code> (an empty list) when <code>s.length() &lt; p.length()</code> — no need for double-brace initialization.</div>
-      <div class="sbox">✅ <strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(26) ≈ O(1) — identical sliding window technique as above, just storing matching start indices instead of a count.</div>
+      <div class="ybox">️ <strong>Watch out:</strong> always use <code>Arrays.equals(...)</code> (with an <strong>s</strong>) to compare array contents — <code>Arrays.equal(...)</code> doesn't exist and won't compile. Also note the early return above is simply <code>return list;</code> (an empty list) when <code>s.length() &lt; p.length()</code> — no need for double-brace initialization.</div>
+      <div class="sbox"><strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(26) ≈ O(1) — identical sliding window technique as above, just storing matching start indices instead of a count.</div>
     </div>
   </div>
 
   <!-- 11. Maximum Element in every Subarray of size K -->
   <div class="accordion" id="acc-sw-maxwindow">
     <button class="accordion-header" onclick="toggleAcc('sw-maxwindow')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#ec4899">🪟</span><span>11. Maximum Element in every Subarray of size K</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>11. Maximum Element in every Subarray of size K</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-sw-maxwindow">
@@ -1640,8 +1648,8 @@ Window 3 : 2 + 3 + 4</div>
           <tr><td>[3, 6, 7]</td><td>[7] → val 7</td><td>7</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ <strong>Output:</strong> [3, 3, 5, 5, 6, 7] &nbsp;|&nbsp; <strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(k) — each index is pushed onto the deque exactly once and popped at most once, so the deque never holds more than <code>k</code> indices.</div>
-      <div class="ybox">⚠️ <strong>Watch out:</strong> the deque stores <strong>indices, not values</strong> — that's what lets you tell an expired element (<code>dq.peekFirst() == i</code>) apart from one that's simply no longer the max. Comparing values alone can't distinguish two equal elements at different positions.</div>
+      <div class="sbox"><strong>Output:</strong> [3, 3, 5, 5, 6, 7] &nbsp;|&nbsp; <strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(k) — each index is pushed onto the deque exactly once and popped at most once, so the deque never holds more than <code>k</code> indices.</div>
+      <div class="ybox">️ <strong>Watch out:</strong> the deque stores <strong>indices, not values</strong> — that's what lets you tell an expired element (<code>dq.peekFirst() == i</code>) apart from one that's simply no longer the max. Comparing values alone can't distinguish two equal elements at different positions.</div>
     </div>
   </div>
 
@@ -1655,7 +1663,7 @@ const PROJECTS_CONTENT = `
   <div class="accordion" id="acc-suraksha">
     <button class="accordion-header" onclick="toggleAcc('suraksha')">
       <span style="display:flex;align-items:center;gap:8px">
-        <span style="color:#f97316">📱</span>
+        
         <span>1. Suraksha Dial – Emergency Speech Recognition App</span>
       </span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
@@ -1705,7 +1713,7 @@ const PROJECTS_CONTENT = `
       </div>
 
       <!-- Para 6 - KEY -->
-      <p class="section-label">⭐ Continuous Listening (Key Concept)</p>
+      <p class="section-label">Continuous Listening (Key Concept)</p>
       <div class="sbox" style="margin-bottom:12px;font-size:13px;line-height:1.75">
         By default, speech recognition listens only <strong>once</strong>. To make it continuous, I handled speech recognition inside a <strong>foreground service</strong> and restarted the listener inside callback methods like <code style="background:rgba(16,185,129,0.18);padding:2px 6px;border-radius:4px;font-size:12px">onResults</code> and <code style="background:rgba(16,185,129,0.18);padding:2px 6px;border-radius:4px;font-size:12px">onError</code>. This ensures the app keeps listening continuously instead of stopping after one phrase.
       </div>
@@ -1729,7 +1737,7 @@ const PROJECTS_CONTENT = `
       </div>
 
       <!-- Quick Fire Q&A -->
-      <p class="section-label" style="margin-top:18px">⚡ Quick Interview Q&amp;A</p>
+      <p class="section-label" style="margin-top:18px">Quick Interview Q&amp;A</p>
       <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:4px">
         <div style="background:rgba(249,115,22,0.06);border:1px solid rgba(249,115,22,0.15);border-radius:8px;padding:12px 14px;font-size:12.5px">
           <strong style="color:#f97316">Q: Why foreground service and not background service?</strong><br>
@@ -1756,7 +1764,7 @@ const PROJECTS_CONTENT = `
   <div class="accordion" id="acc-studentdb">
     <button class="accordion-header" onclick="toggleAcc('studentdb')">
       <span style="display:flex;align-items:center;gap:8px">
-        <span style="color:#6366f1">🗄️</span>
+        <span style="color:#6366f1">️</span>
         <span>2. Student Database Management System</span>
       </span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
@@ -1811,7 +1819,7 @@ const PROJECTS_CONTENT = `
       </div>
 
       <!-- Docker -->
-      <p class="section-label">⭐ Docker – Why &amp; How</p>
+      <p class="section-label">Docker – Why &amp; How</p>
       <div class="sbox" style="margin-bottom:12px;font-size:13px;line-height:1.75">
         I containerized both the <strong>Java application</strong> and the <strong>MySQL database</strong> using Docker. I wrote a <code style="background:rgba(16,185,129,0.18);padding:2px 6px;border-radius:4px;font-size:12px">Dockerfile</code> for the Java app and used <code style="background:rgba(16,185,129,0.18);padding:2px 6px;border-radius:4px;font-size:12px">docker-compose.yml</code> to define and run both services together. This ensures the application runs consistently across any environment — no "works on my machine" problems. The MySQL container is configured with environment variables for username, password, and database name.
       </div>
@@ -1824,7 +1832,7 @@ const PROJECTS_CONTENT = `
       </div>
 
       <!-- Quick Fire Q&A -->
-      <p class="section-label" style="margin-top:18px">⚡ Quick Interview Q&amp;A</p>
+      <p class="section-label" style="margin-top:18px">Quick Interview Q&amp;A</p>
       <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:4px">
         <div style="background:rgba(99,102,241,0.06);border:1px solid rgba(99,102,241,0.15);border-radius:8px;padding:12px 14px;font-size:12.5px">
           <strong style="color:#6366f1">Q: Why did you use JDBC instead of Hibernate/JPA?</strong><br>
@@ -1859,13 +1867,17 @@ const DBMS_CONTENT = `
 
   <!-- Intro banner -->
   <div style="background:rgba(139,92,246,0.07);border:1px solid rgba(139,92,246,0.2);border-radius:10px;padding:13px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.7;color:var(--text2)">
-    🎯 <strong style="color:#8b5cf6">Interview scope</strong> — Focus on: ACID, Keys, Normalization (1NF–3NF), Indexes, Transactions. Most asked DBMS area in interviews.
+    <strong style="color:#8b5cf6">Interview scope</strong> — Focus on: ACID, Keys, Normalization (1NF–3NF), Indexes, Transactions. Most asked DBMS area in interviews.
+  </div>
+  <div style="background:rgba(139,92,246,0.04);border:1px solid rgba(139,92,246,0.13);border-radius:10px;padding:13px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.7;color:var(--text2)">
+    <strong style="color:#8b5cf6">Why this matters</strong> — Almost every backend role touches a database, so interviewers use DBMS questions to check you understand data integrity and performance trade-offs, not just SQL syntax. ACID and normalization questions in particular reveal whether you've actually designed a schema, versus just querying one.<br><br>
+    <strong style="color:#8b5cf6">When to use it</strong> — Bring this up when asked to design a schema (normalization), explain why a query is slow (indexes), or justify why a bank transfer can't partially fail (ACID/transactions) — these are the recurring framings interviewers reach for.
   </div>
 
   <!-- 1. What is DBMS -->
   <div class="accordion" id="acc-dbms-intro">
     <button class="accordion-header" onclick="toggleAcc('dbms-intro')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#8b5cf6">💾</span><span>1. What is DBMS &amp; RDBMS?</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>1. What is DBMS &amp; RDBMS?</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-dbms-intro">
@@ -1880,8 +1892,8 @@ const DBMS_CONTENT = `
           <tr><td>No normalization</td><td>Follows normalization rules</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ RDBMS connects tables using <strong>Primary Key → Foreign Key</strong> relationships. Example: Student table + Marks table connected via StudentID.</div>
-      <p class="section-label">⚡ Interview Q&amp;A</p>
+      <div class="sbox">RDBMS connects tables using <strong>Primary Key → Foreign Key</strong> relationships. Example: Student table + Marks table connected via StudentID.</div>
+      <p class="section-label">Interview Q&amp;A</p>
       <div style="display:flex;flex-direction:column;gap:8px">
         <div style="background:rgba(139,92,246,0.06);border:1px solid rgba(139,92,246,0.15);border-radius:8px;padding:12px 14px;font-size:12.5px">
           <strong style="color:#8b5cf6">Q: What is DBMS?</strong><br>
@@ -1898,7 +1910,7 @@ const DBMS_CONTENT = `
   <!-- 2. ACID Properties -->
   <div class="accordion" id="acc-dbms-acid">
     <button class="accordion-header" onclick="toggleAcc('dbms-acid')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#8b5cf6">⚗️</span><span>2. ACID Properties</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#8b5cf6">️</span><span>2. ACID Properties</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-dbms-acid">
@@ -1925,14 +1937,14 @@ const DBMS_CONTENT = `
           <span style="font-size:11.5px;color:var(--text3);margin-top:4px;display:block">Interview line: "Durability ensures committed data is not lost even in case of system failure."</span>
         </div>
       </div>
-      <div class="sbox">⭐ <strong>One-line summary:</strong> Atomicity = all-or-nothing · Consistency = valid state · Isolation = no interference · Durability = permanent</div>
+      <div class="sbox"><strong>One-line summary:</strong> Atomicity = all-or-nothing · Consistency = valid state · Isolation = no interference · Durability = permanent</div>
     </div>
   </div>
 
   <!-- 3. Keys -->
   <div class="accordion" id="acc-dbms-keys">
     <button class="accordion-header" onclick="toggleAcc('dbms-keys')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#8b5cf6">🔑</span><span>3. Primary Key &amp; Foreign Key</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>3. Primary Key &amp; Foreign Key</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-dbms-keys">
@@ -1945,8 +1957,8 @@ const DBMS_CONTENT = `
           <tr><td>Ensures entity integrity</td><td>Ensures referential integrity</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ Example: Student table has <code style="background:rgba(139,92,246,0.12);padding:1px 5px;border-radius:4px;font-size:12px">StudentID</code> as PK. Marks table has <code style="background:rgba(139,92,246,0.12);padding:1px 5px;border-radius:4px;font-size:12px">StudentID</code> as FK → links both tables.</div>
-      <p class="section-label">⚡ Interview Q&amp;A</p>
+      <div class="sbox">Example: Student table has <code style="background:rgba(139,92,246,0.12);padding:1px 5px;border-radius:4px;font-size:12px">StudentID</code> as PK. Marks table has <code style="background:rgba(139,92,246,0.12);padding:1px 5px;border-radius:4px;font-size:12px">StudentID</code> as FK → links both tables.</div>
+      <p class="section-label">Interview Q&amp;A</p>
       <div style="display:flex;flex-direction:column;gap:8px">
         <div style="background:rgba(139,92,246,0.06);border:1px solid rgba(139,92,246,0.15);border-radius:8px;padding:12px 14px;font-size:12.5px">
           <strong style="color:#8b5cf6">Q: What is a Primary Key?</strong><br>
@@ -1963,7 +1975,7 @@ const DBMS_CONTENT = `
   <!-- 4. Normalization -->
   <div class="accordion" id="acc-dbms-norm">
     <button class="accordion-header" onclick="toggleAcc('dbms-norm')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#8b5cf6">📐</span><span>4. Normalization — 1NF → 3NF</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>4. Normalization — 1NF → 3NF</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-dbms-norm">
@@ -1990,21 +2002,21 @@ const DBMS_CONTENT = `
           <span style="font-size:11.5px;color:var(--text3);margin-top:4px;display:block">One-liner: 3NF removes transitive dependency.</span>
         </div>
       </div>
-      <div class="sbox">⭐ Memory trick: <strong>1NF</strong> = atomic values · <strong>2NF</strong> = no partial dependency · <strong>3NF</strong> = no transitive dependency</div>
+      <div class="sbox">Memory trick: <strong>1NF</strong> = atomic values · <strong>2NF</strong> = no partial dependency · <strong>3NF</strong> = no transitive dependency</div>
     </div>
   </div>
 
   <!-- 5. Indexes -->
   <div class="accordion" id="acc-dbms-index">
     <button class="accordion-header" onclick="toggleAcc('dbms-index')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#8b5cf6">📇</span><span>5. Indexes in DBMS</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>5. Indexes in DBMS</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-dbms-index">
       <div class="hbox">An <strong>index</strong> is a database object that improves the speed of data retrieval. Like a book index — jump directly to a page instead of reading every page.</div>
       <div class="ybox">Without index: full table scan (slow). With index: direct row access via B-Tree (fast). Especially useful for WHERE, JOIN, ORDER BY.</div>
       <div class="tbl-wrap"><table class="bit-table">
-        <thead><tr><th>Pros ✅</th><th>Cons ❌</th></tr></thead>
+        <thead><tr><th>Pros</th><th>Cons</th></tr></thead>
         <tbody>
           <tr><td>Faster SELECT queries</td><td>Slower INSERT operations</td></tr>
           <tr><td>Faster JOIN operations</td><td>Slower UPDATE operations</td></tr>
@@ -2026,7 +2038,7 @@ const DBMS_CONTENT = `
   <!-- 6. Transactions, COMMIT, ROLLBACK -->
   <div class="accordion" id="acc-dbms-txn">
     <button class="accordion-header" onclick="toggleAcc('dbms-txn')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#8b5cf6">💳</span><span>6. Transactions, COMMIT &amp; ROLLBACK</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>6. Transactions, COMMIT &amp; ROLLBACK</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-dbms-txn">
@@ -2039,14 +2051,14 @@ const DBMS_CONTENT = `
           <strong style="color:#ef4444">ROLLBACK</strong> — <strong>Undoes</strong> all changes in the transaction. Restores database to the previous consistent state. Used when an error occurs mid-transaction.
         </div>
       </div>
-      <div class="sbox">⭐ <strong>Perfect interview answer:</strong> "Transactions group SQL operations into a single unit. COMMIT saves the transaction permanently, while ROLLBACK undoes changes if an error occurs."</div>
+      <div class="sbox"><strong>Perfect interview answer:</strong> "Transactions group SQL operations into a single unit. COMMIT saves the transaction permanently, while ROLLBACK undoes changes if an error occurs."</div>
     </div>
   </div>
 
   <!-- 7. DELETE vs TRUNCATE vs DROP -->
   <div class="accordion" id="acc-dbms-del">
     <button class="accordion-header" onclick="toggleAcc('dbms-del')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#8b5cf6">🗑️</span><span>7. DELETE vs TRUNCATE vs DROP</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#8b5cf6">️</span><span>7. DELETE vs TRUNCATE vs DROP</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-dbms-del">
@@ -2055,19 +2067,19 @@ const DBMS_CONTENT = `
         <tbody>
           <tr><td>Type</td><td>DML</td><td>DDL</td><td>DDL</td></tr>
           <tr><td>Removes</td><td>Selected rows</td><td>All rows</td><td>Table itself</td></tr>
-          <tr><td>WHERE clause</td><td>✅ Yes</td><td>❌ No</td><td>❌ No</td></tr>
-          <tr><td>Rollback possible</td><td>✅ Yes</td><td>❌ No</td><td>❌ No</td></tr>
+          <tr><td>WHERE clause</td><td>Yes</td><td>No</td><td>No</td></tr>
+          <tr><td>Rollback possible</td><td>Yes</td><td>No</td><td>No</td></tr>
           <tr><td>Speed</td><td>Slower</td><td>Fast</td><td>Fast</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ <strong>Memory:</strong> DELETE = selective (rollback safe) · TRUNCATE = wipe all rows (no undo) · DROP = delete entire table structure</div>
+      <div class="sbox"><strong>Memory:</strong> DELETE = selective (rollback safe) · TRUNCATE = wipe all rows (no undo) · DROP = delete entire table structure</div>
     </div>
   </div>
 
   <!-- 8. Deadlock in DBMS -->
   <div class="accordion" id="acc-dbms-deadlock">
     <button class="accordion-header" onclick="toggleAcc('dbms-deadlock')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#8b5cf6">🔒</span><span>8. Deadlock in DBMS</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>8. Deadlock in DBMS</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-dbms-deadlock">
@@ -2080,14 +2092,14 @@ const DBMS_CONTENT = `
         <div style="background:rgba(139,92,246,0.06);border:1px solid rgba(139,92,246,0.15);border-radius:7px;padding:9px 13px;font-size:12.5px"><strong style="color:#8b5cf6">No Preemption</strong> — resource cannot be forcibly taken away</div>
         <div style="background:rgba(139,92,246,0.06);border:1px solid rgba(139,92,246,0.15);border-radius:7px;padding:9px 13px;font-size:12.5px"><strong style="color:#8b5cf6">Circular Wait</strong> — transactions wait in a cycle (T1→T2→T1)</div>
       </div>
-      <div class="sbox">✅ Interview line: "Deadlock occurs when transactions wait indefinitely due to circular resource dependency."</div>
+      <div class="sbox">Interview line: "Deadlock occurs when transactions wait indefinitely due to circular resource dependency."</div>
     </div>
   </div>
 
   <!-- Quick Revision -->
   <div class="accordion" id="acc-dbms-qrev">
     <button class="accordion-header" onclick="toggleAcc('dbms-qrev')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#8b5cf6">⚡</span><span>Quick Revision Cheatsheet</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>Quick Revision Cheatsheet</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-dbms-qrev">
@@ -2114,13 +2126,17 @@ const OS_CONTENT = `
 <div class="content-area">
 
   <div style="background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.2);border-radius:10px;padding:13px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.7;color:var(--text2)">
-    🎯 <strong style="color:#ef4444">Interview scope</strong> — Focus on: Process vs Thread, CPU Scheduling (FCFS, Round Robin), Deadlock, Memory Management basics.
+    <strong style="color:#ef4444">Interview scope</strong> — Focus on: Process vs Thread, CPU Scheduling (FCFS, Round Robin), Deadlock, Memory Management basics.
+  </div>
+  <div style="background:rgba(239,68,68,0.04);border:1px solid rgba(239,68,68,0.13);border-radius:10px;padding:13px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.7;color:var(--text2)">
+    <strong style="color:#ef4444">Why this matters</strong> — OS concepts explain why your code behaves the way it does at runtime — why threads are cheaper than processes, why a deadlock freezes an app, why memory runs out. Interviewers ask this to gauge whether you understand what's happening beneath your language's abstractions.<br><br>
+    <strong style="color:#ef4444">When to use it</strong> — Expect these questions in fundamentals-heavy rounds (often before or alongside DSA), and reach for this whenever asked to compare concurrency models, debug a hang (deadlock), or explain scheduling fairness trade-offs.
   </div>
 
   <!-- 1. What is OS -->
   <div class="accordion" id="acc-os-intro">
     <button class="accordion-header" onclick="toggleAcc('os-intro')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#ef4444">🖥️</span><span>1. What is an Operating System?</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#ef4444">️</span><span>1. What is an Operating System?</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-os-intro">
@@ -2132,14 +2148,14 @@ const OS_CONTENT = `
         <div style="background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.15);border-radius:7px;padding:8px 13px;font-size:12.5px;color:var(--text)"><strong style="color:#ef4444">File Management</strong> — organize, store, retrieve files</div>
         <div style="background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.15);border-radius:7px;padding:8px 13px;font-size:12.5px;color:var(--text)"><strong style="color:#ef4444">Device Management</strong> — manage I/O devices via drivers</div>
       </div>
-      <div class="sbox">✅ Also provides: security, user interface, and multitasking.</div>
+      <div class="sbox">Also provides: security, user interface, and multitasking.</div>
     </div>
   </div>
 
   <!-- 2. Process vs Thread -->
   <div class="accordion" id="acc-os-process">
     <button class="accordion-header" onclick="toggleAcc('os-process')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#ef4444">⚙️</span><span>2. Process vs Thread</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#ef4444">️</span><span>2. Process vs Thread</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-os-process">
@@ -2154,8 +2170,8 @@ const OS_CONTENT = `
           <tr><td>If one crashes, others unaffected</td><td>If one crashes, can affect the process</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ Example: Chrome browser = one process. Each tab = separate thread inside it sharing same memory.</div>
-      <p class="section-label">⚡ Interview Q&amp;A</p>
+      <div class="sbox">Example: Chrome browser = one process. Each tab = separate thread inside it sharing same memory.</div>
+      <p class="section-label">Interview Q&amp;A</p>
       <div style="display:flex;flex-direction:column;gap:8px">
         <div style="background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.15);border-radius:8px;padding:12px 14px;font-size:12.5px">
           <strong style="color:#ef4444">Q: What is a process?</strong><br>
@@ -2172,7 +2188,7 @@ const OS_CONTENT = `
   <!-- 3. CPU Scheduling -->
   <div class="accordion" id="acc-os-sched">
     <button class="accordion-header" onclick="toggleAcc('os-sched')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#ef4444">📅</span><span>3. CPU Scheduling</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>3. CPU Scheduling</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-os-sched">
@@ -2191,14 +2207,14 @@ const OS_CONTENT = `
           <span style="color:var(--text2)">Process with the <strong>highest priority</strong> executes first. Can cause <strong>starvation</strong> — low priority processes may never run if higher priority processes keep arriving.</span>
         </div>
       </div>
-      <div class="sbox">⭐ FCFS = simple/order of arrival · Round Robin = time slice/fair · Priority = highest first/starvation risk</div>
+      <div class="sbox">FCFS = simple/order of arrival · Round Robin = time slice/fair · Priority = highest first/starvation risk</div>
     </div>
   </div>
 
   <!-- 4. Deadlock -->
   <div class="accordion" id="acc-os-deadlock">
     <button class="accordion-header" onclick="toggleAcc('os-deadlock')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#ef4444">🔒</span><span>4. Deadlock, Starvation &amp; Multitasking</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>4. Deadlock, Starvation &amp; Multitasking</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-os-deadlock">
@@ -2216,14 +2232,14 @@ const OS_CONTENT = `
           <span style="color:var(--text2)">Ability of an OS to <strong>run multiple programs simultaneously</strong> by sharing CPU time among them. The CPU rapidly switches between processes — giving the illusion of parallelism.</span>
         </div>
       </div>
-      <div class="sbox">✅ Deadlock = circular wait (both stuck) · Starvation = one process never runs · Multitasking = CPU time sharing</div>
+      <div class="sbox">Deadlock = circular wait (both stuck) · Starvation = one process never runs · Multitasking = CPU time sharing</div>
     </div>
   </div>
 
   <!-- Quick Revision -->
   <div class="accordion" id="acc-os-qrev">
     <button class="accordion-header" onclick="toggleAcc('os-qrev')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#ef4444">⚡</span><span>Quick Revision Cheatsheet</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>Quick Revision Cheatsheet</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-os-qrev">
@@ -2246,13 +2262,17 @@ const CN_CONTENT = `
 <div class="content-area">
 
   <div style="background:rgba(6,182,212,0.07);border:1px solid rgba(6,182,212,0.2);border-radius:10px;padding:13px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.7;color:var(--text2)">
-    🎯 <strong style="color:#06b6d4">Interview scope</strong> — Focus on: TCP vs UDP, OSI model (7 layers), TCP/IP model (4 layers), DNS, IP address, types of networks.
+    <strong style="color:#06b6d4">Interview scope</strong> — Focus on: TCP vs UDP, OSI model (7 layers), TCP/IP model (4 layers), DNS, IP address, types of networks.
+  </div>
+  <div style="background:rgba(6,182,212,0.04);border:1px solid rgba(6,182,212,0.13);border-radius:10px;padding:13px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.7;color:var(--text2)">
+    <strong style="color:#06b6d4">Why this matters</strong> — Networking questions check whether you understand what actually happens when your app talks to a server — a request doesn't just "go to the backend," it's DNS resolution, a TCP handshake, and layered protocols underneath. This matters even for pure application developers once things break in production.<br><br>
+    <strong style="color:#06b6d4">When to use it</strong> — Reach for this when asked to explain what happens when you type a URL into a browser, why an API uses TCP over UDP (or vice versa), or how DNS resolves a domain — all classic interview framings for this topic.
   </div>
 
   <!-- 1. What is CN -->
   <div class="accordion" id="acc-cn-intro">
     <button class="accordion-header" onclick="toggleAcc('cn-intro')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#06b6d4">🌐</span><span>1. What is a Computer Network?</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>1. What is a Computer Network?</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-cn-intro">
@@ -2266,14 +2286,14 @@ const CN_CONTENT = `
           <tr><td style="color:#06b6d4">WAN</td><td>Wide Area Network — countries/continents</td><td>The Internet</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ Real-life example: Your phone + laptop + Wi-Fi router = a LAN. You browse internet → data travels through WAN.</div>
+      <div class="sbox">Real-life example: Your phone + laptop + Wi-Fi router = a LAN. You browse internet → data travels through WAN.</div>
     </div>
   </div>
 
   <!-- 2. IP, Protocol, DNS -->
   <div class="accordion" id="acc-cn-basics">
     <button class="accordion-header" onclick="toggleAcc('cn-basics')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#06b6d4">📡</span><span>2. IP Address, Protocol &amp; DNS</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>2. IP Address, Protocol &amp; DNS</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-cn-basics">
@@ -2301,7 +2321,7 @@ const CN_CONTENT = `
   <!-- 3. TCP vs UDP -->
   <div class="accordion" id="acc-cn-tcp">
     <button class="accordion-header" onclick="toggleAcc('cn-tcp')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#06b6d4">🔀</span><span>3. TCP vs UDP</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>3. TCP vs UDP</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-cn-tcp">
@@ -2315,14 +2335,14 @@ const CN_CONTENT = `
           <tr><td>Use case</td><td>HTTP, file transfer, email</td><td>Video streaming, gaming, DNS, VoIP</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ <strong>One-liner:</strong> TCP = reliable, ordered, slower · UDP = fast, no guarantee, used for real-time data</div>
+      <div class="sbox"><strong>One-liner:</strong> TCP = reliable, ordered, slower · UDP = fast, no guarantee, used for real-time data</div>
     </div>
   </div>
 
   <!-- 4. OSI Model -->
   <div class="accordion" id="acc-cn-osi">
     <button class="accordion-header" onclick="toggleAcc('cn-osi')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#06b6d4">📚</span><span>4. OSI Model (7 Layers)</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>4. OSI Model (7 Layers)</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-cn-osi">
@@ -2339,14 +2359,14 @@ const CN_CONTENT = `
           <tr><td style="color:#06b6d4">1</td><td>Physical</td><td>Actual bits over hardware</td><td>Cable, Wi-Fi</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ Memory trick (top to bottom): <strong>All People Seem To Need Data Processing</strong> (Application → Physical)</div>
+      <div class="sbox">Memory trick (top to bottom): <strong>All People Seem To Need Data Processing</strong> (Application → Physical)</div>
     </div>
   </div>
 
   <!-- 5. TCP/IP Model -->
   <div class="accordion" id="acc-cn-tcpip">
     <button class="accordion-header" onclick="toggleAcc('cn-tcpip')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#06b6d4">🔧</span><span>5. TCP/IP Model &amp; OSI vs TCP/IP</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>5. TCP/IP Model &amp; OSI vs TCP/IP</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-cn-tcpip">
@@ -2374,7 +2394,7 @@ const CN_CONTENT = `
   <!-- Quick Revision -->
   <div class="accordion" id="acc-cn-qrev">
     <button class="accordion-header" onclick="toggleAcc('cn-qrev')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#06b6d4">⚡</span><span>Quick Revision Cheatsheet</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>Quick Revision Cheatsheet</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-cn-qrev">
@@ -2397,13 +2417,17 @@ const GIT_CONTENT = `
 <div class="content-area">
 
   <div style="background:rgba(249,115,22,0.07);border:1px solid rgba(249,115,22,0.2);border-radius:10px;padding:13px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.7;color:var(--text2)">
-    🎯 <strong style="color:#f97316">Interview scope</strong> — Know the Git workflow (add → commit → push), branching, merge vs rebase, and what GitHub is. These come up when they ask about your project.
+    <strong style="color:#f97316">Interview scope</strong> — Know the Git workflow (add → commit → push), branching, merge vs rebase, and what GitHub is. These come up when they ask about your project.
+  </div>
+  <div style="background:rgba(249,115,22,0.04);border:1px solid rgba(249,115,22,0.13);border-radius:10px;padding:13px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.7;color:var(--text2)">
+    <strong style="color:#f97316">Why this matters</strong> — Git questions are rarely standalone — they usually surface while you're walking through your resume project, to confirm you actually collaborated on real code rather than working in isolation. Fumbling basic Git terms undercuts an otherwise strong project story.<br><br>
+    <strong style="color:#f97316">When to use it</strong> — Have this ready whenever you're describing teamwork on a project (branching strategy, resolving a merge conflict) or if asked directly to contrast merge vs rebase — a very common follow-up once you mention Git.
   </div>
 
   <!-- 1. Git & GitHub -->
   <div class="accordion" id="acc-git-intro">
     <button class="accordion-header" onclick="toggleAcc('git-intro')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#f97316">🌿</span><span>1. Git vs GitHub</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>1. Git vs GitHub</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-git-intro">
@@ -2416,7 +2440,7 @@ const GIT_CONTENT = `
           <tr><td>Tracks code versions</td><td>Hosts, shares, and collaborates on code</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ <strong>Interview line:</strong> "Git manages versions locally, GitHub hosts them remotely."</div>
+      <div class="sbox"><strong>Interview line:</strong> "Git manages versions locally, GitHub hosts them remotely."</div>
       <div style="background:rgba(249,115,22,0.06);border:1px solid rgba(249,115,22,0.15);border-radius:8px;padding:12px 14px;font-size:12.5px;margin-top:8px">
         <strong style="color:#f97316">Q: What is Git?</strong><br>
         <span style="color:var(--text2)">Git is a distributed version control system used to track changes in source code — helps manage versions, work safely in teams, and revert to previous states.</span>
@@ -2427,7 +2451,7 @@ const GIT_CONTENT = `
   <!-- 2. 3 Areas & File States -->
   <div class="accordion" id="acc-git-areas">
     <button class="accordion-header" onclick="toggleAcc('git-areas')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#f97316">📂</span><span>2. Working Directory, Staging Area &amp; Repository</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>2. Working Directory, Staging Area &amp; Repository</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-git-areas">
@@ -2442,7 +2466,7 @@ const GIT_CONTENT = `
           <strong style="color:#f97316">Repository</strong> — where commits (history/snapshots) are stored. Local repo on your machine, remote repo on GitHub.
         </div>
       </div>
-      <div class="sbox">⭐ <strong>Flow:</strong> Working Directory → <code style="background:rgba(249,115,22,0.12);padding:1px 5px;border-radius:4px;font-size:12px">git add</code> → Staging Area → <code style="background:rgba(249,115,22,0.12);padding:1px 5px;border-radius:4px;font-size:12px">git commit</code> → Local Repo → <code style="background:rgba(249,115,22,0.12);padding:1px 5px;border-radius:4px;font-size:12px">git push</code> → GitHub</div>
+      <div class="sbox"><strong>Flow:</strong> Working Directory → <code style="background:rgba(249,115,22,0.12);padding:1px 5px;border-radius:4px;font-size:12px">git add</code> → Staging Area → <code style="background:rgba(249,115,22,0.12);padding:1px 5px;border-radius:4px;font-size:12px">git commit</code> → Local Repo → <code style="background:rgba(249,115,22,0.12);padding:1px 5px;border-radius:4px;font-size:12px">git push</code> → GitHub</div>
     </div>
   </div>
 
@@ -2468,14 +2492,14 @@ const GIT_CONTENT = `
           <tr><td style="color:#f97316"><code>git revert &lt;id&gt;</code></td><td>Safely undo a commit by creating a new commit</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ <strong>commit vs push:</strong> commit = local save (offline) · push = upload to remote (needs internet)</div>
+      <div class="sbox"><strong>commit vs push:</strong> commit = local save (offline) · push = upload to remote (needs internet)</div>
     </div>
   </div>
 
   <!-- 4. Branch, Merge, Rebase -->
   <div class="accordion" id="acc-git-branch">
     <button class="accordion-header" onclick="toggleAcc('git-branch')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#f97316">🌿</span><span>4. Branching — Merge vs Rebase</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>4. Branching — Merge vs Rebase</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-git-branch">
@@ -2502,14 +2526,14 @@ git rebase main</div>
           <tr><td>Safer for shared/team branches</td><td>Use on private branches only</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ <strong>Interview line:</strong> "Merge is safer for team branches; rebase keeps history clean but rewrites it."</div>
+      <div class="sbox"><strong>Interview line:</strong> "Merge is safer for team branches; rebase keeps history clean but rewrites it."</div>
     </div>
   </div>
 
   <!-- 5. PR, Fork, Merge Conflict -->
   <div class="accordion" id="acc-git-collab">
     <button class="accordion-header" onclick="toggleAcc('git-collab')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#f97316">🤝</span><span>5. Pull Request, Fork &amp; Merge Conflict</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>5. Pull Request, Fork &amp; Merge Conflict</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-git-collab">
@@ -2530,7 +2554,7 @@ git rebase main</div>
   <!-- Quick Revision -->
   <div class="accordion" id="acc-git-qrev">
     <button class="accordion-header" onclick="toggleAcc('git-qrev')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#f97316">⚡</span><span>Quick Revision Cheatsheet</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>Quick Revision Cheatsheet</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-git-qrev">
@@ -2738,33 +2762,33 @@ const BIT_MANIPULATION_CONTENT = `
       </div>
       <div class="bit-op-grid">
         <div>
-          <p class="section-label">16 — Is power of 2 ✅</p>
+          <p class="section-label">16 — Is power of 2</p>
           <div class="tbl-wrap">
             <table class="bit-table">
               <thead><tr><th></th><th>Binary</th></tr></thead>
               <tbody>
                 <tr><td>16</td><td>10000</td></tr>
                 <tr><td>15</td><td>01111</td></tr>
-                <tr><td style="color:#10b981">16 &amp; 15</td><td style="color:#10b981;font-weight:700">00000 = 0 ✅</td></tr>
+                <tr><td style="color:#10b981">16 &amp; 15</td><td style="color:#10b981;font-weight:700">00000 = 0</td></tr>
               </tbody>
             </table>
           </div>
         </div>
         <div>
-          <p class="section-label">14 — Not power of 2 ❌</p>
+          <p class="section-label">14 — Not power of 2</p>
           <div class="tbl-wrap">
             <table class="bit-table">
               <thead><tr><th></th><th>Binary</th></tr></thead>
               <tbody>
                 <tr><td>14</td><td>1110</td></tr>
                 <tr><td>13</td><td>1101</td></tr>
-                <tr><td style="color:#ef4444">14 &amp; 13</td><td style="color:#ef4444;font-weight:700">1100 ≠ 0 ❌</td></tr>
+                <tr><td style="color:#ef4444">14 &amp; 13</td><td style="color:#ef4444;font-weight:700">1100 ≠ 0</td></tr>
               </tbody>
             </table>
           </div>
         </div>
       </div>
-      <div class="wbox">⚠ <strong>Remember:</strong> n-1 means subtract 1 from the whole number, NOT remove the last bit.</div>
+      <div class="wbox"><strong>Remember:</strong> n-1 means subtract 1 from the whole number, NOT remove the last bit.</div>
     </div>
   </div>
 
@@ -2812,10 +2836,10 @@ const BIT_MANIPULATION_CONTENT = `
       <p class="section-label">Example: n = 14 = 1110</p>
       <div class="bit-op-grid">
         <div>
-          <div class="sbox">Check k=2 (bit IS set ✅)<br><code style="font-family:'JetBrains Mono',monospace">1110 &amp; 0100 = 0100 ≠ 0</code></div>
+          <div class="sbox">Check k=2 (bit IS set)<br><code style="font-family:'JetBrains Mono',monospace">1110 &amp; 0100 = 0100 ≠ 0</code></div>
         </div>
         <div>
-          <div class="wbox">Check k=0 (bit NOT set ❌)<br><code style="font-family:'JetBrains Mono',monospace">1110 &amp; 0001 = 0000 = 0</code></div>
+          <div class="wbox">Check k=0 (bit NOT set)<br><code style="font-family:'JetBrains Mono',monospace">1110 &amp; 0001 = 0000 = 0</code></div>
         </div>
       </div>
     </div>
@@ -2908,10 +2932,10 @@ const BIT_MANIPULATION_CONTENT = `
       </div>
       <div class="bit-op-grid">
         <div>
-          <div class="sbox">Toggle bit 1 of n=5 (101)<br><code style="font-family:'JetBrains Mono',monospace">101 ^ 010 = 111 = 7</code> (0→1 ✅)</div>
+          <div class="sbox">Toggle bit 1 of n=5 (101)<br><code style="font-family:'JetBrains Mono',monospace">101 ^ 010 = 111 = 7</code> (0→1)</div>
         </div>
         <div>
-          <div class="hbox">Toggle bit 1 of n=7 (111)<br><code style="font-family:'JetBrains Mono',monospace">111 ^ 010 = 101 = 5</code> (1→0 ✅)</div>
+          <div class="hbox">Toggle bit 1 of n=7 (111)<br><code style="font-family:'JetBrains Mono',monospace">111 ^ 010 = 101 = 5</code> (1→0)</div>
         </div>
       </div>
       <div class="code-block">
@@ -2930,7 +2954,7 @@ const BIT_MANIPULATION_CONTENT = `
   <div class="accordion" id="acc-removebit">
     <button class="accordion-header" onclick="toggleAcc('removebit')">
       <span style="display:flex;align-items:center;gap:8px">
-        <span style="color:#14b8a6">✂</span>
+        
         <span>12. Remove K<sup>th</sup> Bit (unset rightmost set bit)</span>
       </span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
@@ -2955,7 +2979,7 @@ const BIT_MANIPULATION_CONTENT = `
               <tbody>
                 <tr><td>12</td><td>1100</td></tr>
                 <tr><td>11</td><td>1011</td></tr>
-                <tr><td style="color:#10b981">12 &amp; 11</td><td style="color:#10b981;font-weight:700">1000 = 8 ✅</td></tr>
+                <tr><td style="color:#10b981">12 &amp; 11</td><td style="color:#10b981;font-weight:700">1000 = 8</td></tr>
               </tbody>
             </table>
           </div>
@@ -2968,7 +2992,7 @@ const BIT_MANIPULATION_CONTENT = `
               <tbody>
                 <tr><td>6</td><td>0110</td></tr>
                 <tr><td>5</td><td>0101</td></tr>
-                <tr><td style="color:#10b981">6 &amp; 5</td><td style="color:#10b981;font-weight:700">0100 = 4 ✅</td></tr>
+                <tr><td style="color:#10b981">6 &amp; 5</td><td style="color:#10b981;font-weight:700">0100 = 4</td></tr>
               </tbody>
             </table>
           </div>
@@ -3010,7 +3034,7 @@ const BIT_MANIPULATION_CONTENT = `
       <div class="ybox" style="margin-bottom:10px"><strong>Why?</strong> Any even number in binary ends in <code style="font-family:'JetBrains Mono',monospace">0</code>. Any odd number ends in <code style="font-family:'JetBrains Mono',monospace">1</code>. AND with 1 isolates just that last bit.</div>
       <div class="bit-op-grid">
         <div>
-          <p class="section-label">n = 6 (0110) — Even ✅</p>
+          <p class="section-label">n = 6 (0110) — Even</p>
           <div class="tbl-wrap">
             <table class="bit-table">
               <thead><tr><th></th><th>Binary</th></tr></thead>
@@ -3023,7 +3047,7 @@ const BIT_MANIPULATION_CONTENT = `
           </div>
         </div>
         <div>
-          <p class="section-label">n = 7 (0111) — Odd ✅</p>
+          <p class="section-label">n = 7 (0111) — Odd</p>
           <div class="tbl-wrap">
             <table class="bit-table">
               <thead><tr><th></th><th>Binary</th></tr></thead>
@@ -3054,7 +3078,7 @@ const BIT_MANIPULATION_CONTENT = `
   <div class="accordion" id="acc-qrev">
     <button class="accordion-header" onclick="toggleAcc('qrev')">
       <span style="display:flex;align-items:center;gap:8px">
-        <span style="color:#14b8a6">⚡</span>
+        
         <span>Quick Revision Cheatsheet</span>
       </span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
@@ -3084,13 +3108,13 @@ const DOCKER_CONTENT = `
 <div class="content-area">
 
   <div style="background:rgba(14,165,233,0.07);border:1px solid rgba(14,165,233,0.2);border-radius:10px;padding:13px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.7;color:var(--text2)">
-    🐳 <strong style="color:#0ea5e9">Interview Ready</strong> — You used Docker in your Student DBMS project. Cover: What/Why/Where Docker is, containerization, images, containers, isolation, Dockerfile breakdown, RUN vs CMD, Docker Volumes, Docker Compose, all Docker commands, and the complete Docker flow.
+    <strong style="color:#0ea5e9">Interview Ready</strong> — You used Docker in your Student DBMS project. Cover: What/Why/Where Docker is, containerization, images, containers, isolation, Dockerfile breakdown, RUN vs CMD, Docker Volumes, Docker Compose, all Docker commands, and the complete Docker flow.
   </div>
 
   <!-- 1. What is Docker -->
   <div class="accordion" id="acc-docker-what">
     <button class="accordion-header" onclick="toggleAcc('docker-what')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#0ea5e9">🐳</span><span>1. What is Docker?</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>1. What is Docker?</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-docker-what">
@@ -3103,39 +3127,39 @@ const DOCKER_CONTENT = `
         <strong style="color:#0ea5e9">In your project:</strong><br>
         <span style="color:var(--text2)">Docker ensures my Java + MySQL project runs without manually installing Java or the JDBC driver on every machine.</span>
       </div>
-      <div class="sbox">✅ <strong>One-liner:</strong> Docker packages code + dependencies into containers that run consistently everywhere.</div>
+      <div class="sbox"><strong>One-liner:</strong> Docker packages code + dependencies into containers that run consistently everywhere.</div>
     </div>
   </div>
 
   <!-- 2. Why Docker is Used -->
   <div class="accordion" id="acc-docker-why">
     <button class="accordion-header" onclick="toggleAcc('docker-why')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#0ea5e9">❓</span><span>2. Why Docker is Used?</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>2. Why Docker is Used?</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-docker-why">
       <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:12px">
         <div style="background:rgba(14,165,233,0.06);border:1px solid rgba(14,165,233,0.18);border-radius:8px;padding:11px 14px;font-size:13px">
-          <strong style="color:#0ea5e9">✅ Avoid environment issues</strong> — App behaves the same in dev, test, and production.
+          <strong style="color:#0ea5e9">Avoid environment issues</strong> — App behaves the same in dev, test, and production.
         </div>
         <div style="background:rgba(14,165,233,0.06);border:1px solid rgba(14,165,233,0.18);border-radius:8px;padding:11px 14px;font-size:13px">
-          <strong style="color:#0ea5e9">✅ Portability</strong> — Run on any machine, cloud, or OS without reinstalling dependencies.
+          <strong style="color:#0ea5e9">Portability</strong> — Run on any machine, cloud, or OS without reinstalling dependencies.
         </div>
         <div style="background:rgba(14,165,233,0.06);border:1px solid rgba(14,165,233,0.18);border-radius:8px;padding:11px 14px;font-size:13px">
-          <strong style="color:#0ea5e9">✅ Consistent execution</strong> — Same image produces the same result everywhere.
+          <strong style="color:#0ea5e9">Consistent execution</strong> — Same image produces the same result everywhere.
         </div>
         <div style="background:rgba(14,165,233,0.06);border:1px solid rgba(14,165,233,0.18);border-radius:8px;padding:11px 14px;font-size:13px">
-          <strong style="color:#0ea5e9">✅ Faster deployment</strong> — Build once, deploy anywhere in seconds.
+          <strong style="color:#0ea5e9">Faster deployment</strong> — Build once, deploy anywhere in seconds.
         </div>
       </div>
-      <div class="sbox">⭐ <strong>Interview-style answer:</strong> "Docker is widely used in CI/CD pipelines and cloud-based application deployment."</div>
+      <div class="sbox"><strong>Interview-style answer:</strong> "Docker is widely used in CI/CD pipelines and cloud-based application deployment."</div>
     </div>
   </div>
 
   <!-- 3. Where is Docker Used -->
   <div class="accordion" id="acc-docker-where">
     <button class="accordion-header" onclick="toggleAcc('docker-where')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#0ea5e9">🌍</span><span>3. Where is Docker Used?</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>3. Where is Docker Used?</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-docker-where">
@@ -3155,7 +3179,7 @@ const DOCKER_CONTENT = `
   <!-- 4. Containerization -->
   <div class="accordion" id="acc-docker-container">
     <button class="accordion-header" onclick="toggleAcc('docker-container')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#0ea5e9">📦</span><span>4. What is Containerization?</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>4. What is Containerization?</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-docker-container">
@@ -3170,14 +3194,14 @@ const DOCKER_CONTENT = `
           <tr><td>More isolated</td><td>Process-level isolation</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ <strong>Key difference:</strong> VM = full OS per app · Docker = shares host OS, only packages what the app needs.</div>
+      <div class="sbox"><strong>Key difference:</strong> VM = full OS per app · Docker = shares host OS, only packages what the app needs.</div>
     </div>
   </div>
 
   <!-- 5. Docker Image vs Container -->
   <div class="accordion" id="acc-docker-image">
     <button class="accordion-header" onclick="toggleAcc('docker-image')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#0ea5e9">🖼️</span><span>5. Docker Image vs Docker Container</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#0ea5e9">️</span><span>5. Docker Image vs Docker Container</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-docker-image">
@@ -3190,7 +3214,7 @@ const DOCKER_CONTENT = `
           <tr><td>Like a <strong>class</strong> in Java</td><td>Like an <strong>object</strong> of that class</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ <strong>Memory trick:</strong> Image = class · Container = object &nbsp;|&nbsp; You build an image once, run it as many containers as needed.</div>
+      <div class="sbox"><strong>Memory trick:</strong> Image = class · Container = object &nbsp;|&nbsp; You build an image once, run it as many containers as needed.</div>
       <p class="section-label">Examples used in your project</p>
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:4px">
         <code style="background:rgba(14,165,233,0.10);border:1px solid rgba(14,165,233,0.20);border-radius:7px;padding:6px 10px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#7dd3fc">openjdk:21</code>
@@ -3202,7 +3226,7 @@ const DOCKER_CONTENT = `
   <!-- 6. Docker Architecture -->
   <div class="accordion" id="acc-docker-arch">
     <button class="accordion-header" onclick="toggleAcc('docker-arch')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#0ea5e9">🏗️</span><span>6. Docker Architecture (Basic)</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#0ea5e9">️</span><span>6. Docker Architecture (Basic)</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-docker-arch">
@@ -3215,14 +3239,14 @@ const DOCKER_CONTENT = `
           <tr><td style="color:#0ea5e9">Docker Containers</td><td>Running instances of images — the actual app execution</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ You type <code style="background:rgba(14,165,233,0.12);padding:1px 5px;border-radius:4px;font-size:12px">docker run</code> → Client sends request → Daemon executes it → Container starts.</div>
+      <div class="sbox">You type <code style="background:rgba(14,165,233,0.12);padding:1px 5px;border-radius:4px;font-size:12px">docker run</code> → Client sends request → Daemon executes it → Container starts.</div>
     </div>
   </div>
 
   <!-- 7. Dockerfile -->
   <div class="accordion" id="acc-docker-dockerfile">
     <button class="accordion-header" onclick="toggleAcc('docker-dockerfile')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#0ea5e9">📄</span><span>7. What is a Dockerfile? — Your Project Dockerfile</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>7. What is a Dockerfile? — Your Project Dockerfile</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-docker-dockerfile">
@@ -3272,7 +3296,7 @@ const DOCKER_CONTENT = `
   <!-- 8. RUN vs CMD -->
   <div class="accordion" id="acc-docker-runcmd">
     <button class="accordion-header" onclick="toggleAcc('docker-runcmd')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#0ea5e9">⚡</span><span>8. RUN vs CMD — Very Important</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>8. RUN vs CMD — Very Important</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-docker-runcmd">
@@ -3285,7 +3309,7 @@ const DOCKER_CONTENT = `
           <tr><td>Can have multiple RUN commands</td><td>Only one CMD per Dockerfile</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ <strong>In your project:</strong> RUN = compile Java files · CMD = start the Java application</div>
+      <div class="sbox"><strong>In your project:</strong> RUN = compile Java files · CMD = start the Java application</div>
       <div style="background:rgba(14,165,233,0.06);border:1px solid rgba(14,165,233,0.15);border-radius:8px;padding:12px 14px;font-size:12.5px;margin-top:8px">
         <strong style="color:#0ea5e9">Interview line:</strong><br>
         <span style="color:var(--text2)">RUN executes during image build and its result becomes part of the image. CMD executes when the container starts and defines the default command to run the application.</span>
@@ -3334,7 +3358,7 @@ const DOCKER_CONTENT = `
   <!-- 10. Isolation -->
   <div class="accordion" id="acc-docker-isolation">
     <button class="accordion-header" onclick="toggleAcc('docker-isolation')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#0ea5e9">🔒</span><span>10. Container Isolation</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>10. Container Isolation</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-docker-isolation">
@@ -3350,32 +3374,32 @@ const DOCKER_CONTENT = `
           <strong style="color:#0ea5e9">Own dependencies</strong> — Container 1 can run Java 17 while Container 2 runs Java 21 on the same host.
         </div>
       </div>
-      <div class="wbox">❌ If <strong>Container 1</strong> crashes, <strong>Container 2</strong> and <strong>Container 3</strong> continue running — completely unaffected.</div>
-      <div class="sbox" style="margin-top:10px">✅ <strong>Interview answer:</strong> Isolation means each container operates independently with its own environment, so a crash or misconfiguration in one container does not impact others.</div>
+      <div class="wbox">If <strong>Container 1</strong> crashes, <strong>Container 2</strong> and <strong>Container 3</strong> continue running — completely unaffected.</div>
+      <div class="sbox" style="margin-top:10px"><strong>Interview answer:</strong> Isolation means each container operates independently with its own environment, so a crash or misconfiguration in one container does not impact others.</div>
     </div>
   </div>
 
   <!-- 11. Docker Volumes -->
   <div class="accordion" id="acc-docker-volumes">
     <button class="accordion-header" onclick="toggleAcc('docker-volumes')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#0ea5e9">💾</span><span>11. Docker Volumes — Persistent Storage</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>11. Docker Volumes — Persistent Storage</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-docker-volumes">
-      <div class="wbox">⚠ Containers are <strong>temporary</strong> — data inside a container is lost when the container is removed.</div>
+      <div class="wbox">Containers are <strong>temporary</strong> — data inside a container is lost when the container is removed.</div>
       <div style="margin-top:10px;margin-bottom:10px">
         <div class="hbox"><strong>Docker Volumes</strong> provide persistent storage that survives outside the container lifecycle.</div>
       </div>
       <p class="section-label">Advantages of Volumes</p>
       <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:12px">
         <div style="background:rgba(14,165,233,0.06);border:1px solid rgba(14,165,233,0.18);border-radius:8px;padding:11px 14px;font-size:13px">
-          <strong style="color:#0ea5e9">✅ Persistent storage</strong> — Data survives even if the container is deleted.
+          <strong style="color:#0ea5e9">Persistent storage</strong> — Data survives even if the container is deleted.
         </div>
         <div style="background:rgba(14,165,233,0.06);border:1px solid rgba(14,165,233,0.18);border-radius:8px;padding:11px 14px;font-size:13px">
-          <strong style="color:#0ea5e9">✅ Shareable</strong> — The same volume can be mounted to new or multiple containers.
+          <strong style="color:#0ea5e9">Shareable</strong> — The same volume can be mounted to new or multiple containers.
         </div>
         <div style="background:rgba(14,165,233,0.06);border:1px solid rgba(14,165,233,0.18);border-radius:8px;padding:11px 14px;font-size:13px">
-          <strong style="color:#0ea5e9">✅ Database safe</strong> — MySQL/Postgres data survives container restarts.
+          <strong style="color:#0ea5e9">Database safe</strong> — MySQL/Postgres data survives container restarts.
         </div>
       </div>
       <p class="section-label">Volume Commands</p>
@@ -3391,14 +3415,14 @@ const DOCKER_CONTENT = `
 <span class="fn">docker run -v mysql-data:/var/lib/mysql mysql</span>
 <span class="cmt"># -v volume_name:path_inside_container</span></div>
       </div>
-      <div class="sbox" style="margin-top:10px">✅ <strong>Interview answer:</strong> Docker Volumes provide persistent storage independent of the container lifecycle — data is preserved even when the container is deleted.</div>
+      <div class="sbox" style="margin-top:10px"><strong>Interview answer:</strong> Docker Volumes provide persistent storage independent of the container lifecycle — data is preserved even when the container is deleted.</div>
     </div>
   </div>
 
   <!-- 12. Docker Compose -->
   <div class="accordion" id="acc-docker-compose">
     <button class="accordion-header" onclick="toggleAcc('docker-compose')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#0ea5e9">🧩</span><span>12. Docker Compose — Multi-Container Management</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>12. Docker Compose — Multi-Container Management</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-docker-compose">
@@ -3428,14 +3452,14 @@ const DOCKER_CONTENT = `
 <span class="cmt"># Stop all services</span>
 <span class="fn">docker compose down</span></div>
       </div>
-      <div class="sbox" style="margin-top:10px">✅ <strong>Interview answer:</strong> Docker Compose is a tool used to define and manage multi-container applications using a YAML configuration file, so all services start and stop together.</div>
+      <div class="sbox" style="margin-top:10px"><strong>Interview answer:</strong> Docker Compose is a tool used to define and manage multi-container applications using a YAML configuration file, so all services start and stop together.</div>
     </div>
   </div>
 
   <!-- 13. Complete Docker Commands Reference -->
   <div class="accordion" id="acc-docker-allcommands">
     <button class="accordion-header" onclick="toggleAcc('docker-allcommands')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#0ea5e9">📋</span><span>13. Complete Docker Commands Reference</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>13. Complete Docker Commands Reference</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-docker-allcommands">
@@ -3475,60 +3499,60 @@ const DOCKER_CONTENT = `
   <!-- 14. Complete Docker Flow -->
   <div class="accordion" id="acc-docker-flow">
     <button class="accordion-header" onclick="toggleAcc('docker-flow')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#0ea5e9">🔄</span><span>14. Complete Docker Flow</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>14. Complete Docker Flow</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-docker-flow">
       <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:12px">
         <div style="background:rgba(14,165,233,0.06);border:1px solid rgba(14,165,233,0.18);border-radius:8px;padding:10px 14px;font-size:13px;display:flex;align-items:center;gap:10px">
-          <span style="font-size:16px">📝</span><span><strong style="color:#0ea5e9">Application</strong> — Your source code</span>
+          <span style="font-size:16px"></span><span><strong style="color:#0ea5e9">Application</strong> — Your source code</span>
         </div>
         <div style="text-align:center;color:var(--text3);font-size:16px">↓</div>
         <div style="background:rgba(14,165,233,0.06);border:1px solid rgba(14,165,233,0.18);border-radius:8px;padding:10px 14px;font-size:13px;display:flex;align-items:center;gap:10px">
-          <span style="font-size:16px">📄</span><span><strong style="color:#0ea5e9">Dockerfile</strong> — Instructions to build the image</span>
+          <span style="font-size:16px"></span><span><strong style="color:#0ea5e9">Dockerfile</strong> — Instructions to build the image</span>
         </div>
         <div style="text-align:center;color:var(--text3);font-size:16px">↓ <code style="font-size:11px;color:#7dd3fc">docker build</code></div>
         <div style="background:rgba(14,165,233,0.06);border:1px solid rgba(14,165,233,0.18);border-radius:8px;padding:10px 14px;font-size:13px;display:flex;align-items:center;gap:10px">
-          <span style="font-size:16px">🖼️</span><span><strong style="color:#0ea5e9">Docker Image</strong> — Read-only blueprint (class)</span>
+          <span style="font-size:16px">️</span><span><strong style="color:#0ea5e9">Docker Image</strong> — Read-only blueprint (class)</span>
         </div>
         <div style="text-align:center;color:var(--text3);font-size:16px">↓ <code style="font-size:11px;color:#7dd3fc">docker run</code></div>
         <div style="background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.18);border-radius:8px;padding:10px 14px;font-size:13px;display:flex;align-items:center;gap:10px">
-          <span style="font-size:16px">📦</span><span><strong style="color:#10b981">Docker Container</strong> — Running instance (object) — Application Running!</span>
+          <span style="font-size:16px"></span><span><strong style="color:#10b981">Docker Container</strong> — Running instance (object) — Application Running!</span>
         </div>
       </div>
-      <div class="sbox">✅ <strong>One-liner flow:</strong> Write Dockerfile → <code>docker build</code> → Image → <code>docker run</code> → Container running your app.</div>
+      <div class="sbox"><strong>One-liner flow:</strong> Write Dockerfile → <code>docker build</code> → Image → <code>docker run</code> → Container running your app.</div>
     </div>
   </div>
 
   <!-- 15. How Docker helped your project -->
   <div class="accordion" id="acc-docker-project">
     <button class="accordion-header" onclick="toggleAcc('docker-project')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#0ea5e9">🚀</span><span>15. How Docker Helped Your Project</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>15. How Docker Helped Your Project</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-docker-project">
       <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:12px">
         <div style="background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.18);border-radius:8px;padding:11px 14px;font-size:13px">
-          <strong style="color:#10b981">✅ No Java installation needed</strong> — openjdk:21 base image includes Java runtime.
+          <strong style="color:#10b981">No Java installation needed</strong> — openjdk:21 base image includes Java runtime.
         </div>
         <div style="background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.18);border-radius:8px;padding:11px 14px;font-size:13px">
-          <strong style="color:#10b981">✅ No JDBC setup needed</strong> — JDBC JAR is copied into the container automatically.
+          <strong style="color:#10b981">No JDBC setup needed</strong> — JDBC JAR is copied into the container automatically.
         </div>
         <div style="background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.18);border-radius:8px;padding:11px 14px;font-size:13px">
-          <strong style="color:#10b981">✅ Same output everywhere</strong> — Image runs identically on Windows, Linux, macOS, or any cloud.
+          <strong style="color:#10b981">Same output everywhere</strong> — Image runs identically on Windows, Linux, macOS, or any cloud.
         </div>
         <div style="background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.18);border-radius:8px;padding:11px 14px;font-size:13px">
-          <strong style="color:#10b981">✅ Easy to share</strong> — Anyone can run your project with one command.
+          <strong style="color:#10b981">Easy to share</strong> — Anyone can run your project with one command.
         </div>
       </div>
-      <div class="sbox">⭐ <strong>Confident Interview Answer:</strong> "I wrote a Dockerfile to containerize my Java application by selecting an appropriate base image, managing dependencies manually, compiling the code inside the container, and running it using CMD. This ensured the application runs consistently across systems."</div>
+      <div class="sbox"><strong>Confident Interview Answer:</strong> "I wrote a Dockerfile to containerize my Java application by selecting an appropriate base image, managing dependencies manually, compiling the code inside the container, and running it using CMD. This ensured the application runs consistently across systems."</div>
     </div>
   </div>
 
   <!-- Quick Revision -->
   <div class="accordion" id="acc-docker-qrev">
     <button class="accordion-header" onclick="toggleAcc('docker-qrev')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#0ea5e9">⚡</span><span>Quick Revision Cheatsheet</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>Quick Revision Cheatsheet</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-docker-qrev">
@@ -3570,14 +3594,18 @@ const ARRAYS_CONTENT = `
 <div class="content-area">
 
   <div style="background:rgba(99,102,241,0.07);border:1px solid rgba(99,102,241,0.2);border-radius:10px;padding:13px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.7;color:var(--text2)">
-    🎯 <strong style="color:#6366f1">DSA scope</strong> — Arrays are the most fundamental data structure. Common patterns: two pointers, prefix sums, sliding window, and in-place manipulation.
+    <strong style="color:#6366f1">Interview scope</strong> — Arrays are the most fundamental data structure. Common patterns: two pointers, prefix sums, sliding window, and in-place manipulation.
+  </div>
+  <div style="background:rgba(99,102,241,0.04);border:1px solid rgba(99,102,241,0.13);border-radius:10px;padding:13px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.7;color:var(--text2)">
+    <strong style="color:#6366f1">Why this matters</strong> — Arrays are the entry point for almost every DSA interview: they're the easiest structure to reason about, so interviewers use them to test whether you can recognize the right pattern quickly under time pressure, before moving on to harder structures.<br><br>
+    <strong style="color:#6366f1">When to use it</strong> — Reach for array patterns whenever data is contiguous and index-accessible. Use <strong>two pointers</strong> for sorted-array or opposite-end problems, <strong>prefix sums</strong> for repeated range-sum queries, <strong>sliding window</strong> for contiguous subarray problems, and <strong>in-place manipulation</strong> when the follow-up asks for O(1) extra space.
   </div>
 
   <!-- 1. Plus One (LeetCode 66) -->
   <div class="accordion" id="acc-arr-plusone">
     <button class="accordion-header" onclick="toggleAcc('arr-plusone')">
       <span style="display:flex;align-items:center;gap:8px">
-        <span style="color:#6366f1">➕</span>
+        
         <span>1. Plus One — LeetCode #66</span>
       </span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
@@ -3633,7 +3661,7 @@ const ARRAYS_CONTENT = `
           <tr><td>2</td><td>3</td><td>1</td><td>4</td><td>4</td><td>0</td></tr>
           <tr><td>1</td><td>2</td><td>0</td><td>2</td><td>2</td><td>0</td></tr>
           <tr><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td></tr>
-          <tr><td colspan="6" style="color:var(--text2)">Result: [1, 2, 4] ✅</td></tr>
+          <tr><td colspan="6" style="color:var(--text2)">Result: [1, 2, 4]</td></tr>
         </tbody>
       </table></div>
 
@@ -3645,7 +3673,7 @@ const ARRAYS_CONTENT = `
           <tr><td>2</td><td>9</td><td>1</td><td>10</td><td>0</td><td>1</td></tr>
           <tr><td>1</td><td>9</td><td>1</td><td>10</td><td>0</td><td>1</td></tr>
           <tr><td>0</td><td>9</td><td>1</td><td>10</td><td>0</td><td>1</td></tr>
-          <tr><td colspan="6" style="color:#6366f1">carry == 1 → build new array [1, 0, 0, 0] ✅</td></tr>
+          <tr><td colspan="6" style="color:#6366f1">carry == 1 → build new array [1, 0, 0, 0]</td></tr>
         </tbody>
       </table></div>
 
@@ -3659,14 +3687,14 @@ const ARRAYS_CONTENT = `
         </tbody>
       </table></div>
 
-      <div class="sbox">✅ <strong>TC:</strong> O(n) — one recursive pass through the array &nbsp;|&nbsp; <strong>SC:</strong> O(n) — call stack depth. New array only created in the all-9s edge case.</div>
+      <div class="sbox"><strong>TC:</strong> O(n) — one recursive pass through the array &nbsp;|&nbsp; <strong>SC:</strong> O(n) — call stack depth. New array only created in the all-9s edge case.</div>
 
       <p class="section-label" style="margin-top:16px">Connection to Linked List Version</p>
       <div style="background:rgba(99,102,241,0.06);border:1px solid rgba(99,102,241,0.18);border-radius:8px;padding:12px 14px;font-size:12.5px;margin-bottom:10px">
         <strong style="color:#6366f1">Same idea, different container.</strong> In the LL version (<em>Add 1 to a Linked List</em>), the recursive <code>helper(node)</code> reaches <code>null</code> as base case. Here, <code>helper(arr, id)</code> reaches <code>id == arr.length</code>. Both return carry = 1 from the base and unwind the same way — making the two problems almost identical in logic.
       </div>
 
-      <p class="section-label">⚡ Interview Q&amp;A</p>
+      <p class="section-label">Interview Q&amp;A</p>
       <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:4px">
         <div style="background:rgba(99,102,241,0.06);border:1px solid rgba(99,102,241,0.15);border-radius:8px;padding:12px 14px;font-size:12.5px">
           <strong style="color:#6366f1">Q: Why use recursion instead of a simple loop?</strong><br>
@@ -3688,7 +3716,7 @@ const ARRAYS_CONTENT = `
   <div class="accordion" id="acc-arr-qrev">
     <button class="accordion-header" onclick="toggleAcc('arr-qrev')">
       <span style="display:flex;align-items:center;gap:8px">
-        <span style="color:#f59e0b">⚡</span>
+        
         <span>Quick Revision Cheatsheet</span>
       </span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
@@ -3706,14 +3734,18 @@ const BINARY_SEARCH_CONTENT = `
 <div class="content-area">
 
   <div style="background:rgba(132,204,22,0.07);border:1px solid rgba(132,204,22,0.22);border-radius:10px;padding:13px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.7;color:var(--text2)">
-    🎯 <strong style="color:#84cc16">DSA scope</strong> — Binary Search runs in <strong>O(log n)</strong> on sorted data. Core boilerplate + 8 classical variants: Lower/Upper Bound, Floor/Ceil, First/Last Occurrence, Rotated Arrays, Duplicates, Minimum in Rotation, and Single Non-Duplicate.
+    <strong style="color:#84cc16">Interview scope</strong> — Binary Search runs in <strong>O(log n)</strong> on sorted data. Core boilerplate + 8 classical variants: Lower/Upper Bound, Floor/Ceil, First/Last Occurrence, Rotated Arrays, Duplicates, Minimum in Rotation, and Single Non-Duplicate.
+  </div>
+  <div style="background:rgba(132,204,22,0.04);border:1px solid rgba(132,204,22,0.14);border-radius:10px;padding:13px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.7;color:var(--text2)">
+    <strong style="color:#84cc16">Why this matters</strong> — Binary Search is one of the highest-leverage patterns in interviews: the boilerplate is short, but interviewers use its variants to probe how carefully you handle boundaries (off-by-one errors are the most common mistake here), which makes it a reliable signal of coding discipline.<br><br>
+    <strong style="color:#84cc16">When to use it</strong> — Use it whenever the search space is sorted, monotonic, or can be framed as "find the boundary where a condition flips" — not just literal sorted arrays. This includes rotated arrays, "search on the answer" problems (minimize/maximize a value), and finding first/last occurrences.
   </div>
 
   <!-- 1. Core Boilerplate -->
   <div class="accordion" id="acc-bs-core">
     <button class="accordion-header" onclick="toggleAcc('bs-core')">
       <span style="display:flex;align-items:center;gap:8px">
-        <span style="color:#84cc16">🔍</span>
+        
         <span>1. Core Boilerplate — Standard Binary Search</span>
       </span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
@@ -3753,7 +3785,7 @@ const BINARY_SEARCH_CONTENT = `
         <thead><tr><th>Iteration</th><th>low</th><th>high</th><th>mid</th><th>arr[mid]</th><th>Action</th></tr></thead>
         <tbody>
           <tr><td>1</td><td>0</td><td>4</td><td>2</td><td>5</td><td>5 &lt; 7 → low = 3</td></tr>
-          <tr><td>2</td><td>3</td><td>4</td><td>3</td><td>7</td><td>Found! return 3 ✅</td></tr>
+          <tr><td>2</td><td>3</td><td>4</td><td>3</td><td>7</td><td>Found! return 3</td></tr>
         </tbody>
       </table></div>
 
@@ -3765,7 +3797,7 @@ const BINARY_SEARCH_CONTENT = `
   <div class="accordion" id="acc-bs-bounds">
     <button class="accordion-header" onclick="toggleAcc('bs-bounds')">
       <span style="display:flex;align-items:center;gap:8px">
-        <span style="color:#84cc16">📐</span>
+        
         <span>2. Lower Bound &amp; Upper Bound</span>
       </span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
@@ -3833,7 +3865,7 @@ const BINARY_SEARCH_CONTENT = `
   <div class="accordion" id="acc-bs-floorceil">
     <button class="accordion-header" onclick="toggleAcc('bs-floorceil')">
       <span style="display:flex;align-items:center;gap:8px">
-        <span style="color:#84cc16">🏠</span>
+        
         <span>3. Floor Value &amp; Ceil Value</span>
       </span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
@@ -3885,7 +3917,7 @@ const BINARY_SEARCH_CONTENT = `
 }</div>
       </div>
 
-      <div class="sbox">✅ Floor stores <code>arr[mid]</code> and moves <strong>right</strong>; Ceil stores <code>arr[mid]</code> and moves <strong>left</strong>. The direction mirrors Lower/Upper Bound (which store the index instead).</div>
+      <div class="sbox">Floor stores <code>arr[mid]</code> and moves <strong>right</strong>; Ceil stores <code>arr[mid]</code> and moves <strong>left</strong>. The direction mirrors Lower/Upper Bound (which store the index instead).</div>
     </div>
   </div>
 
@@ -3893,7 +3925,7 @@ const BINARY_SEARCH_CONTENT = `
   <div class="accordion" id="acc-bs-occur">
     <button class="accordion-header" onclick="toggleAcc('bs-occur')">
       <span style="display:flex;align-items:center;gap:8px">
-        <span style="color:#84cc16">🎯</span>
+        
         <span>4. First &amp; Last Occurrence</span>
       </span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
@@ -3952,7 +3984,7 @@ const BINARY_SEARCH_CONTENT = `
   <div class="accordion" id="acc-bs-rot1">
     <button class="accordion-header" onclick="toggleAcc('bs-rot1')">
       <span style="display:flex;align-items:center;gap:8px">
-        <span style="color:#84cc16">🔄</span>
+        
         <span>5. Search in Rotated Sorted Array I (No Duplicates)</span>
       </span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
@@ -3998,7 +4030,7 @@ const BINARY_SEARCH_CONTENT = `
 }</div>
       </div>
 
-      <div class="sbox">✅ <strong>TC:</strong> O(log n) &nbsp;|&nbsp; <strong>SC:</strong> O(1)</div>
+      <div class="sbox"><strong>TC:</strong> O(log n) &nbsp;|&nbsp; <strong>SC:</strong> O(1)</div>
     </div>
   </div>
 
@@ -4006,7 +4038,7 @@ const BINARY_SEARCH_CONTENT = `
   <div class="accordion" id="acc-bs-rot2">
     <button class="accordion-header" onclick="toggleAcc('bs-rot2')">
       <span style="display:flex;align-items:center;gap:8px">
-        <span style="color:#84cc16">🔄</span>
+        
         <span>6. Search in Rotated Sorted Array II (With Duplicates)</span>
       </span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
@@ -4055,7 +4087,7 @@ const BINARY_SEARCH_CONTENT = `
 }</div>
       </div>
 
-      <div class="wbox"><strong>⚠️ TC:</strong> O(log n) average, <strong>O(n) worst case</strong> when all elements are duplicates (e.g. [2,2,2,2,2]).</div>
+      <div class="wbox"><strong>️ TC:</strong> O(log n) average, <strong>O(n) worst case</strong> when all elements are duplicates (e.g. [2,2,2,2,2]).</div>
     </div>
   </div>
 
@@ -4063,7 +4095,7 @@ const BINARY_SEARCH_CONTENT = `
   <div class="accordion" id="acc-bs-minrot">
     <button class="accordion-header" onclick="toggleAcc('bs-minrot')">
       <span style="display:flex;align-items:center;gap:8px">
-        <span style="color:#84cc16">📉</span>
+        
         <span>7. Minimum in Rotated Array &amp; Count Rotations</span>
       </span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
@@ -4110,7 +4142,7 @@ const BINARY_SEARCH_CONTENT = `
   <div class="accordion" id="acc-bs-single">
     <button class="accordion-header" onclick="toggleAcc('bs-single')">
       <span style="display:flex;align-items:center;gap:8px">
-        <span style="color:#84cc16">🎲</span>
+        
         <span>8. Single Element in Sorted Array — LeetCode 540</span>
       </span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
@@ -4167,7 +4199,7 @@ const BINARY_SEARCH_CONTENT = `
 }</div>
       </div>
 
-      <div class="sbox">✅ <strong>TC:</strong> O(log n) &nbsp;|&nbsp; <strong>SC:</strong> O(1) — Searching only the interior [1, n-2] after handling boundary edge cases.</div>
+      <div class="sbox"><strong>TC:</strong> O(log n) &nbsp;|&nbsp; <strong>SC:</strong> O(1) — Searching only the interior [1, n-2] after handling boundary edge cases.</div>
     </div>
   </div>
 
@@ -4175,7 +4207,7 @@ const BINARY_SEARCH_CONTENT = `
   <div class="accordion" id="acc-bs-qrev">
     <button class="accordion-header" onclick="toggleAcc('bs-qrev')">
       <span style="display:flex;align-items:center;gap:8px">
-        <span style="color:#f59e0b">⚡</span>
+        
         <span>Quick Revision Cheatsheet</span>
       </span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
@@ -4369,7 +4401,7 @@ function renderBuiltinSection(section, index) {
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-${id}">
-      ${section.note ? `<div class="sbox" style="margin-bottom:10px">✅ ${escBuiltin(section.note)}</div>` : ''}
+      ${section.note ? `<div class="sbox" style="margin-bottom:10px">${escBuiltin(section.note)}</div>` : ''}
       ${renderBuiltinGroups(section.groups)}
     </div>
   </div>`;
@@ -4378,7 +4410,7 @@ function renderBuiltinSection(section, index) {
 const BUILT_IN_FUNCTIONS_CONTENT = `
 <div class="content-area">
   <div style="background:rgba(245,158,11,0.07);border:1px solid rgba(245,158,11,0.2);border-radius:10px;padding:13px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.7;color:var(--text2)">
-    🎯 <strong style="color:#f59e0b">Interview quick map</strong> — commonly used Java built-in methods across arrays, strings, collections, maps, sets, streams, math, characters, trees, graphs, and bit manipulation.
+    <strong style="color:#f59e0b">Interview quick map</strong> — commonly used Java built-in methods across arrays, strings, collections, maps, sets, streams, math, characters, trees, graphs, and bit manipulation.
   </div>
   ${BUILT_IN_FUNCTIONS_SECTIONS.map(renderBuiltinSection).join('')}
 </div>`;
@@ -4389,40 +4421,44 @@ const APIS_HTTP_CONTENT = `
 
   <!-- Interview Note Banner -->
   <div style="background:rgba(244,63,94,0.08);border:1px solid rgba(244,63,94,0.22);border-radius:10px;padding:13px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.7;color:var(--text2)">
-    🎯 <strong style="color:#f43f5e">Interview scope</strong> — APIs and HTTP codes are asked in almost every backend/fullstack interview. Know: what is an API, REST principles, HTTP methods, and the key status codes cold.
+    <strong style="color:#f43f5e">Interview scope</strong> — APIs and HTTP codes are asked in almost every backend/fullstack interview. Know: what is an API, REST principles, HTTP methods, and the key status codes cold.
+  </div>
+  <div style="background:rgba(244,63,94,0.04);border:1px solid rgba(244,63,94,0.13);border-radius:10px;padding:13px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.7;color:var(--text2)">
+    <strong style="color:#f43f5e">Why this matters</strong> — APIs are the contract between frontend and backend (or between services), so interviewers treat this as baseline literacy for any web role. Misusing HTTP methods or status codes signals you haven't actually built/consumed a real API.<br><br>
+    <strong style="color:#f43f5e">When to use it</strong> — Know this cold for questions like "what's the difference between PUT and PATCH", "what does a 401 vs 403 mean", or "what makes an API RESTful" — all extremely common opening questions before diving into your specific project.
   </div>
 
   <!-- 1. What is an API -->
   <div class="accordion" id="acc-api-intro">
     <button class="accordion-header" onclick="toggleAcc('api-intro')">
       <span style="display:flex;align-items:center;gap:8px">
-        <span style="color:#f43f5e">🌐</span>
+        
         <span>1. What is an API? (Starting Point)</span>
       </span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-api-intro">
       <div style="padding:4px 0 12px">
-        <div class="hbox" style="margin-bottom:12px">✅ <strong>Definition (INTERVIEW READY)</strong> — API (Application Programming Interface) is a way for two software applications to communicate with each other.</div>
+        <div class="hbox" style="margin-bottom:12px"><strong>Definition (INTERVIEW READY)</strong> — API (Application Programming Interface) is a way for two software applications to communicate with each other.</div>
 
-        <p style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:8px">🧠 Layman Example — The Restaurant Analogy</p>
+        <p style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:8px">Layman Example — The Restaurant Analogy</p>
         <div style="background:rgba(244,63,94,0.06);border:1px solid rgba(244,63,94,0.15);border-radius:8px;padding:12px 14px;margin-bottom:12px;font-size:13px;line-height:1.8;color:var(--text2)">
-          <div style="margin-bottom:6px">Think of a restaurant 🍽️</div>
+          <div style="margin-bottom:6px">Think of a restaurant️</div>
           <div>• <strong style="color:var(--text)">You</strong> → Customer</div>
           <div>• <strong style="color:var(--text)">Kitchen</strong> → Server / Database</div>
           <div>• <strong style="color:var(--text)">Waiter</strong> → API</div>
           <div style="margin-top:8px;color:var(--text)">You don't go inside the kitchen. You give an order → waiter → kitchen → food → waiter → you.</div>
-          <div style="margin-top:8px;font-weight:700;color:#f43f5e">👉 API = Waiter</div>
+          <div style="margin-top:8px;font-weight:700;color:#f43f5e">API = Waiter</div>
         </div>
 
-        <p style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px">🔹 Why do we need APIs?</p>
+        <p style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px">Why do we need APIs?</p>
         <ul style="font-size:13px;color:var(--text2);line-height:1.9;padding-left:18px;margin-bottom:12px">
           <li>One application cannot directly access another application's data</li>
           <li>APIs provide <strong style="color:var(--text)">controlled, secure</strong> communication</li>
           <li>Used in web apps, mobile apps, microservices</li>
         </ul>
 
-        <p style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px">🔹 Where are APIs used? (Real Life)</p>
+        <p style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px">Where are APIs used? (Real Life)</p>
         <ul style="font-size:13px;color:var(--text2);line-height:1.9;padding-left:18px">
           <li>Login with Google / Facebook</li>
           <li>Payment gateways (Razorpay, PayPal)</li>
@@ -4438,7 +4474,7 @@ const APIS_HTTP_CONTENT = `
   <div class="accordion" id="acc-api-reqres">
     <button class="accordion-header" onclick="toggleAcc('api-reqres')">
       <span style="display:flex;align-items:center;gap:8px">
-        <span style="color:#f43f5e">📨</span>
+        
         <span>2. Request &amp; Response</span>
       </span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
@@ -4473,16 +4509,16 @@ const APIS_HTTP_CONTENT = `
   <div class="accordion" id="acc-api-rest">
     <button class="accordion-header" onclick="toggleAcc('api-rest')">
       <span style="display:flex;align-items:center;gap:8px">
-        <span style="color:#f43f5e">⚡</span>
+        
         <span>3. What is a REST API? (Important)</span>
       </span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-api-rest">
       <div style="padding:4px 0 12px">
-        <div class="hbox" style="margin-bottom:12px">✅ <strong>Definition</strong> — REST (Representational State Transfer) is an architectural style for designing APIs using HTTP.</div>
+        <div class="hbox" style="margin-bottom:12px"><strong>Definition</strong> — REST (Representational State Transfer) is an architectural style for designing APIs using HTTP.</div>
 
-        <p style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px">🔹 Why REST API is popular?</p>
+        <p style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px">Why REST API is popular?</p>
         <ul style="font-size:13px;color:var(--text2);line-height:1.9;padding-left:18px;margin-bottom:14px">
           <li>Simple and lightweight</li>
           <li>Uses standard HTTP</li>
@@ -4490,7 +4526,7 @@ const APIS_HTTP_CONTENT = `
           <li>Works with JSON (easy to read)</li>
         </ul>
 
-        <p style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:8px">🔹 REST API HTTP Methods</p>
+        <p style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:8px">REST API HTTP Methods</p>
         <table style="width:100%;border-collapse:collapse;font-size:13px;margin-bottom:14px">
           <thead><tr style="background:rgba(244,63,94,0.1)">
             <th style="text-align:left;padding:8px 10px;color:#f43f5e;border-bottom:1px solid rgba(244,63,94,0.2)">Method</th>
@@ -4504,7 +4540,7 @@ const APIS_HTTP_CONTENT = `
           </tbody>
         </table>
 
-        <p style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:8px">🔹 REST API Example — Student Project</p>
+        <p style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:8px">REST API Example — Student Project</p>
         <table style="width:100%;border-collapse:collapse;font-size:12.5px;margin-bottom:14px">
           <thead><tr style="background:rgba(244,63,94,0.08)">
             <th style="text-align:left;padding:7px 10px;color:#f43f5e;border-bottom:1px solid rgba(244,63,94,0.2)">Operation</th>
@@ -4520,7 +4556,7 @@ const APIS_HTTP_CONTENT = `
           </tbody>
         </table>
 
-        <p style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px">🔹 REST API Principles (Light — Not Deep)</p>
+        <p style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px">REST API Principles (Light — Not Deep)</p>
         <ul style="font-size:13px;color:var(--text2);line-height:1.9;padding-left:18px">
           <li><strong style="color:var(--text)">Stateless</strong> — server doesn't store client session/state</li>
           <li>Uses standard HTTP methods</li>
@@ -4534,7 +4570,7 @@ const APIS_HTTP_CONTENT = `
   <div class="accordion" id="acc-api-json">
     <button class="accordion-header" onclick="toggleAcc('api-json')">
       <span style="display:flex;align-items:center;gap:8px">
-        <span style="color:#f43f5e">📦</span>
+        
         <span>4. What is JSON? (API Basic)</span>
       </span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
@@ -4581,7 +4617,7 @@ const APIS_HTTP_CONTENT = `
             <tr><td style="padding:8px 10px;color:var(--text2)">May use XML, JSON, or others</td><td style="padding:8px 10px;color:var(--text2)">Mostly JSON</td></tr>
           </tbody>
         </table>
-        <div class="sbox" style="margin-top:12px">💡 <strong>One-liner for interview:</strong> All REST APIs are APIs, but not all APIs are REST APIs.</div>
+        <div class="sbox" style="margin-top:12px"><strong>One-liner for interview:</strong> All REST APIs are APIs, but not all APIs are REST APIs.</div>
       </div>
     </div>
   </div>
@@ -4590,8 +4626,8 @@ const APIS_HTTP_CONTENT = `
   <div class="accordion" id="acc-api-statuscodes">
     <button class="accordion-header" onclick="toggleAcc('api-statuscodes')">
       <span style="display:flex;align-items:center;gap:8px">
-        <span style="color:#f43f5e">🔢</span>
-        <span>6. HTTP Status Codes (Interview Favorite ⭐)</span>
+        
+        <span>6. HTTP Status Codes (Interview Favorite)</span>
       </span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
@@ -4600,7 +4636,7 @@ const APIS_HTTP_CONTENT = `
         <div class="hbox" style="margin-bottom:14px">HTTP status codes are 3-digit responses from the server to the browser/client. Grouped by their first digit — <strong>1xx Info, 2xx Success, 3xx Redirect, 4xx Client Error, 5xx Server Error</strong>.</div>
 
         <!-- 2xx Success -->
-        <p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#4ade80;margin-bottom:8px">✅ 2xx — Success</p>
+        <p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#4ade80;margin-bottom:8px">2xx — Success</p>
         <table style="width:100%;border-collapse:collapse;font-size:13px;margin-bottom:16px">
           <tbody>
             <tr style="border-bottom:1px solid var(--border)">
@@ -4639,7 +4675,7 @@ const APIS_HTTP_CONTENT = `
         </table>
 
         <!-- 4xx Client Errors -->
-        <p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#fbbf24;margin-bottom:8px">⚠️ 4xx — Client Error (Your Fault)</p>
+        <p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#fbbf24;margin-bottom:8px">️ 4xx — Client Error (Your Fault)</p>
         <table style="width:100%;border-collapse:collapse;font-size:13px;margin-bottom:16px">
           <tbody>
             <tr style="border-bottom:1px solid var(--border)">
@@ -4676,7 +4712,7 @@ const APIS_HTTP_CONTENT = `
         </table>
 
         <!-- 5xx Server Errors -->
-        <p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#f87171;margin-bottom:8px">🔥 5xx — Server Error (Server's Fault)</p>
+        <p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#f87171;margin-bottom:8px">5xx — Server Error (Server's Fault)</p>
         <table style="width:100%;border-collapse:collapse;font-size:13px;margin-bottom:14px">
           <tbody>
             <tr style="border-bottom:1px solid var(--border)">
@@ -4704,8 +4740,8 @@ const APIS_HTTP_CONTENT = `
 
         <!-- Quick Memory Trick -->
         <div style="background:rgba(244,63,94,0.06);border:1px solid rgba(244,63,94,0.18);border-radius:8px;padding:12px 14px;font-size:12.5px;line-height:1.9;color:var(--text2)">
-          <strong style="color:#f43f5e">🧠 Memory Trick for Interview:</strong><br/>
-          <span style="color:var(--text)">1xx</span> = Hang on… &nbsp;|&nbsp; <span style="color:#4ade80">2xx</span> = Here you go ✅ &nbsp;|&nbsp; <span style="color:#60a5fa">3xx</span> = Go away → &nbsp;|&nbsp; <span style="color:#fbbf24">4xx</span> = You messed up ⚠️ &nbsp;|&nbsp; <span style="color:#f87171">5xx</span> = I messed up 🔥
+          <strong style="color:#f43f5e">Memory Trick for Interview:</strong><br/>
+          <span style="color:var(--text)">1xx</span> = Hang on… &nbsp;|&nbsp; <span style="color:#4ade80">2xx</span> = Here you go &nbsp;|&nbsp; <span style="color:#60a5fa">3xx</span> = Go away → &nbsp;|&nbsp; <span style="color:#fbbf24">4xx</span> = You messed up️ &nbsp;|&nbsp; <span style="color:#f87171">5xx</span> = I messed up
         </div>
       </div>
     </div>
@@ -4715,7 +4751,7 @@ const APIS_HTTP_CONTENT = `
   <div class="accordion" id="acc-api-qrev">
     <button class="accordion-header" onclick="toggleAcc('api-qrev')">
       <span style="display:flex;align-items:center;gap:8px">
-        <span style="color:#f43f5e">⚡</span>
+        
         <span>7. Quick Revision — Interview One-Liners</span>
       </span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
@@ -4751,36 +4787,36 @@ const KUBERNETES_CONTENT = `
 <div class="content-area">
 
   <div style="background:rgba(59,130,246,0.07);border:1px solid rgba(59,130,246,0.22);border-radius:10px;padding:13px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.7;color:var(--text2)">
-    ⚙️ <strong style="color:#3b82f6">Interview Ready</strong> — Kubernetes (K8s) is the industry-standard container orchestration platform. Cover: What it is, core components (Pod, Deployment, ReplicaSet, Service, Node, Cluster), YAML basics, and must-know kubectl commands.
+   ️ <strong style="color:#3b82f6">Interview Ready</strong> — Kubernetes (K8s) is the industry-standard container orchestration platform. Cover: What it is, core components (Pod, Deployment, ReplicaSet, Service, Node, Cluster), YAML basics, and must-know kubectl commands.
   </div>
 
   <!-- 1. What is Kubernetes -->
   <div class="accordion" id="acc-k8s-what">
     <button class="accordion-header" onclick="toggleAcc('k8s-what')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#3b82f6">⚙️</span><span>1. What is Kubernetes?</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#3b82f6">️</span><span>1. What is Kubernetes?</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-k8s-what">
       <div class="hbox"><strong>Kubernetes</strong> is an open-source <strong>container orchestration platform</strong> that automates deploying, managing, scaling, and recovering containerized applications.</div>
       <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.18);border-radius:8px;padding:13px 15px;font-size:13px;margin-bottom:10px">
         <strong style="color:#3b82f6">Docker vs Kubernetes:</strong><br>
-        <span style="color:var(--text2)">🐳 <strong>Docker</strong> creates and runs containers &nbsp;|&nbsp; ⚙️ <strong>Kubernetes</strong> manages containers at scale (scheduling, healing, scaling).</span>
+        <span style="color:var(--text2)"><strong>Docker</strong> creates and runs containers &nbsp;|&nbsp;️ <strong>Kubernetes</strong> manages containers at scale (scheduling, healing, scaling).</span>
       </div>
       <p class="section-label">Key Features</p>
       <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:12px">
-        <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.18);border-radius:8px;padding:10px 14px;font-size:13px">✅ <strong style="color:#3b82f6">Self-healing</strong> — Automatically restarts failed containers</div>
-        <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.18);border-radius:8px;padding:10px 14px;font-size:13px">✅ <strong style="color:#3b82f6">Auto-scaling</strong> — Adds or removes instances based on load</div>
-        <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.18);border-radius:8px;padding:10px 14px;font-size:13px">✅ <strong style="color:#3b82f6">Load balancing</strong> — Distributes traffic across Pods</div>
-        <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.18);border-radius:8px;padding:10px 14px;font-size:13px">✅ <strong style="color:#3b82f6">High availability</strong> — Keeps apps running even if nodes fail</div>
+        <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.18);border-radius:8px;padding:10px 14px;font-size:13px"><strong style="color:#3b82f6">Self-healing</strong> — Automatically restarts failed containers</div>
+        <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.18);border-radius:8px;padding:10px 14px;font-size:13px"><strong style="color:#3b82f6">Auto-scaling</strong> — Adds or removes instances based on load</div>
+        <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.18);border-radius:8px;padding:10px 14px;font-size:13px"><strong style="color:#3b82f6">Load balancing</strong> — Distributes traffic across Pods</div>
+        <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.18);border-radius:8px;padding:10px 14px;font-size:13px"><strong style="color:#3b82f6">High availability</strong> — Keeps apps running even if nodes fail</div>
       </div>
-      <div class="sbox">✅ <strong>One-liner:</strong> Kubernetes is a container orchestration platform used to manage containerized applications at scale.</div>
+      <div class="sbox"><strong>One-liner:</strong> Kubernetes is a container orchestration platform used to manage containerized applications at scale.</div>
     </div>
   </div>
 
   <!-- 2. Pod -->
   <div class="accordion" id="acc-k8s-pod">
     <button class="accordion-header" onclick="toggleAcc('k8s-pod')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#3b82f6">📦</span><span>2. What is a Pod?</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>2. What is a Pod?</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-k8s-pod">
@@ -4793,32 +4829,32 @@ const KUBERNETES_CONTENT = `
       <div class="qrev-card" style="font-family:'JetBrains Mono',monospace;font-size:12.5px;padding:12px 16px;border-radius:8px;line-height:2;margin-bottom:10px">
         Application → Container → <strong style="color:#3b82f6">Pod</strong>
       </div>
-      <div class="sbox">✅ <strong>Interview answer:</strong> A Pod is the smallest deployable unit in Kubernetes that wraps one or more containers sharing network and storage.</div>
+      <div class="sbox"><strong>Interview answer:</strong> A Pod is the smallest deployable unit in Kubernetes that wraps one or more containers sharing network and storage.</div>
     </div>
   </div>
 
   <!-- 3. Deployment -->
   <div class="accordion" id="acc-k8s-deploy">
     <button class="accordion-header" onclick="toggleAcc('k8s-deploy')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#3b82f6">🚀</span><span>3. What is a Deployment?</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>3. What is a Deployment?</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-k8s-deploy">
       <div class="hbox"><strong>Deployment</strong> manages Pods and ensures the desired number of Pod replicas are always running using a <strong>ReplicaSet</strong> underneath.</div>
       <p class="section-label">Features</p>
       <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:12px">
-        <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.18);border-radius:8px;padding:10px 14px;font-size:13px">🔁 <strong style="color:#3b82f6">Self-healing</strong> — If a Pod crashes, the Deployment recreates it automatically via ReplicaSet</div>
-        <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.18);border-radius:8px;padding:10px 14px;font-size:13px">📈 <strong style="color:#3b82f6">Scaling</strong> — Easily scale up or down the number of Pods</div>
-        <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.18);border-radius:8px;padding:10px 14px;font-size:13px">🔄 <strong style="color:#3b82f6">Rolling updates</strong> — Update app version without downtime</div>
+        <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.18);border-radius:8px;padding:10px 14px;font-size:13px"><strong style="color:#3b82f6">Self-healing</strong> — If a Pod crashes, the Deployment recreates it automatically via ReplicaSet</div>
+        <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.18);border-radius:8px;padding:10px 14px;font-size:13px"><strong style="color:#3b82f6">Scaling</strong> — Easily scale up or down the number of Pods</div>
+        <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.18);border-radius:8px;padding:10px 14px;font-size:13px"><strong style="color:#3b82f6">Rolling updates</strong> — Update app version without downtime</div>
       </div>
-      <div class="sbox">✅ <strong>Interview answer:</strong> A Deployment manages Pods and maintains the desired number of Pod replicas automatically.</div>
+      <div class="sbox"><strong>Interview answer:</strong> A Deployment manages Pods and maintains the desired number of Pod replicas automatically.</div>
     </div>
   </div>
 
   <!-- 4. ReplicaSet -->
   <div class="accordion" id="acc-k8s-rs">
     <button class="accordion-header" onclick="toggleAcc('k8s-rs')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#3b82f6">🔁</span><span>4. What is a ReplicaSet?</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>4. What is a ReplicaSet?</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-k8s-rs">
@@ -4831,61 +4867,61 @@ const KUBERNETES_CONTENT = `
       <div class="tbl-wrap"><table class="bit-table">
         <thead><tr><th>Before Crash</th><th>After Crash</th><th>After ReplicaSet heals</th></tr></thead>
         <tbody>
-          <tr><td>Pod1 ✅</td><td>Pod1 ✅</td><td>Pod1 ✅</td></tr>
-          <tr><td>Pod2 ✅</td><td>Pod2 ❌</td><td>New Pod2 ✅</td></tr>
-          <tr><td>Pod3 ✅</td><td>Pod3 ✅</td><td>Pod3 ✅</td></tr>
+          <tr><td>Pod1</td><td>Pod1</td><td>Pod1</td></tr>
+          <tr><td>Pod2</td><td>Pod2</td><td>New Pod2</td></tr>
+          <tr><td>Pod3</td><td>Pod3</td><td>Pod3</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ <strong>Interview answer:</strong> A ReplicaSet ensures the specified number of Pod replicas are always running. If a Pod crashes, it automatically creates a new one.</div>
+      <div class="sbox"><strong>Interview answer:</strong> A ReplicaSet ensures the specified number of Pod replicas are always running. If a Pod crashes, it automatically creates a new one.</div>
     </div>
   </div>
 
   <!-- 5. Replica -->
   <div class="accordion" id="acc-k8s-replica">
     <button class="accordion-header" onclick="toggleAcc('k8s-replica')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#3b82f6">📋</span><span>5. What is a Replica?</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>5. What is a Replica?</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-k8s-replica">
       <div class="hbox">A <strong>Replica</strong> is simply a <strong>copy of a Pod</strong>. Setting <code style="background:rgba(59,130,246,0.12);padding:1px 6px;border-radius:4px;font-size:12px">replicas: 3</code> tells Kubernetes to always keep 3 identical Pods running.</div>
       <p class="section-label">Benefits</p>
       <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:12px">
-        <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.18);border-radius:8px;padding:10px 14px;font-size:13px">🟢 <strong style="color:#3b82f6">High availability</strong> — App stays up even if one Pod dies</div>
-        <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.18);border-radius:8px;padding:10px 14px;font-size:13px">⚖️ <strong style="color:#3b82f6">Load distribution</strong> — Traffic is spread across multiple Pods</div>
-        <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.18);border-radius:8px;padding:10px 14px;font-size:13px">🛡️ <strong style="color:#3b82f6">Fault tolerance</strong> — System continues working despite failures</div>
+        <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.18);border-radius:8px;padding:10px 14px;font-size:13px"><strong style="color:#3b82f6">High availability</strong> — App stays up even if one Pod dies</div>
+        <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.18);border-radius:8px;padding:10px 14px;font-size:13px">️ <strong style="color:#3b82f6">Load distribution</strong> — Traffic is spread across multiple Pods</div>
+        <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.18);border-radius:8px;padding:10px 14px;font-size:13px">️ <strong style="color:#3b82f6">Fault tolerance</strong> — System continues working despite failures</div>
       </div>
-      <div class="sbox">✅ <strong>Interview answer:</strong> A Replica is a copy of a Pod used to improve availability and handle more traffic.</div>
+      <div class="sbox"><strong>Interview answer:</strong> A Replica is a copy of a Pod used to improve availability and handle more traffic.</div>
     </div>
   </div>
 
   <!-- 6. Service -->
   <div class="accordion" id="acc-k8s-service">
     <button class="accordion-header" onclick="toggleAcc('k8s-service')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#3b82f6">🌐</span><span>6. What is a Service?</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>6. What is a Service?</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-k8s-service">
       <div class="hbox"><strong>Service</strong> provides a stable endpoint (IP + DNS) to access Pods. Since Pod IPs change every time a Pod restarts, users always connect to the Service instead.</div>
       <p class="section-label">Why Service is needed</p>
       <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.18);border-radius:8px;padding:13px 15px;font-size:13px;margin-bottom:10px">
-        <span style="color:var(--text2)">❌ Without Service: Pod dies → new Pod gets a new IP → users can't connect<br>✅ With Service: Users always hit the same stable IP/DNS — Service routes to healthy Pods</span>
+        <span style="color:var(--text2)">Without Service: Pod dies → new Pod gets a new IP → users can't connect<br>With Service: Users always hit the same stable IP/DNS — Service routes to healthy Pods</span>
       </div>
       <p class="section-label">Traffic Flow</p>
       <div class="qrev-card" style="font-family:'JetBrains Mono',monospace;font-size:12.5px;padding:12px 16px;border-radius:8px;line-height:2;margin-bottom:10px">
         Users → <strong style="color:#3b82f6">Service</strong> → Pod1 / Pod2 / Pod3
       </div>
       <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:12px">
-        <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.18);border-radius:8px;padding:10px 14px;font-size:13px">🔒 <strong style="color:#3b82f6">Stable IP &amp; DNS</strong> — Doesn't change when Pods restart</div>
-        <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.18);border-radius:8px;padding:10px 14px;font-size:13px">⚖️ <strong style="color:#3b82f6">Load balancing</strong> — Routes traffic evenly across all healthy Pods</div>
+        <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.18);border-radius:8px;padding:10px 14px;font-size:13px"><strong style="color:#3b82f6">Stable IP &amp; DNS</strong> — Doesn't change when Pods restart</div>
+        <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.18);border-radius:8px;padding:10px 14px;font-size:13px">️ <strong style="color:#3b82f6">Load balancing</strong> — Routes traffic evenly across all healthy Pods</div>
       </div>
-      <div class="sbox">✅ <strong>Interview answer:</strong> A Service provides a stable way to access Pods and distributes traffic among them, regardless of Pod restarts.</div>
+      <div class="sbox"><strong>Interview answer:</strong> A Service provides a stable way to access Pods and distributes traffic among them, regardless of Pod restarts.</div>
     </div>
   </div>
 
   <!-- 7. Node -->
   <div class="accordion" id="acc-k8s-node">
     <button class="accordion-header" onclick="toggleAcc('k8s-node')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#3b82f6">🖥️</span><span>7. What is a Node?</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#3b82f6">️</span><span>7. What is a Node?</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-k8s-node">
@@ -4897,14 +4933,14 @@ const KUBERNETES_CONTENT = `
         ├── Pod2<br>
         └── Pod3
       </div>
-      <div class="sbox">✅ <strong>Interview answer:</strong> A Node is a machine (physical or virtual) that runs Pods and provides CPU, memory, and storage resources.</div>
+      <div class="sbox"><strong>Interview answer:</strong> A Node is a machine (physical or virtual) that runs Pods and provides CPU, memory, and storage resources.</div>
     </div>
   </div>
 
   <!-- 8. Cluster -->
   <div class="accordion" id="acc-k8s-cluster">
     <button class="accordion-header" onclick="toggleAcc('k8s-cluster')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#3b82f6">🏗️</span><span>8. What is a Cluster?</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#3b82f6">️</span><span>8. What is a Cluster?</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-k8s-cluster">
@@ -4915,14 +4951,14 @@ const KUBERNETES_CONTENT = `
         ├── Node1 → Pod1, Pod2<br>
         └── Node2 → Pod3, Pod4
       </div>
-      <div class="sbox">✅ <strong>Interview answer:</strong> A Cluster is a group of Nodes managed by Kubernetes as a single system.</div>
+      <div class="sbox"><strong>Interview answer:</strong> A Cluster is a group of Nodes managed by Kubernetes as a single system.</div>
     </div>
   </div>
 
   <!-- 9. YAML -->
   <div class="accordion" id="acc-k8s-yaml">
     <button class="accordion-header" onclick="toggleAcc('k8s-yaml')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#3b82f6">📄</span><span>9. YAML in Kubernetes</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>9. YAML in Kubernetes</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-k8s-yaml">
@@ -4960,14 +4996,14 @@ spec:
           <tr><td style="color:#3b82f6">spec.template</td><td>Pod template (container config)</td><td>image, ports, env</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ <strong>Interview answer:</strong> YAML files are used to define Kubernetes resources declaratively — you describe the desired state and K8s ensures it.</div>
+      <div class="sbox"><strong>Interview answer:</strong> YAML files are used to define Kubernetes resources declaratively — you describe the desired state and K8s ensures it.</div>
     </div>
   </div>
 
   <!-- 10. kubectl -->
   <div class="accordion" id="acc-k8s-kubectl">
     <button class="accordion-header" onclick="toggleAcc('k8s-kubectl')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#3b82f6">💻</span><span>10. kubectl — CLI Commands</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>10. kubectl — CLI Commands</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-k8s-kubectl">
@@ -4984,14 +5020,14 @@ spec:
           <tr><td style="color:#3b82f6;font-family:'JetBrains Mono',monospace;font-size:12px">kubectl delete deployment nginx</td><td>Delete a Deployment</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ <strong>Interview answer:</strong> kubectl is the CLI tool used to manage and interact with Kubernetes clusters.</div>
+      <div class="sbox"><strong>Interview answer:</strong> kubectl is the CLI tool used to manage and interact with Kubernetes clusters.</div>
     </div>
   </div>
 
   <!-- 11. Full Hierarchy -->
   <div class="accordion" id="acc-k8s-hierarchy">
     <button class="accordion-header" onclick="toggleAcc('k8s-hierarchy')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#3b82f6">🗂️</span><span>11. Kubernetes Full Hierarchy</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#3b82f6">️</span><span>11. Kubernetes Full Hierarchy</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-k8s-hierarchy">
@@ -5013,14 +5049,14 @@ spec:
         ↓<br>
         <strong style="color:#3b82f6">Cluster</strong>
       </div>
-      <div class="sbox">💡 <strong>Memory trick:</strong> "A Can Park Right During Sunny Nights Carefully" → App, Container, Pod, ReplicaSet, Deployment, Service, Node, Cluster</div>
+      <div class="sbox"><strong>Memory trick:</strong> "A Can Park Right During Sunny Nights Carefully" → App, Container, Pod, ReplicaSet, Deployment, Service, Node, Cluster</div>
     </div>
   </div>
 
   <!-- 12. Top Interview Q&A -->
   <div class="accordion" id="acc-k8s-qa">
     <button class="accordion-header" onclick="toggleAcc('k8s-qa')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#3b82f6">🎯</span><span>12. Top Interview Questions</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>12. Top Interview Questions</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-k8s-qa">
@@ -5065,13 +5101,17 @@ const JDBC_CONTENT = `
 
   <!-- Interview Note Banner -->
   <div style="background:rgba(99,102,241,0.07);border:1px solid rgba(99,102,241,0.2);border-radius:10px;padding:13px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.7;color:var(--text2)">
-    🎯 <strong style="color:#6366f1">Interview scope</strong> — Know the 7 JDBC steps cold, Connection vs Statement vs PreparedStatement, ResultSet, executeQuery() vs executeUpdate() vs execute(), and the JDBC URL format. This is exactly the JDBC you used in your Student DBMS project.
+    <strong style="color:#6366f1">Interview scope</strong> — Know the 7 JDBC steps cold, Connection vs Statement vs PreparedStatement, ResultSet, executeQuery() vs executeUpdate() vs execute(), and the JDBC URL format. This is exactly the JDBC you used in your Student DBMS project.
+  </div>
+  <div style="background:rgba(99,102,241,0.04);border:1px solid rgba(99,102,241,0.13);border-radius:10px;padding:13px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.7;color:var(--text2)">
+    <strong style="color:#6366f1">Why this matters</strong> — JDBC is the lowest layer of Java-to-database communication, so interviewers use it to confirm you understand what ORMs like Hibernate/JPA are actually abstracting away — not just that you can call a repository method.<br><br>
+    <strong style="color:#6366f1">When to use it</strong> — Bring this up when discussing a project that talks to a database directly, when asked why PreparedStatement prevents SQL injection, or when asked to explain the connection lifecycle from opening to closing a ResultSet.
   </div>
 
   <!-- 1. What is JDBC -->
   <div class="accordion" id="acc-jdbc-intro">
     <button class="accordion-header" onclick="toggleAcc('jdbc-intro')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#6366f1">🗄️</span><span>1. What is JDBC?</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#6366f1">️</span><span>1. What is JDBC?</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-jdbc-intro">
@@ -5095,51 +5135,51 @@ const JDBC_CONTENT = `
         <div style="background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.18);border-radius:8px;padding:10px 14px;font-size:13px;text-align:center"><strong style="color:#10b981">Database</strong></div>
       </div>
 
-      <div class="sbox">⭐ <strong>Interview answer:</strong> "JDBC is an API that allows Java applications to communicate with relational databases and perform operations like Insert, Update, Delete, and Select."</div>
+      <div class="sbox"><strong>Interview answer:</strong> "JDBC is an API that allows Java applications to communicate with relational databases and perform operations like Insert, Update, Delete, and Select."</div>
     </div>
   </div>
 
   <!-- 2. JDBC Architecture -->
   <div class="accordion" id="acc-jdbc-arch">
     <button class="accordion-header" onclick="toggleAcc('jdbc-arch')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#6366f1">🏗️</span><span>2. JDBC Architecture</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#6366f1">️</span><span>2. JDBC Architecture</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-jdbc-arch">
       <div class="hbox">JDBC architecture sits between your Java code and the database, with four layers handling the handoff.</div>
       <div style="display:flex;flex-direction:column;gap:6px;margin:10px 0 14px">
-        <div style="background:rgba(99,102,241,0.06);border:1px solid rgba(99,102,241,0.18);border-radius:8px;padding:10px 14px;font-size:13px;display:flex;align-items:center;gap:10px"><span style="font-size:16px">☕</span><span><strong style="color:#6366f1">Java Application</strong> — your code calling JDBC methods</span></div>
+        <div style="background:rgba(99,102,241,0.06);border:1px solid rgba(99,102,241,0.18);border-radius:8px;padding:10px 14px;font-size:13px;display:flex;align-items:center;gap:10px"><span style="font-size:16px"></span><span><strong style="color:#6366f1">Java Application</strong> — your code calling JDBC methods</span></div>
         <div style="text-align:center;color:var(--text3);font-size:16px">↓</div>
-        <div style="background:rgba(99,102,241,0.06);border:1px solid rgba(99,102,241,0.18);border-radius:8px;padding:10px 14px;font-size:13px;display:flex;align-items:center;gap:10px"><span style="font-size:16px">🧩</span><span><strong style="color:#6366f1">JDBC API</strong> — Connection, Statement, ResultSet interfaces</span></div>
+        <div style="background:rgba(99,102,241,0.06);border:1px solid rgba(99,102,241,0.18);border-radius:8px;padding:10px 14px;font-size:13px;display:flex;align-items:center;gap:10px"><span style="font-size:16px"></span><span><strong style="color:#6366f1">JDBC API</strong> — Connection, Statement, ResultSet interfaces</span></div>
         <div style="text-align:center;color:var(--text3);font-size:16px">↓</div>
-        <div style="background:rgba(99,102,241,0.06);border:1px solid rgba(99,102,241,0.18);border-radius:8px;padding:10px 14px;font-size:13px;display:flex;align-items:center;gap:10px"><span style="font-size:16px">🧭</span><span><strong style="color:#6366f1">DriverManager</strong> — picks the right driver, creates the connection</span></div>
+        <div style="background:rgba(99,102,241,0.06);border:1px solid rgba(99,102,241,0.18);border-radius:8px;padding:10px 14px;font-size:13px;display:flex;align-items:center;gap:10px"><span style="font-size:16px"></span><span><strong style="color:#6366f1">DriverManager</strong> — picks the right driver, creates the connection</span></div>
         <div style="text-align:center;color:var(--text3);font-size:16px">↓</div>
-        <div style="background:rgba(99,102,241,0.06);border:1px solid rgba(99,102,241,0.18);border-radius:8px;padding:10px 14px;font-size:13px;display:flex;align-items:center;gap:10px"><span style="font-size:16px">🌉</span><span><strong style="color:#6366f1">JDBC Driver</strong> — converts Java calls into DB-specific commands</span></div>
+        <div style="background:rgba(99,102,241,0.06);border:1px solid rgba(99,102,241,0.18);border-radius:8px;padding:10px 14px;font-size:13px;display:flex;align-items:center;gap:10px"><span style="font-size:16px"></span><span><strong style="color:#6366f1">JDBC Driver</strong> — converts Java calls into DB-specific commands</span></div>
         <div style="text-align:center;color:var(--text3);font-size:16px">↓</div>
-        <div style="background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.18);border-radius:8px;padding:10px 14px;font-size:13px;display:flex;align-items:center;gap:10px"><span style="font-size:16px">🗄️</span><span><strong style="color:#10b981">Database</strong> — MySQL, Oracle, PostgreSQL, etc.</span></div>
+        <div style="background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.18);border-radius:8px;padding:10px 14px;font-size:13px;display:flex;align-items:center;gap:10px"><span style="font-size:16px">️</span><span><strong style="color:#10b981">Database</strong> — MySQL, Oracle, PostgreSQL, etc.</span></div>
       </div>
-      <div class="sbox">✅ <strong>One-liner:</strong> Java Application → JDBC API → DriverManager → JDBC Driver → Database.</div>
+      <div class="sbox"><strong>One-liner:</strong> Java Application → JDBC API → DriverManager → JDBC Driver → Database.</div>
     </div>
   </div>
 
   <!-- 3. JDBC Driver -->
   <div class="accordion" id="acc-jdbc-driver">
     <button class="accordion-header" onclick="toggleAcc('jdbc-driver')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#6366f1">🌉</span><span>3. JDBC Driver</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>3. JDBC Driver</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-jdbc-driver">
       <div class="hbox">A <strong>JDBC Driver</strong> acts as a bridge between the Java application and the database — it translates JDBC calls into the database's native protocol.</div>
       <p class="section-label">MySQL Driver Class</p>
       <div style="margin-bottom:10px"><code style="background:rgba(99,102,241,0.10);border:1px solid rgba(99,102,241,0.20);border-radius:7px;padding:6px 10px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#a5b4fc">com.mysql.cj.jdbc.Driver</code></div>
-      <div class="sbox">⭐ <strong>Interview answer:</strong> "A JDBC Driver converts Java calls into database-specific commands and enables communication with the database."</div>
+      <div class="sbox"><strong>Interview answer:</strong> "A JDBC Driver converts Java calls into database-specific commands and enables communication with the database."</div>
     </div>
   </div>
 
   <!-- 4. The 7 Steps of JDBC -->
   <div class="accordion" id="acc-jdbc-steps">
     <button class="accordion-header" onclick="toggleAcc('jdbc-steps')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#6366f1">🪜</span><span>4. The 7 Steps of JDBC</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>4. The 7 Steps of JDBC</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-jdbc-steps">
@@ -5222,7 +5262,7 @@ con.<span class="fn">close</span>();</div>
   <!-- 5. Connection Interface -->
   <div class="accordion" id="acc-jdbc-connection">
     <button class="accordion-header" onclick="toggleAcc('jdbc-connection')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#6366f1">🔗</span><span>5. Connection Interface</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>5. Connection Interface</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-jdbc-connection">
@@ -5238,14 +5278,14 @@ con.<span class="fn">close</span>();</div>
         <li>Creates Statement and PreparedStatement objects</li>
         <li>Manages transactions</li>
       </ul>
-      <div class="sbox">⭐ <strong>Interview answer:</strong> "Connection interface represents the connection between Java application and database."</div>
+      <div class="sbox"><strong>Interview answer:</strong> "Connection interface represents the connection between Java application and database."</div>
     </div>
   </div>
 
   <!-- 6. Statement & PreparedStatement -->
   <div class="accordion" id="acc-jdbc-statement">
     <button class="accordion-header" onclick="toggleAcc('jdbc-statement')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#6366f1">📝</span><span>6. Statement &amp; PreparedStatement</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>6. Statement &amp; PreparedStatement</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-jdbc-statement">
@@ -5296,14 +5336,14 @@ ps.<span class="fn">executeUpdate</span>();</div>
           <tr><td>Simple queries</td><td>Parameterized queries</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">⭐ <strong>Interview answer:</strong> "PreparedStatement is a precompiled statement that improves performance and prevents SQL Injection attacks."</div>
+      <div class="sbox"><strong>Interview answer:</strong> "PreparedStatement is a precompiled statement that improves performance and prevents SQL Injection attacks."</div>
     </div>
   </div>
 
   <!-- 7. ResultSet & Its Methods -->
   <div class="accordion" id="acc-jdbc-resultset">
     <button class="accordion-header" onclick="toggleAcc('jdbc-resultset')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#6366f1">📊</span><span>7. ResultSet &amp; Its Methods</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>7. ResultSet &amp; Its Methods</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-jdbc-resultset">
@@ -5337,14 +5377,14 @@ st.<span class="fn">executeQuery</span>(query);
         <code style="background:rgba(99,102,241,0.10);border:1px solid rgba(99,102,241,0.20);border-radius:7px;padding:6px 10px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#a5b4fc">rs.getString("name")</code>
       </div>
       <div class="ybox" style="margin-bottom:10px">Columns can be accessed either by <strong>index</strong> (1-based, e.g. <code>rs.getInt(1)</code>) or by <strong>column name</strong> (e.g. <code>rs.getString("name")</code>).</div>
-      <div class="sbox">⭐ <strong>Interview answer:</strong> "ResultSet stores rows returned by a SELECT statement." rs.next() moves the cursor to the next row and returns true if a row exists.</div>
+      <div class="sbox"><strong>Interview answer:</strong> "ResultSet stores rows returned by a SELECT statement." rs.next() moves the cursor to the next row and returns true if a row exists.</div>
     </div>
   </div>
 
   <!-- 8. executeQuery vs executeUpdate vs execute -->
   <div class="accordion" id="acc-jdbc-execute">
     <button class="accordion-header" onclick="toggleAcc('jdbc-execute')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#6366f1">🏃</span><span>8. executeQuery() vs executeUpdate() vs execute()</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>8. executeQuery() vs executeUpdate() vs execute()</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-jdbc-execute">
@@ -5368,14 +5408,14 @@ st.<span class="fn">executeUpdate</span>(query);  <span class="cmt">// e.g. "1 r
 <span class="kw">boolean</span> result =
 st.<span class="fn">execute</span>(query);</div>
       </div>
-      <div class="sbox">✅ <strong>Memory trick:</strong> executeQuery = SELECT only · executeUpdate = write operations + row count · execute = use when you don't know the query type in advance.</div>
+      <div class="sbox"><strong>Memory trick:</strong> executeQuery = SELECT only · executeUpdate = write operations + row count · execute = use when you don't know the query type in advance.</div>
     </div>
   </div>
 
   <!-- 9. DDL, DML, DQL -->
   <div class="accordion" id="acc-jdbc-ddl">
     <button class="accordion-header" onclick="toggleAcc('jdbc-ddl')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#6366f1">🗂️</span><span>9. DDL, DML &amp; DQL</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#6366f1">️</span><span>9. DDL, DML &amp; DQL</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-jdbc-ddl">
@@ -5393,14 +5433,14 @@ st.<span class="fn">execute</span>(query);</div>
           <span style="color:var(--text2)">Fetches <strong>data</strong> from a table. Example: SELECT.</span>
         </div>
       </div>
-      <div class="sbox">✅ <strong>One-liner:</strong> DDL = structure · DML = data changes · DQL = data fetch.</div>
+      <div class="sbox"><strong>One-liner:</strong> DDL = structure · DML = data changes · DQL = data fetch.</div>
     </div>
   </div>
 
   <!-- 10. JDBC URL & Important Interfaces -->
   <div class="accordion" id="acc-jdbc-url">
     <button class="accordion-header" onclick="toggleAcc('jdbc-url')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#6366f1">🌐</span><span>10. JDBC URL &amp; Important Interfaces</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>10. JDBC URL &amp; Important Interfaces</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-jdbc-url">
@@ -5435,7 +5475,7 @@ st.<span class="fn">execute</span>(query);</div>
   <!-- 11. CallableStatement & SQLException -->
   <div class="accordion" id="acc-jdbc-callable">
     <button class="accordion-header" onclick="toggleAcc('jdbc-callable')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#6366f1">⚠️</span><span>11. CallableStatement &amp; SQLException</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#6366f1">️</span><span>11. CallableStatement &amp; SQLException</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-jdbc-callable">
@@ -5445,7 +5485,7 @@ st.<span class="fn">execute</span>(query);</div>
         <div class="code-body"><span class="typ">CallableStatement</span> cs =
 con.<span class="fn">prepareCall</span>(<span class="str">"{call procedureName()}"</span>);</div>
       </div>
-      <div class="sbox" style="margin-bottom:14px">⭐ <strong>Interview answer:</strong> "CallableStatement is used to execute stored procedures in JDBC."</div>
+      <div class="sbox" style="margin-bottom:14px"><strong>Interview answer:</strong> "CallableStatement is used to execute stored procedures in JDBC."</div>
 
       <div class="hbox"><strong>SQLException</strong> is used to handle database-related exceptions.</div>
       <div class="code-block">
@@ -5465,7 +5505,7 @@ con.<span class="fn">prepareCall</span>(<span class="str">"{call procedureName()
   <!-- 12. Complete JDBC Program -->
   <div class="accordion" id="acc-jdbc-program">
     <button class="accordion-header" onclick="toggleAcc('jdbc-program')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#6366f1">💻</span><span>12. Complete JDBC Program</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>12. Complete JDBC Program</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-jdbc-program">
@@ -5522,7 +5562,7 @@ con.<span class="fn">prepareCall</span>(<span class="str">"{call procedureName()
   <!-- Quick Revision -->
   <div class="accordion" id="acc-jdbc-qrev">
     <button class="accordion-header" onclick="toggleAcc('jdbc-qrev')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#6366f1">⚡</span><span>Quick Revision Cheatsheet</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>Quick Revision Cheatsheet</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-jdbc-qrev">
@@ -5547,7 +5587,7 @@ con.<span class="fn">prepareCall</span>(<span class="str">"{call procedureName()
   <!-- Top Interview Questions -->
   <div class="accordion" id="acc-jdbc-topqa">
     <button class="accordion-header" onclick="toggleAcc('jdbc-topqa')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#6366f1">🎯</span><span>Top Interview Questions</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>Top Interview Questions</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-jdbc-topqa">
@@ -5603,13 +5643,17 @@ const SPRING_MVC_CONTENT = `
 <div class="content-area">
 
   <div style="background:rgba(132,204,22,0.07);border:1px solid rgba(132,204,22,0.2);border-radius:10px;padding:13px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.7;color:var(--text2)">
-    🎯 <strong style="color:#84cc16">Interview scope</strong> — Know why Spring was introduced over plain Servlets, IoC &amp; DI basics, and the Spring MVC request flow (DispatcherServlet → Handler Mapping → Controller).
+    <strong style="color:#84cc16">Interview scope</strong> — Know why Spring was introduced over plain Servlets, IoC &amp; DI basics, and the Spring MVC request flow (DispatcherServlet → Handler Mapping → Controller).
+  </div>
+  <div style="background:rgba(132,204,22,0.04);border:1px solid rgba(132,204,22,0.13);border-radius:10px;padding:13px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.7;color:var(--text2)">
+    <strong style="color:#84cc16">Why this matters</strong> — Spring is the dominant Java web framework, and IoC/DI is its core idea — interviewers use it to check whether you understand why the framework manages object creation for you, not just that you can annotate a class with @Component.<br><br>
+    <strong style="color:#84cc16">When to use it</strong> — Expect this in any Java backend interview, especially when asked "why use Spring over plain Servlets" or to trace what happens between a request hitting DispatcherServlet and a response leaving the controller.
   </div>
 
   <!-- 1. Servlet & Servlet Container -->
   <div class="accordion" id="acc-mvc-servlet">
     <button class="accordion-header" onclick="toggleAcc('mvc-servlet')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#84cc16">🧩</span><span>1. Servlet &amp; Servlet Container</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>1. Servlet &amp; Servlet Container</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-mvc-servlet">
@@ -5634,14 +5678,14 @@ Invokes Required Servlet
       ↓
 Response to Client</div>
       </div>
-      <div class="sbox">⚠️ <strong>Drawbacks:</strong> Heavy web.xml config · manual object lifecycle management · hard to manage dependencies · complex REST API development · less modular/harder to maintain.</div>
+      <div class="sbox">️ <strong>Drawbacks:</strong> Heavy web.xml config · manual object lifecycle management · hard to manage dependencies · complex REST API development · less modular/harder to maintain.</div>
     </div>
   </div>
 
   <!-- 2. How Spring solves these problems -->
   <div class="accordion" id="acc-mvc-spring">
     <button class="accordion-header" onclick="toggleAcc('mvc-spring')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#84cc16">🌱</span><span>2. How Spring Framework Solves These Problems</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>2. How Spring Framework Solves These Problems</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-mvc-spring">
@@ -5667,14 +5711,14 @@ private Student student;</div>
       <div style="background:rgba(132,204,22,0.06);border:1px solid rgba(132,204,22,0.18);border-radius:8px;padding:12px 14px;font-size:13px;margin-top:12px">
         <strong style="color:#84cc16">d) Better MVC Support</strong> — Spring MVC provides a structured way to handle requests, makes REST API development easier, and integrates well with Hibernate, JDBC, JPA, JUnit, Mockito and many other frameworks.
       </div>
-      <div class="sbox">✅ <strong>Interview line:</strong> "Spring replaces manual object &amp; config management with IoC + DI, and annotations replace most of web.xml."</div>
+      <div class="sbox"><strong>Interview line:</strong> "Spring replaces manual object &amp; config management with IoC + DI, and annotations replace most of web.xml."</div>
     </div>
   </div>
 
   <!-- 3. Spring MVC Architecture -->
   <div class="accordion" id="acc-mvc-arch">
     <button class="accordion-header" onclick="toggleAcc('mvc-arch')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#84cc16">🏗️</span><span>3. Spring MVC Architecture</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#84cc16">️</span><span>3. Spring MVC Architecture</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-mvc-arch">
@@ -5695,14 +5739,14 @@ Business Logic
 Response</div>
       </div>
       <div class="hbox" style="margin-top:10px"><strong>DispatcherServlet</strong> is the front controller — it finds the appropriate controller using Handler Mapping. The controller then processes the request and returns the response.</div>
-      <div class="sbox">✅ <strong>Interview line:</strong> "DispatcherServlet is the front controller in Spring MVC — every request passes through it before reaching the right controller."</div>
+      <div class="sbox"><strong>Interview line:</strong> "DispatcherServlet is the front controller in Spring MVC — every request passes through it before reaching the right controller."</div>
     </div>
   </div>
 
   <!-- Quick Revision -->
   <div class="accordion" id="acc-mvc-qrev">
     <button class="accordion-header" onclick="toggleAcc('mvc-qrev')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#84cc16">⚡</span><span>Quick Revision Cheatsheet</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>Quick Revision Cheatsheet</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-mvc-qrev">
@@ -5724,13 +5768,17 @@ const SPRING_BOOT_CONTENT = `
 <div class="content-area">
 
   <div style="background:rgba(34,197,94,0.07);border:1px solid rgba(34,197,94,0.2);border-radius:10px;padding:13px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.7;color:var(--text2)">
-    🎯 <strong style="color:#22c55e">Interview scope</strong> — Know Spring Boot's core value: starter dependencies, auto-configuration, embedded server, and Convention over Configuration — and be ready to contrast each with plain Spring MVC.
+    <strong style="color:#22c55e">Interview scope</strong> — Know Spring Boot's core value: starter dependencies, auto-configuration, embedded server, and Convention over Configuration — and be ready to contrast each with plain Spring MVC.
+  </div>
+  <div style="background:rgba(34,197,94,0.04);border:1px solid rgba(34,197,94,0.13);border-radius:10px;padding:13px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.7;color:var(--text2)">
+    <strong style="color:#22c55e">Why this matters</strong> — Spring Boot is what most real-world Java teams actually use day-to-day, so interviewers ask about it to confirm you can be productive quickly — not just that you know Spring's underlying theory in isolation.<br><br>
+    <strong style="color:#22c55e">When to use it</strong> — Use this when asked "what does Spring Boot add on top of Spring" or "why don't you need to configure a Tomcat server separately" — both are near-guaranteed follow-ups once Spring Boot comes up on your resume.
   </div>
 
   <!-- 1. What is Spring Boot -->
   <div class="accordion" id="acc-boot-intro">
     <button class="accordion-header" onclick="toggleAcc('boot-intro')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#22c55e">🌱</span><span>1. What is Spring Boot?</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>1. What is Spring Boot?</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-boot-intro">
@@ -5747,14 +5795,14 @@ const SPRING_BOOT_CONTENT = `
           <tr><td>Convention over Configuration</td><td>Sensible defaults, override only what's needed</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ <strong>Interview line:</strong> "Spring Boot doesn't replace Spring — it removes the boilerplate configuration Spring MVC requires."</div>
+      <div class="sbox"><strong>Interview line:</strong> "Spring Boot doesn't replace Spring — it removes the boilerplate configuration Spring MVC requires."</div>
     </div>
   </div>
 
   <!-- 2. Dependency Management -->
   <div class="accordion" id="acc-boot-deps">
     <button class="accordion-header" onclick="toggleAcc('boot-deps')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#22c55e">📦</span><span>2. Dependency Management</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>2. Dependency Management</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-boot-deps">
@@ -5766,14 +5814,14 @@ const SPRING_BOOT_CONTENT = `
           <tr><td>Individual dependency versions tracked by hand</td><td>No need to manage individual dependency versions</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">⭐ Starter dependencies bundle everything needed for a feature (web, JPA, security, etc.) into one compatible package.</div>
+      <div class="sbox">Starter dependencies bundle everything needed for a feature (web, JPA, security, etc.) into one compatible package.</div>
     </div>
   </div>
 
   <!-- 3. Auto Configuration -->
   <div class="accordion" id="acc-boot-autoconfig">
     <button class="accordion-header" onclick="toggleAcc('boot-autoconfig')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#22c55e">⚙️</span><span>3. Auto Configuration</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#22c55e">️</span><span>3. Auto Configuration</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-boot-autoconfig">
@@ -5786,14 +5834,14 @@ const SPRING_BOOT_CONTENT = `
           <tr><td>Other configuration classes written by hand</td><td>Reduces boilerplate configuration</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ <strong>Interview line:</strong> "Auto-configuration inspects what's on the classpath and configures beans for you, so you skip writing config classes manually."</div>
+      <div class="sbox"><strong>Interview line:</strong> "Auto-configuration inspects what's on the classpath and configures beans for you, so you skip writing config classes manually."</div>
     </div>
   </div>
 
   <!-- 4. Embedded Server -->
   <div class="accordion" id="acc-boot-server">
     <button class="accordion-header" onclick="toggleAcc('boot-server')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#22c55e">🖥️</span><span>4. Embedded Server</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#22c55e">️</span><span>4. Embedded Server</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-boot-server">
@@ -5809,14 +5857,14 @@ const SPRING_BOOT_CONTENT = `
         <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">Run Spring Boot App</span></div>
         <div class="code-body"><span class="cmt">Run as Java Application</span></div>
       </div>
-      <div class="sbox">⭐ Spring Boot apps are self-contained — run them directly, no external server setup needed.</div>
+      <div class="sbox">Spring Boot apps are self-contained — run them directly, no external server setup needed.</div>
     </div>
   </div>
 
   <!-- 5. Convention over Configuration -->
   <div class="accordion" id="acc-boot-convention">
     <button class="accordion-header" onclick="toggleAcc('boot-convention')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#22c55e">📐</span><span>5. Convention over Configuration</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>5. Convention over Configuration</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-boot-convention">
@@ -5831,7 +5879,7 @@ const SPRING_BOOT_CONTENT = `
   <!-- Layered Architecture (full notes, single dropdown) -->
   <div class="accordion" id="acc-boot-layered">
     <button class="accordion-header" onclick="toggleAcc('boot-layered')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#22c55e">🏛️</span><span>6. Layered Architecture in Spring Boot</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#22c55e">️</span><span>6. Layered Architecture in Spring Boot</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-boot-layered">
@@ -5886,9 +5934,9 @@ public interface StudentRepository extends JpaRepository&lt;Student, Integer&gt;
         </div>
       </div>
 
-      <div class="sbox">✅ <strong>Interview line:</strong> "Controller handles requests, Service handles business logic, Repository handles the database — each layer only talks to the one directly below it."</div>
+      <div class="sbox"><strong>Interview line:</strong> "Controller handles requests, Service handles business logic, Repository handles the database — each layer only talks to the one directly below it."</div>
 
-      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>📁</span><span>Additional Packages — Entity, DTO, Utility, Config</span></div>
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span></span><span>Additional Packages — Entity, DTO, Utility, Config</span></div>
 
       <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:10px">
         <div style="background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.18);border-radius:8px;padding:12px 14px;font-size:13px">
@@ -5933,9 +5981,9 @@ public interface StudentRepository extends JpaRepository&lt;Student, Integer&gt;
           <div class="code-body">@Configuration</div>
         </div>
       </div>
-      <div class="sbox">⭐ DTO ≠ Entity: Entity maps to the DB table; DTO shapes what's exposed to the client.</div>
+      <div class="sbox">DTO ≠ Entity: Entity maps to the DB table; DTO shapes what's exposed to the client.</div>
 
-      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>🧱</span><span>POJO (Plain Old Java Object)</span></div>
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span></span><span>POJO (Plain Old Java Object)</span></div>
 
       <div class="hbox">A POJO is a simple Java class that: contains fields (variables), contains getters and setters, does not depend on any special framework, and can be used as an Entity, DTO, or Model class.</div>
       <div class="code-block" style="margin-top:10px">
@@ -5946,7 +5994,7 @@ public interface StudentRepository extends JpaRepository&lt;Student, Integer&gt;
 }</div>
       </div>
 
-      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>🔁</span><span>Complete Request Flow & Advantages of Layered Architecture</span></div>
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span></span><span>Complete Request Flow & Advantages of Layered Architecture</span></div>
 
       <div class="code-block">
         <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">Complete Request Flow</span></div>
@@ -5979,14 +6027,14 @@ Response to Client</div>
           <tr><td colspan="2">Makes the application clean, modular, and easier to understand</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ <strong>Interview line:</strong> "Layered architecture gives Separation of Concerns — each layer is independently testable, maintainable, and reusable."</div>
+      <div class="sbox"><strong>Interview line:</strong> "Layered architecture gives Separation of Concerns — each layer is independently testable, maintainable, and reusable."</div>
     </div>
   </div>
 
   <!-- Spring Boot Annotations (Controller Layer) - full notes, single dropdown -->
   <div class="accordion" id="acc-boot-annotations">
     <button class="accordion-header" onclick="toggleAcc('boot-annotations')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#22c55e">🏷️</span><span>7. Spring Boot Annotations (Controller Layer — @Controller, @RestController, @RequestMapping)</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#22c55e">️</span><span>7. Spring Boot Annotations (Controller Layer — @Controller, @RestController, @RequestMapping)</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-boot-annotations">
@@ -6032,7 +6080,7 @@ public class UserController {
     }
 }</div>
       </div>
-      <div class="sbox">⭐ <strong>Without @ResponseBody:</strong> "Hello" is treated as a view name. <strong>With @ResponseBody:</strong> "Hello" is sent directly as the HTTP response.</div>
+      <div class="sbox"><strong>Without @ResponseBody:</strong> "Hello" is treated as a view name. <strong>With @ResponseBody:</strong> "Hello" is sent directly as the HTTP response.</div>
 
       <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>3️⃣</span><span>@RestController</span></div>
       <div style="background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.18);border-radius:8px;padding:12px 14px;font-size:13px">
@@ -6091,7 +6139,7 @@ public class UserController {
     }
 }</div>
       </div>
-      <div class="sbox">⭐ <strong>Request URL:</strong> <code style="background:rgba(34,197,94,0.12);padding:1px 5px;border-radius:4px;font-size:12px">/api/fetchUser</code></div>
+      <div class="sbox"><strong>Request URL:</strong> <code style="background:rgba(34,197,94,0.12);padding:1px 5px;border-radius:4px;font-size:12px">/api/fetchUser</code></div>
 
       <div style="background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.18);border-radius:8px;padding:12px 14px;font-size:13px;margin-top:14px">
         <strong style="color:#22c55e">Shortcut Mapping Annotations</strong> — instead of writing the full @RequestMapping with value + method, Spring provides specialized annotations.
@@ -6107,7 +6155,7 @@ public String getUser() {
     return "Fetching User";
 }</div>
       </div>
-      <div class="sbox">⭐ Equivalent to: <code style="background:rgba(34,197,94,0.12);padding:1px 5px;border-radius:4px;font-size:12px">@RequestMapping(value="/fetchUser", method=RequestMethod.GET)</code></div>
+      <div class="sbox">Equivalent to: <code style="background:rgba(34,197,94,0.12);padding:1px 5px;border-radius:4px;font-size:12px">@RequestMapping(value="/fetchUser", method=RequestMethod.GET)</code></div>
 
       <div style="background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.18);border-radius:8px;padding:12px 14px;font-size:13px;margin-top:14px">
         <strong style="color:#22c55e">@PostMapping</strong> — handles POST requests.
@@ -6119,7 +6167,7 @@ public String saveUser() {
     return "Saved";
 }</div>
       </div>
-      <div class="sbox">⭐ Equivalent to: <code style="background:rgba(34,197,94,0.12);padding:1px 5px;border-radius:4px;font-size:12px">@RequestMapping(value="/saveUser", method=RequestMethod.POST)</code></div>
+      <div class="sbox">Equivalent to: <code style="background:rgba(34,197,94,0.12);padding:1px 5px;border-radius:4px;font-size:12px">@RequestMapping(value="/saveUser", method=RequestMethod.POST)</code></div>
 
       <div class="tbl-wrap" style="margin-top:14px"><table class="bit-table">
         <thead><tr><th>Annotation</th><th>HTTP Method</th></tr></thead>
@@ -6146,7 +6194,7 @@ public String getUserDetails(
     return "User Details";
 }</div>
       </div>
-      <div class="sbox">⭐ <strong>URL:</strong> <code style="background:rgba(34,197,94,0.12);padding:1px 5px;border-radius:4px;font-size:12px">/api/fetchUser?firstName=Madan&amp;lastName=HK&amp;age=21</code><br>
+      <div class="sbox"><strong>URL:</strong> <code style="background:rgba(34,197,94,0.12);padding:1px 5px;border-radius:4px;font-size:12px">/api/fetchUser?firstName=Madan&amp;lastName=HK&amp;age=21</code><br>
       <strong>Values received:</strong> firstName = Madan · lastName = HK · age = 21</div>
       <div class="tbl-wrap" style="margin-top:10px"><table class="bit-table">
         <thead><tr><th colspan="2">Important Points</th></tr></thead>
@@ -6157,7 +6205,7 @@ public String getUserDetails(
         </tbody>
       </table></div>
 
-      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>📋</span><span>Summary</span></div>
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span></span><span>Summary</span></div>
       <div class="tbl-wrap"><table class="bit-table">
         <thead><tr><th>Annotation</th><th>Purpose</th></tr></thead>
         <tbody>
@@ -6173,19 +6221,19 @@ public String getUserDetails(
           <tr><td><code>@RequestParam</code></td><td>Binds URL query parameters to method arguments</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ <strong>Interview line:</strong> "@RestController = @Controller + @ResponseBody. @RequestMapping is the general-purpose mapper; @GetMapping/@PostMapping/etc. are shortcuts for it."</div>
+      <div class="sbox"><strong>Interview line:</strong> "@RestController = @Controller + @ResponseBody. @RequestMapping is the general-purpose mapper; @GetMapping/@PostMapping/etc. are shortcuts for it."</div>
     </div>
   </div>
 
   <!-- Spring Boot Bean, IoC & Bean Life Cycle - full notes, single dropdown -->
   <div class="accordion" id="acc-boot-bean">
     <button class="accordion-header" onclick="toggleAcc('boot-bean')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#22c55e">☕</span><span>8. Spring Boot Bean, Inversion of Control (IoC) &amp; Bean Life Cycle</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>8. Spring Boot Bean, Inversion of Control (IoC) &amp; Bean Life Cycle</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-boot-bean">
 
-      <div style="display:flex;align-items:center;gap:8px;margin:0 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>❓</span><span>What is a Bean?</span></div>
+      <div style="display:flex;align-items:center;gap:8px;margin:0 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span></span><span>What is a Bean?</span></div>
       <div class="hbox">In simple terms, a Bean is a Java object that is managed by the Spring Container (IoC Container).</div>
       <div class="tbl-wrap" style="margin-top:10px"><table class="bit-table">
         <tbody>
@@ -6195,7 +6243,7 @@ public String getUserDetails(
         </tbody>
       </table></div>
 
-      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>📦</span><span>IoC Container</span></div>
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span></span><span>IoC Container</span></div>
       <div class="hbox">The IoC (Inversion of Control) Container contains all the Beans and is responsible for:</div>
       <div class="tbl-wrap" style="margin-top:10px"><table class="bit-table">
         <tbody>
@@ -6205,7 +6253,7 @@ public String getUserDetails(
         </tbody>
       </table></div>
 
-      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>🛠️</span><span>How to Create a Bean? (2 ways)</span></div>
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>️</span><span>How to Create a Bean? (2 ways)</span></div>
 
       <div style="background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.18);border-radius:8px;padding:12px 14px;font-size:13px">
         <strong style="color:#22c55e">1. Through @Component Annotation</strong>
@@ -6223,7 +6271,7 @@ public class User {
           <tr><td colspan="2">Annotations like @Controller, @Service, @Repository internally tell Spring to create Beans and manage them</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">⭐ <strong>Note:</strong> If we annotate a class with @Component and it does not have any user-defined constructor, it works fine.</div>
+      <div class="sbox"><strong>Note:</strong> If we annotate a class with @Component and it does not have any user-defined constructor, it works fine.</div>
 
       <div style="background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.18);border-radius:8px;padding:12px 14px;font-size:13px;margin-top:14px">
         <strong style="color:#22c55e">What if a User-defined Constructor is Present?</strong>
@@ -6242,7 +6290,7 @@ public class User {
     }
 }</div>
       </div>
-      <div class="sbox">⚠️ If we run the application with only @Component in this case: <strong>APPLICATION FAILED TO START</strong> — because Spring Boot does not know what values should be passed to the constructor while creating the Bean. In these cases, <code style="background:rgba(34,197,94,0.12);padding:1px 5px;border-radius:4px;font-size:12px">@Bean</code> comes into the picture. Here, we provide the configuration details and tell Spring Boot to use them while creating the Bean — by creating a separate configuration class.</div>
+      <div class="sbox">️ If we run the application with only @Component in this case: <strong>APPLICATION FAILED TO START</strong> — because Spring Boot does not know what values should be passed to the constructor while creating the Bean. In these cases, <code style="background:rgba(34,197,94,0.12);padding:1px 5px;border-radius:4px;font-size:12px">@Bean</code> comes into the picture. Here, we provide the configuration details and tell Spring Boot to use them while creating the Bean — by creating a separate configuration class.</div>
       <div class="code-block" style="margin-top:8px">
         <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">@Bean Configuration Example</span></div>
         <div class="code-body">@Configuration
@@ -6255,7 +6303,7 @@ public class AppConfig {
 }</div>
       </div>
 
-      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>🔍</span><span>How does Spring Boot find these Beans?</span></div>
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span></span><span>How does Spring Boot find these Beans?</span></div>
       <div class="hbox">Spring Boot finds Beans using <code style="background:rgba(34,197,94,0.12);padding:1px 5px;border-radius:4px;font-size:12px">@ComponentScan</code>.</div>
       <div class="code-block" style="margin-top:8px">
         <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">@ComponentScan Example</span></div>
@@ -6268,7 +6316,7 @@ public class AppConfig {
           <tr><td colspan="2">It identifies classes annotated with Spring stereotypes and creates Beans</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">⭐ <strong>Note:</strong> Even if we do not explicitly provide @ComponentScan, the application still works because @SpringBootApplication internally contains @ComponentScan. Another way of creating Beans is by using a @Configuration class (as shown above).</div>
+      <div class="sbox"><strong>Note:</strong> Even if we do not explicitly provide @ComponentScan, the application still works because @SpringBootApplication internally contains @ComponentScan. Another way of creating Beans is by using a @Configuration class (as shown above).</div>
 
       <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>⏱️</span><span>At What Time are Beans Created?</span></div>
       <div class="hbox">There are two types of Bean initialization.</div>
@@ -6283,7 +6331,7 @@ public class AppConfig {
         </div>
       </div>
 
-      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>🔁</span><span>Bean Life Cycle</span></div>
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span></span><span>Bean Life Cycle</span></div>
       <div class="code-block">
         <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">Bean Life Cycle Steps</span></div>
         <div class="code-body"><span class="cmt">Step 1: Application starts</span>
@@ -6315,7 +6363,7 @@ public void initialize(){
 }</div>
       </div>
 
-      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>💉</span><span>Dependency Injection</span></div>
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span></span><span>Dependency Injection</span></div>
       <div class="hbox">If the required Bean is found, Spring Boot injects it. If the Bean is not available, Spring Boot first creates the Bean and then injects it.</div>
       <div class="tbl-wrap" style="margin-top:10px"><table class="bit-table">
         <thead><tr><th colspan="2">Three ways of Dependency Injection</th></tr></thead>
@@ -6353,7 +6401,7 @@ public class User {
 (All work has been done)</div>
       </div>
 
-      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>📌</span><span>Important Points</span></div>
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span></span><span>Important Points</span></div>
       <div class="tbl-wrap"><table class="bit-table">
         <tbody>
           <tr><td colspan="2">Bean = Java object managed by the Spring IoC Container</td></tr>
@@ -6387,21 +6435,21 @@ Bean Used
     ↓
 Bean Destroyed</div>
       </div>
-      <div class="sbox">✅ <strong>Interview line:</strong> "A Bean is just an object the Spring IoC Container creates, wires with dependencies, initializes via @PostConstruct, and eventually destroys via @PreDestroy — @Component is for Spring-owned classes, @Bean is for objects Spring doesn't own or that need custom construction."</div>
+      <div class="sbox"><strong>Interview line:</strong> "A Bean is just an object the Spring IoC Container creates, wires with dependencies, initializes via @PostConstruct, and eventually destroys via @PreDestroy — @Component is for Spring-owned classes, @Bean is for objects Spring doesn't own or that need custom construction."</div>
     </div>
   </div>
 
   <!-- Dependency Injection: Advantages & Disadvantages - full notes, single dropdown -->
   <div class="accordion" id="acc-boot-di">
     <button class="accordion-header" onclick="toggleAcc('boot-di')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#22c55e">💉</span><span>9. Dependency Injection in Spring Boot (Advantages &amp; Disadvantages)</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>9. Dependency Injection in Spring Boot (Advantages &amp; Disadvantages)</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-boot-di">
 
       <div class="hbox">Dependency Injection helps to implement the <strong>Dependency Inversion Principle (DIP)</strong> in Spring Boot. Using Dependency Injection, we can make our classes independent of their dependencies.</div>
 
-      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>✅</span><span>Advantages of Dependency Injection</span></div>
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span></span><span>Advantages of Dependency Injection</span></div>
       <div class="tbl-wrap"><table class="bit-table">
         <tbody>
           <tr><td colspan="2">No tight coupling between classes</td></tr>
@@ -6423,9 +6471,9 @@ public class Order {
 
 }</div>
       </div>
-      <div class="sbox">⭐ <strong>@Autowired</strong> tells Spring to look for a Bean of the required type. If the Bean is present, Spring injects it. If the Bean is not present, Spring creates it and then injects it.</div>
+      <div class="sbox"><strong>@Autowired</strong> tells Spring to look for a Bean of the required type. If the Bean is present, Spring injects it. If the Bean is not present, Spring creates it and then injects it.</div>
 
-      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>🧩</span><span>Types of Dependency Injection (3 ways)</span></div>
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span></span><span>Types of Dependency Injection (3 ways)</span></div>
       <div class="tbl-wrap"><table class="bit-table">
         <tbody>
           <tr><td colspan="2">Field Injection</td></tr>
@@ -6505,7 +6553,7 @@ public class User {
     }
 }</div>
       </div>
-      <div class="sbox">⭐ <strong>Note:</strong> If there is only one constructor, we do not have to explicitly mention @Autowired. If there are multiple constructors, @Autowired is mandatory.</div>
+      <div class="sbox"><strong>Note:</strong> If there is only one constructor, we do not have to explicitly mention @Autowired. If there are multiple constructors, @Autowired is mandatory.</div>
       <div class="tbl-wrap" style="margin-top:10px"><table class="bit-table">
         <thead><tr><th colspan="2">Advantages of Constructor Injection</th></tr></thead>
         <tbody>
@@ -6528,7 +6576,7 @@ class User {
 }</div>
       </div>
 
-      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>⚠️</span><span>Common Disadvantages of Dependency Injection</span></div>
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>️</span><span>Common Disadvantages of Dependency Injection</span></div>
 
       <div style="background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.18);border-radius:8px;padding:12px 14px;font-size:13px">
         <strong style="color:#22c55e">1. Circular Dependency</strong>
@@ -6549,7 +6597,7 @@ public class Invoice {
     Order order;
 }</div>
       </div>
-      <div class="sbox">⭐ Here, Order depends on Invoice, and Invoice depends on Order — this creates a Circular Dependency.</div>
+      <div class="sbox">Here, Order depends on Invoice, and Invoice depends on Order — this creates a Circular Dependency.</div>
       <div style="background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.18);border-radius:8px;padding:12px 14px;font-size:13px;margin-top:10px">
         <strong style="color:#22c55e">Solution</strong> — move the common code from both dependent classes into a separate class. Another approach: use <code style="background:rgba(34,197,94,0.12);padding:1px 5px;border-radius:4px;font-size:12px">@Lazy</code> with <code style="background:rgba(34,197,94,0.12);padding:1px 5px;border-radius:4px;font-size:12px">@Autowired</code>, or use <code style="background:rgba(34,197,94,0.12);padding:1px 5px;border-radius:4px;font-size:12px">@PostConstruct</code>.
       </div>
@@ -6604,7 +6652,7 @@ public class User{
     Order order;
 }</div>
       </div>
-      <div class="sbox">⚠️ Application fails to start because Spring Boot does not know which Order Bean should be created.</div>
+      <div class="sbox">️ Application fails to start because Spring Boot does not know which Order Bean should be created.</div>
 
       <div style="background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.18);border-radius:8px;padding:12px 14px;font-size:13px;margin-top:12px">
         <strong style="color:#22c55e">Solution 1 — @Primary</strong><br>
@@ -6637,14 +6685,14 @@ class OfflineOrder implements Order{
 
 }</div>
       </div>
-      <div class="sbox">✅ <strong>Interview line:</strong> "Spring creates the object of the class whose name is specified in @Qualifier. @Primary sets a default choice, @Qualifier picks explicitly — and circular dependencies are solved with @Lazy, @PostConstruct, or refactoring the shared logic out."</div>
+      <div class="sbox"><strong>Interview line:</strong> "Spring creates the object of the class whose name is specified in @Qualifier. @Primary sets a default choice, @Qualifier picks explicitly — and circular dependencies are solved with @Lazy, @PostConstruct, or refactoring the shared logic out."</div>
     </div>
   </div>
 
   <!-- Bean Scopes: Singleton, Prototype, Request, Session - full notes, single dropdown -->
   <div class="accordion" id="acc-boot-scopes">
     <button class="accordion-header" onclick="toggleAcc('boot-scopes')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#22c55e">🎯</span><span>10. Bean Scopes in Spring Boot (Singleton, Prototype, Request, Session)</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>10. Bean Scopes in Spring Boot (Singleton, Prototype, Request, Session)</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-boot-scopes">
@@ -6721,7 +6769,7 @@ fetchUser api invoked</div>
           <tr><td colspan="2">Calling /fetchUser again does not create another User object</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">⭐ <strong>Why?</strong> Since Singleton is the default scope, Spring creates only one object and reuses it throughout the application.</div>
+      <div class="sbox"><strong>Why?</strong> Since Singleton is the default scope, Spring creates only one object and reuses it throughout the application.</div>
 
       <!-- PROTOTYPE -->
       <div style="display:flex;align-items:center;gap:8px;margin:24px 0 10px;font-size:14px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.25);padding-bottom:6px"><span>2️⃣</span><span>Prototype Scope</span></div>
@@ -6733,7 +6781,7 @@ fetchUser api invoked</div>
           <tr><td colspan="2">Lazily initialized, i.e., object is created only when it is required</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">⭐ Example uses three Beans: TestController, Student, User.</div>
+      <div class="sbox">Example uses three Beans: TestController, Student, User.</div>
       <div class="code-block" style="margin-top:10px">
         <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">Controller</span></div>
         <div class="code-body">@RestController
@@ -6847,7 +6895,7 @@ fetchUser api invoked</div>
           <tr><td colspan="2">Bean is Lazily Initialized</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">⭐ Example uses three Beans: TestController, Student, User.</div>
+      <div class="sbox">Example uses three Beans: TestController, Student, User.</div>
       <div class="code-block" style="margin-top:10px">
         <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">TestController</span></div>
         <div class="code-body">@RestController
@@ -6930,7 +6978,7 @@ public class User {
         <strong style="color:#22c55e">What Happens During Application Startup?</strong><br>
         <span style="color:var(--text2)">Only the Spring Boot application starts. No User Bean is created. No Student Bean is created. No TestController Bean is created.</span>
       </div>
-      <div class="sbox">⭐ <strong>Observation:</strong> Since Request Scope is lazily initialized, Spring does not create the Bean until an HTTP request arrives.</div>
+      <div class="sbox"><strong>Observation:</strong> Since Request Scope is lazily initialized, Spring does not create the Bean until an HTTP request arrives.</div>
 
       <div class="code-block" style="margin-top:10px">
         <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">Calling the API — http://localhost:8090/api/fetchUser</span></div>
@@ -6990,7 +7038,7 @@ fetchUser api invoked</div>
           <tr><td colspan="2">All hashCodes are different from the first request</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ This proves that Request Scope creates a new Bean for every HTTP request.</div>
+      <div class="sbox">This proves that Request Scope creates a new Bean for every HTTP request.</div>
 
       <div style="background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.18);border-radius:8px;padding:12px 14px;font-size:13px;margin-top:16px">
         <strong style="color:#22c55e">Problem with Request Scope</strong><br>
@@ -7018,7 +7066,7 @@ public class User {
 
 }</div>
       </div>
-      <div class="sbox">⭐ With <code style="background:rgba(34,197,94,0.12);padding:1px 5px;border-radius:4px;font-size:12px">proxyMode = ScopedProxyMode.TARGET_CLASS</code>, Spring injects a proxy object instead of the actual Bean. The real Request Bean is created only when an HTTP request is received — allowing the application to start successfully.</div>
+      <div class="sbox">With <code style="background:rgba(34,197,94,0.12);padding:1px 5px;border-radius:4px;font-size:12px">proxyMode = ScopedProxyMode.TARGET_CLASS</code>, Spring injects a proxy object instead of the actual Bean. The real Request Bean is created only when an HTTP request is received — allowing the application to start successfully.</div>
 
       <div class="tbl-wrap" style="margin-top:12px"><table class="bit-table">
         <thead><tr><th colspan="2">Request Scope — Summary</th></tr></thead>
@@ -7079,7 +7127,7 @@ public class TestController {
     }
 }</div>
       </div>
-      <div class="sbox">⭐ <strong>Application Startup:</strong> Session Bean is not created. Spring waits until an HTTP request creates a session — because Session Scope is Lazily Initialized.</div>
+      <div class="sbox"><strong>Application Startup:</strong> Session Bean is not created. Spring waits until an HTTP request creates a session — because Session Scope is Lazily Initialized.</div>
 
       <div class="code-block" style="margin-top:10px">
         <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">First API Request — http://localhost:8090/api/fetchUser</span></div>
@@ -7128,14 +7176,14 @@ User object hashCode : NEW HASHCODE</div>
         </tbody>
       </table></div>
 
-      <div class="sbox">✅ <strong>Interview line:</strong> "Singleton = one object for the whole app (eager). Prototype = new object every time it's requested (lazy). Request = one object per HTTP request (lazy). Session = one object per user session, reused across that session's requests, destroyed on logout/timeout. Injecting Request/Session scoped Beans into Singletons needs a Scoped Proxy to avoid startup failure."</div>
+      <div class="sbox"><strong>Interview line:</strong> "Singleton = one object for the whole app (eager). Prototype = new object every time it's requested (lazy). Request = one object per HTTP request (lazy). Session = one object per user session, reused across that session's requests, destroyed on logout/timeout. Injecting Request/Session scoped Beans into Singletons needs a Scoped Proxy to avoid startup failure."</div>
     </div>
   </div>
 
   <!-- Dynamic Bean Initialization -->
   <div class="accordion" id="acc-boot-dynamicbean">
     <button class="accordion-header" onclick="toggleAcc('boot-dynamicbean')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#22c55e">🔀</span><span>11. Dynamic Bean Initialization</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>11. Dynamic Bean Initialization</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-boot-dynamicbean">
@@ -7200,7 +7248,7 @@ public class User {
 }</div>
       </div>
 
-      <div class="wbox" style="margin-top:12px">⚠️ Spring finds two Beans implementing <code style="background:rgba(239,68,68,0.12);padding:1px 5px;border-radius:4px;font-size:12px">Order</code> — <code style="background:rgba(239,68,68,0.12);padding:1px 5px;border-radius:4px;font-size:12px">OnlineOrder</code> and <code style="background:rgba(239,68,68,0.12);padding:1px 5px;border-radius:4px;font-size:12px">OfflineOrder</code>. Since both are eligible candidates, Spring doesn't know which one to inject — the application fails to start with an <strong>UnsatisfiedDependencyException</strong>.</div>
+      <div class="wbox" style="margin-top:12px">️ Spring finds two Beans implementing <code style="background:rgba(239,68,68,0.12);padding:1px 5px;border-radius:4px;font-size:12px">Order</code> — <code style="background:rgba(239,68,68,0.12);padding:1px 5px;border-radius:4px;font-size:12px">OnlineOrder</code> and <code style="background:rgba(239,68,68,0.12);padding:1px 5px;border-radius:4px;font-size:12px">OfflineOrder</code>. Since both are eligible candidates, Spring doesn't know which one to inject — the application fails to start with an <strong>UnsatisfiedDependencyException</strong>.</div>
       <div class="code-block" style="margin-top:8px">
         <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">Startup Error</span></div>
         <div class="code-body">APPLICATION FAILED TO START
@@ -7237,7 +7285,7 @@ public class User {
         <div class="code-body">Online Order Initialized
 Created Online Order</div>
       </div>
-      <div class="sbox">✅ Spring injects exactly the Bean named in @Qualifier — no ambiguity, application starts cleanly.</div>
+      <div class="sbox">Spring injects exactly the Bean named in @Qualifier — no ambiguity, application starts cleanly.</div>
 
       <div style="background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.2);border-radius:8px;padding:12px 14px;font-size:13px;margin-top:14px">
         <strong style="color:#ef4444">Limitation of @Qualifier</strong><br>
@@ -7278,7 +7326,7 @@ public class AppConfig {
           <tr><td>false</td><td>Offline Order Initialized → Created Offline Order</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ <strong>Interview line:</strong> "Spring creates the Bean based on the value of isOnlineOrder. No Java code needs to change — only the property value does."</div>
+      <div class="sbox"><strong>Interview line:</strong> "Spring creates the Bean based on the value of isOnlineOrder. No Java code needs to change — only the property value does."</div>
 
       <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>4️⃣</span><span>@Value Annotation</span></div>
       <div class="hbox">@Value is used to inject values from various sources like a property file, environment variables, or inline literals.</div>
@@ -7296,14 +7344,14 @@ public Order createOrderBean(
     }
 }</div>
       </div>
-      <div class="sbox">⭐ Here the value is hardcoded with @Value("false") instead of being read from application.properties — useful for quick testing, but the property-file version is what you'd actually ship.</div>
+      <div class="sbox">Here the value is hardcoded with @Value("false") instead of being read from application.properties — useful for quick testing, but the property-file version is what you'd actually ship.</div>
     </div>
   </div>
 
   <!-- @ConditionalOnProperty -->
   <div class="accordion" id="acc-boot-conditionalprop">
     <button class="accordion-header" onclick="toggleAcc('boot-conditionalprop')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#22c55e">🧩</span><span>12. @ConditionalOnProperty</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>12. @ConditionalOnProperty</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-boot-conditionalprop">
@@ -7374,7 +7422,7 @@ No Connection Bean Created with dependencies below:
 Is MySQLConnection object Null : false
 Is NoSQLConnection object Null : false</div>
       </div>
-      <div class="sbox">⭐ <strong>Observation:</strong> Both Beans are created during application startup — Spring has no way to skip either one.</div>
+      <div class="sbox"><strong>Observation:</strong> Both Beans are created during application startup — Spring has no way to skip either one.</div>
 
       <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>2️⃣</span><span>Use Cases</span></div>
       <div class="tbl-wrap"><table class="bit-table">
@@ -7438,7 +7486,7 @@ No Connection Bean Created with dependencies below:
 Is MySQLConnection object Null : false
 Is NoSQLConnection object Null : true</div>
       </div>
-      <div class="sbox">⭐ <strong>Observation:</strong> Only the MySQLConnection Bean is created, because <code style="background:rgba(34,197,94,0.12);padding:1px 5px;border-radius:4px;font-size:12px">connection=mysql</code> matches its condition.</div>
+      <div class="sbox"><strong>Observation:</strong> Only the MySQLConnection Bean is created, because <code style="background:rgba(34,197,94,0.12);padding:1px 5px;border-radius:4px;font-size:12px">connection=mysql</code> matches its condition.</div>
 
       <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>4️⃣</span><span>Changing the Property</span></div>
       <div class="code-block" style="margin-top:8px">
@@ -7454,7 +7502,7 @@ No Connection Bean Created with dependencies below:
 Is MySQLConnection object Null : true
 Is NoSQLConnection object Null : false</div>
       </div>
-      <div class="sbox">⭐ <strong>Observation:</strong> Only the NoSQLConnection Bean is created.</div>
+      <div class="sbox"><strong>Observation:</strong> Only the NoSQLConnection Bean is created.</div>
 
       <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>5️⃣</span><span>Parameters Used</span></div>
       <div class="tbl-wrap"><table class="bit-table">
@@ -7466,7 +7514,7 @@ Is NoSQLConnection object Null : false</div>
         </tbody>
       </table></div>
 
-      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>✅</span><span>Advantages</span></div>
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span></span><span>Advantages</span></div>
       <div class="tbl-wrap"><table class="bit-table">
         <tbody>
           <tr><td>Feature toggling</td></tr>
@@ -7476,7 +7524,7 @@ Is NoSQLConnection object Null : false</div>
         </tbody>
       </table></div>
 
-      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#ef4444;border-bottom:1px solid rgba(239,68,68,0.2);padding-bottom:6px"><span>⚠️</span><span>Disadvantages</span></div>
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#ef4444;border-bottom:1px solid rgba(239,68,68,0.2);padding-bottom:6px"><span>️</span><span>Disadvantages</span></div>
       <div class="tbl-wrap"><table class="bit-table">
         <tbody>
           <tr><td>Misconfiguration can happen</td></tr>
@@ -7486,14 +7534,14 @@ Is NoSQLConnection object Null : false</div>
         </tbody>
       </table></div>
 
-      <div class="sbox">✅ <strong>Interview line:</strong> "@ConditionalOnProperty lets Spring Boot decide at startup, based on a property value, whether a Bean should be created at all — useful for toggling between implementations like MySQL vs NoSQL without touching code, only application.properties."</div>
+      <div class="sbox"><strong>Interview line:</strong> "@ConditionalOnProperty lets Spring Boot decide at startup, based on a property value, whether a Bean should be created at all — useful for toggling between implementations like MySQL vs NoSQL without touching code, only application.properties."</div>
     </div>
   </div>
 
   <!-- @Profile Annotation -->
   <div class="accordion" id="acc-boot-profile">
     <button class="accordion-header" onclick="toggleAcc('boot-profile')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#22c55e">🗂️</span><span>13. @Profile Annotation</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#22c55e">️</span><span>13. @Profile Annotation</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-boot-profile">
@@ -7581,12 +7629,12 @@ public class MyApplication {
         <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">Method 1 — CLI flag</span></div>
         <div class="code-body">mvn spring-boot:run -Dspring-boot.run.profiles=prod</div>
       </div>
-      <div class="sbox">⭐ This activates the Production profile.</div>
+      <div class="sbox">This activates the Production profile.</div>
       <div class="code-block" style="margin-top:8px">
         <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">Method 2 — pom.xml profile + run</span></div>
         <div class="code-body">mvn spring-boot:run -Pproduction</div>
       </div>
-      <div class="sbox">⭐ Add the profile configuration inside pom.xml first, then this starts the application using the Production profile.</div>
+      <div class="sbox">Add the profile configuration inside pom.xml first, then this starts the application using the Production profile.</div>
 
       <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>6️⃣</span><span>Using @Profile</span></div>
       <div class="hbox">@Profile tells Spring Boot to create a Bean only when the specified profile is active.</div>
@@ -7612,7 +7660,7 @@ public class MySQLConnection {
     }
 }</div>
       </div>
-      <div class="sbox">⭐ If <code style="background:rgba(34,197,94,0.12);padding:1px 5px;border-radius:4px;font-size:12px">spring.profiles.active=dev</code>, only this Bean is created.</div>
+      <div class="sbox">If <code style="background:rgba(34,197,94,0.12);padding:1px 5px;border-radius:4px;font-size:12px">spring.profiles.active=dev</code>, only this Bean is created.</div>
 
       <div class="tbl-wrap" style="margin-top:10px"><table class="bit-table">
         <thead><tr><th>Command</th><th>Result</th></tr></thead>
@@ -7628,7 +7676,7 @@ public class MySQLConnection {
         <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">application.properties</span></div>
         <div class="code-body">spring.profiles.active=prod,qa</div>
       </div>
-      <div class="sbox">⭐ Spring Boot loads configuration from both active profiles.</div>
+      <div class="sbox">Spring Boot loads configuration from both active profiles.</div>
 
       <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>8️⃣</span><span>Real Interview Scenario</span></div>
       <div style="background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.18);border-radius:8px;padding:12px 14px;font-size:13px">
@@ -7664,7 +7712,7 @@ public class NoSQLConnection {
         </tbody>
       </table></div>
 
-      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>✅</span><span>Advantages</span></div>
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span></span><span>Advantages</span></div>
       <div class="tbl-wrap"><table class="bit-table">
         <tbody>
           <tr><td>Different configurations for different environments</td></tr>
@@ -7675,20 +7723,20 @@ public class NoSQLConnection {
         </tbody>
       </table></div>
 
-      <div class="sbox">✅ <strong>Interview line:</strong> "@Profile scopes Bean creation to an environment. Combined with per-environment properties files, it means the same codebase can connect to Dev, QA, or Prod resources just by switching spring.profiles.active — no code change, no redeploy."</div>
+      <div class="sbox"><strong>Interview line:</strong> "@Profile scopes Bean creation to an environment. Combined with per-environment properties files, it means the same codebase can connect to Dev, QA, or Prod resources just by switching spring.profiles.active — no code change, no redeploy."</div>
     </div>
   </div>
 
   <!-- 14. AOP - What is AOP -->
   <div class="accordion" id="acc-boot-aop-intro">
     <button class="accordion-header" onclick="toggleAcc('boot-aop-intro')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#22c55e">🧵</span><span>14. AOP — What is AOP?</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>14. AOP — What is AOP?</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-boot-aop-intro">
       <div class="hbox"><strong>Aspect Oriented Programming (AOP)</strong> is a programming paradigm used to separate <strong>cross-cutting concerns</strong> (common functionalities) from the main business logic. Instead of writing the same code in multiple places, AOP lets us execute common logic <strong>before</strong>, <strong>after</strong>, or <strong>around</strong> a method.</div>
 
-      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>🔁</span><span>Common Use Cases</span></div>
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span></span><span>Common Use Cases</span></div>
       <div class="tbl-wrap"><table class="bit-table">
         <tbody>
           <tr><td>Logging</td></tr>
@@ -7700,7 +7748,7 @@ public class NoSQLConnection {
         </tbody>
       </table></div>
 
-      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>✅</span><span>Advantages</span></div>
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span></span><span>Advantages</span></div>
       <div class="tbl-wrap"><table class="bit-table">
         <tbody>
           <tr><td>Reduces boilerplate code</td></tr>
@@ -7710,7 +7758,7 @@ public class NoSQLConnection {
         </tbody>
       </table></div>
 
-      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>📦</span><span>Dependency Required</span></div>
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span></span><span>Dependency Required</span></div>
       <div class="code-block" style="margin-top:8px">
         <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">pom.xml</span></div>
         <div class="code-body">&lt;dependency&gt;
@@ -7724,7 +7772,7 @@ public class NoSQLConnection {
   <!-- 15. AOP - Terminologies -->
   <div class="accordion" id="acc-boot-aop-terms">
     <button class="accordion-header" onclick="toggleAcc('boot-aop-terms')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#22c55e">📖</span><span>15. AOP — Important Terminologies</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>15. AOP — Important Terminologies</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-boot-aop-terms">
@@ -7772,14 +7820,14 @@ public void beforeMethod(){
       <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>4️⃣</span><span>Join Point</span></div>
       <div class="hbox">A <strong>Join Point</strong> is the actual point where a method execution happens. Whenever the method is invoked, that location is called a Join Point.</div>
 
-      <div class="sbox">⭐ Aspect = the class · Advice = the action + when · Pointcut = the expression (where) · Join Point = the actual point it fires at.</div>
+      <div class="sbox">Aspect = the class · Advice = the action + when · Pointcut = the expression (where) · Join Point = the actual point it fires at.</div>
     </div>
   </div>
 
   <!-- 16. AOP - Pointcut Expressions -->
   <div class="accordion" id="acc-boot-aop-pointcuts">
     <button class="accordion-header" onclick="toggleAcc('boot-aop-pointcuts')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#22c55e">🎯</span><span>16. AOP — Types of Pointcut Expressions</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>16. AOP — Types of Pointcut Expressions</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-boot-aop-pointcuts">
@@ -7797,7 +7845,7 @@ public void beforeMethod(){
         </tbody>
       </table></div>
 
-      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>➕</span><span>Combining Pointcuts</span></div>
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span></span><span>Combining Pointcuts</span></div>
       <div class="tbl-wrap"><table class="bit-table">
         <thead><tr><th>Operator</th><th>Meaning</th></tr></thead>
         <tbody>
@@ -7806,7 +7854,7 @@ public void beforeMethod(){
         </tbody>
       </table></div>
 
-      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>♻️</span><span>Named Pointcuts</span></div>
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>️</span><span>Named Pointcuts</span></div>
       <div class="hbox">Instead of writing the same expression multiple times, create a reusable Pointcut.</div>
       <div class="code-block" style="margin-top:8px">
         <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">Define</span></div>
@@ -7822,14 +7870,14 @@ public void beforeMethod(){
 
 }</div>
       </div>
-      <div class="sbox">⭐ <strong>Advantage:</strong> cleaner code, easy maintenance, reusable expressions.</div>
+      <div class="sbox"><strong>Advantage:</strong> cleaner code, easy maintenance, reusable expressions.</div>
     </div>
   </div>
 
   <!-- 17. AOP - Types of Advice -->
   <div class="accordion" id="acc-boot-aop-advice">
     <button class="accordion-header" onclick="toggleAcc('boot-aop-advice')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#22c55e">🛎️</span><span>17. AOP — Types of Advice</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#22c55e">️</span><span>17. AOP — Types of Advice</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-boot-aop-advice">
@@ -7870,19 +7918,19 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable{
 
 }</div>
       </div>
-      <div class="sbox">⭐ <code style="background:rgba(34,197,94,0.14);padding:1px 5px;border-radius:4px;font-size:12px">joinPoint.proceed()</code> calls the actual method — skip it and the target method never runs at all.</div>
+      <div class="sbox"><code style="background:rgba(34,197,94,0.14);padding:1px 5px;border-radius:4px;font-size:12px">joinPoint.proceed()</code> calls the actual method — skip it and the target method never runs at all.</div>
     </div>
   </div>
 
   <!-- 18. AOP - Internal Working -->
   <div class="accordion" id="acc-boot-aop-internal">
     <button class="accordion-header" onclick="toggleAcc('boot-aop-internal')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#22c55e">⚙️</span><span>18. AOP — Internal Working</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#22c55e">️</span><span>18. AOP — Internal Working</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-boot-aop-internal">
 
-      <div style="display:flex;align-items:center;gap:8px;margin:0 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>🚀</span><span>During Application Startup</span></div>
+      <div style="display:flex;align-items:center;gap:8px;margin:0 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span></span><span>During Application Startup</span></div>
       <div class="tbl-wrap"><table class="bit-table">
         <tbody>
           <tr><td>1. Spring scans all @Aspect classes</td></tr>
@@ -7895,7 +7943,7 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable{
         </tbody>
       </table></div>
 
-      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>📞</span><span>During Method Invocation</span></div>
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span></span><span>During Method Invocation</span></div>
       <div class="tbl-wrap"><table class="bit-table">
         <tbody>
           <tr><td>1. Client calls the method</td></tr>
@@ -7906,9 +7954,9 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable{
           <tr><td>6. Returns the response</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">⭐ The Bean you autowire is often not the real object — it's a <strong>Proxy</strong> that wraps Advice around the real method call.</div>
+      <div class="sbox">The Bean you autowire is often not the real object — it's a <strong>Proxy</strong> that wraps Advice around the real method call.</div>
 
-      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span>🌐</span><span>Real-Time Use Cases</span></div>
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#22c55e;border-bottom:1px solid rgba(34,197,94,0.2);padding-bottom:6px"><span></span><span>Real-Time Use Cases</span></div>
       <div class="tbl-wrap"><table class="bit-table">
         <tbody>
           <tr><td>Logging API requests</td></tr>
@@ -7926,7 +7974,7 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable{
   <!-- 19. AOP - Interview Questions -->
   <div class="accordion" id="acc-boot-aop-interview">
     <button class="accordion-header" onclick="toggleAcc('boot-aop-interview')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#22c55e">❓</span><span>19. AOP — Interview Questions</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>19. AOP — Interview Questions</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-boot-aop-interview">
@@ -7940,14 +7988,14 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable{
       <div class="wbox" style="margin-top:8px"><strong>Q: Difference between @Before and @Around?</strong><br>@Before executes only before the method. @Around executes before and after the method, and can even control whether the method executes at all.</div>
       <div class="wbox" style="margin-top:8px"><strong>Q: How does Spring AOP work internally?</strong><br>Spring creates a Proxy Object for matching Beans. The proxy intercepts method calls, executes the configured Advice, invokes the actual method, and then executes any post-processing Advice.</div>
 
-      <div class="sbox" style="margin-top:12px">✅ <strong>Interview line:</strong> "Spring AOP works by wrapping matching Beans in a Proxy at startup — the proxy intercepts every call, runs the configured Advice around it, and only then hits the real method."</div>
+      <div class="sbox" style="margin-top:12px"><strong>Interview line:</strong> "Spring AOP works by wrapping matching Beans in a Proxy at startup — the proxy intercepts every call, runs the configured Advice around it, and only then hits the real method."</div>
     </div>
   </div>
 
   <!-- Quick Revision -->
   <div class="accordion" id="acc-boot-qrev">
     <button class="accordion-header" onclick="toggleAcc('boot-qrev')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#22c55e">⚡</span><span>Quick Revision Cheatsheet</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>Quick Revision Cheatsheet</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-boot-qrev">
@@ -8027,13 +8075,17 @@ const MAVEN_CONTENT = `
 <div class="content-area">
 
   <div style="background:rgba(199,26,54,0.07);border:1px solid rgba(199,26,54,0.2);border-radius:10px;padding:13px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.7;color:var(--text2)">
-    🎯 <strong style="color:#c71a36">Interview scope</strong> — Know what Maven does, what pom.xml contains, and be able to recite the 7 lifecycle phases in order with what each one does.
+    <strong style="color:#c71a36">Interview scope</strong> — Know what Maven does, what pom.xml contains, and be able to recite the 7 lifecycle phases in order with what each one does.
+  </div>
+  <div style="background:rgba(199,26,54,0.04);border:1px solid rgba(199,26,54,0.13);border-radius:10px;padding:13px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.7;color:var(--text2)">
+    <strong style="color:#c71a36">Why this matters</strong> — Maven manages dependencies and the build process behind almost every Java project, so interviewers ask about it to confirm you understand how your code actually gets compiled, tested, and packaged — not just that you clicked "run" in an IDE.<br><br>
+    <strong style="color:#c71a36">When to use it</strong> — Bring this up when asked how dependencies are resolved from pom.xml, or to explain what happens between running <code>mvn compile</code> and <code>mvn package</code> — a common way interviewers test if you actually know the lifecycle.
   </div>
 
   <!-- 1. What is Maven -->
   <div class="accordion" id="acc-maven-intro">
     <button class="accordion-header" onclick="toggleAcc('maven-intro')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#c71a36">📦</span><span>1. What is Maven?</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>1. What is Maven?</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-maven-intro">
@@ -8048,14 +8100,14 @@ const MAVEN_CONTENT = `
           <tr><td colspan="2">Packaging applications (JAR/WAR)</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ <strong>Interview line:</strong> "Maven automates the build, manages dependencies, and enforces a standard project structure — so you don't manually download JARs or set up folders."</div>
+      <div class="sbox"><strong>Interview line:</strong> "Maven automates the build, manages dependencies, and enforces a standard project structure — so you don't manually download JARs or set up folders."</div>
     </div>
   </div>
 
   <!-- 2. POM -->
   <div class="accordion" id="acc-maven-pom">
     <button class="accordion-header" onclick="toggleAcc('maven-pom')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#c71a36">📄</span><span>2. POM (Project Object Model)</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>2. POM (Project Object Model)</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-maven-pom">
@@ -8071,14 +8123,14 @@ const MAVEN_CONTENT = `
           <tr><td colspan="2">Properties</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">⭐ Every Maven project contains exactly one <code style="background:rgba(199,26,54,0.12);padding:1px 5px;border-radius:4px;font-size:12px">pom.xml</code> file.</div>
+      <div class="sbox">Every Maven project contains exactly one <code style="background:rgba(199,26,54,0.12);padding:1px 5px;border-radius:4px;font-size:12px">pom.xml</code> file.</div>
     </div>
   </div>
 
   <!-- 3. Project Structure -->
   <div class="accordion" id="acc-maven-structure">
     <button class="accordion-header" onclick="toggleAcc('maven-structure')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#c71a36">🗂️</span><span>3. Standard Maven Project Structure</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#c71a36">️</span><span>3. Standard Maven Project Structure</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-maven-structure">
@@ -8121,7 +8173,7 @@ const MAVEN_CONTENT = `
   <!-- 4. Parent POM & Properties -->
   <div class="accordion" id="acc-maven-parentprops">
     <button class="accordion-header" onclick="toggleAcc('maven-parentprops')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#c71a36">🧬</span><span>4. Parent POM &amp; Properties</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>4. Parent POM &amp; Properties</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-maven-parentprops">
@@ -8146,7 +8198,7 @@ const MAVEN_CONTENT = `
     &lt;java.version&gt;17&lt;/java.version&gt;
 &lt;/properties&gt;</div>
       </div>
-      <div class="sbox">⭐ Key → <code style="background:rgba(199,26,54,0.12);padding:1px 5px;border-radius:4px;font-size:12px">java.version</code> · Value → <code style="background:rgba(199,26,54,0.12);padding:1px 5px;border-radius:4px;font-size:12px">17</code></div>
+      <div class="sbox">Key → <code style="background:rgba(199,26,54,0.12);padding:1px 5px;border-radius:4px;font-size:12px">java.version</code> · Value → <code style="background:rgba(199,26,54,0.12);padding:1px 5px;border-radius:4px;font-size:12px">17</code></div>
       <div class="tbl-wrap" style="margin-top:10px"><table class="bit-table">
         <thead><tr><th colspan="2">Benefits of Properties</th></tr></thead>
         <tbody>
@@ -8160,7 +8212,7 @@ const MAVEN_CONTENT = `
   <!-- 5. Repositories & Dependencies -->
   <div class="accordion" id="acc-maven-repodeps">
     <button class="accordion-header" onclick="toggleAcc('maven-repodeps')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#c71a36">🌐</span><span>5. Repositories &amp; Dependencies</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>5. Repositories &amp; Dependencies</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-maven-repodeps">
@@ -8176,7 +8228,7 @@ const MAVEN_CONTENT = `
     &lt;/repository&gt;
 &lt;/repositories&gt;</div>
       </div>
-      <div class="sbox">⭐ <strong>Default Repository:</strong> Maven Central Repository.</div>
+      <div class="sbox"><strong>Default Repository:</strong> Maven Central Repository.</div>
 
       <div style="background:rgba(199,26,54,0.06);border:1px solid rgba(199,26,54,0.18);border-radius:8px;padding:12px 14px;font-size:13px;margin:16px 0 10px">
         <strong style="color:#c71a36">Dependencies</strong> — external libraries required by the project. Declared inside:
@@ -8201,7 +8253,7 @@ const MAVEN_CONTENT = `
   <!-- 6. Build Element -->
   <div class="accordion" id="acc-maven-build">
     <button class="accordion-header" onclick="toggleAcc('maven-build')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#c71a36">🔧</span><span>6. Build Element</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>6. Build Element</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-maven-build">
@@ -8214,14 +8266,14 @@ const MAVEN_CONTENT = `
           <tr><td colspan="2">Customize lifecycle tasks</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">⭐ Plugins perform specific tasks during different lifecycle phases.</div>
+      <div class="sbox">Plugins perform specific tasks during different lifecycle phases.</div>
     </div>
   </div>
 
   <!-- 7. Maven Build Lifecycle - full notes, single dropdown -->
   <div class="accordion" id="acc-maven-lifecycle">
     <button class="accordion-header" onclick="toggleAcc('maven-lifecycle')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#c71a36">🔄</span><span>7. Maven Build Lifecycle</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>7. Maven Build Lifecycle</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-maven-lifecycle">
@@ -8332,7 +8384,7 @@ Deploy</div>
         </tbody>
       </table></div>
 
-      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#c71a36;border-bottom:1px solid rgba(199,26,54,0.2);padding-bottom:6px"><span>📌</span><span>Important Notes</span></div>
+      <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#c71a36;border-bottom:1px solid rgba(199,26,54,0.2);padding-bottom:6px"><span></span><span>Important Notes</span></div>
       <div class="hbox">Running a lifecycle phase automatically executes all previous phases.</div>
       <div class="code-block" style="margin-top:10px">
         <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">Example</span></div>
@@ -8352,14 +8404,14 @@ Deploy</div>
           <tr><td colspan="2">mvn deploy uploads the artifact to a remote repository</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ <strong>Interview line:</strong> "Maven phases run in order — Validate → Compile → Test → Package → Verify → Install → Deploy — and running any phase runs everything before it too."</div>
+      <div class="sbox"><strong>Interview line:</strong> "Maven phases run in order — Validate → Compile → Test → Package → Verify → Install → Deploy — and running any phase runs everything before it too."</div>
     </div>
   </div>
 
   <!-- Quick Revision -->
   <div class="accordion" id="acc-maven-qrev">
     <button class="accordion-header" onclick="toggleAcc('maven-qrev')">
-      <span style="display:flex;align-items:center;gap:8px"><span style="color:#c71a36">⚡</span><span>Quick Revision Cheatsheet</span></span>
+      <span style="display:flex;align-items:center;gap:8px"><span>Quick Revision Cheatsheet</span></span>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-maven-qrev">
@@ -8392,10 +8444,10 @@ const INTERVIEW_QUESTIONS_CONTENT = `
 <div class="content-area">
 
   <div style="background:rgba(251,191,36,0.08);border:1px solid rgba(251,191,36,0.25);border-radius:10px;padding:13px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.7;color:var(--text2)">
-    🎯 <strong style="color:#fbbf24">Curated Interview Q&A</strong> — The most frequently asked questions across Java, JVM, DSA, OOPs, MySQL, DBMS, Computer Networks, OS, JDBC, Docker, Kubernetes and Python. Tap any question to reveal the answer. Scroll down to add your own questions using answers already on this site.
+    <strong style="color:#fbbf24">Curated Interview Q&A</strong> — The most frequently asked questions across Java, JVM, DSA, OOPs, MySQL, DBMS, Computer Networks, OS, JDBC, Docker, Kubernetes and Python. Tap any question to reveal the answer. Scroll down to add your own questions using answers already on this site.
   </div>
 
-  <p class="section-label">☕ Java, JVM &amp; OOPs</p>
+  <p class="section-label">Java, JVM &amp; OOPs</p>
 
   <!-- Q1: HashMap internal working -->
   <div class="accordion" id="acc-iq-hashmap">
@@ -8485,8 +8537,8 @@ const INTERVIEW_QUESTIONS_CONTENT = `
         <li><strong style="color:var(--text)">5. Treeification</strong> — since Java 8, if a single bucket's chain grows past 8 nodes (and table capacity ≥ 64), that bucket converts from a linked list to a red-black tree, dropping worst-case lookup from O(n) to O(log n).</li>
       </ul>
 
-      <div class="sbox">✅ <strong>Average case:</strong> O(1) for get/put/remove because a good hash spreads keys evenly across buckets. <strong>Worst case:</strong> O(n) with a linked-list bucket (all keys collide), or O(log n) once that bucket has treeified.</div>
-      <div class="ybox">⚠ Two objects that are <code>equals()</code> must return the <strong>same</strong> <code>hashCode()</code> — breaking this contract is the #1 cause of "my HashMap lost my entry" bugs.</div>
+      <div class="sbox"><strong>Average case:</strong> O(1) for get/put/remove because a good hash spreads keys evenly across buckets. <strong>Worst case:</strong> O(n) with a linked-list bucket (all keys collide), or O(log n) once that bucket has treeified.</div>
+      <div class="ybox">Two objects that are <code>equals()</code> must return the <strong>same</strong> <code>hashCode()</code> — breaking this contract is the #1 cause of "my HashMap lost my entry" bugs.</div>
     </div>
   </div>
 
@@ -8502,7 +8554,7 @@ const INTERVIEW_QUESTIONS_CONTENT = `
         <li>Breaking this contract means a hash-based collection (HashMap, HashSet) can't find an entry it already stored, because it looks in the wrong bucket.</li>
         <li>Always override both together — most IDEs and Lombok's <code>@EqualsAndHashCode</code> generate a matching pair automatically.</li>
       </ul>
-      <div class="sbox">✅ Interview one-liner: "equal objects must have equal hash codes; equal hash codes don't require equal objects."</div>
+      <div class="sbox">Interview one-liner: "equal objects must have equal hash codes; equal hash codes don't require equal objects."</div>
     </div>
   </div>
 
@@ -8522,7 +8574,7 @@ const INTERVIEW_QUESTIONS_CONTENT = `
           <tr><td style="color:#fbbf24">Polymorphism</td><td>Same method call, different behavior at runtime/compile time</td><td>method overriding &amp; overloading</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ Runtime polymorphism uses dynamic method dispatch (overriding); compile-time polymorphism is overloading, resolved by the compiler.</div>
+      <div class="sbox">Runtime polymorphism uses dynamic method dispatch (overriding); compile-time polymorphism is overloading, resolved by the compiler.</div>
     </div>
   </div>
 
@@ -8542,7 +8594,7 @@ const INTERVIEW_QUESTIONS_CONTENT = `
           <tr><td>Use for a strong "is-a" relationship sharing code</td><td>Use to define a capability/contract ("can-do")</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ Rule of thumb: prefer interfaces for flexibility; reach for an abstract class when subclasses genuinely share implementation, not just a signature.</div>
+      <div class="sbox">Rule of thumb: prefer interfaces for flexibility; reach for an abstract class when subclasses genuinely share implementation, not just a signature.</div>
     </div>
   </div>
 
@@ -8560,11 +8612,11 @@ const INTERVIEW_QUESTIONS_CONTENT = `
         <li><strong style="color:var(--text)">Caching / String pool</strong> — literal strings are stored once in a special heap area (the string pool) and reused. <code>String a = "hi"; String b = "hi";</code> — a and b point to the same object.</li>
         <li><strong style="color:var(--text)">Safe hashCode caching</strong> — since content never changes, the hash code is computed once and cached, making Strings excellent HashMap keys.</li>
       </ul>
-      <div class="ybox">⚠ <code>new String("hi")</code> forces a new object outside the pool, even though the content is identical — that's why <code>==</code> comparisons on Strings are a classic interview trap.</div>
+      <div class="ybox"><code>new String("hi")</code> forces a new object outside the pool, even though the content is identical — that's why <code>==</code> comparisons on Strings are a classic interview trap.</div>
     </div>
   </div>
 
-  <p class="section-label">🧬 JVM Internals</p>
+  <p class="section-label">JVM Internals</p>
 
   <!-- Q6: JVM architecture -->
   <div class="accordion" id="acc-iq-jvm-architecture">
@@ -8579,7 +8631,7 @@ const INTERVIEW_QUESTIONS_CONTENT = `
         <li><strong style="color:var(--text)">2. Runtime Data Areas</strong> — Method Area (class metadata), Heap (all objects, shared), Stack (one per thread, holds frames for local variables), PC Register, Native Method Stack.</li>
         <li><strong style="color:var(--text)">3. Execution Engine</strong> — Interpreter (reads bytecode line by line), JIT Compiler (compiles "hot" methods to native machine code for speed), and the Garbage Collector.</li>
       </ul>
-      <div class="sbox">✅ Interview line: "Class loader loads it, runtime data areas store it, execution engine runs it."</div>
+      <div class="sbox">Interview line: "Class loader loads it, runtime data areas store it, execution engine runs it."</div>
     </div>
   </div>
 
@@ -8600,7 +8652,7 @@ const INTERVIEW_QUESTIONS_CONTENT = `
           <tr><td>Metaspace</td><td>Class metadata (off-heap, replaced PermGen since Java 8)</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ Most modern collectors (G1, ZGC, Shenandoah) use a mark → sweep → compact cycle and aim to keep pause times short even on large heaps.</div>
+      <div class="sbox">Most modern collectors (G1, ZGC, Shenandoah) use a mark → sweep → compact cycle and aim to keep pause times short even on large heaps.</div>
     </div>
   </div>
 
@@ -8620,7 +8672,7 @@ const INTERVIEW_QUESTIONS_CONTENT = `
     </div>
   </div>
 
-  <p class="section-label">🧮 Data Structures &amp; Algorithms</p>
+  <p class="section-label">Data Structures &amp; Algorithms</p>
 
   <!-- Q9: ArrayList vs LinkedList -->
   <div class="accordion" id="acc-iq-arraylist-linkedlist">
@@ -8638,7 +8690,7 @@ const INTERVIEW_QUESTIONS_CONTENT = `
           <tr><td>Memory</td><td>Compact, cache-friendly</td><td>Extra pointer overhead per node</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ Default to ArrayList — it's cache-friendly and covers 90% of use cases. Reach for LinkedList only with heavy insert/delete at both ends (it also implements Deque).</div>
+      <div class="sbox">Default to ArrayList — it's cache-friendly and covers 90% of use cases. Reach for LinkedList only with heavy insert/delete at both ends (it also implements Deque).</div>
     </div>
   </div>
 
@@ -8658,7 +8710,7 @@ const INTERVIEW_QUESTIONS_CONTENT = `
           <tr><td>Stable?</td><td>No</td><td>Yes</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ QuickSort usually wins in practice (better cache locality, in-place). MergeSort wins when you need guaranteed O(n log n) or stability — e.g. sorting linked lists or external/disk sorting.</div>
+      <div class="sbox">QuickSort usually wins in practice (better cache locality, in-place). MergeSort wins when you need guaranteed O(n log n) or stability — e.g. sorting linked lists or external/disk sorting.</div>
     </div>
   </div>
 
@@ -8670,12 +8722,12 @@ const INTERVIEW_QUESTIONS_CONTENT = `
     </button>
     <div class="accordion-body" id="body-iq-recursion-stack">
       <div class="hbox">Every method call pushes a new stack frame (local variables, return address) onto the thread's call stack. Recursion keeps pushing frames until the base case is hit, then pops them off one by one while returning.</div>
-      <div class="ybox">⚠ Missing or unreachable base case → frames keep piling up until the fixed-size stack runs out of memory → <code>StackOverflowError</code>. Deep recursion (e.g. traversing a huge tree) can trigger this even with a correct base case.</div>
-      <div class="sbox">✅ Fix: rewrite as iteration with an explicit stack/queue, or use tail recursion where the language/JVM supports optimizing it (note: standard JVM does not optimize tail calls).</div>
+      <div class="ybox">Missing or unreachable base case → frames keep piling up until the fixed-size stack runs out of memory → <code>StackOverflowError</code>. Deep recursion (e.g. traversing a huge tree) can trigger this even with a correct base case.</div>
+      <div class="sbox">Fix: rewrite as iteration with an explicit stack/queue, or use tail recursion where the language/JVM supports optimizing it (note: standard JVM does not optimize tail calls).</div>
     </div>
   </div>
 
-  <p class="section-label">🐬 MySQL &amp; DBMS</p>
+  <p class="section-label">MySQL &amp; DBMS</p>
 
   <!-- Q12: Normalization -->
   <div class="accordion" id="acc-iq-normalization">
@@ -8693,7 +8745,7 @@ const INTERVIEW_QUESTIONS_CONTENT = `
           <tr><td style="color:#10b981">3NF</td><td>2NF + no transitive dependency — non-key columns depend only on the key, not on other non-key columns</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ Trade-off: normalization reduces redundancy but can require more joins; denormalization is sometimes used deliberately for read-heavy reporting workloads.</div>
+      <div class="sbox">Trade-off: normalization reduces redundancy but can require more joins; denormalization is sometimes used deliberately for read-heavy reporting workloads.</div>
     </div>
   </div>
 
@@ -8713,7 +8765,7 @@ const INTERVIEW_QUESTIONS_CONTENT = `
           <tr><td style="color:#10b981">Durability</td><td>Once committed, changes survive a crash (written to disk/log)</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ MySQL's InnoDB engine is ACID-compliant by default; MyISAM is not (no transaction support).</div>
+      <div class="sbox">MySQL's InnoDB engine is ACID-compliant by default; MyISAM is not (no transaction support).</div>
     </div>
   </div>
 
@@ -8730,11 +8782,11 @@ const INTERVIEW_QUESTIONS_CONTENT = `
         <li><strong style="color:var(--text)">Trade-off</strong> — every INSERT/UPDATE/DELETE must also update the index, so over-indexing slows writes.</li>
         <li>A <strong>composite index</strong> on (a, b) only helps queries that filter on a, or on a and b together — not on b alone (leftmost-prefix rule).</li>
       </ul>
-      <div class="sbox">✅ Interview line: "Indexes use B-Trees to enable faster data access, at the cost of slower writes and extra storage."</div>
+      <div class="sbox">Interview line: "Indexes use B-Trees to enable faster data access, at the cost of slower writes and extra storage."</div>
     </div>
   </div>
 
-  <p class="section-label">🌐 Computer Networks &amp; Operating Systems</p>
+  <p class="section-label">Computer Networks &amp; Operating Systems</p>
 
   <!-- Q15: TCP handshake -->
   <div class="accordion" id="acc-iq-tcp-handshake">
@@ -8749,7 +8801,7 @@ const INTERVIEW_QUESTIONS_CONTENT = `
         <li><strong style="color:var(--text)">2. SYN-ACK</strong> — server acknowledges and replies with its own SYN, containing its own sequence number.</li>
         <li><strong style="color:var(--text)">3. ACK</strong> — client acknowledges the server's SYN. Connection is now established.</li>
       </ul>
-      <div class="sbox">✅ Closing a connection uses a 4-way handshake (FIN/ACK from each side) since either side may still have data to finish sending.</div>
+      <div class="sbox">Closing a connection uses a 4-way handshake (FIN/ACK from each side) since either side may still have data to finish sending.</div>
     </div>
   </div>
 
@@ -8769,7 +8821,7 @@ const INTERVIEW_QUESTIONS_CONTENT = `
           <tr><td>Data Link, Physical</td><td>Network Access</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ OSI is a theoretical/teaching reference model; TCP/IP is the practical model the real internet runs on.</div>
+      <div class="sbox">OSI is a theoretical/teaching reference model; TCP/IP is the practical model the real internet runs on.</div>
     </div>
   </div>
 
@@ -8806,11 +8858,11 @@ const INTERVIEW_QUESTIONS_CONTENT = `
         <li><strong style="color:var(--text)">No preemption</strong> — a resource can't be forcibly taken away; it must be released voluntarily.</li>
         <li><strong style="color:var(--text)">Circular wait</strong> — a closed chain of threads, each waiting on the next.</li>
       </ul>
-      <div class="sbox">✅ Prevention: break any one condition — e.g. always acquire locks in the same global order to eliminate circular wait.</div>
+      <div class="sbox">Prevention: break any one condition — e.g. always acquire locks in the same global order to eliminate circular wait.</div>
     </div>
   </div>
 
-  <p class="section-label">🗄️ JDBC, Docker &amp; Kubernetes</p>
+  <p class="section-label">️ JDBC, Docker &amp; Kubernetes</p>
 
   <!-- Q19: JDBC steps -->
   <div class="accordion" id="acc-iq-jdbc-steps">
@@ -8831,7 +8883,7 @@ while (rs.next()) {                                    // 5. Process results
 }
 con.close();                                           // 6. Close connection</code></pre>
       </div>
-      <div class="sbox">✅ Since JDBC 4.0, <code>Class.forName()</code> is optional — drivers auto-register via ServiceLoader. Prefer <code>PreparedStatement</code> over <code>Statement</code> to avoid SQL injection and get query plan caching.</div>
+      <div class="sbox">Since JDBC 4.0, <code>Class.forName()</code> is optional — drivers auto-register via ServiceLoader. Prefer <code>PreparedStatement</code> over <code>Statement</code> to avoid SQL injection and get query plan caching.</div>
     </div>
   </div>
 
@@ -8871,7 +8923,7 @@ con.close();                                           // 6. Close connection</c
     </div>
   </div>
 
-  <p class="section-label">🐍 Python Basics</p>
+  <p class="section-label">Python Basics</p>
 
   <!-- Q22: list vs tuple -->
   <div class="accordion" id="acc-iq-list-tuple">
@@ -8889,7 +8941,7 @@ con.close();                                           // 6. Close connection</c
           <tr><td>Not hashable — can't be a dict key</td><td>Hashable (if contents are) — can be a dict key</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox">✅ Use a tuple for fixed, heterogeneous data (like coordinates) and as dict keys; use a list for a growing, homogeneous collection.</div>
+      <div class="sbox">Use a tuple for fixed, heterogeneous data (like coordinates) and as dict keys; use a list for a growing, homogeneous collection.</div>
     </div>
   </div>
 
@@ -8910,12 +8962,12 @@ con.close();                                           // 6. Close connection</c
   </div>
 
   <!-- ADD YOUR OWN QUESTION -->
-  <div class="section-label" style="margin-top:26px">➕ Add Your Own Question</div>
+  <div class="section-label" style="margin-top:26px">Add Your Own Question</div>
   <div class="hbox">Type a question, then either pick an existing answer from any card on this site, or write your own answer. Your questions are saved locally in this browser.</div>
 
   <div id="iqAddPanel" class="iq-add-panel">
     <div id="iqEditingBanner" style="display:none;align-items:center;justify-content:space-between;background:rgba(251,191,36,0.12);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:8px 12px;margin-bottom:12px;font-size:11.5px;color:#fbbf24;font-weight:600">
-      <span>✏️ Editing your question</span>
+      <span>️ Editing your question</span>
       <button type="button" onclick="cancelEditUserQuestion()" style="background:none;border:none;color:#fbbf24;cursor:pointer;font-size:11.5px;font-weight:700;text-decoration:underline">Cancel</button>
     </div>
 
@@ -8924,8 +8976,8 @@ con.close();                                           // 6. Close connection</c
 
     <label class="iq-label" style="margin-top:14px">Answer</label>
     <div class="iq-mode-toggle" role="tablist">
-      <button type="button" id="iqModeBtnSearch" class="iq-mode-btn active" onclick="setIQAnswerMode('search')">🔍 Select from site</button>
-      <button type="button" id="iqModeBtnManual" class="iq-mode-btn" onclick="setIQAnswerMode('manual')">✍️ Type my own</button>
+      <button type="button" id="iqModeBtnSearch" class="iq-mode-btn active" onclick="setIQAnswerMode('search')">Select from site</button>
+      <button type="button" id="iqModeBtnManual" class="iq-mode-btn" onclick="setIQAnswerMode('manual')">️ Type my own</button>
     </div>
 
     <div id="iqSearchMode">
@@ -9113,6 +9165,7 @@ function renderFullscreenTopic(topic) {
     requestAnimationFrame(() => {
       contentEl.innerHTML = getContent(topic);
       enhanceAccordionStars(topic.id);
+      enhanceCodeCopyButtons();
       if (topic.id === 'interview-questions') {
         _iqAnswerMode = 'search';
         _iqSelectedAnswer = null;
@@ -9288,57 +9341,24 @@ function setTaglineTheme(isLight) {
   }
 }
 
+// Dark mode has been removed — the site is light-theme only now (code
+// blocks stay permanently dark for readability via their own CSS, not
+// via this theme system). Kept as a no-op so any stray calls don't error.
 function toggleTheme() {
-  const isLight = document.body.classList.toggle('light-mode');
-  setTaglineTheme(isLight);
-  // Update top-right emoji (hidden)
-  const topBtn = document.getElementById('themeToggle');
-  if (topBtn) topBtn.textContent = isLight ? '🌙' : '☀️';
-  // Update sidebar SVG sun/moon toggle icons
-  document.getElementById('iconSun').style.display = isLight ? 'none' : '';
-  document.getElementById('iconMoon').style.display = isLight ? '' : 'none';
-  // Update header pill toggle icons
-  const httSun = document.getElementById('httSun');
-  const httMoon = document.getElementById('httMoon');
-  if (httSun) httSun.style.display = isLight ? 'none' : '';
-  if (httMoon) httMoon.style.display = isLight ? '' : 'none';
-  // Animate vault icon (now replaced — gracefully no-op)
-  const darkIcon = document.getElementById('vaultIconDark');
-  const lightIcon = document.getElementById('vaultIconLight');
-  if (darkIcon && lightIcon) {
-    if (isLight) {
-      darkIcon.style.opacity = '0'; darkIcon.style.transform = 'rotate(15deg) scale(0.8)';
-      lightIcon.style.opacity = '1'; lightIcon.style.transform = 'rotate(0deg) scale(1)';
-    } else {
-      darkIcon.style.opacity = '1'; darkIcon.style.transform = 'rotate(0deg) scale(1)';
-      lightIcon.style.opacity = '0'; lightIcon.style.transform = 'rotate(-15deg) scale(0.8)';
-    }
-  }
-  localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  document.body.classList.add('light-mode');
 }
 
-// Restore theme
+// Keep footer copyright year current
 (function(){
-  const saved = localStorage.getItem('theme');
-  const httSun = document.getElementById('httSun');
-  const httMoon = document.getElementById('httMoon');
-  if (saved === 'light') {
-    document.body.classList.add('light-mode');
-    const topBtn = document.getElementById('themeToggle');
-    if (topBtn) topBtn.textContent = '🌙';
-    document.getElementById('iconSun').style.display = 'none';
-    document.getElementById('iconMoon').style.display = '';
-    if (httSun) httSun.style.display = 'none';
-    if (httMoon) httMoon.style.display = '';
-    setTaglineTheme(true);
-  } else {
-    const topBtn = document.getElementById('themeToggle');
-    if (topBtn) topBtn.textContent = '☀️';
-    document.getElementById('iconSun').style.display = '';
-    document.getElementById('iconMoon').style.display = 'none';
-    if (httSun) httSun.style.display = '';
-    if (httMoon) httMoon.style.display = 'none';
-  }
+  const yEl = document.getElementById('copyrightYear');
+  if (yEl) yEl.textContent = new Date().getFullYear();
+})();
+
+// Always light — dark mode has been removed from the site.
+(function(){
+  document.body.classList.add('light-mode');
+  localStorage.setItem('theme', 'light');
+  setTaglineTheme(true);
 })();
 
 function filterCat(cat) {
@@ -9510,7 +9530,7 @@ function renderBookmarks() {
     const accent = getAccent(bm.topicId);
     return `
     <a class="bookmark-item" href="#" onclick="openBookmark('${bm.topicId}','${bm.sectionId}');return false">
-      <span class="bmi-icon" style="color:${accent.color}"><svg width="13" height="13" viewBox="0 0 24 24" fill="${accent.color}" stroke="${accent.color}" stroke-width="1.5" stroke-linejoin="round"><path d="M12 2l2.9 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l7.1-1.01L12 2z"/></svg></span>
+      <span class="bmi-icon" style="color:${accent.color}"><svg width="13" height="13" viewBox="0 0 24 24" fill="${accent.color}" stroke="${accent.color}" stroke-width="1.5" stroke-linejoin="round"><path d="M7 3.5h10a1 1 0 0 1 1 1V21l-6-3.6-6 3.6V4.5a1 1 0 0 1 1-1z"/></svg></span>
       <span style="flex:1;min-width:0;overflow:hidden">
         <span class="bmi-text" style="display:block">${bm.title}</span>
         <span style="display:block;font-size:10.5px;color:var(--text3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${bm.topicName}</span>
@@ -9546,13 +9566,68 @@ function enhanceAccordionStars(topicId) {
     btn.className = 'accordion-star-btn' + (starred ? ' starred' : '');
     btn.title = 'Bookmark this subsection';
     btn.setAttribute('data-bmid', bmId);
-    btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 2l2.9 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l7.1-1.01L12 2z"/></svg>';
+    btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M7 3.5h10a1 1 0 0 1 1 1V21l-6-3.6-6 3.6V4.5a1 1 0 0 1 1-1z"/></svg>';
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
       e.preventDefault();
       toggleSectionBookmark(topicId, sectionId, title);
     });
     accEl.appendChild(btn);
+  });
+}
+
+// Injects a "Copy" button into every code block's header within the
+// currently open topic, so users can copy code samples with one click.
+function enhanceCodeCopyButtons() {
+  const contentEl = document.getElementById('fsContent');
+  if (!contentEl) return;
+  contentEl.querySelectorAll('.code-block').forEach(block => {
+    const header = block.querySelector('.code-header');
+    const body = block.querySelector('.code-body');
+    if (!header || !body) return;
+    if (header.querySelector('.code-copy-btn')) return; // already added
+
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'code-copy-btn';
+    btn.setAttribute('aria-label', 'Copy code');
+    const copyIcon = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
+    const checkIcon = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>';
+    btn.innerHTML = copyIcon + '<span>Copy</span>';
+
+    btn.addEventListener('click', async (e) => {
+      e.stopPropagation();
+      const text = body.innerText;
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch (err) {
+        // Fallback for environments without clipboard API access
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); } catch (e2) {}
+        document.body.removeChild(ta);
+      }
+      btn.classList.add('copied');
+      btn.innerHTML = checkIcon + '<span>Copied</span>';
+      setTimeout(() => {
+        btn.classList.remove('copied');
+        btn.innerHTML = copyIcon + '<span>Copy</span>';
+      }, 1800);
+    });
+
+    // Header is a 3-column grid (dots | copy button | label) so the
+    // Copy button sits centered in the middle of the bar, with dots on
+    // the left and the filename/label on the right.
+    const dots = header.querySelector('.code-dots');
+    if (dots && dots.nextSibling) {
+      header.insertBefore(btn, dots.nextSibling);
+    } else {
+      header.appendChild(btn);
+    }
   });
 }
 
@@ -10101,7 +10176,7 @@ function onIQAnswerSearch() {
   resultsEl.innerHTML = _iqSearchResults.map((r, i) => `
     <div class="iq-result-item" onclick="selectIQAnswer(${i})">
       <div style="flex:1;min-width:0">
-        <div class="iq-result-breadcrumb">${r.topicIcon || '📄'} ${escapeHtml(r.topicName)}${r.sectionId && r.title !== r.topicName ? ' › ' + escapeHtml(r.title) : ''}</div>
+        <div class="iq-result-breadcrumb">${r.topicIcon || ''} ${escapeHtml(r.topicName)}${r.sectionId && r.title !== r.topicName ? ' › ' + escapeHtml(r.title) : ''}</div>
         <div class="iq-result-title">${escapeHtml(r.title)}</div>
         ${r.preview ? `<div class="iq-result-preview">${escapeHtml(r.preview.slice(0, 140))}</div>` : ''}
       </div>
@@ -10130,7 +10205,7 @@ function selectIQAnswer(idx) {
     <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px">
       <div style="min-width:0">
         <div style="font-size:10px;color:#22c55e;font-weight:700;letter-spacing:0.03em;text-transform:uppercase;margin-bottom:3px">✓ Answer selected</div>
-        <div style="font-size:12px;color:var(--text3);margin-bottom:2px">${r.topicIcon || '📄'} ${escapeHtml(r.topicName)}</div>
+        <div style="font-size:12px;color:var(--text3);margin-bottom:2px">${r.topicIcon || ''} ${escapeHtml(r.topicName)}</div>
         <div style="font-size:12.5px;font-weight:600;color:var(--text)">${escapeHtml(r.title)}</div>
       </div>
       <button type="button" onclick="clearIQAnswer()" style="background:none;border:none;color:var(--text3);cursor:pointer;font-size:16px;line-height:1;padding:2px" title="Remove">&times;</button>
@@ -10207,7 +10282,7 @@ function editUserQuestion(id, e) {
 
   document.getElementById('iqQuestionInput').value = item.question;
   document.getElementById('iqEditingBanner').style.display = 'flex';
-  document.getElementById('iqAddBtn').textContent = '💾 Save Changes';
+  document.getElementById('iqAddBtn').textContent = 'Save Changes';
 
   if (item.answer && item.answer.manual) {
     setIQAnswerMode('manual');
@@ -10224,7 +10299,7 @@ function editUserQuestion(id, e) {
       <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px">
         <div style="min-width:0">
           <div style="font-size:10px;color:#22c55e;font-weight:700;letter-spacing:0.03em;text-transform:uppercase;margin-bottom:3px">✓ Answer selected</div>
-          <div style="font-size:12px;color:var(--text3);margin-bottom:2px">${item.answer.topicIcon || '📄'} ${escapeHtml(item.answer.topicName || '')}</div>
+          <div style="font-size:12px;color:var(--text3);margin-bottom:2px">${item.answer.topicIcon || ''} ${escapeHtml(item.answer.topicName || '')}</div>
           <div style="font-size:12.5px;font-weight:600;color:var(--text)">${escapeHtml(item.answer.title || '')}</div>
         </div>
         <button type="button" onclick="clearIQAnswer()" style="background:none;border:none;color:var(--text3);cursor:pointer;font-size:16px;line-height:1;padding:2px" title="Remove">&times;</button>
@@ -10289,7 +10364,7 @@ function renderUserQuestions() {
             ? `openBookmark('${a.topicId}', '${a.sectionId.replace(/^acc-/, '')}')`
             : `(function(){const t=TOPICS.find(x=>x.id==='${a.topicId}'); if(t) openFullscreen(t);})()`}">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
-            Answer from: ${a.topicIcon || '📄'} ${escapeHtml(a.topicName || '')}${a.sectionId ? ' › ' + escapeHtml(a.title || '') : ''}
+            Answer from: ${a.topicIcon || ''} ${escapeHtml(a.topicName || '')}${a.sectionId ? ' › ' + escapeHtml(a.title || '') : ''}
           </div>`
         : '';
 
@@ -10329,11 +10404,11 @@ let _cqaEditingId = null;
 function renderCustomQAPanel(topic) {
   return `
     <div class="content-area" style="padding-top:2px">
-      <div class="section-label" style="margin-top:22px">➕ Add Your Own Question</div>
+      <div class="section-label" style="margin-top:22px">Add Your Own Question</div>
       <div class="hbox">Type your own question and answer for ${escapeHtml(topic.name)}. Saved locally in this browser.</div>
       <div class="iq-add-panel">
         <div id="cqaEditingBanner" style="display:none;align-items:center;justify-content:space-between;background:rgba(251,191,36,0.12);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:8px 12px;margin-bottom:12px;font-size:11.5px;color:#fbbf24;font-weight:600">
-          <span>✏️ Editing your question</span>
+          <span>️ Editing your question</span>
           <button type="button" onclick="cancelEditCustomQA()" style="background:none;border:none;color:#fbbf24;cursor:pointer;font-size:11.5px;font-weight:700;text-decoration:underline">Cancel</button>
         </div>
         <label class="iq-label">Question</label>
@@ -10396,7 +10471,7 @@ function editCustomQA(id, e) {
   document.getElementById('cqaQuestionInput').value = item.question;
   document.getElementById('cqaAnswerInput').value = item.answer;
   document.getElementById('cqaEditingBanner').style.display = 'flex';
-  document.getElementById('cqaAddBtn').textContent = '💾 Save Changes';
+  document.getElementById('cqaAddBtn').textContent = 'Save Changes';
   updateCQAAddBtnState();
 
   const panel = document.getElementById('cqaQuestionInput');
@@ -10461,6 +10536,54 @@ syncTopicsDropdownActive();
 const ROADMAPS = {
   'ai-engineer': {
     title: 'AI Engineer Roadmap',
+    stages: [
+      { title: 'Foundations', points: [
+        'Python for AI — syntax, libraries (NumPy, Pandas)',
+        'Math Foundations — linear algebra & probability',
+        'Machine Learning Basics — supervised vs unsupervised',
+      ]},
+      { title: 'Core AI Concepts', points: [
+        'Neural Networks — layers, activations, backprop',
+        'NLP — tokenizing & understanding language',
+        'Deep Learning — CNNs, RNNs and beyond',
+        'Transformers & Attention — the modern backbone',
+      ]},
+      { title: 'Language Models', points: [
+        'LLMs — how large language models work',
+        'Latency & Performance — making inference fast',
+        'AI Tokens & Tokenization — how text becomes numbers',
+        'AI Hallucination — why models make things up',
+      ]},
+      { title: 'Retrieval & Tuning', points: [
+        'Embeddings & Vector DBs — semantic search',
+        'Prompt Engineering — getting better outputs',
+        'RAG — grounding answers in real data',
+        'Fine-tuning & LoRA — customizing a model',
+      ]},
+      { title: 'Building with AI', points: [
+        'GenAI — generating text, images & more',
+        'LangChain / LlamaIndex — orchestrating AI apps',
+      ]},
+      { title: 'Voice AI', points: [
+        'TTS — text-to-speech',
+        'STT — speech-to-text',
+        'VAD — detecting when someone is speaking',
+        'S2S — real-time speech-to-speech pipelines',
+      ]},
+      { title: 'Production & Agents', points: [
+        'Agentic AI — models that plan & take actions',
+        'MLOps & Deployment — shipping models reliably',
+      ]},
+      { title: 'Responsible AI', points: [
+        'AI Safety & Guardrails — keeping systems in check',
+        'Evaluation & Benchmarking — measuring quality',
+      ]},
+      { title: 'Future & Career', points: [
+        'AGI — where the field is headed',
+        'Vibe Coding — building fast with AI pair-programming',
+        'AI Engineer Interview Prep — land the role',
+      ]},
+    ],
     nodes: [
       {id:'python-ai', label:'Python for AI', row:0},
       {id:'math-foundations', label:'Math Foundations (Linear Algebra & Probability)', row:1},
@@ -10510,6 +10633,55 @@ const ROADMAPS = {
   },
   'java-backend': {
     title: 'Java Backend Developer Roadmap',
+    stages: [
+      { title: 'Java Core', points: [
+        'Java Fundamentals — syntax, data types, control flow',
+        'OOP Concepts — classes, inheritance, polymorphism',
+        'Collections Framework — Lists, Sets, Maps',
+      ]},
+      { title: 'Language Depth', points: [
+        'Exception Handling — writing robust code',
+        'Multithreading & Concurrency',
+        'Java 8 / 17 / 21 Features — streams, records, lambdas',
+        'Generics — type-safe reusable code',
+      ]},
+      { title: 'Data Access', points: [
+        'JDBC — talking to a database from Java',
+        'SQL & Databases — queries, joins, indexing',
+      ]},
+      { title: 'Tooling', points: [
+        'Git & GitHub — version control basics',
+        'Maven / Gradle — build & dependency management',
+      ]},
+      { title: 'Spring Fundamentals', points: [
+        'Spring Core — IoC & Dependency Injection',
+        'Hibernate / JPA — ORM for Java',
+      ]},
+      { title: 'Spring Boot & APIs', points: [
+        'Spring Boot — rapid app development',
+        'REST APIs & HTTP — building web services',
+        'Spring Security — authN & authZ',
+      ]},
+      { title: 'Distributed Systems', points: [
+        'Microservices Architecture',
+        'Caching with Redis',
+        'OAuth2 / JWT — securing services',
+      ]},
+      { title: 'Containers & Orchestration', points: [
+        'Docker & Containerization',
+        'Kubernetes — scaling containers',
+        'Message Queues — Kafka / RabbitMQ',
+      ]},
+      { title: 'Delivery & Scale', points: [
+        'CI/CD Pipelines — automated delivery',
+        'System Design & Scalability',
+        'Monitoring & Logging',
+      ]},
+      { title: 'Interview Prep', points: [
+        'Mock system design rounds',
+        'Common Java & Spring interview questions',
+      ]},
+    ],
     nodes: [
       {id:'java-fundamentals', label:'Java Fundamentals', row:0},
       {id:'oop-concepts', label:'OOP Concepts', row:1},
@@ -10557,6 +10729,41 @@ const ROADMAPS = {
   },
   'jcf': {
     title: 'Java Collections Framework (JCF) Roadmap',
+    stages: [
+      { title: 'Foundations', points: [
+        'Introduction to the Collections Framework',
+        'Collection Interface & Hierarchy',
+        'Generics in Collections',
+      ]},
+      { title: 'Core Interfaces', points: [
+        'List Interface',
+        'Set Interface',
+        'Queue / Deque Interface',
+      ]},
+      { title: 'Implementations', points: [
+        'ArrayList vs LinkedList vs Vector',
+        'HashSet vs LinkedHashSet vs TreeSet',
+        'PriorityQueue & ArrayDeque',
+      ]},
+      { title: 'Maps', points: [
+        'Map Interface',
+        'HashMap Internal Working',
+        'TreeMap vs LinkedHashMap vs Hashtable',
+      ]},
+      { title: 'Iteration & Ordering', points: [
+        'Iterator & ListIterator',
+        'Comparable vs Comparator',
+      ]},
+      { title: 'Utilities & Safety', points: [
+        'Collections Utility Class — sort, sync, unmodifiable',
+        'Fail-Fast vs Fail-Safe Iterators',
+        'Concurrent Collections — ConcurrentHashMap, CopyOnWriteArrayList',
+      ]},
+      { title: 'Mastery', points: [
+        'Time Complexity Cheat Sheet',
+        'JCF Interview Prep',
+      ]},
+    ],
     nodes: [
       {id:'jcf-intro', label:'Introduction to Collections Framework', row:0},
       {id:'collection-hierarchy', label:'Collection Interface & Hierarchy', row:1},
@@ -10651,15 +10858,106 @@ function doCloseRoadmap() {
   }, 280);
 }
 
+// Card palette for the stacked roadmap-stage carousel (cycles per stage)
+const RM_STAGE_COLORS = [
+  { bg:'#7c6cf2', text:'#ffffff', chip:'rgba(255,255,255,0.16)' },
+  { bg:'#e8ac3e', text:'#1a1408', chip:'rgba(0,0,0,0.08)' },
+  { bg:'#1f4d3a', text:'#ffffff', chip:'rgba(255,255,255,0.14)' },
+  { bg:'#1b2340', text:'#ffffff', chip:'rgba(255,255,255,0.14)' },
+  { bg:'#5c1a2e', text:'#ffffff', chip:'rgba(255,255,255,0.14)' },
+  { bg:'#f2ede0', text:'#1a1408', chip:'rgba(0,0,0,0.08)' },
+  { bg:'#141414', text:'#ffffff', chip:'rgba(255,255,255,0.14)' },
+  { bg:'#0f5c66', text:'#ffffff', chip:'rgba(255,255,255,0.14)' },
+];
+
+let _rmStackCurrent = 0;
+
 function renderRoadmap(id) {
   const rm = ROADMAPS[id];
   if (!rm) return;
   const rowsWrap = document.getElementById('rmRows');
   if (!rowsWrap) return;
-  const html = rm.nodes.map((n, i) => `
-    <div class="rm-item">
-      <div class="rm-item-marker"><span class="rm-item-num">${i + 1}</span></div>
-      <div class="rm-item-label">${n.label}</div>
-    </div>`).join('');
-  rowsWrap.innerHTML = `<div class="rm-list">${html}</div>`;
+  const stages = rm.stages || [];
+  _rmStackCurrent = 0;
+
+  const cardsHtml = stages.map((s, i) => {
+    const c = RM_STAGE_COLORS[i % RM_STAGE_COLORS.length];
+    const pointsHtml = s.points.map(p => `<li>${p}</li>`).join('');
+    const borderColor = c.text === '#ffffff' ? 'rgba(255,255,255,0.9)' : 'rgba(0,0,0,0.9)';
+    return `
+      <div class="rm-card" data-idx="${i}" onclick="rmStackJumpTo(${i})"
+           style="background:${c.bg};color:${c.text};border-color:${borderColor}">
+        <div class="rm-card-top">
+          <span class="rm-card-badge" style="background:${c.chip}">${String(i + 1).padStart(2, '0')}</span>
+          <span class="rm-card-count">${i + 1} / ${stages.length}</span>
+        </div>
+        <div class="rm-card-title">${s.title}</div>
+        <ul class="rm-card-points">${pointsHtml}</ul>
+        <div class="rm-card-foot">${rm.title}</div>
+      </div>`;
+  }).join('');
+
+  rowsWrap.innerHTML = `
+    <div class="rm-stack-wrap">
+      <div class="rm-stack" id="rmStack">${cardsHtml}</div>
+      <div class="rm-stack-nav">
+        <button type="button" class="rm-stack-arrow" id="rmPrevBtn" onclick="rmStackMove(-1)" aria-label="Previous topic">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        </button>
+        <div class="rm-stack-dots" id="rmStackDots">${stages.map((_, i) => `<span class="rm-stack-dot" data-idx="${i}" onclick="rmStackJumpTo(${i})"></span>`).join('')}</div>
+        <button type="button" class="rm-stack-arrow" id="rmNextBtn" onclick="rmStackMove(1)" aria-label="Next topic">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+    </div>`;
+
+  positionRmStack();
+}
+
+function positionRmStack() {
+  const stack = document.getElementById('rmStack');
+  if (!stack) return;
+  const cards = Array.from(stack.querySelectorAll('.rm-card'));
+  const cur = _rmStackCurrent;
+
+  cards.forEach((card, i) => {
+    const d = i - cur;
+    const absD = Math.abs(d);
+    if (absD > 3) {
+      card.style.opacity = '0';
+      card.style.pointerEvents = 'none';
+      card.style.zIndex = '0';
+      return;
+    }
+    card.style.pointerEvents = d === 0 ? 'none' : 'auto';
+    card.style.cursor = d === 0 ? 'default' : 'pointer';
+    card.style.zIndex = String(20 - absD);
+    card.style.opacity = d === 0 ? '1' : String(Math.max(0.35, 1 - absD * 0.22));
+    const tx = d * 42;
+    const ty = absD * 12;
+    const rot = d * 4;
+    const scale = 1 - absD * 0.06;
+    card.style.transform = `translateX(calc(-50% + ${tx}px)) translateY(${ty}px) rotate(${rot}deg) scale(${scale})`;
+  });
+
+  const prevBtn = document.getElementById('rmPrevBtn');
+  const nextBtn = document.getElementById('rmNextBtn');
+  if (prevBtn) prevBtn.disabled = cur <= 0;
+  if (nextBtn) nextBtn.disabled = cur >= cards.length - 1;
+
+  const dots = document.querySelectorAll('.rm-stack-dot');
+  dots.forEach((dot, i) => dot.classList.toggle('active', i === cur));
+}
+
+function rmStackMove(delta) {
+  const stack = document.getElementById('rmStack');
+  if (!stack) return;
+  const total = stack.querySelectorAll('.rm-card').length;
+  _rmStackCurrent = Math.min(total - 1, Math.max(0, _rmStackCurrent + delta));
+  positionRmStack();
+}
+
+function rmStackJumpTo(i) {
+  _rmStackCurrent = i;
+  positionRmStack();
 }
