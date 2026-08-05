@@ -59,33 +59,24 @@
 <nav class="sidebar" id="sidebar">
   <div style="padding:24px 16px 16px">
     <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
-      <!-- Animated Theme Toggle (replaces vault icon) -->
-      <button class="header-theme-toggle" id="headerThemeToggle" onclick="toggleTheme()" title="Toggle light/dark mode" aria-label="Toggle theme">
-        <div class="htt-track">
-          <div class="htt-thumb" id="httThumb">
-            <svg class="htt-sun" id="httSun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="5"/>
-              <line x1="12" y1="1" x2="12" y2="3"/>
-              <line x1="12" y1="21" x2="12" y2="23"/>
-              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-              <line x1="1" y1="12" x2="3" y2="12"/>
-              <line x1="21" y1="12" x2="23" y2="12"/>
-              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-            </svg>
-            <svg class="htt-moon" id="httMoon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-            </svg>
-          </div>
-        </div>
+      <!-- Vault title doubles as the light/dark theme toggle -->
+      <button type="button" class="sidebar-vault-title" id="headerThemeToggle" onclick="toggleTheme()" title="Toggle light/dark mode" aria-label="Toggle light and dark theme" style="flex:1;min-width:0">
+        <svg class="htt-sun" id="httSun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg class="htt-moon" id="httMoon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <span>Knowledge Vault</span>
       </button>
-      <div style="flex:1;min-width:0;text-decoration: underline;">
-        <h1 class="sidebar-vault-title">Knowledge Vault</h1>
-      </div>
-      <!-- sidebar theme btn removed -->
-      <span id="iconSun" style="display:none"></span>
-      <span id="iconMoon" style="display:none"></span>
     </div>
   </div>
 
@@ -170,7 +161,7 @@
       </div>
 
       <!-- Copyright -->
-      <div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border);font-size:10.5px;color:var(--text3);text-align:center">
+      <div style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(0,0,0,0.08);font-size:10.5px;color:rgba(0,0,0,0.34);text-align:center">
         &copy; <span id="copyrightYear">2026</span> Madan H K. All rights reserved.
       </div>
     </div>

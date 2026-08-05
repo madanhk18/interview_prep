@@ -9118,7 +9118,7 @@ function renderCard(topic) {
             ${svgIcon}
           </div>
           <div>
-            <h3 style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px">${topic.name}</h3>
+            <h3 style="font-size:14px;font-weight:700;color:var(--nb-text);margin-bottom:3px">${topic.name}</h3>
             <span class="cat-badge" style="background:${cat.color}15;color:${cat.color};border:1px solid ${cat.color}22">${cat.label}</span>
           </div>
         </div>
@@ -9126,7 +9126,7 @@ function renderCard(topic) {
 
       <!-- Open indicator -->
       <div class="expand-btn" style="pointer-events:none;justify-content:${topic.hasContent ? 'space-between' : 'center'}">
-        ${topic.hasContent ? `<span style="color:var(--text3);font-weight:500;font-size:11px;letter-spacing:0.02em">Has content</span>` : ''}
+        ${topic.hasContent ? `<span style="color:var(--nb-text2);font-weight:500;font-size:11px;letter-spacing:0.02em">Has content</span>` : ''}
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
       </div>
     </div>
@@ -9413,11 +9413,23 @@ function setTaglineTheme(isLight) {
   }
 }
 
-// Dark mode has been removed — the site is light-theme only now (code
-// blocks stay permanently dark for readability via their own CSS, not
-// via this theme system). Kept as a no-op so any stray calls don't error.
+// Applies the given theme ('light' or 'dark') to the page: body class,
+// sun/moon icon swap, tagline color, and persists the choice.
+function applyTheme(theme) {
+  const isLight = theme === 'light';
+  document.body.classList.toggle('light-mode', isLight);
+  const sun = document.getElementById('httSun');
+  const moon = document.getElementById('httMoon');
+  if (sun) sun.style.display = isLight ? '' : 'none';
+  if (moon) moon.style.display = isLight ? 'none' : '';
+  setTaglineTheme(isLight);
+  localStorage.setItem('theme', theme);
+}
+
+// Toggles between light and dark mode.
 function toggleTheme() {
-  document.body.classList.add('light-mode');
+  const isCurrentlyLight = document.body.classList.contains('light-mode');
+  applyTheme(isCurrentlyLight ? 'dark' : 'light');
 }
 
 // Keep footer copyright year current
@@ -9426,11 +9438,11 @@ function toggleTheme() {
   if (yEl) yEl.textContent = new Date().getFullYear();
 })();
 
-// Always light — dark mode has been removed from the site.
+// Light mode is the default for everyone; if the person has toggled to
+// dark before, remember that choice on their next visit.
 (function(){
-  document.body.classList.add('light-mode');
-  localStorage.setItem('theme', 'light');
-  setTaglineTheme(true);
+  const saved = localStorage.getItem('theme');
+  applyTheme(saved === 'dark' ? 'dark' : 'light');
 })();
 
 function filterCat(cat) {
