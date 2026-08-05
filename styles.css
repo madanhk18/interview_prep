@@ -78,9 +78,6 @@ body.light-mode .accordion-header.open { background:rgba(0,0,0,0.04); }
 /* Code blocks intentionally stay dark in light theme — code needs a
    dark background to stay readable, so these three rules are left
    empty (no light-mode override) on purpose. */
-body.light-mode .search-input { background:#fff; border-color:#000; color:#171717; }
-body.light-mode .search-input::placeholder { color:var(--text3); }
-body.light-mode .stat-pill { background:#fff; border-color:#000; box-shadow:3px 3px 0 #000; }
 body.light-mode .filter-tab { color:rgba(0,0,0,0.45); }
 body.light-mode .filter-tab:hover { background:rgba(0,0,0,0.05); color:rgba(0,0,0,0.75); }
 body.light-mode .filter-tab.active { color:#1b1b20; background:rgba(37,99,235,0.12); border-color:rgba(37,99,235,0.25); }
@@ -120,7 +117,7 @@ body.light-mode .bit-table tr:hover td { background:rgba(0,0,0,0.03); }
   gap: 8px;
   width: 100%;
 
-  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2); 
+  box-shadow: 4px 4px 0px rgba(255, 255, 255, 0.16);
 
   white-space: nowrap;
   overflow: hidden;
@@ -131,12 +128,16 @@ body.light-mode .bit-table tr:hover td { background:rgba(0,0,0,0.03); }
 }
 .sidebar-vault-title:hover {
   transform: translate(-1px,-1px);
-  box-shadow: 5px 5px 0px rgba(0,0,0,0.22);
+  box-shadow: 5px 5px 0px rgba(255,255,255,0.22);
 }
 .sidebar-vault-title:active {
   transform: translate(2px,2px);
-  box-shadow: 1px 1px 0px rgba(0,0,0,0.2);
+  box-shadow: 1px 1px 0px rgba(255,255,255,0.16);
 }
+/* Light mode gets the original solid dark offset shadow */
+body.light-mode .sidebar-vault-title { box-shadow: 4px 4px 0px rgba(0,0,0,0.2); }
+body.light-mode .sidebar-vault-title:hover { box-shadow: 5px 5px 0px rgba(0,0,0,0.22); }
+body.light-mode .sidebar-vault-title:active { box-shadow: 1px 1px 0px rgba(0,0,0,0.2); }
 .sidebar-vault-title span {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -787,18 +788,16 @@ body.light-mode .formula-card{
 
 /* Search */
 .search-wrap{position:relative}
-.search-wrap > svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);pointer-events:none;color:#171717;z-index:1}
+.search-wrap > svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);pointer-events:none;color:var(--nb-text);z-index:1}
 .search-input{
   width:100%;padding:12px 40px 12px 38px;
-  background:#fff;border:2px solid #000;
-  border-radius:12px;color:#171717;font-size:13px;font-family:'Inter',sans-serif;font-weight:500;
-  outline:none;box-shadow:3px 3px 0 #000;
-  transition:box-shadow 0.15s ease,transform 0.15s ease;
+  background:var(--nb-bg);border:2px solid var(--nb-border);
+  border-radius:12px;color:var(--nb-text);font-size:13px;font-family:'Inter',sans-serif;font-weight:500;
+  outline:none;box-shadow:3px 3px 0 var(--nb-shadow);
+  transition:box-shadow 0.15s ease,transform 0.15s ease,background 0.2s ease,border-color 0.2s ease;
 }
-.search-input:focus{transform:translate(1px,1px);box-shadow:2px 2px 0 #000}
-.search-input::placeholder{color:rgba(0,0,0,0.42)}
-body.light-mode .search-input { background:#fff; border-color:#000; color:#171717; box-shadow:3px 3px 0 #000; }
-body.light-mode .search-input::placeholder { color:rgba(0,0,0,0.42); }
+.search-input:focus{transform:translate(1px,1px);box-shadow:2px 2px 0 var(--nb-shadow)}
+.search-input::placeholder{color:var(--nb-text2)}
 
 /* Search clear (X) button */
 .search-clear-btn{
@@ -841,19 +840,17 @@ body.light-mode .search-dropdown {
   position:relative;z-index:1;
   display:flex;align-items:center;gap:9px;
   padding:12px 20px;height:100%;
-  background:#fff;border:2px solid #000;
-  border-radius:10px;color:#171717;font-size:14px;font-weight:700;
+  background:var(--nb-bg);border:2px solid var(--nb-border);
+  border-radius:10px;color:var(--nb-text);font-size:14px;font-weight:700;
   font-family:'Inter',sans-serif;cursor:pointer;white-space:nowrap;
-  box-shadow:3px 3px 0 #000;
-  transition:transform 0.15s ease,box-shadow 0.15s ease;
+  box-shadow:3px 3px 0 var(--nb-shadow);
+  transition:transform 0.15s ease,box-shadow 0.15s ease,background 0.2s ease,border-color 0.2s ease;
 }
-.topics-dropdown-btn svg{color:#171717}
-.topics-dropdown-btn:hover{transform:translate(1px,1px);box-shadow:2px 2px 0 #000;background:#fff}
-.topics-dropdown-wrap.open .topics-dropdown-btn{transform:translate(2px,2px);box-shadow:1px 1px 0 #000}
-.topics-dropdown-btn svg.chev{transition:transform 0.2s;color:#171717}
+.topics-dropdown-btn svg{color:var(--nb-text)}
+.topics-dropdown-btn:hover{transform:translate(1px,1px);box-shadow:2px 2px 0 var(--nb-shadow);background:var(--nb-hover-bg)}
+.topics-dropdown-wrap.open .topics-dropdown-btn{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--nb-shadow)}
+.topics-dropdown-btn svg.chev{transition:transform 0.2s;color:var(--nb-text)}
 .topics-dropdown-wrap.open .topics-dropdown-btn svg.chev{transform:rotate(180deg)}
-body.light-mode .topics-dropdown-btn{background:#fff;border-color:#000;box-shadow:3px 3px 0 #000;color:#171717}
-body.light-mode .topics-dropdown-btn:hover{background:#fff;transform:translate(1px,1px);box-shadow:2px 2px 0 #000}
 
 .topics-dropdown-panel{
   position:absolute;top:calc(100% - 2px);right:10px;min-width:240px;
@@ -1111,13 +1108,14 @@ body.light-mode .search-results-header { border-bottom-color: rgba(0,0,0,0.06); 
 .stat-pill{
   display:flex;align-items:center;gap:8px;
   padding:10px 16px;border-radius:10px;
-  background:#fff;border:2px solid #000;
-  box-shadow:3px 3px 0 #000;
+  background:var(--nb-bg);border:2px solid var(--nb-border);
+  box-shadow:3px 3px 0 var(--nb-shadow);
+  color:var(--nb-text);
   cursor:default;
-  transition:transform 0.15s ease, box-shadow 0.15s ease;
+  transition:transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease, border-color 0.2s ease;
 }
-.stat-pill:hover{transform:translate(1px,1px);box-shadow:2px 2px 0 #000}
-.stat-pill span:not(#totalCount){color:#4b4b4b !important}
+.stat-pill:hover{transform:translate(1px,1px);box-shadow:2px 2px 0 var(--nb-shadow)}
+.stat-pill span:not(#totalCount){color:var(--nb-text2) !important}
 
 /* Scrollbar */
 ::-webkit-scrollbar{width:5px;height:5px}
