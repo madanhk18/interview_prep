@@ -9020,9 +9020,42 @@ function getContent(topic) {
   if (topic.id === 'spring-mvc') return SPRING_MVC_CONTENT;
   if (topic.id === 'spring-boot') return SPRING_BOOT_CONTENT;
   if (topic.id === 'interview-questions') return INTERVIEW_QUESTIONS_CONTENT;
-  return `<div class="content-area"><div style="padding:20px 0;text-align:center">
-    <div style="font-size:24px;margin-bottom:8px;opacity:0.3">◦ ◦ ◦</div>
-    <p style="font-size:13px;color:var(--text3)">No content added yet for this topic</p>
+  return renderCookingState(topic);
+}
+
+// Deterministic "% written" for the in-progress state — derived from the
+// topic id so it stays the same across reloads instead of jumping around,
+// but varies per topic instead of looking like one static template.
+function cookingProgress(id) {
+  let h = 0;
+  for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) >>> 0;
+  return 22 + (h % 54); // spread roughly 22%–75%
+}
+
+function renderCookingState(topic) {
+  const accent = getAccent(topic.id);
+  const icon = TOPIC_ICONS[topic.id] || `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z"/></svg>`;
+  const pct = cookingProgress(topic.id);
+  return `<div class="content-area"><div class="cooking-state" style="--cook-color:${accent.color};--cook-glow:${accent.glow}">
+    <div class="cooking-top">
+      <div class="cooking-icon-box">${icon}</div>
+      <div class="cooking-top-text">
+        <span class="cooking-badge"><span class="cooking-dot"></span>Draft in progress</span>
+        <h3 class="cooking-title">${topic.name}</h3>
+      </div>
+      <div class="cooking-pct">${pct}%</div>
+    </div>
+
+    <div class="cooking-track"><div class="cooking-fill" style="width:${pct}%"></div></div>
+
+    <div class="cooking-skeleton">
+      <div class="cooking-line" style="width:94%"></div>
+      <div class="cooking-line" style="width:82%"></div>
+      <div class="cooking-line" style="width:88%"></div>
+      <div class="cooking-line cooking-line-short" style="width:48%"></div>
+    </div>
+
+    <p class="cooking-desc">Notes for <strong>${topic.name}</strong> are being written right now — bookmark this and check back soon. Everything else in the vault is ready to explore.</p>
   </div></div>`;
 }
 
@@ -9125,8 +9158,10 @@ function renderCard(topic) {
       </div>
 
       <!-- Open indicator -->
-      <div class="expand-btn" style="pointer-events:none;justify-content:${topic.hasContent ? 'space-between' : 'center'}">
-        ${topic.hasContent ? `<span style="color:var(--nb-text2);font-weight:500;font-size:11px;letter-spacing:0.02em">Has content</span>` : ''}
+      <div class="expand-btn" style="pointer-events:none;justify-content:space-between">
+        ${topic.hasContent
+          ? `<span style="color:var(--nb-text2);font-weight:500;font-size:11px;letter-spacing:0.02em">Has content</span>`
+          : `<span class="cooking-pill"><span class="cooking-dot"></span>In progress</span>`}
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
       </div>
     </div>
@@ -9605,7 +9640,7 @@ function renderBookmarks() {
   if (!items.length) {
     section.style.display = 'none';
     listEl.innerHTML = '';
-    if (hintEl) hintEl.style.display = 'block';
+    if (hintEl) hintEl.style.display = 'flex';
     return;
   }
   section.style.display = 'block';

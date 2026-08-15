@@ -3,11 +3,41 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Knowledge Vault</title>
+<title>Knowledge Vault — Interview Prep for DSA, Java, Spring, DevOps & System Design</title>
+<meta name="description" content="Free interview prep knowledge base: DSA, Java & Spring, DevOps, databases, CS fundamentals and 25+ topics with searchable notes, roadmaps and Q&A — built by Madan H K."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://mhk-interview.vercel.app/"/>
+
+<!-- Open Graph / social previews -->
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Knowledge Vault"/>
+<meta property="og:title" content="Knowledge Vault — Interview Prep for DSA, Java, Spring, DevOps & System Design"/>
+<meta property="og:description" content="Free interview prep knowledge base: DSA, Java & Spring, DevOps, databases, CS fundamentals and 25+ topics with searchable notes, roadmaps and Q&A."/>
+<meta property="og:url" content="https://mhk-interview.vercel.app/"/>
+<meta property="og:image" content="https://mhk-interview.vercel.app/og-image.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+
+<!-- Twitter card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Knowledge Vault — Interview Prep for DSA, Java, Spring, DevOps & System Design"/>
+<meta name="twitter:description" content="Free interview prep knowledge base: DSA, Java & Spring, DevOps, databases, CS fundamentals and 25+ topics with searchable notes, roadmaps and Q&A."/>
+<meta name="twitter:image" content="https://mhk-interview.vercel.app/og-image.png"/>
+
 <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Anton&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Knowledge Vault",
+  "url": "https://mhk-interview.vercel.app/",
+  "description": "Free interview prep knowledge base covering DSA, Java & Spring, DevOps, databases and CS fundamentals.",
+  "author": { "@type": "Person", "name": "Madan H K" }
+}
+</script>
 </head>
 <body class="light-mode">
 
@@ -59,9 +89,11 @@
 <nav class="sidebar" id="sidebar">
   <div style="padding:24px 16px 16px">
     <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
-      <!-- Vault title doubles as the light/dark theme toggle -->
-      <button type="button" class="sidebar-vault-title" id="headerThemeToggle" onclick="toggleTheme()" title="Toggle light/dark mode" aria-label="Toggle light and dark theme" style="flex:1;min-width:0">
-        <svg class="htt-sun" id="httSun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Plain wordmark — no background, no button feel -->
+      <span class="vault-title-plain">Knowledge Vault</span>
+      <!-- Dedicated icon-only theme toggle -->
+      <button type="button" class="sidebar-theme-btn" id="headerThemeToggle" onclick="toggleTheme()" title="Toggle light/dark mode" aria-label="Toggle light and dark theme">
+        <svg class="htt-sun" id="httSun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="5"/>
           <line x1="12" y1="1" x2="12" y2="3"/>
           <line x1="12" y1="21" x2="12" y2="23"/>
@@ -72,15 +104,14 @@
           <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
           <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
         </svg>
-        <svg class="htt-moon" id="httMoon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+        <svg class="htt-moon" id="httMoon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
         </svg>
-        <span>Knowledge Vault</span>
       </button>
     </div>
   </div>
 
-  <div style="padding:0 10px;flex:1">
+  <div style="padding:0 10px;flex:1;display:flex;flex-direction:column;min-height:0">
     <!-- Roadmaps -->
     <div id="roadmapsSection">
       <div style="padding:8px 8px 4px">
@@ -122,8 +153,12 @@
       <div id="bookmarksList"></div>
       <div style="height:10px"></div>
     </div>
-    <div id="bookmarksEmptyHint" style="padding:14px 10px;font-size:12px;line-height:1.6;color:var(--text3)">
-      No bookmarks yet. Open any topic and tap the bookmark icon on a subsection to save it here for quick revision.
+    <div id="bookmarksEmptyHint" class="sidebar-empty-state">
+      <div class="ses-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21 12 16 5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <p class="ses-title">No bookmarks yet</p>
+      <p class="ses-desc">Open any topic and tap the bookmark icon on a subsection to save it here for quick revision.</p>
     </div>
   </div>
 

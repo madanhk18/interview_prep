@@ -95,64 +95,23 @@ body.light-mode .tbl-wrap { border-color:rgba(0,0,0,0.08); }
 body.light-mode .bit-table th { background:rgba(37,99,235,0.10); border-color:rgba(37,99,235,0.18); }
 body.light-mode .bit-table td { border-color:rgba(0,0,0,0.06); color:rgba(0,0,0,0.72); }
 body.light-mode .bit-table tr:hover td { background:rgba(0,0,0,0.03); }
-/* "Knowledge Vault" sidebar heading — bold condensed display font, solid black */
-
-.sidebar-vault-title {
-  margin: 0 0 16px 0;
-  padding: 6px 12px;
+/* "Knowledge Vault" sidebar heading — plain wordmark, no button/box
+   feel. Theme toggle lives in its own separate icon button. */
+.vault-title-plain {
+  flex: 0 1 auto; min-width: 0;
   font-family: 'Anton', sans-serif;
-  font-size: 22px; 
+  font-size: 19px;
   font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.03em;
   line-height: 1.2;
-  
-
-  color: #ffffff;
-  background-color: #000000;
-  border: none;
-  border-radius: 8px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  width: 100%;
-
-  box-shadow: 4px 4px 0px rgba(255, 255, 255, 0.16);
-
+  color: var(--text);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-
-  cursor: pointer;
-  transition: transform 0.15s cubic-bezier(.34,1.2,.64,1), box-shadow 0.15s cubic-bezier(.34,1.2,.64,1);
 }
-.sidebar-vault-title:hover {
-  transform: translate(-1px,-1px);
-  box-shadow: 5px 5px 0px rgba(255,255,255,0.22);
-}
-.sidebar-vault-title:active {
-  transform: translate(2px,2px);
-  box-shadow: 1px 1px 0px rgba(255,255,255,0.16);
-}
-/* Light mode gets the original solid dark offset shadow */
-body.light-mode .sidebar-vault-title { box-shadow: 4px 4px 0px rgba(0,0,0,0.2); }
-body.light-mode .sidebar-vault-title:hover { box-shadow: 5px 5px 0px rgba(0,0,0,0.22); }
-body.light-mode .sidebar-vault-title:active { box-shadow: 1px 1px 0px rgba(0,0,0,0.2); }
-.sidebar-vault-title span {
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.sidebar-vault-title .htt-sun,
-.sidebar-vault-title .htt-moon {
-  flex-shrink: 0;
-  transition: transform 0.4s cubic-bezier(.34,1.4,.64,1);
-}
-.sidebar-vault-title .htt-sun { color: #f5b942; }
-.sidebar-vault-title .htt-moon { color: #8ab4ff; }
-.sidebar-vault-title:hover .htt-sun,
-.sidebar-vault-title:hover .htt-moon {
-  transform: rotate(20deg);
-}
+.sidebar-theme-btn .htt-sun { color: #f5b942; }
+.sidebar-theme-btn .htt-moon { color: #8ab4ff; }
+.sidebar-theme-btn:hover svg { transform: rotate(20deg); }
 
 
 
@@ -1469,3 +1428,142 @@ body.light-mode .rm-stack-arrow{background:#fff;border-color:#000;color:#111}
   .rm-card-title{font-size:18px}
   .rm-card-points li{font-size:12.5px}
 }
+/* ── "In progress" card pill — replaces bare empty-topic look ── */
+.cooking-pill{
+  display:inline-flex; align-items:center; gap:6px;
+  font-weight:600; font-size:11px; letter-spacing:0.02em;
+  color:#fbbf24;
+}
+.cooking-pill .cooking-dot{
+  width:6px; height:6px; border-radius:50%; background:#fbbf24; flex-shrink:0;
+  box-shadow:0 0 0 0 rgba(251,191,36,0.55);
+  animation:cookingPulse 1.6s ease-out infinite;
+}
+@keyframes cookingPulse{
+  0%   { box-shadow:0 0 0 0 rgba(251,191,36,0.55); }
+  70%  { box-shadow:0 0 0 6px rgba(251,191,36,0); }
+  100% { box-shadow:0 0 0 0 rgba(251,191,36,0); }
+}
+
+/* ── "Still cooking" fullscreen placeholder for topics with no content yet.
+   Uses --cook-color / --cook-glow (the topic's own accent) so every empty
+   topic doesn't look like the same generic stub. ── */
+.cooking-state{
+  --cook-color: var(--accent);
+  --cook-glow: rgba(59,130,246,0.20);
+  padding:8px 4px 16px;
+}
+.cooking-top{
+  display:flex; align-items:center; gap:14px; margin-bottom:20px;
+}
+.cooking-icon-box{
+  width:52px; height:52px; border-radius:14px; flex-shrink:0;
+  display:flex; align-items:center; justify-content:center;
+  background:color-mix(in srgb, var(--cook-color) 12%, transparent);
+  border:1px solid color-mix(in srgb, var(--cook-color) 30%, transparent);
+  color:var(--cook-color);
+  box-shadow:0 0 22px var(--cook-glow);
+  animation:cookingFloat 3.2s ease-in-out infinite;
+}
+@keyframes cookingFloat{
+  0%, 100% { transform:translateY(0) rotate(0deg); }
+  50%      { transform:translateY(-4px) rotate(-4deg); }
+}
+.cooking-top-text{ flex:1; min-width:0; }
+.cooking-badge{
+  display:inline-flex; align-items:center; gap:6px;
+  font-size:11px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
+  color:var(--cook-color); margin-bottom:4px;
+}
+.cooking-badge .cooking-dot{
+  width:6px; height:6px; border-radius:50%; background:var(--cook-color); flex-shrink:0;
+  box-shadow:0 0 0 0 var(--cook-glow);
+  animation:cookingPulse2 1.6s ease-out infinite;
+}
+@keyframes cookingPulse2{
+  0%   { box-shadow:0 0 0 0 var(--cook-glow); }
+  70%  { box-shadow:0 0 0 7px rgba(0,0,0,0); }
+  100% { box-shadow:0 0 0 0 rgba(0,0,0,0); }
+}
+.cooking-title{ font-size:17px; font-weight:800; color:var(--text); }
+.cooking-pct{
+  font-family:'JetBrains Mono',monospace; font-size:15px; font-weight:700;
+  color:var(--cook-color); flex-shrink:0;
+}
+
+.cooking-track{
+  height:6px; border-radius:99px; overflow:hidden; margin-bottom:24px;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.06);
+}
+body.light-mode .cooking-track{ background:rgba(0,0,0,0.06); border-color:rgba(0,0,0,0.06); }
+.cooking-fill{
+  height:100%; border-radius:99px; position:relative; overflow:hidden;
+  background:linear-gradient(90deg, var(--cook-color), color-mix(in srgb, var(--cook-color) 55%, white));
+  transition:width 0.6s cubic-bezier(.25,0,.15,1);
+}
+.cooking-fill::after{
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,0.55), transparent);
+  width:60%; animation:cookingShimmer 1.8s ease-in-out infinite;
+}
+@keyframes cookingShimmer{
+  0%   { transform:translateX(-120%); }
+  100% { transform:translateX(220%); }
+}
+
+.cooking-skeleton{ display:flex; flex-direction:column; gap:10px; margin-bottom:22px; }
+.cooking-line{
+  height:10px; border-radius:6px; position:relative; overflow:hidden;
+  background:rgba(255,255,255,0.06);
+}
+body.light-mode .cooking-line{ background:rgba(0,0,0,0.06); }
+.cooking-line-short{ opacity:0.7; }
+.cooking-line::after{
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(90deg, transparent, color-mix(in srgb, var(--cook-color) 35%, transparent), transparent);
+  transform:translateX(-100%);
+  animation:cookingLineShimmer 2.2s ease-in-out infinite;
+}
+.cooking-line:nth-child(2)::after{ animation-delay:0.15s; }
+.cooking-line:nth-child(3)::after{ animation-delay:0.3s; }
+.cooking-line:nth-child(4)::after{ animation-delay:0.45s; }
+@keyframes cookingLineShimmer{
+  0%   { transform:translateX(-100%); }
+  100% { transform:translateX(100%); }
+}
+
+.cooking-desc{
+  font-size:13px; line-height:1.7; color:var(--text3); max-width:460px;
+}
+.cooking-desc strong{ color:var(--text2); font-weight:600; }
+
+/* ── Sidebar "no bookmarks yet" empty state — fills the dead space below
+   the roadmap list instead of leaving a blank gap above the profile card. ── */
+.sidebar-empty-state{
+  flex:1; min-height:120px;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; gap:8px;
+  margin:6px 4px; padding:20px 16px;
+  border-radius:16px;
+  border:1.5px dashed rgba(255,255,255,0.12);
+  background:rgba(255,255,255,0.02);
+}
+body.light-mode .sidebar-empty-state{
+  border-color:rgba(0,0,0,0.12);
+  background:rgba(0,0,0,0.015);
+}
+.ses-icon{
+  width:40px; height:40px; border-radius:50%; margin-bottom:2px;
+  display:flex; align-items:center; justify-content:center;
+  background:rgba(59,130,246,0.10);
+  border:1px solid rgba(59,130,246,0.22);
+  color:var(--accent);
+  animation:sesBob 3.4s ease-in-out infinite;
+}
+@keyframes sesBob{
+  0%, 100% { transform:translateY(0) rotate(0deg); }
+  50%      { transform:translateY(-3px) rotate(-6deg); }
+}
+.ses-title{ font-size:13px; font-weight:700; color:var(--text2); }
+.ses-desc{ font-size:11.5px; line-height:1.6; color:var(--text3); max-width:190px; }
