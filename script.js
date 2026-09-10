@@ -12,6 +12,12 @@ const CATEGORIES = {
 };
 
 const TOPICS = [
+  // New topics kept up front
+  {id:'python-fundamentals',name:'Python Fundamentals',icon:'',color:'#22c55e',gradient:'',category:'ai',hasContent:true,isNew:true},
+  {id:'numpy-basics',name:'NumPy',icon:'',color:'#0ea5e9',gradient:'',category:'ai',hasContent:true,isNew:true},
+  {id:'pandas-basics',name:'Pandas',icon:'',color:'#f59e0b',gradient:'',category:'ai',hasContent:true,isNew:true},
+  {id:'spring-boot',name:'Spring Boot',icon:'',color:'#22c55e',gradient:'',category:'frameworks',hasContent:true,isNew:true},
+
   {id:'bit-manipulation',name:'Bit Manipulation',icon:'',color:'#14b8a6',gradient:'from-teal-400 to-cyan-600',category:'dsa',hasContent:true},
   {id:'binary-search',name:'Binary Search',icon:'',color:'#84cc16',gradient:'',category:'dsa',hasContent:true},
   {id:'sorting',name:'Sorting Algorithms',icon:'',color:'#a855f7',gradient:'',category:'dsa'},
@@ -29,13 +35,13 @@ const TOPICS = [
   {id:'built-in-functions',name:'Built-in Functions',icon:'',color:'#f59e0b',gradient:'',category:'backend',hasContent:true},
   {id:'projects',name:'Projects Explanation',icon:'',color:'#f97316',gradient:'',category:'backend',hasContent:true},
   {id:'spring-mvc',name:'Spring MVC',icon:'',color:'#84cc16',gradient:'',category:'frameworks',hasContent:true},
-  {id:'spring-boot',name:'Spring Boot',icon:'',color:'#22c55e',gradient:'',category:'frameworks',hasContent:true},
   {id:'docker',name:'Docker',icon:'',color:'#0ea5e9',gradient:'',category:'devops',hasContent:true},
   {id:'kubernetes',name:'Kubernetes',icon:'️',color:'#3b82f6',gradient:'',category:'devops',hasContent:true},
   {id:'git',name:'Git & GitHub',icon:'',color:'#f97316',gradient:'',category:'devops',hasContent:true},
   {id:'maven',name:'Maven',icon:'',color:'#c71a36',gradient:'',category:'devops',hasContent:true},
   {id:'mysql',name:'MySQL',icon:'',color:'#10b981',gradient:'',category:'database'},
   {id:'dbms',name:'DBMS Basics',icon:'',color:'#8b5cf6',gradient:'',category:'database',hasContent:true},
+  {id:'sdlc',name:'SDLC Life Cycle',icon:'',color:'#0ea5e9',gradient:'',category:'cs-fundamentals',hasContent:true},
   {id:'computer-networks',name:'Computer Networks',icon:'',color:'#06b6d4',gradient:'',category:'cs-fundamentals',hasContent:true},
   {id:'operating-systems',name:'Operating Systems',icon:'️',color:'#ef4444',gradient:'',category:'cs-fundamentals',hasContent:true},
   {id:'javascript',name:'JavaScript Basics',icon:'',color:'#eab308',gradient:'',category:'frontend'},
@@ -2116,6 +2122,249 @@ const DBMS_CONTENT = `
       <div class="qrev-card"><span class="qrev-key">Index</span><span class="qrev-val">B-Tree · faster SELECT · slower writes · extra storage</span></div>
       <div class="qrev-card"><span class="qrev-key">DELETE vs TRUNCATE vs DROP</span><span class="qrev-val">DML+WHERE+rollback · DDL all rows · DDL table gone</span></div>
       <div class="qrev-card"><span class="qrev-key">COMMIT / ROLLBACK</span><span class="qrev-val">Save permanently / Undo to previous state</span></div>
+    </div>
+  </div>
+
+</div>
+`;
+
+const SDLC_CONTENT = `
+<div class="content-area">
+
+  <!-- Intro banner -->
+  <div style="background:rgba(14,165,233,0.07);border:1px solid rgba(14,165,233,0.2);border-radius:10px;padding:13px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.7;color:var(--text2)">
+    <strong style="color:#0ea5e9">Interview scope</strong> — Focus on: the 6 SDLC phases, Waterfall vs Agile, Scrum roles/ceremonies, and being able to explain "walk me through your project's SDLC." One of the most commonly asked non-technical rounds.
+  </div>
+  <div style="background:rgba(14,165,233,0.04);border:1px solid rgba(14,165,233,0.13);border-radius:10px;padding:13px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.7;color:var(--text2)">
+    <strong style="color:#0ea5e9">Why this matters</strong> — Almost every interviewer asks "explain the SDLC" or "which model does your team follow" to check you understand how software actually gets built, not just how to write code. It also sets up follow-ups on your resume projects — sprint length, who wrote requirements, how releases went out.<br><br>
+    <strong style="color:#0ea5e9">When to use it</strong> — Bring this up when asked to describe your project lifecycle, justify Agile vs Waterfall for a scenario, or explain your role in standups/sprint planning — these are the recurring framings interviewers reach for.
+  </div>
+
+  <!-- 1. What is SDLC -->
+  <div class="accordion" id="acc-sdlc-intro">
+    <button class="accordion-header" onclick="toggleAcc('sdlc-intro')">
+      <span style="display:flex;align-items:center;gap:8px"><span>1. What is SDLC?</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-sdlc-intro">
+      <div class="hbox"><strong>SDLC (Software Development Life Cycle)</strong> = a structured process that teams follow to plan, build, test, and deliver software — from idea to release to maintenance. Goal: predictable quality, on-time delivery, lower cost of fixing bugs late.</div>
+      <div class="sbox">SDLC answers "what happens, in what order, and who owns each step" — it's a process framework, not a specific tool or language.</div>
+      <p class="section-label">Interview Q&amp;A</p>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="background:rgba(14,165,233,0.06);border:1px solid rgba(14,165,233,0.15);border-radius:8px;padding:12px 14px;font-size:12.5px">
+          <strong style="color:#0ea5e9">Q: What is SDLC?</strong><br>
+          <span style="color:var(--text2)">SDLC is a structured, repeatable process — Requirement Analysis, Design, Implementation, Testing, Deployment, Maintenance — that a team follows to build and deliver software reliably.</span>
+        </div>
+        <div style="background:rgba(14,165,233,0.06);border:1px solid rgba(14,165,233,0.15);border-radius:8px;padding:12px 14px;font-size:12.5px">
+          <strong style="color:#0ea5e9">Q: Why do we need SDLC instead of just coding directly?</strong><br>
+          <span style="color:var(--text2)">Without a defined process, requirements get missed, testing happens too late, and bugs cost far more to fix in production than during design. SDLC catches issues earlier and keeps large teams aligned.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. The 6 phases -->
+  <div class="accordion" id="acc-sdlc-phases">
+    <button class="accordion-header" onclick="toggleAcc('sdlc-phases')">
+      <span style="display:flex;align-items:center;gap:8px"><span>2. The 6 SDLC Phases</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-sdlc-phases">
+      <div class="hbox">Every SDLC model — Waterfall, Agile, or otherwise — is built from the <strong>same 6 phases</strong>. What changes between models is whether they run once (Waterfall) or repeat in short cycles (Agile).</div>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:12px">
+        <div style="background:rgba(99,102,241,0.06);border:1px solid rgba(99,102,241,0.18);border-radius:8px;padding:13px 15px;font-size:13px">
+          <strong style="color:#6366f1">1. Requirement Analysis</strong><br>
+          <span style="color:var(--text2)">Gather what the client/business actually needs — functional requirements (what the system must do) and non-functional requirements (performance, security, scalability). Business analysts run client interviews, workshops, and competitor study.</span><br>
+          <span style="font-size:11.5px;color:var(--text3);margin-top:4px;display:block"><strong>Deliverable:</strong> SRS (Software Requirement Specification) document. <strong>Who:</strong> Business Analyst + Product Owner + client. <strong>Interview trap:</strong> a wrong/incomplete requirement here is the most expensive bug in the whole SDLC — it's found last, after everything else was built on top of it.</span>
+        </div>
+        <div style="background:rgba(139,92,246,0.06);border:1px solid rgba(139,92,246,0.18);border-radius:8px;padding:13px 15px;font-size:13px">
+          <strong style="color:#8b5cf6">2. Design</strong><br>
+          <span style="color:var(--text2)">Convert requirements into architecture. <strong>HLD</strong> (High-Level Design) — overall system architecture, tech stack, module breakdown, how services talk to each other. <strong>LLD</strong> (Low-Level Design) — class diagrams, DB schema, API contracts, pseudocode for each module.</span><br>
+          <span style="font-size:11.5px;color:var(--text3);margin-top:4px;display:block"><strong>Deliverable:</strong> HLD + LLD documents, DB/ER diagrams, API specs. <strong>Who:</strong> Solution Architect / Senior Engineers. <strong>Interview line:</strong> "HLD is the what-and-how at system level; LLD is the what-and-how at code/module level."</span>
+        </div>
+        <div style="background:rgba(14,165,233,0.06);border:1px solid rgba(14,165,233,0.18);border-radius:8px;padding:13px 15px;font-size:13px">
+          <strong style="color:#0ea5e9">3. Implementation / Coding</strong><br>
+          <span style="color:var(--text2)">Developers write the actual code following the design and the team's coding standards — naming conventions, code reviews, version control (Git branching strategy), linting. Usually the longest single phase in Waterfall; in Agile it repeats every sprint.</span><br>
+          <span style="font-size:11.5px;color:var(--text3);margin-top:4px;display:block"><strong>Deliverable:</strong> working code, merged via pull requests. <strong>Who:</strong> Developers. <strong>Good practice:</strong> unit tests written alongside the code, not after.</span>
+        </div>
+        <div style="background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.18);border-radius:8px;padding:13px 15px;font-size:13px">
+          <strong style="color:#10b981">4. Testing</strong><br>
+          <span style="color:var(--text2)">QA verifies the build against requirements, in layers: <strong>Unit</strong> (single function/class, usually by devs) → <strong>Integration</strong> (modules working together) → <strong>System</strong> (whole app end-to-end) → <strong>UAT</strong> (User Acceptance Testing — the client/business signs off). Bugs found here get logged and sent back to development.</span><br>
+          <span style="font-size:11.5px;color:var(--text3);margin-top:4px;display:block"><strong>Deliverable:</strong> test cases, bug reports, UAT sign-off. <strong>Who:</strong> QA Engineers + end users (UAT). <strong>Interview line:</strong> "The earlier a bug is caught in this chain, the cheaper it is to fix."</span>
+        </div>
+        <div style="background:rgba(251,191,36,0.06);border:1px solid rgba(251,191,36,0.18);border-radius:8px;padding:13px 15px;font-size:13px">
+          <strong style="color:#f59e0b">5. Deployment</strong><br>
+          <span style="color:var(--text2)">Release the tested build to production — usually staged through environments: <strong>Dev → QA → Staging → Production</strong>. Modern teams automate this with CI/CD pipelines (build → test → deploy triggered on every merge), and use strategies like blue-green or canary deployment to release with minimal risk.</span><br>
+          <span style="font-size:11.5px;color:var(--text3);margin-top:4px;display:block"><strong>Deliverable:</strong> live release + release notes. <strong>Who:</strong> DevOps / Release Engineers. <strong>Tools to name:</strong> Jenkins, GitHub Actions, Docker, Kubernetes.</span>
+        </div>
+        <div style="background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.18);border-radius:8px;padding:13px 15px;font-size:13px">
+          <strong style="color:#ef4444">6. Maintenance</strong><br>
+          <span style="color:var(--text2)">Fix production bugs (<strong>corrective</strong>), apply patches for new OS/browser versions (<strong>adaptive</strong>), tune performance (<strong>perfective</strong>), and add safeguards against future failure (<strong>preventive</strong>). This is the longest-running phase over a product's entire life — often costs more overall than building it did.</span><br>
+          <span style="font-size:11.5px;color:var(--text3);margin-top:4px;display:block"><strong>Deliverable:</strong> patches, hotfixes, monitoring dashboards. <strong>Who:</strong> Support/on-call engineers.</span>
+        </div>
+      </div>
+      <div class="sbox">Memory trick: <strong>R-D-I-T-D-M</strong> — Requirement → Design → Implement → Test → Deploy → Maintain.</div>
+    </div>
+  </div>
+
+  <!-- 3. Waterfall vs Agile -->
+  <div class="accordion" id="acc-sdlc-models">
+    <button class="accordion-header" onclick="toggleAcc('sdlc-models')">
+      <span style="display:flex;align-items:center;gap:8px"><span>3. Waterfall vs Agile</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-sdlc-models">
+      <div class="hbox"><strong>Waterfall</strong> = linear, each phase finishes fully before the next starts. <strong>Agile</strong> = iterative, phases repeat in short cycles (sprints) so working software ships early and often.</div>
+      <div class="tbl-wrap"><table class="bit-table">
+        <thead><tr><th>Waterfall</th><th>Agile</th></tr></thead>
+        <tbody>
+          <tr><td>Sequential — one phase at a time</td><td>Iterative — repeated short sprints (1–4 weeks)</td></tr>
+          <tr><td>Requirements fixed upfront</td><td>Requirements can evolve every sprint</td></tr>
+          <tr><td>Client sees product only at the end</td><td>Client sees working software every sprint</td></tr>
+          <tr><td>Changes are costly mid-project</td><td>Built for change — backlog is re-prioritized</td></tr>
+          <tr><td>Best for fixed, well-understood scope</td><td>Best for evolving, unclear requirements</td></tr>
+        </tbody>
+      </table></div>
+      <div class="ybox">Interview trap: "Which is better?" — there's no universally better model. Waterfall suits fixed-scope/regulated projects (e.g. government contracts); Agile suits fast-moving product teams. Say <strong>"it depends on the project"</strong>, then justify.</div>
+
+      <p class="section-label">Pros &amp; Cons</p>
+      <div class="tbl-wrap"><table class="bit-table">
+        <thead><tr><th>Model</th><th>Pros</th><th>Cons</th></tr></thead>
+        <tbody>
+          <tr><td>Waterfall</td><td>Simple to plan &amp; manage · clear milestones · good documentation</td><td>No working software until the end · rigid to change · risk found late</td></tr>
+          <tr><td>Agile</td><td>Fast feedback · adapts to change · early &amp; frequent delivery</td><td>Needs constant client involvement · harder to predict final cost/date</td></tr>
+        </tbody>
+      </table></div>
+
+      <p class="section-label">Agile Manifesto — 4 core values</p>
+      <div class="tbl-wrap"><table class="bit-table">
+        <thead><tr><th>Value over</th><th>Rather than</th></tr></thead>
+        <tbody>
+          <tr><td>Individuals &amp; interactions</td><td>Processes &amp; tools</td></tr>
+          <tr><td>Working software</td><td>Comprehensive documentation</td></tr>
+          <tr><td>Customer collaboration</td><td>Contract negotiation</td></tr>
+          <tr><td>Responding to change</td><td>Following a fixed plan</td></tr>
+        </tbody>
+      </table></div>
+      <div class="sbox">Interview line: "Agile doesn't mean no process or no docs — it means people and working software take priority over rigid process when they conflict."</div>
+    </div>
+  </div>
+
+  <!-- 4. Agile / Scrum essentials -->
+  <div class="accordion" id="acc-sdlc-scrum">
+    <button class="accordion-header" onclick="toggleAcc('sdlc-scrum')">
+      <span style="display:flex;align-items:center;gap:8px"><span>4. Agile / Scrum Essentials</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-sdlc-scrum">
+      <div class="hbox"><strong>Scrum</strong> is the most common Agile framework used in interviews — most candidates are asked to describe their team's sprint process.</div>
+      <p class="section-label">Roles</p>
+      <div class="tbl-wrap"><table class="bit-table">
+        <thead><tr><th>Role</th><th>Responsibility</th></tr></thead>
+        <tbody>
+          <tr><td>Product Owner</td><td>Owns the backlog, prioritizes features, represents the business</td></tr>
+          <tr><td>Scrum Master</td><td>Removes blockers, facilitates ceremonies, protects the team's focus</td></tr>
+          <tr><td>Development Team</td><td>Builds, tests, and ships the increment each sprint</td></tr>
+        </tbody>
+      </table></div>
+      <p class="section-label">Ceremonies</p>
+      <div class="tbl-wrap"><table class="bit-table">
+        <thead><tr><th>Ceremony</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td>Sprint Planning</td><td>Decide what gets built this sprint</td></tr>
+          <tr><td>Daily Standup</td><td>15-min sync — what I did, what I'll do, blockers</td></tr>
+          <tr><td>Sprint Review</td><td>Demo the working increment to stakeholders</td></tr>
+          <tr><td>Retrospective</td><td>What went well / what to improve next sprint</td></tr>
+        </tbody>
+      </table></div>
+      <div class="sbox">Interview line: "We ran 2-week sprints with daily standups, a sprint review demo, and a retro — the Product Owner prioritized the backlog based on business impact."</div>
+
+      <p class="section-label">Vocabulary you'll be tested on</p>
+      <div class="tbl-wrap"><table class="bit-table">
+        <thead><tr><th>Term</th><th>Meaning</th></tr></thead>
+        <tbody>
+          <tr><td>User Story</td><td>A feature written from the user's view: "As a &lt;user&gt;, I want &lt;goal&gt;, so that &lt;benefit&gt;"</td></tr>
+          <tr><td>Product Backlog</td><td>Full prioritized list of everything that could be built</td></tr>
+          <tr><td>Sprint Backlog</td><td>Subset of the backlog committed to for the current sprint</td></tr>
+          <tr><td>Story Points</td><td>Relative effort estimate for a story (Fibonacci: 1,2,3,5,8…) — not hours</td></tr>
+          <tr><td>Velocity</td><td>Average story points a team completes per sprint — used to forecast future sprints</td></tr>
+          <tr><td>Backlog Grooming / Refinement</td><td>Ongoing session to clarify, estimate, and re-prioritize upcoming stories</td></tr>
+          <tr><td>Definition of Done (DoD)</td><td>Team's agreed checklist for "this story is actually complete" (coded, tested, reviewed, deployed)</td></tr>
+          <tr><td>Burndown Chart</td><td>Graph of remaining work vs time in a sprint — shows if the team is on track</td></tr>
+        </tbody>
+      </table></div>
+      <div class="ybox">Interview trap: story points ≠ hours. They measure relative complexity/effort/risk, which is why velocity (points per sprint) is more stable than estimating in hours.</div>
+    </div>
+  </div>
+
+  <!-- 5. Other models to know -->
+  <div class="accordion" id="acc-sdlc-other">
+    <button class="accordion-header" onclick="toggleAcc('sdlc-other')">
+      <span style="display:flex;align-items:center;gap:8px"><span>5. V-Model, Spiral, Incremental &amp; Prototype Models</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-sdlc-other">
+      <div class="hbox">Waterfall and Agile cover most interviews, but knowing these four shows depth — especially if asked "what other models have you heard of?"</div>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:12px">
+        <div style="background:rgba(14,165,233,0.06);border:1px solid rgba(14,165,233,0.15);border-radius:8px;padding:12px 14px;font-size:12.5px">
+          <strong style="color:#0ea5e9">V-Model (Verification &amp; Validation)</strong><br>
+          <span style="color:var(--text2)">Extension of Waterfall shaped like a "V" — every development phase on the way down has a matching test phase on the way up, planned in parallel: Requirements ↔ UAT, HLD ↔ System Testing, LLD ↔ Integration Testing, Coding ↔ Unit Testing. Used where testing rigor is critical — aerospace, medical, banking software.</span><br>
+          <span style="font-size:11.5px;color:var(--text3);margin-top:4px;display:block"><strong>Pro:</strong> defects caught early, very disciplined. <strong>Con:</strong> as rigid as Waterfall — no working software until late.</span>
+        </div>
+        <div style="background:rgba(14,165,233,0.06);border:1px solid rgba(14,165,233,0.15);border-radius:8px;padding:12px 14px;font-size:12.5px">
+          <strong style="color:#0ea5e9">Spiral Model</strong><br>
+          <span style="color:var(--text2)">Combines iterative development with heavy risk analysis. Each loop ("spiral") has 4 steps: <strong>1) Planning</strong> (objectives), <strong>2) Risk Analysis</strong> (identify &amp; resolve risks, often via a prototype), <strong>3) Engineering</strong> (build &amp; test), <strong>4) Evaluation</strong> (client reviews, plan next loop). Used for large, high-risk, high-budget projects.</span><br>
+          <span style="font-size:11.5px;color:var(--text3);margin-top:4px;display:block"><strong>Pro:</strong> risk is managed continuously, not discovered late. <strong>Con:</strong> expensive, needs risk-assessment expertise.</span>
+        </div>
+        <div style="background:rgba(14,165,233,0.06);border:1px solid rgba(14,165,233,0.15);border-radius:8px;padding:12px 14px;font-size:12.5px">
+          <strong style="color:#0ea5e9">Incremental Model</strong><br>
+          <span style="color:var(--text2)">Build and deliver the system in usable chunks ("increments") — each increment adds functionality to the previous one. Different from Agile in that increments are usually planned upfront, not re-prioritized every sprint.</span><br>
+          <span style="font-size:11.5px;color:var(--text3);margin-top:4px;display:block"><strong>Example:</strong> Increment 1 = login + core CRUD, Increment 2 = payments, Increment 3 = notifications.</span>
+        </div>
+        <div style="background:rgba(14,165,233,0.06);border:1px solid rgba(14,165,233,0.15);border-radius:8px;padding:12px 14px;font-size:12.5px">
+          <strong style="color:#0ea5e9">Prototype Model</strong><br>
+          <span style="color:var(--text2)">Build a quick, throwaway mock/prototype first to validate unclear requirements with the client before committing to full development. Reduces the risk of building the wrong thing.</span>
+        </div>
+      </div>
+      <div class="sbox">Quick distinction: <strong>V-Model</strong> = Waterfall + parallel testing · <strong>Spiral</strong> = iteration + risk focus · <strong>Incremental</strong> = build in planned chunks · <strong>Prototype</strong> = validate requirements before building for real.</div>
+    </div>
+  </div>
+
+  <!-- 6. Sample interview answer -->
+  <div class="accordion" id="acc-sdlc-sample">
+    <button class="accordion-header" onclick="toggleAcc('sdlc-sample')">
+      <span style="display:flex;align-items:center;gap:8px"><span>6. Sample Answer — "Explain your project's SDLC"</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-sdlc-sample">
+      <div class="hbox">This exact question shows up in almost every interview — HR and technical rounds both. Structure your answer around the 6 phases, in your own project's words.</div>
+      <div class="sbox" style="line-height:1.8">
+        "We followed <strong>Agile/Scrum</strong> with 2-week sprints. During <strong>requirement analysis</strong>, the Product Owner gathered user stories from stakeholders and added them to the backlog. In <strong>sprint planning</strong>, the team picked stories for the sprint and I estimated my tasks in story points. During <strong>design</strong>, for bigger features we wrote a short LLD covering the DB schema and API contract before coding. In <strong>implementation</strong>, I wrote the code, pushed it for code review, and wrote unit tests alongside it. QA ran <strong>integration and system testing</strong> on the staging environment, and I fixed the bugs they raised. Once approved, it went through our <strong>CI/CD pipeline</strong> — automated tests, then deployment to production. Post-release, I was part of the on-call rotation for <strong>maintenance</strong> — fixing any production issues that came up."
+      </div>
+      <div class="ybox">Interview trap: don't just recite the 6 phases like a definition — <strong>anchor every phase to something you actually did</strong>. Interviewers are testing whether you lived through the process, not whether you memorized it.</div>
+    </div>
+  </div>
+
+  <!-- Quick Revision -->
+  <div class="accordion" id="acc-sdlc-qrev">
+    <button class="accordion-header" onclick="toggleAcc('sdlc-qrev')">
+      <span style="display:flex;align-items:center;gap:8px"><span>Quick Revision Cheatsheet</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-sdlc-qrev">
+      <div class="qrev-card"><span class="qrev-key">SDLC</span><span class="qrev-val">Structured process to plan, build, test, release, maintain software</span></div>
+      <div class="qrev-card"><span class="qrev-key">6 Phases</span><span class="qrev-val">Requirement → Design → Implement → Test → Deploy → Maintain</span></div>
+      <div class="qrev-card"><span class="qrev-key">Waterfall</span><span class="qrev-val">Sequential · fixed scope · client sees output only at end</span></div>
+      <div class="qrev-card"><span class="qrev-key">Agile</span><span class="qrev-val">Iterative sprints · evolving requirements · frequent delivery</span></div>
+      <div class="qrev-card"><span class="qrev-key">Scrum roles</span><span class="qrev-val">Product Owner · Scrum Master · Development Team</span></div>
+      <div class="qrev-card"><span class="qrev-key">Scrum ceremonies</span><span class="qrev-val">Sprint Planning · Daily Standup · Sprint Review · Retro</span></div>
+      <div class="qrev-card"><span class="qrev-key">V-Model</span><span class="qrev-val">Every dev phase paired with a test phase · high test rigor</span></div>
+      <div class="qrev-card"><span class="qrev-key">Spiral</span><span class="qrev-val">Planning → Risk Analysis → Engineering → Evaluation, per loop</span></div>
+      <div class="qrev-card"><span class="qrev-key">Incremental</span><span class="qrev-val">Deliver in planned usable chunks, each adds on the last</span></div>
+      <div class="qrev-card"><span class="qrev-key">Prototype</span><span class="qrev-val">Throwaway mock first to validate unclear requirements</span></div>
+      <div class="qrev-card"><span class="qrev-key">Story Points</span><span class="qrev-val">Relative effort (Fibonacci) — not hours</span></div>
+      <div class="qrev-card"><span class="qrev-key">Velocity</span><span class="qrev-val">Avg story points completed per sprint — used to forecast</span></div>
+      <div class="qrev-card"><span class="qrev-key">Definition of Done</span><span class="qrev-val">Team's checklist for "actually complete" — coded, tested, reviewed, deployed</span></div>
     </div>
   </div>
 
@@ -8999,6 +9248,621 @@ con.close();                                           // 6. Close connection</c
 
 `;
 
+const PYTHON_FUNDAMENTALS_CONTENT = `
+<div class="content-area">
+
+  <div style="background:rgba(34,197,94,0.07);border:1px solid rgba(34,197,94,0.2);border-radius:10px;padding:13px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.7;color:var(--text2)">
+    <strong style="color:#22c55e">Interview scope</strong> — Variables &amp; types, strings, lists, dictionaries, loops/conditionals, functions and list comprehensions. This is the syntax every NumPy, Pandas and scripting question assumes you already know.
+  </div>
+  <div style="background:rgba(34,197,94,0.04);border:1px solid rgba(34,197,94,0.13);border-radius:10px;padding:13px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.7;color:var(--text2)">
+    <strong style="color:#22c55e">Why this matters</strong> — Python interviews rarely test syntax in isolation; they test it through small logic problems (parse this, transform that). If the syntax itself takes effort to recall, there's nothing left for the actual logic.<br><br>
+    <strong style="color:#22c55e">When to use it</strong> — This is the baseline for everything else on this site tagged Python/NumPy/Pandas — review this first if any of those feel shaky.
+  </div>
+
+  <!-- 1. Variables & Types -->
+  <div class="accordion" id="acc-py-vars">
+    <button class="accordion-header" onclick="toggleAcc('py-vars')">
+      <span style="display:flex;align-items:center;gap:8px"><span>1. Variables &amp; Dynamic Typing</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-py-vars">
+      <div class="hbox">Python is <strong>dynamically typed</strong> — a variable isn't declared with a fixed type; it just points to whatever value was last assigned to it. The built-in <code>type()</code> function tells you what that value currently is.</div>
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">variables.py</span></div>
+        <div class="code-body">department = <span class="str">"Engineering"</span>
+headcount = <span class="num">42</span>
+is_active = <span class="kw">True</span>
+
+<span class="fn">type</span>(department)   <span class="cmt"># &lt;class 'str'&gt;</span>
+<span class="fn">type</span>(headcount)    <span class="cmt"># &lt;class 'int'&gt;</span>
+
+department = <span class="num">7</span>       <span class="cmt"># perfectly legal — same name, new type</span></div>
+      </div>
+      <div class="tbl-wrap"><table class="bit-table">
+        <thead><tr><th>Type</th><th>Example</th><th>Mutable?</th></tr></thead>
+        <tbody>
+          <tr><td>str</td><td>"Engineering"</td><td>No</td></tr>
+          <tr><td>int / float</td><td>42 / 3.5</td><td>No</td></tr>
+          <tr><td>bool</td><td>True / False</td><td>No</td></tr>
+          <tr><td>list</td><td>[1, 2, 3]</td><td>Yes</td></tr>
+          <tr><td>dict</td><td>{"k": "v"}</td><td>Yes</td></tr>
+        </tbody>
+      </table></div>
+      <div class="wbox">"Mutable" is the detail interviewers actually probe: a string or int can't be changed in place — every "change" makes a new object and rebinds the name. A list or dict <em>can</em> be edited in place, which is why passing one into a function and modifying it there affects the caller's copy too.</div>
+    </div>
+  </div>
+
+  <!-- 2. Strings -->
+  <div class="accordion" id="acc-py-strings">
+    <button class="accordion-header" onclick="toggleAcc('py-strings')">
+      <span style="display:flex;align-items:center;gap:8px"><span>2. Strings &amp; f-strings</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-py-strings">
+      <div class="ybox">Strings are immutable sequences of characters — every method that looks like it "modifies" a string (<code>.upper()</code>, <code>.replace()</code>) actually returns a brand-new string.</div>
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">strings.py</span></div>
+        <div class="code-body">name = <span class="str">"Backend Team"</span>
+<span class="fn">len</span>(name)                 <span class="cmt"># 12 — character count</span>
+name.<span class="fn">upper</span>()               <span class="cmt"># "BACKEND TEAM" — new string, name unchanged</span>
+
+<span class="cmt"># f-strings: embed variables/expressions directly in text</span>
+count = <span class="num">5</span>
+<span class="fn">print</span>(<span class="str">f"{name} has {count} members"</span>)
+<span class="cmt"># Backend Team has 5 members</span></div>
+      </div>
+      <div class="sbox"><strong>f"{...}"</strong> is preferred over <code>"..." + str(x) + "..."</code> concatenation — it's shorter, faster to read, and can hold expressions directly, e.g. <code>f"{count * 2}"</code>.</div>
+    </div>
+  </div>
+
+  <!-- 3. Lists -->
+  <div class="accordion" id="acc-py-lists">
+    <button class="accordion-header" onclick="toggleAcc('py-lists')">
+      <span style="display:flex;align-items:center;gap:8px"><span>3. Lists — Ordered &amp; Mutable</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-py-lists">
+      <div class="hbox">A list keeps items in order and remembers position — that position is what indexing reads. Negative indices count backward from the end, so you never need <code>len(items) - 1</code> just to reach the last element.</div>
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">lists.py</span></div>
+        <div class="code-body">departments = [<span class="str">"Engineering"</span>, <span class="str">"Sales"</span>, <span class="str">"HR"</span>, <span class="str">"Finance"</span>]
+
+departments[<span class="num">0</span>]     <span class="cmt"># "Engineering" — first</span>
+departments[-<span class="num">1</span>]    <span class="cmt"># "Finance" — last, no len() needed</span>
+
+departments.<span class="fn">append</span>(<span class="str">"Marketing"</span>)   <span class="cmt"># add to the end</span>
+departments.<span class="fn">remove</span>(<span class="str">"HR"</span>)          <span class="cmt"># remove the first matching value</span>
+<span class="fn">sorted</span>(departments)              <span class="cmt"># new sorted list (original untouched)</span></div>
+      </div>
+      <div class="tbl-wrap"><table class="bit-table">
+        <thead><tr><th>Call</th><th>Effect</th></tr></thead>
+        <tbody>
+          <tr><td>.append(x)</td><td>add x to the end</td></tr>
+          <tr><td>.pop()</td><td>remove &amp; return the last item</td></tr>
+          <tr><td>.sort()</td><td>sort in place — mutates the list, returns None</td></tr>
+          <tr><td>sorted(list)</td><td>returns a new sorted list — original stays untouched</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- 4. Loops & Conditionals -->
+  <div class="accordion" id="acc-py-loops">
+    <button class="accordion-header" onclick="toggleAcc('py-loops')">
+      <span style="display:flex;align-items:center;gap:8px"><span>4. Loops, Conditionals &amp; "and" vs "&amp;"</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-py-loops">
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">loops.py</span></div>
+        <div class="code-body"><span class="kw">for</span> department <span class="kw">in</span> departments:
+    <span class="fn">print</span>(department, end=<span class="str">" "</span>)   <span class="cmt"># end=" " keeps output on one line</span>
+<span class="fn">print</span>()                            <span class="cmt"># then move to a new line</span>
+
+score = <span class="num">75</span>
+<span class="kw">if</span> score &gt; <span class="num">90</span>:
+    <span class="fn">print</span>(<span class="str">"Excellent"</span>)
+<span class="kw">elif</span> score &gt; <span class="num">50</span>:
+    <span class="fn">print</span>(<span class="str">"Average"</span>)      <span class="cmt"># this branch runs</span>
+<span class="kw">else</span>:
+    <span class="fn">print</span>(<span class="str">"Needs improvement"</span>)</div>
+      </div>
+      <div class="wbox"><strong>and / or</strong> are for normal Python values — they expect exactly one True/False result. <strong>&amp; / |</strong> are the element-by-element versions used on NumPy arrays and Pandas columns, which hold many True/False results at once. Using <code>and</code> on an array throws an error; that gotcha is covered in depth on the NumPy and Pandas cards.</div>
+    </div>
+  </div>
+
+  <!-- 5. Dictionaries -->
+  <div class="accordion" id="acc-py-dict">
+    <button class="accordion-header" onclick="toggleAcc('py-dict')">
+      <span style="display:flex;align-items:center;gap:8px"><span>5. Dictionaries &amp; List of Dictionaries</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-py-dict">
+      <div class="hbox">A dictionary stores <strong>key : value</strong> pairs instead of positions. Reach for a dict when you need to look something up by name rather than by index.</div>
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">dict.py</span></div>
+        <div class="code-body">employee = {<span class="str">"name"</span>: <span class="str">"Asha"</span>, <span class="str">"department"</span>: <span class="str">"Engineering"</span>, <span class="str">"salary"</span>: <span class="num">85000</span>}
+
+employee[<span class="str">"salary"</span>]         <span class="cmt"># 85000</span>
+<span class="str">"salary"</span> <span class="kw">in</span> employee    <span class="cmt"># True — checks the keys</span>
+employee.<span class="fn">pop</span>(<span class="str">"salary"</span>)     <span class="cmt"># removes that key, returns its value</span>
+
+<span class="kw">for</span> key, value <span class="kw">in</span> employee.<span class="fn">items</span>():
+    <span class="fn">print</span>(<span class="str">f"{key}: {value}"</span>)</div>
+      </div>
+      <div class="sbox"><strong>List of dictionaries</strong> is the important combination — a list of <code>{"name": ..., "department": ..., "salary": ...}</code> records is exactly what a table of rows looks like in plain Python, and it's exactly what <code>pd.DataFrame(rows)</code> expects as input on the Pandas card.</div>
+    </div>
+  </div>
+
+  <!-- 6. Functions -->
+  <div class="accordion" id="acc-py-func">
+    <button class="accordion-header" onclick="toggleAcc('py-func')">
+      <span style="display:flex;align-items:center;gap:8px"><span>6. Functions &amp; return</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-py-func">
+      <div class="ybox">A function packages reusable logic behind a name. <code>return</code> sends a value back to the caller and immediately exits the function — code written after a <code>return</code> in the same branch never runs.</div>
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">functions.py</span></div>
+        <div class="code-body"><span class="kw">def</span> <span class="fn">classify_salary</span>(salary):
+    <span class="kw">if</span> salary &gt; <span class="num">100000</span>:
+        <span class="kw">return</span> <span class="str">"High"</span>
+    <span class="kw">elif</span> salary &gt; <span class="num">60000</span>:
+        <span class="kw">return</span> <span class="str">"Mid"</span>
+    <span class="kw">return</span> <span class="str">"Entry"</span>
+
+<span class="kw">def</span> <span class="fn">average</span>(values):
+    total = <span class="num">0</span>
+    <span class="kw">for</span> value <span class="kw">in</span> values:
+        total += value
+    <span class="kw">return</span> total / <span class="fn">len</span>(values)</div>
+      </div>
+      <div class="wbox"><strong>Common mistake:</strong> if <code>records</code> is a list of dictionaries, <code>total += record</code> raises a TypeError — you can't add a dict to a number. It has to be <code>total += record["salary"]</code>, pulling out the field you actually want to sum.</div>
+    </div>
+  </div>
+
+  <!-- 7. List comprehension -->
+  <div class="accordion" id="acc-py-comp">
+    <button class="accordion-header" onclick="toggleAcc('py-comp')">
+      <span style="display:flex;align-items:center;gap:8px"><span>7. List Comprehension</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-py-comp">
+      <div class="hbox">Pattern: <code>[what_you_want for item in collection if condition]</code>. It's a loop and an <code>if</code> compressed onto one line — same result, less scaffolding.</div>
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">comprehension.py</span></div>
+        <div class="code-body"><span class="cmt"># written as a loop</span>
+result = []
+<span class="kw">for</span> record <span class="kw">in</span> records:
+    <span class="kw">if</span> record[<span class="str">"department"</span>] == <span class="str">"Engineering"</span>:
+        result.<span class="fn">append</span>(record[<span class="str">"name"</span>])
+
+<span class="cmt"># same thing, as a comprehension</span>
+result = [r[<span class="str">"name"</span>] <span class="kw">for</span> r <span class="kw">in</span> records <span class="kw">if</span> r[<span class="str">"department"</span>] == <span class="str">"Engineering"</span>]</div>
+      </div>
+      <div class="sbox">Reach for this when the loop body is just "collect one thing per item, maybe filtered" — anything with multiple statements per iteration is clearer as a normal loop.</div>
+    </div>
+  </div>
+
+  <!-- Quick Revision -->
+  <div class="accordion" id="acc-py-qrev">
+    <button class="accordion-header" onclick="toggleAcc('py-qrev')">
+      <span style="display:flex;align-items:center;gap:8px"><span>Quick Revision Cheatsheet</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-py-qrev">
+      <div class="qrev-card"><span class="qrev-key">type(x)</span><span class="qrev-val">tells you x's current type — Python is dynamically typed</span></div>
+      <div class="qrev-card"><span class="qrev-key">Mutable vs immutable</span><span class="qrev-val">list/dict mutate in place · str/int/bool always make a new object</span></div>
+      <div class="qrev-card"><span class="qrev-key">f"{...}"</span><span class="qrev-val">embed variables/expressions directly into a string</span></div>
+      <div class="qrev-card"><span class="qrev-key">items[-1]</span><span class="qrev-val">last item — no len(items)-1 needed</span></div>
+      <div class="qrev-card"><span class="qrev-key">and vs &amp;</span><span class="qrev-val">and = one True/False (normal values) · &amp; = element-by-element (arrays/Series)</span></div>
+      <div class="qrev-card"><span class="qrev-key">dict.items()</span><span class="qrev-val">loop through key + value together</span></div>
+      <div class="qrev-card"><span class="qrev-key">List of dicts</span><span class="qrev-val">Python's version of a table of rows — feeds directly into pd.DataFrame()</span></div>
+      <div class="qrev-card"><span class="qrev-key">List comprehension</span><span class="qrev-val">[expr for item in collection if condition]</span></div>
+    </div>
+  </div>
+
+</div>
+`;
+
+const NUMPY_CONTENT = `
+<div class="content-area">
+
+  <div style="background:rgba(14,165,233,0.07);border:1px solid rgba(14,165,233,0.2);border-radius:10px;padding:13px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.7;color:var(--text2)">
+    <strong style="color:#0ea5e9">Interview scope</strong> — Creating arrays, indexing/slicing 2D arrays, statistics with the <code>axis</code> parameter, boolean masking, and <code>.copy()</code> vs. shared references.
+  </div>
+  <div style="background:rgba(14,165,233,0.04);border:1px solid rgba(14,165,233,0.13);border-radius:10px;padding:13px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.7;color:var(--text2)">
+    <strong style="color:#0ea5e9">Why this matters</strong> — Any time a problem is "do this same numeric operation across a lot of values," a plain Python loop is slow and verbose. NumPy pushes that loop down into fast, compiled code and lets you write the operation once, on the whole array.<br><br>
+    <strong style="color:#0ea5e9">When to use it</strong> — Reach for NumPy for numeric arrays/matrices — element-wise math, filtering by a condition, row/column statistics. For labeled tables with mixed column types, that's the Pandas card.
+  </div>
+
+  <!-- 1. Why NumPy -->
+  <div class="accordion" id="acc-np-why">
+    <button class="accordion-header" onclick="toggleAcc('np-why')">
+      <span style="display:flex;align-items:center;gap:8px"><span>1. Why NumPy — Vectorized Operations</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-np-why">
+      <div class="hbox" style="border-left-color:#0ea5e9">A NumPy array applies an operation to <strong>every value at once</strong> — a plain Python list does not; it just does whatever list semantics say instead.</div>
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">why_numpy.py</span></div>
+        <div class="code-body"><span class="kw">import</span> numpy <span class="kw">as</span> np
+
+salaries_list = [<span class="num">50000</span>, <span class="num">60000</span>, <span class="num">70000</span>]
+salaries_list * <span class="num">2</span>          <span class="cmt"># [50000,60000,70000,50000,60000,70000] — repeats the list!</span>
+
+salaries = np.<span class="fn">array</span>(salaries_list)
+salaries * <span class="num">2</span>               <span class="cmt"># [100000 120000 140000] — multiplies every value</span></div>
+      </div>
+      <div class="wbox">This is the single most common "wait, why didn't that work" moment switching from lists to arrays: <code>*</code> on a list repeats it; <code>*</code> on an array is element-wise math. Same operator, different type, different meaning.</div>
+    </div>
+  </div>
+
+  <!-- 2. Creating & indexing -->
+  <div class="accordion" id="acc-np-index">
+    <button class="accordion-header" onclick="toggleAcc('np-index')">
+      <span style="display:flex;align-items:center;gap:8px"><span>2. Creating Arrays &amp; Indexing</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-np-index">
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">create_index.py</span></div>
+        <div class="code-body">ages = np.<span class="fn">array</span>([<span class="num">24</span>, <span class="num">31</span>, <span class="num">29</span>, <span class="num">45</span>, <span class="num">36</span>])
+
+ages[<span class="num">0</span>]        <span class="cmt"># 24 — first</span>
+ages[-<span class="num">1</span>]       <span class="cmt"># 36 — last</span>
+ages + <span class="num">1</span>       <span class="cmt"># every value + 1 (a birthday for everyone)</span>
+np.<span class="fn">mean</span>(ages)  <span class="cmt"># 33.0</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. 2D arrays -->
+  <div class="accordion" id="acc-np-2d">
+    <button class="accordion-header" onclick="toggleAcc('np-2d')">
+      <span style="display:flex;align-items:center;gap:8px"><span>3. 2D Arrays — Shape &amp; Indexing</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-np-2d">
+      <div class="ybox">Think of a 2D array as a matrix — rows and columns. <code>.shape</code> reports <code>(rows, columns)</code>, and indexing takes <code>[row, column]</code> instead of one flat position.</div>
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">2d_arrays.py</span></div>
+        <div class="code-body">scores = np.<span class="fn">array</span>([
+    [<span class="num">85</span>, <span class="num">90</span>, <span class="num">78</span>],   <span class="cmt"># student 0's 3 test scores</span>
+    [<span class="num">70</span>, <span class="num">88</span>, <span class="num">95</span>],   <span class="cmt"># student 1's 3 test scores</span>
+    [<span class="num">60</span>, <span class="num">75</span>, <span class="num">80</span>],   <span class="cmt"># student 2's 3 test scores</span>
+])
+
+scores.shape      <span class="cmt"># (3, 3) -&gt; 3 rows, 3 columns</span>
+scores[<span class="num">1</span>, <span class="num">2</span>]     <span class="cmt"># 95 -&gt; row 1, column 2</span>
+scores[-<span class="num">1</span>, -<span class="num">1</span>]   <span class="cmt"># 80 -&gt; last row, last column</span></div>
+      </div>
+      <p class="section-label">Slicing patterns</p>
+      <div class="tbl-wrap"><table class="bit-table">
+        <thead><tr><th>Slice</th><th>Meaning</th></tr></thead>
+        <tbody>
+          <tr><td>scores[0:2, :]</td><td>first 2 rows, all columns</td></tr>
+          <tr><td>scores[:, 0:2]</td><td>all rows, first 2 columns</td></tr>
+          <tr><td>scores[1:3, 1:3]</td><td>a 2×2 block from the middle</td></tr>
+          <tr><td>scores[:, -1]</td><td>last column, every row</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- 4. Statistics & axis -->
+  <div class="accordion" id="acc-np-axis">
+    <button class="accordion-header" onclick="toggleAcc('np-axis')">
+      <span style="display:flex;align-items:center;gap:8px"><span>4. Statistics &amp; the axis Parameter</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-np-axis">
+      <div class="hbox" style="border-left-color:#0ea5e9"><code>np.mean/max/min/sum</code> collapse the whole array to one number by default. <code>axis</code> tells it which direction to collapse <em>along</em> instead, leaving one result per row or per column.</div>
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">axis.py</span></div>
+        <div class="code-body">np.<span class="fn">mean</span>(scores)             <span class="cmt"># one number — average of all 9 scores</span>
+np.<span class="fn">mean</span>(scores, axis=<span class="num">0</span>)   <span class="cmt"># [71.67 84.33 84.33] — average PER COLUMN (per test)</span>
+np.<span class="fn">mean</span>(scores, axis=<span class="num">1</span>)   <span class="cmt"># [84.33 84.33 71.67] — average PER ROW (per student)</span></div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-name">MEMORY TRICK</div>
+        <div class="formula-val">axis=0 → collapses DOWN the rows → one result per column</div>
+        <div class="formula-desc">axis=1 → collapses ACROSS the columns → one result per row. The number is which direction gets squashed, not which direction the answer lines up along.</div>
+      </div>
+      <div style="background:rgba(14,165,233,0.06);border:1px solid rgba(14,165,233,0.15);border-radius:8px;padding:12px 14px;font-size:12.5px;margin-top:8px">
+        <strong style="color:#0ea5e9">Q: I want "average score per student" — is that axis=0 or axis=1?</strong><br>
+        <span style="color:var(--text2)">axis=1. Each student is a row, so averaging "across the columns, per row" is exactly axis=1. If instead you wanted "average per test" (each test is a column), that's axis=0.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Boolean filtering -->
+  <div class="accordion" id="acc-np-filter">
+    <button class="accordion-header" onclick="toggleAcc('np-filter')">
+      <span style="display:flex;align-items:center;gap:8px"><span>5. Boolean Masking &amp; Filtering</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-np-filter">
+      <div class="hbox" style="border-left-color:#0ea5e9"><code>scores &gt; 80</code> doesn't filter anything by itself — it builds a same-shaped array of True/False. Passing that mask back into <code>scores[mask]</code> is the step that actually keeps the matching values.</div>
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">boolean_mask.py</span></div>
+        <div class="code-body">scores &gt; <span class="num">80</span>                     <span class="cmt"># array of True/False, same shape as scores</span>
+scores[scores &gt; <span class="num">80</span>]              <span class="cmt"># flat array of only the matching values</span>
+np.<span class="fn">sum</span>(scores &gt; <span class="num">80</span>)             <span class="cmt"># count of matches — True behaves like 1, False like 0</span>
+np.<span class="fn">mean</span>(scores[scores &gt; <span class="num">80</span>])   <span class="cmt"># average of just the matching values</span>
+
+<span class="cmt"># multiple conditions — wrap EACH side in parentheses</span>
+(scores &gt;= <span class="num">70</span>) &amp; (scores &lt;= <span class="num">90</span>)</div>
+      </div>
+      <div class="wbox">Normal Python's <code>and</code>/<code>or</code> expect a single True/False, so they can't be used on an array that holds many at once — use <code>&amp;</code> / <code>|</code> instead, and always parenthesize each condition: <code>scores &gt;= 70 &amp; scores &lt;= 90</code> without parentheses breaks due to operator precedence.</div>
+    </div>
+  </div>
+
+  <!-- 6. copy() -->
+  <div class="accordion" id="acc-np-copy">
+    <button class="accordion-header" onclick="toggleAcc('np-copy')">
+      <span style="display:flex;align-items:center;gap:8px"><span>6. .copy() vs. Shared References</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-np-copy">
+      <div class="ybox">Assigning one array to a new name doesn't duplicate it — both names point at the same data. <code>.copy()</code> is what actually creates an independent array.</div>
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">copy.py</span></div>
+        <div class="code-body">a = np.<span class="fn">array</span>([<span class="num">10</span>, <span class="num">20</span>, <span class="num">30</span>])
+
+b = a                    <span class="cmt"># NOT a copy — same underlying array</span>
+b[<span class="num">0</span>] = <span class="num">999</span>
+<span class="fn">print</span>(a)              <span class="cmt"># [999 20 30] — a changed too!</span>
+
+c = a.<span class="fn">copy</span>()          <span class="cmt"># independent array</span>
+c[<span class="num">0</span>] = <span class="num">1</span>
+<span class="fn">print</span>(a)              <span class="cmt"># [999 20 30] — untouched this time</span></div>
+      </div>
+      <div class="sbox">This is a real, easy-to-hit bug: passing an array into a function and mutating it there silently changes the caller's array too, unless <code>.copy()</code> was used first.</div>
+    </div>
+  </div>
+
+  <!-- Quick revision -->
+  <div class="accordion" id="acc-np-qrev">
+    <button class="accordion-header" onclick="toggleAcc('np-qrev')">
+      <span style="display:flex;align-items:center;gap:8px"><span>Quick Revision Cheatsheet</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-np-qrev">
+      <div class="qrev-card"><span class="qrev-key">array * n</span><span class="qrev-val">element-wise multiply (list * n just repeats the list)</span></div>
+      <div class="qrev-card"><span class="qrev-key">.shape</span><span class="qrev-val">(rows, columns) for a 2D array</span></div>
+      <div class="qrev-card"><span class="qrev-key">axis=0 / axis=1</span><span class="qrev-val">0 → per-column result · 1 → per-row result</span></div>
+      <div class="qrev-card"><span class="qrev-key">arr[mask]</span><span class="qrev-val">arr > x builds True/False → arr[that] keeps only the True values</span></div>
+      <div class="qrev-card"><span class="qrev-key">and vs &amp;</span><span class="qrev-val">and/or = one True/False · &amp;/| = element-by-element, always parenthesized</span></div>
+      <div class="qrev-card"><span class="qrev-key">.copy()</span><span class="qrev-val">independent array, instead of a second name for the same one</span></div>
+    </div>
+  </div>
+
+</div>
+`;
+
+const PANDAS_CONTENT = `
+<div class="content-area">
+
+  <div style="background:rgba(245,158,11,0.07);border:1px solid rgba(245,158,11,0.2);border-radius:10px;padding:13px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.7;color:var(--text2)">
+    <strong style="color:#f59e0b">Interview scope</strong> — DataFrame vs Series, iloc vs loc, filtering rows, creating columns, sorting, missing data, and groupby/agg — the operations that come up whenever a dataset needs to be explored or cleaned.
+  </div>
+  <div style="background:rgba(245,158,11,0.04);border:1px solid rgba(245,158,11,0.13);border-radius:10px;padding:13px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.7;color:var(--text2)">
+    <strong style="color:#f59e0b">Why this matters</strong> — Real-world data rarely arrives as a clean numeric array — it's a table with named columns, missing values, and mixed types. Pandas is what makes that table easy to filter, clean and summarize without writing manual loops.<br><br>
+    <strong style="color:#f59e0b">When to use it</strong> — Anything that looks like rows and named columns (a CSV of records, exported spreadsheet data) belongs in a DataFrame. Pure numeric arrays/matrices are what the NumPy card covers instead.
+  </div>
+
+  <!-- 1. DataFrame & Series -->
+  <div class="accordion" id="acc-pd-df">
+    <button class="accordion-header" onclick="toggleAcc('pd-df')">
+      <span style="display:flex;align-items:center;gap:8px"><span>1. DataFrame &amp; Series</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-pd-df">
+      <div class="hbox" style="border-left-color:#f59e0b">A <strong>DataFrame</strong> is a table: rows + named columns. A single column pulled out of it is a <strong>Series</strong>. A list of dictionaries — one dict per row — converts directly into a DataFrame.</div>
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">dataframe.py</span></div>
+        <div class="code-body"><span class="kw">import</span> pandas <span class="kw">as</span> pd
+
+records = [
+    {<span class="str">"id"</span>: <span class="str">"E01"</span>, <span class="str">"department"</span>: <span class="str">"Engineering"</span>, <span class="str">"salary"</span>: <span class="num">85000</span>},
+    {<span class="str">"id"</span>: <span class="str">"E02"</span>, <span class="str">"department"</span>: <span class="str">"Sales"</span>,       <span class="str">"salary"</span>: <span class="num">62000</span>},
+    {<span class="str">"id"</span>: <span class="str">"E03"</span>, <span class="str">"department"</span>: <span class="str">"Engineering"</span>, <span class="str">"salary"</span>: <span class="num">91000</span>},
+]
+
+df = pd.<span class="fn">DataFrame</span>(records)
+df[<span class="str">"salary"</span>]      <span class="cmt"># one column -> a Series</span>
+df[[<span class="str">"id"</span>, <span class="str">"salary"</span>]]   <span class="cmt"># multiple columns -> a DataFrame</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Inspecting -->
+  <div class="accordion" id="acc-pd-inspect">
+    <button class="accordion-header" onclick="toggleAcc('pd-inspect')">
+      <span style="display:flex;align-items:center;gap:8px"><span>2. Inspecting a DataFrame</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-pd-inspect">
+      <div class="tbl-wrap"><table class="bit-table">
+        <thead><tr><th>Call</th><th>What it tells you</th></tr></thead>
+        <tbody>
+          <tr><td>df.shape</td><td>(rows, columns)</td></tr>
+          <tr><td>df.columns</td><td>the column names</td></tr>
+          <tr><td>df.head() / df.tail()</td><td>first / last 5 rows (or pass a number)</td></tr>
+          <tr><td>df.info()</td><td>row/column counts, non-null counts, dtype per column</td></tr>
+          <tr><td>df.describe()</td><td>count/mean/std/min/25%/50%/75%/max for numeric columns</td></tr>
+        </tbody>
+      </table></div>
+      <div class="wbox">Call <code>df.info()</code> on its own line, not <code>print(df.info())</code> — <code>info()</code> already prints the summary itself and returns <code>None</code>, so wrapping it in <code>print()</code> prints a stray <code>None</code> right after.</div>
+    </div>
+  </div>
+
+  <!-- 3. Selecting: iloc vs loc -->
+  <div class="accordion" id="acc-pd-loc">
+    <button class="accordion-header" onclick="toggleAcc('pd-loc')">
+      <span style="display:flex;align-items:center;gap:8px"><span>3. Selecting Rows — iloc vs loc</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-pd-loc">
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">iloc_loc.py</span></div>
+        <div class="code-body">df.iloc[<span class="num">0</span>]                  <span class="cmt"># row at POSITION 0</span>
+df.iloc[<span class="num">0</span>:<span class="num">2</span>]                <span class="cmt"># first two rows, by position</span>
+
+df.loc[<span class="num">1</span>]                    <span class="cmt"># row whose LABEL is 1</span>
+df.loc[<span class="num">1</span>, <span class="str">"department"</span>]     <span class="cmt"># row 1, department column</span>
+df.loc[<span class="num">1</span>, <span class="str">"department"</span>] = <span class="str">"Sales"</span>   <span class="cmt"># write into that cell</span></div>
+      </div>
+      <div class="tbl-wrap"><table class="bit-table">
+        <thead><tr><th>Accessor</th><th>Uses</th></tr></thead>
+        <tbody>
+          <tr><td>iloc</td><td>integer position — iloc[0] is always the first row</td></tr>
+          <tr><td>loc</td><td>row/column label — loc[1] is the row labeled 1</td></tr>
+        </tbody>
+      </table></div>
+      <div style="background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.18);border-radius:8px;padding:12px 14px;font-size:12.5px">
+        <strong style="color:#f59e0b">Q: Aren't iloc and loc the same thing?</strong><br>
+        <span style="color:var(--text2)">On a fresh DataFrame with a default index (0,1,2,...) they look identical. They diverge the moment the index stops matching position — after a sort, a filter, or a custom index — where iloc still means "position" and loc still means "that exact label."</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Filtering -->
+  <div class="accordion" id="acc-pd-filter">
+    <button class="accordion-header" onclick="toggleAcc('pd-filter')">
+      <span style="display:flex;align-items:center;gap:8px"><span>4. Filtering Rows &amp; Multiple Conditions</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-pd-filter">
+      <div class="hbox" style="border-left-color:#f59e0b">Pattern: <code>df[condition]</code>. <code>df["salary"] &gt; 70000</code> builds a True/False Series; <code>df[that Series]</code> keeps only the rows where it's True.</div>
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">filter.py</span></div>
+        <div class="code-body">df[df[<span class="str">"department"</span>] == <span class="str">"Engineering"</span>]
+df[df[<span class="str">"salary"</span>] &gt; <span class="num">70000</span>]
+
+<span class="cmt"># multiple conditions — each in parentheses, joined with &amp; / |</span>
+df[(df[<span class="str">"salary"</span>] &gt; <span class="num">70000</span>) &amp; (df[<span class="str">"department"</span>] == <span class="str">"Engineering"</span>)]
+
+<span class="cmt"># filter, then pull out just one column from the result</span>
+df[df[<span class="str">"salary"</span>] &gt; <span class="num">70000</span>][<span class="str">"id"</span>]</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-name">& / | / ~ vs and / or / not</div>
+        <div class="formula-val">Pandas &amp; NumPy: &amp; = AND, | = OR, ~ = NOT</div>
+        <div class="formula-desc">Normal Python: and / or / not — those expect one True/False, not a whole column of them.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Columns & sorting -->
+  <div class="accordion" id="acc-pd-columns">
+    <button class="accordion-header" onclick="toggleAcc('pd-columns')">
+      <span style="display:flex;align-items:center;gap:8px"><span>5. Creating Columns &amp; Sorting</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-pd-columns">
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">columns_sort.py</span></div>
+        <div class="code-body">df[<span class="str">"currency"</span>] = <span class="str">"USD"</span>                    <span class="cmt"># same value in every row</span>
+df[<span class="str">"salary_after_bonus"</span>] = df[<span class="str">"salary"</span>] * <span class="num">1.1</span>   <span class="cmt"># calculated per row</span>
+
+df.sort_values(<span class="str">"salary"</span>)                     <span class="cmt"># ascending (default)</span>
+df.sort_values(<span class="str">"salary"</span>, ascending=<span class="kw">False</span>)   <span class="cmt"># descending</span>
+
+<span class="cmt"># sort by department desc, then salary asc WITHIN each department</span>
+df.sort_values([<span class="str">"department"</span>, <span class="str">"salary"</span>], ascending=[<span class="kw">False</span>, <span class="kw">True</span>])</div>
+      </div>
+      <div class="wbox"><strong>Careful with spelling:</strong> <code>df["deprtment"] = "X"</code> doesn't fix <code>department</code> — Pandas silently creates a brand-new column with that typo'd name. If <code>df.columns</code> looks longer than expected, that's usually why. Remove the mistake with <code>df = df.drop(columns="deprtment")</code>.</div>
+    </div>
+  </div>
+
+  <!-- 6. Missing data -->
+  <div class="accordion" id="acc-pd-missing">
+    <button class="accordion-header" onclick="toggleAcc('pd-missing')">
+      <span style="display:flex;align-items:center;gap:8px"><span>6. Missing Data — isna(), dropna(), fillna()</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-pd-missing">
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">missing.py</span></div>
+        <div class="code-body">df.isna()             <span class="cmt"># WHERE are the missing values? (True/False grid)</span>
+df.isna().sum()        <span class="cmt"># HOW MANY missing values per column?</span>
+
+df = df.dropna()                        <span class="cmt"># delete rows with any missing value</span>
+df[<span class="str">"department"</span>] = df[<span class="str">"department"</span>].fillna(<span class="str">"Unknown"</span>)  <span class="cmt"># replace instead</span></div>
+      </div>
+      <div class="tbl-wrap"><table class="bit-table">
+        <thead><tr><th>Method</th><th>Does</th></tr></thead>
+        <tbody>
+          <tr><td>df.isna()</td><td>find where values are missing, across the whole table</td></tr>
+          <tr><td>df.dropna()</td><td>delete rows that have missing data</td></tr>
+          <tr><td>df.fillna(x)</td><td>replace missing data with x instead of deleting rows</td></tr>
+        </tbody>
+      </table></div>
+      <div class="wbox"><code>dropna()</code> and <code>fillna()</code> return a new DataFrame by default — they don't change <code>df</code> in place. Reassign it: <code>df = df.dropna()</code>.</div>
+    </div>
+  </div>
+
+  <!-- 7. groupby & agg -->
+  <div class="accordion" id="acc-pd-groupby">
+    <button class="accordion-header" onclick="toggleAcc('pd-groupby')">
+      <span style="display:flex;align-items:center;gap:8px"><span>7. groupby() &amp; agg() — Split, Apply, Combine</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-pd-groupby">
+      <div class="hbox" style="border-left-color:#f59e0b"><code>groupby()</code> splits rows into groups by a column's value (<em>split</em>), a calculation runs on each group separately (<em>apply</em>), and the results come back as one row per group (<em>combine</em>).</div>
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">groupby.py</span></div>
+        <div class="code-body">df.groupby(<span class="str">"department"</span>)[<span class="str">"salary"</span>].mean()   <span class="cmt"># average salary, per department</span>
+df.groupby(<span class="str">"department"</span>)[<span class="str">"salary"</span>].max()
+df.groupby(<span class="str">"department"</span>)[<span class="str">"salary"</span>].count()
+
+<span class="cmt"># agg() -- multiple stats in one call. Use a LIST, not a tuple.</span>
+df.groupby(<span class="str">"department"</span>)[<span class="str">"salary"</span>].agg([<span class="str">"mean"</span>, <span class="str">"max"</span>, <span class="str">"min"</span>, <span class="str">"count"</span>])</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. Files -->
+  <div class="accordion" id="acc-pd-io">
+    <button class="accordion-header" onclick="toggleAcc('pd-io')">
+      <span style="display:flex;align-items:center;gap:8px"><span>8. Reading &amp; Writing Files</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-pd-io">
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">io.py</span></div>
+        <div class="code-body">df = pd.read_csv(<span class="str">"employees.csv"</span>)
+df = pd.read_csv(<span class="str">"employees.tsv"</span>, sep=<span class="str">"\\t"</span>)   <span class="cmt"># tab-separated</span>
+
+df.to_csv(<span class="str">"output.csv"</span>, index=<span class="kw">False</span>)   <span class="cmt"># index=False -- skip writing row numbers</span></div>
+      </div>
+      <div class="sbox">Once loaded, the standard first move on any new dataset is: <code>head()</code> → <code>shape</code> → <code>columns</code> → <code>info()</code> — look before you filter, sort or group anything.</div>
+    </div>
+  </div>
+
+  <!-- Quick revision -->
+  <div class="accordion" id="acc-pd-qrev">
+    <button class="accordion-header" onclick="toggleAcc('pd-qrev')">
+      <span style="display:flex;align-items:center;gap:8px"><span>Quick Revision Cheatsheet</span></span>
+      <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="accordion-body" id="body-pd-qrev">
+      <div class="qrev-card"><span class="qrev-key">DataFrame vs Series</span><span class="qrev-val">whole table vs. one column</span></div>
+      <div class="qrev-card"><span class="qrev-key">iloc vs loc</span><span class="qrev-val">iloc = position · loc = label</span></div>
+      <div class="qrev-card"><span class="qrev-key">df[mask]</span><span class="qrev-val">df["col"] > x builds True/False → df[that] keeps the True rows</span></div>
+      <div class="qrev-card"><span class="qrev-key">& / | / ~</span><span class="qrev-val">AND / OR / NOT for Series — always parenthesize each condition</span></div>
+      <div class="qrev-card"><span class="qrev-key">dropna vs fillna</span><span class="qrev-val">dropna() deletes rows · fillna() replaces values</span></div>
+      <div class="qrev-card"><span class="qrev-key">info() not print(info())</span><span class="qrev-val">info() already prints and returns None</span></div>
+      <div class="qrev-card"><span class="qrev-key">groupby + agg</span><span class="qrev-val">df.groupby("col")["val"].agg(["mean","max","min"]) — list, not tuple</span></div>
+      <div class="qrev-card"><span class="qrev-key">Standard workflow</span><span class="qrev-val">read_csv → head/shape/info → clean → filter → sort → group → to_csv</span></div>
+    </div>
+  </div>
+
+</div>
+`;
+
 function getContent(topic) {
   if (topic.id === 'bit-manipulation') return BIT_MANIPULATION_CONTENT;
   if (topic.id === 'html-css') return HTML_CSS_CONTENT;
@@ -9008,6 +9872,7 @@ function getContent(topic) {
   if (topic.id === 'projects') return PROJECTS_CONTENT;
   if (topic.id === 'built-in-functions') return BUILT_IN_FUNCTIONS_CONTENT;
   if (topic.id === 'dbms') return DBMS_CONTENT;
+  if (topic.id === 'sdlc') return SDLC_CONTENT;
   if (topic.id === 'operating-systems') return OS_CONTENT;
   if (topic.id === 'computer-networks') return CN_CONTENT;
   if (topic.id === 'git') return GIT_CONTENT;
@@ -9020,6 +9885,9 @@ function getContent(topic) {
   if (topic.id === 'spring-mvc') return SPRING_MVC_CONTENT;
   if (topic.id === 'spring-boot') return SPRING_BOOT_CONTENT;
   if (topic.id === 'interview-questions') return INTERVIEW_QUESTIONS_CONTENT;
+  if (topic.id === 'python-fundamentals') return PYTHON_FUNDAMENTALS_CONTENT;
+  if (topic.id === 'numpy-basics') return NUMPY_CONTENT;
+  if (topic.id === 'pandas-basics') return PANDAS_CONTENT;
   return renderCookingState(topic);
 }
 
@@ -9061,6 +9929,7 @@ function renderCookingState(topic) {
 
 /* ── Per-topic SVG icon map (Lucide/Phosphor style) ── */
 const TOPIC_ICONS = {
+  'sdlc':               `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><polyline points="21 3 21 9 15 9"/></svg>`,
   'maven':              `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 8v8l9 5 9-5V8z"/><path d="M3 8l9 5 9-5"/><path d="M12 13v8"/></svg>`,
   'arrays':             `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="3" height="8" rx="1"/><rect x="8" y="5" width="3" height="14" rx="1"/><rect x="13" y="8" width="3" height="8" rx="1"/><rect x="18" y="6" width="3" height="12" rx="1"/></svg>`,
   'graphs':             `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="5" cy="12" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="19" cy="19" r="2"/><circle cx="12" cy="12" r="2"/><line x1="7" y1="12" x2="10" y2="12"/><line x1="14" y1="12" x2="17" y2="11"/><line x1="14" y1="13" x2="17" y2="18"/></svg>`,
@@ -9092,6 +9961,9 @@ const TOPIC_ICONS = {
   'apis-http':          `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>`,
   'jdbc':               `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><ellipse cx="12" cy="7" rx="8" ry="3"/><path d="M4 7v5c0 1.66 3.58 3 8 3s8-1.34 8-3V7"/><path d="M4 12v5c0 1.66 3.58 3 8 3s8-1.34 8-3v-5"/></svg>`,
   'interview-questions':`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg>`,
+  'python-fundamentals':`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><path d="M8 8h8v8H8z"/></svg>`,
+  'numpy-basics':       `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>`,
+  'pandas-basics':      `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/></svg>`,
 };
 
 /* Per-topic accent colors — only 5% saturation, just a tint */
@@ -9130,42 +10002,30 @@ function getAccent(id) {
 
 function renderCard(topic) {
   const cat = CATEGORIES[topic.category];
-  const accent = getAccent(topic.id);
   const svgIcon = TOPIC_ICONS[topic.id];
 
   return `
   <div class="card" id="card-${topic.id}" data-category="${topic.category}" data-name="${topic.name.toLowerCase()}"
-    style="cursor:pointer;--card-color:${accent.color};--card-glow:${accent.glow};position:relative" onclick="toggleExpand('${topic.id}')">
-    <!-- Accent top border stripe -->
-    <div style="height:2px;background:linear-gradient(90deg,${accent.color},transparent 70%);opacity:0.7"></div>
-    <div style="padding:18px 20px 20px">
+    style="cursor:pointer;position:relative" onclick="toggleExpand('${topic.id}')" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleExpand('${topic.id}')}">
+    ${topic.isNew ? `<span class="new-ribbon">New</span>` : ''}
+    <div style="padding:18px 20px 16px">
       <!-- Top row -->
-      <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:16px">
-        <div style="display:flex;align-items:center;gap:12px">
-          <div class="icon-box" style="
-            background:${accent.color}12;
-            border:1px solid ${accent.color}28;
-            color:${accent.color};
-            box-shadow:0 0 20px ${accent.glow}, 0 0 8px ${accent.glow};
-          ">
-            ${svgIcon}
-          </div>
-          <div>
-            <h3 style="font-size:14px;font-weight:700;color:var(--nb-text);margin-bottom:3px">${topic.name}</h3>
-            <span class="cat-badge" style="background:${cat.color}15;color:${cat.color};border:1px solid ${cat.color}22">${cat.label}</span>
-          </div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+        <div class="icon-box">${svgIcon}</div>
+        <div style="min-width:0">
+          <h3 style="font-size:15px;font-weight:700;color:var(--nb-text);margin-bottom:4px;line-height:1.3">${topic.name}</h3>
+          <span class="cat-badge">${cat.label}</span>
         </div>
       </div>
-
-      <!-- Open indicator -->
-      <div class="expand-btn" style="pointer-events:none;justify-content:space-between">
-        ${topic.hasContent
-          ? `<span style="color:var(--nb-text2);font-weight:500;font-size:11px;letter-spacing:0.02em">Has content</span>`
-          : `<span class="cooking-pill"><span class="cooking-dot"></span>In progress</span>`}
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
-      </div>
     </div>
-    <div class="card-bottom-bar"></div>
+    <div class="card-divider"></div>
+    <!-- Status row -->
+    <div class="card-status-row">
+      ${topic.hasContent
+        ? `<span class="status-pill status-pill-done"><span class="status-pill-dot"></span>Has content</span>`
+        : `<span class="status-pill status-pill-wip"><span class="status-pill-dot"></span>In progress</span>`}
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--nb-text2)"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+    </div>
   </div>`;
 }
 

@@ -87,26 +87,37 @@
 
 <!-- Sidebar -->
 <nav class="sidebar" id="sidebar">
-  <div style="padding:24px 16px 16px">
-    <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
-      <!-- Plain wordmark — no background, no button feel -->
-      <span class="vault-title-plain">Knowledge Vault</span>
-      <!-- Dedicated icon-only theme toggle -->
-      <button type="button" class="sidebar-theme-btn" id="headerThemeToggle" onclick="toggleTheme()" title="Toggle light/dark mode" aria-label="Toggle light and dark theme">
-        <svg class="htt-sun" id="httSun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="5"/>
-          <line x1="12" y1="1" x2="12" y2="3"/>
-          <line x1="12" y1="21" x2="12" y2="23"/>
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-          <line x1="1" y1="12" x2="3" y2="12"/>
-          <line x1="21" y1="12" x2="23" y2="12"/>
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-        </svg>
-        <svg class="htt-moon" id="httMoon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-        </svg>
+  <div style="padding:22px 16px 16px">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px">
+      <!-- Stacked two-line wordmark — no monogram badge -->
+      <div class="vault-lockup">
+        <span class="vault-lockup-text">
+          <span class="vault-lockup-name">Knowledge</span>
+          <span class="vault-lockup-name">Vault</span>
+        </span>
+      </div>
+      <!-- Theme toggle — sliding switch, sun/moon on either end of the track -->
+      <button type="button" class="theme-switch" id="headerThemeToggle" onclick="toggleTheme()" title="Toggle light/dark mode" aria-label="Toggle light and dark theme">
+        <span class="theme-switch-track">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </span>
+        <span class="theme-switch-thumb">
+          <svg class="htt-sun" id="httSun" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <svg class="htt-moon" id="httMoon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </span>
       </button>
     </div>
   </div>
@@ -257,24 +268,24 @@
           <a class="tdp-item" href="#" data-cat="all" onclick="selectTopicsDropdown('all');return false"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>All Topics</a>
 
           <div class="tdp-group-label">DSA</div>
-          <a class="tdp-item" href="#" data-cat="dsa" onclick="selectTopicsDropdown('dsa');return false"><span class="nav-dot" style="background:#6366f1"></span>Data Structures &amp; Algo</a>
+          <a class="tdp-item" href="#" data-cat="dsa" onclick="selectTopicsDropdown('dsa');return false"><span class="nav-dot"></span>Data Structures &amp; Algo</a>
 
           <div class="tdp-group-label">Backend</div>
-          <a class="tdp-item" href="#" data-cat="backend" onclick="selectTopicsDropdown('backend');return false"><span class="nav-dot" style="background:#f59e0b"></span>Java &amp; Backend</a>
-          <a class="tdp-item" href="#" data-cat="frameworks" onclick="selectTopicsDropdown('frameworks');return false"><span class="nav-dot" style="background:#22c55e"></span>Frameworks</a>
+          <a class="tdp-item" href="#" data-cat="backend" onclick="selectTopicsDropdown('backend');return false"><span class="nav-dot"></span>Java &amp; Backend</a>
+          <a class="tdp-item" href="#" data-cat="frameworks" onclick="selectTopicsDropdown('frameworks');return false"><span class="nav-dot"></span>Frameworks</a>
 
           <div class="tdp-group-label">Infrastructure</div>
-          <a class="tdp-item" href="#" data-cat="devops" onclick="selectTopicsDropdown('devops');return false"><span class="nav-dot" style="background:#0ea5e9"></span>DevOps</a>
-          <a class="tdp-item" href="#" data-cat="database" onclick="selectTopicsDropdown('database');return false"><span class="nav-dot" style="background:#10b981"></span>Databases</a>
-          <a class="tdp-item" href="#" data-cat="cs-fundamentals" onclick="selectTopicsDropdown('cs-fundamentals');return false"><span class="nav-dot" style="background:#ef4444"></span>CS Fundamentals</a>
+          <a class="tdp-item" href="#" data-cat="devops" onclick="selectTopicsDropdown('devops');return false"><span class="nav-dot"></span>DevOps</a>
+          <a class="tdp-item" href="#" data-cat="database" onclick="selectTopicsDropdown('database');return false"><span class="nav-dot"></span>Databases</a>
+          <a class="tdp-item" href="#" data-cat="cs-fundamentals" onclick="selectTopicsDropdown('cs-fundamentals');return false"><span class="nav-dot"></span>CS Fundamentals</a>
 
           <div class="tdp-group-label">Other</div>
-          <a class="tdp-item" href="#" data-cat="frontend" onclick="selectTopicsDropdown('frontend');return false"><span class="nav-dot" style="background:#eab308"></span>Frontend</a>
-          <a class="tdp-item" href="#" data-cat="ai" onclick="selectTopicsDropdown('ai');return false"><span class="nav-dot" style="background:#a855f7"></span>AI Concepts</a>
-          <a class="tdp-item" href="#" data-cat="apis" onclick="selectTopicsDropdown('apis');return false"><span class="nav-dot" style="background:#f43f5e"></span>APIs &amp; HTTP</a>
+          <a class="tdp-item" href="#" data-cat="frontend" onclick="selectTopicsDropdown('frontend');return false"><span class="nav-dot"></span>Frontend</a>
+          <a class="tdp-item" href="#" data-cat="ai" onclick="selectTopicsDropdown('ai');return false"><span class="nav-dot"></span>AI Concepts</a>
+          <a class="tdp-item" href="#" data-cat="apis" onclick="selectTopicsDropdown('apis');return false"><span class="nav-dot"></span>APIs &amp; HTTP</a>
 
           <div class="tdp-group-label">Interview Prep</div>
-          <a class="tdp-item" href="#" data-cat="interview" onclick="selectTopicsDropdown('interview');return false"><span class="nav-dot" style="background:#fbbf24"></span>Interview Questions</a>
+          <a class="tdp-item" href="#" data-cat="interview" onclick="selectTopicsDropdown('interview');return false"><span class="nav-dot"></span>Interview Questions</a>
         </div>
         <div class="topics-dropdown-backdrop" id="topicsDropdownBackdrop" onclick="closeTopicsDropdown()"></div>
       </div>

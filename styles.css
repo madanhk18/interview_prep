@@ -95,23 +95,48 @@ body.light-mode .tbl-wrap { border-color:rgba(0,0,0,0.08); }
 body.light-mode .bit-table th { background:rgba(37,99,235,0.10); border-color:rgba(37,99,235,0.18); }
 body.light-mode .bit-table td { border-color:rgba(0,0,0,0.06); color:rgba(0,0,0,0.72); }
 body.light-mode .bit-table tr:hover td { background:rgba(0,0,0,0.03); }
-/* "Knowledge Vault" sidebar heading — plain wordmark, no button/box
-   feel. Theme toggle lives in its own separate icon button. */
-.vault-title-plain {
-  flex: 0 1 auto; min-width: 0;
-  font-family: 'Anton', sans-serif;
-  font-size: 19px;
-  font-weight: 400;
-  letter-spacing: 0.03em;
-  line-height: 1.2;
-  color: var(--text);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+/* "Knowledge Vault" sidebar mark — seal (monogram badge) + two-line
+   wordmark lockup, in place of a plain text heading. Monochrome. */
+.vault-lockup {
+  display: flex; align-items: center; gap: 10px;
+  min-width: 0; flex: 1 1 auto; overflow: hidden;
 }
-.sidebar-theme-btn .htt-sun { color: #f5b942; }
-.sidebar-theme-btn .htt-moon { color: #8ab4ff; }
-.sidebar-theme-btn:hover svg { transform: rotate(20deg); }
+.vault-lockup-text {
+  display: flex; flex-direction: column; min-width: 0; line-height: 0.98;
+}
+.vault-lockup-name {
+  font-family: 'Anton', sans-serif;
+  font-size: 24px; font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--text);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.vault-lockup-name + .vault-lockup-name { margin-top: 2px; opacity: 0.45; }
+
+/* ── SLIDING THEME SWITCH ── */
+.theme-switch {
+  position: relative; flex-shrink: 0;
+  width: 50px; height: 27px; padding: 0;
+  border-radius: 99px; cursor: pointer;
+  background: var(--nb-bg); border: 2px solid var(--nb-border);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.theme-switch-track {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 6px; color: var(--nb-text2); pointer-events: none;
+}
+.theme-switch-thumb {
+  position: absolute; top: 1px; left: 1px;
+  width: 19px; height: 19px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--nb-avatar-bg); color: var(--nb-avatar-text);
+  transition: transform 0.3s cubic-bezier(.34,1.3,.64,1);
+}
+body.light-mode .theme-switch-thumb { transform: translateX(0); }
+body:not(.light-mode) .theme-switch-thumb { transform: translateX(23px); }
+.theme-switch:hover .theme-switch-thumb { filter: brightness(1.1); }
+.theme-switch:active .theme-switch-thumb { filter: brightness(0.95); }
 
 
 
@@ -480,50 +505,58 @@ body::before{
   border:1px solid rgba(255,255,255,0.07);
 }
 
-/* Ultra-Premium Liquid Glass card */
+/* Monochrome neo-brutalist card */
 .card{
   position:relative;
   background: var(--nb-bg);
-  border-radius:18px;
+  border-radius:16px;
   overflow:hidden;
   contain: layout style paint;
   will-change: transform;
-  transition:transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+  transition:transform 0.16s cubic-bezier(.25,0,.15,1), box-shadow 0.16s cubic-bezier(.25,0,.15,1), background 0.2s ease, border-color 0.2s ease;
   border:2px solid var(--nb-border);
   -webkit-tap-highlight-color: transparent;
   outline:none;
   user-select:none;
-  box-shadow:5px 5px 0 var(--nb-shadow);
+  box-shadow:4px 4px 0 var(--nb-shadow);
 }
-/* Prismatic specular shimmer — removed for the flat neo-brutalist look */
 .card::before{ content:none; }
-/* Edge refraction band — removed for the flat neo-brutalist look */
-.card::after{ content:none; }
+/* Full-perimeter hover outline — traces the whole card, not just one
+   edge. Sits just inside the card's own border and fades in on hover. */
+.card::after{
+  content:'';
+  position:absolute; inset:0;
+  border-radius:inherit;
+  border:2px solid var(--nb-border);
+  opacity:0; pointer-events:none;
+  transition:opacity 0.2s ease;
+  z-index:2;
+}
 @media (hover:hover) and (pointer:fine){
 .card:hover{
-  transform:translate(-2px,-2px);
+  transform:translate(-3px,-3px);
   background: var(--nb-hover-bg);
   box-shadow:7px 7px 0 var(--nb-shadow);
 }
+.card:hover::after{ opacity:1; }
 }
+.card:focus-visible{
+  transform:translate(-3px,-3px);
+  box-shadow:7px 7px 0 var(--nb-shadow), 0 0 0 2px var(--accent);
+}
+.card:focus-visible::after{ opacity:1; }
+.card:active{ transform:translate(0,0); box-shadow:2px 2px 0 var(--nb-shadow); }
 .card > *{position:relative;z-index:1}
 
-/* Bottom accent bar — sits flush against the card's bottom edge and
-   fills in from the center outward on hover, the same "underline lights
-   up" transformation used for the highlighted card in the reference
-   screenshot. Uses one consistent accent blue across every card rather
-   than each topic's own color, so the hover state reads as one unified
-   interaction instead of a different color per card. */
-.card-bottom-bar{
-  position:absolute; left:0; right:0; bottom:0; height:3px;
-  background:var(--accent);
-  transform:scaleX(0);
-  transform-origin:center;
-  transition:transform 0.45s cubic-bezier(.25,0,.15,1);
-  z-index:2; pointer-events:none;
-}
-@media (hover:hover) and (pointer:fine){
-  .card:hover .card-bottom-bar{ transform:scaleX(1); }
+/* Hairline divider between the identity block (icon/title/badge) and
+   the status row — replaces the old colored top stripe / bottom accent
+   bar so the card's only "line of color" is gone; structure alone
+   separates the two zones. */
+.card-divider{ height:1px; background:var(--nb-border); opacity:0.5; }
+
+.card-status-row{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:12px 20px 14px;
 }
 
 /* Sidebar */
@@ -554,13 +587,13 @@ body::before{
   background:rgba(59,130,246,0.15);color:#fff;
   border-color:rgba(59,130,246,0.25);
 }
-.nav-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
-
-/* Category badge */
+/* Category badge — monochrome outline pill, text carries the info */
 .cat-badge{
   display:inline-flex;align-items:center;gap:4px;
-  padding:2px 9px;border-radius:99px;font-size:11px;font-weight:600;
-  letter-spacing:0.02em;
+  padding:2px 9px;border-radius:99px;font-size:10.5px;font-weight:600;
+  letter-spacing:0.03em;
+  background:var(--nb-pill-bg);color:var(--nb-pill-text);
+  border:1px solid var(--nb-pill-border);
 }
 
 /* Status badge */
@@ -571,6 +604,30 @@ body::before{
 .status-done{background:rgba(16,185,129,0.12);color:#10b981;border:1px solid rgba(16,185,129,0.22)}
 .status-wip{background:rgba(59,130,246,0.12);color:#22d3ee;border:1px solid rgba(59,130,246,0.22)}
 .status-todo{background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.38);border:1px solid rgba(255,255,255,0.07)}
+
+/* Card status row pills — monochrome; filled dot = has content,
+   pulsing outline dot = in progress. Color-free status signal. */
+.status-pill{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:11px;font-weight:600;letter-spacing:0.02em;
+  color:var(--nb-text2);
+}
+.status-pill-dot{
+  width:6px;height:6px;border-radius:50%;flex-shrink:0;
+  background:var(--nb-text2);
+}
+.status-pill-done .status-pill-dot{ background:var(--nb-text); }
+.status-pill-wip{ color:var(--nb-text2); }
+.status-pill-wip .status-pill-dot{
+  background:transparent; border:1.5px solid var(--nb-text2);
+  box-shadow:0 0 0 0 var(--nb-pill-border);
+  animation:statusPillPulse 1.8s ease-out infinite;
+}
+@keyframes statusPillPulse{
+  0%   { box-shadow:0 0 0 0 var(--nb-pill-border); }
+  70%  { box-shadow:0 0 0 5px transparent; }
+  100% { box-shadow:0 0 0 0 transparent; }
+}
 
 /* Topic grid */
 .topics-grid{
@@ -812,22 +869,15 @@ body.light-mode .search-dropdown {
 .topics-dropdown-wrap.open .topics-dropdown-btn svg.chev{transform:rotate(180deg)}
 
 .topics-dropdown-panel{
-  position:absolute;top:calc(100% - 2px);right:10px;min-width:240px;
-  background:rgba(16,16,17,0.97);
-  border:1px solid rgba(59,130,246,0.25);
+  position:absolute;top:calc(100% + 8px);right:10px;min-width:240px;
+  background:var(--nb-bg);
+  border:2px solid var(--nb-border);
   border-radius:14px;
-  box-shadow:0 20px 60px rgba(0,0,0,0.6), 0 0 0 0.5px rgba(59,130,246,0.15);
-  backdrop-filter:blur(24px) saturate(180%);
-  -webkit-backdrop-filter:blur(24px) saturate(180%);
+  box-shadow:4px 4px 0 var(--nb-shadow);
   z-index:9999;padding:8px;display:none;
   max-height:70vh;overflow-y:auto;
 }
 .topics-dropdown-panel.visible{display:block}
-body.light-mode .topics-dropdown-panel{
-  background:rgba(245,245,246,0.97);
-  border-color:rgba(37,99,235,0.20);
-  box-shadow:0 20px 60px rgba(0,0,0,0.16), 0 0 0 0.5px rgba(37,99,235,0.12);
-}
 .tdp-group-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--text3);padding:10px 10px 4px}
 .tdp-group-label:first-child{padding-top:6px}
 .tdp-panel-header{display:none}
@@ -877,14 +927,19 @@ body.light-mode .tdp-close-btn{background:rgba(0,0,0,0.05);border-color:rgba(0,0
 @keyframes tdpSlideUp{from{transform:translateY(28px);opacity:0}to{transform:translateY(0);opacity:1}}
 .tdp-item{
   display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:9px;
-  font-size:13px;font-weight:500;color:rgba(255,255,255,0.65);cursor:pointer;
+  font-size:13px;font-weight:500;color:var(--nb-text2);cursor:pointer;
   text-decoration:none;transition:all 0.15s;
 }
-.tdp-item:hover{background:rgba(255,255,255,0.06);color:#fff}
-.tdp-item.active{background:rgba(59,130,246,0.18);color:#fff}
-body.light-mode .tdp-item{color:rgba(0,0,0,0.60)}
-body.light-mode .tdp-item:hover{background:rgba(0,0,0,0.05);color:rgba(0,0,0,0.85)}
-body.light-mode .tdp-item.active{background:rgba(37,99,235,0.14);color:#1b1b20}
+.tdp-item:hover{background:var(--nb-pill-bg);color:var(--nb-text)}
+.tdp-item.active{background:var(--nb-avatar-bg);color:var(--nb-avatar-text);font-weight:700}
+.tdp-item.active .nav-dot{background:var(--nb-avatar-text);border-color:var(--nb-avatar-text)}
+
+/* Category dot — plain outlined ring, no per-category color; the label
+   text alone tells you which category, consistent with the cards. */
+.nav-dot{
+  width:6px;height:6px;border-radius:50%;flex-shrink:0;
+  background:transparent;border:1.5px solid var(--nb-text2);
+}
 
 /* Bookmarks (sidebar) */
 .bookmark-item{
@@ -1081,16 +1136,21 @@ body.light-mode .search-results-header { border-bottom-color: rgba(0,0,0,0.06); 
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:rgba(59,130,246,0.25);border-radius:99px}
 
-/* Icon box */
+/* Icon box — monochrome tile, no per-topic color */
 .icon-box{
-  width:44px;height:44px;border-radius:50%;
+  width:42px;height:42px;border-radius:10px;
   display:flex;align-items:center;justify-content:center;flex-shrink:0;
-  font-size:20px;
-  transition: box-shadow 0.35s, transform 0.35s;
+  font-size:19px;
+  background:var(--nb-pill-bg);
+  border:1px solid var(--nb-pill-border);
+  color:var(--nb-text);
+  transition: transform 0.25s cubic-bezier(.25,0,.15,1), background 0.2s ease, border-color 0.2s ease;
 }
 @media (hover:hover) and (pointer:fine){
 .card:hover .icon-box {
-  transform: scale(1.12);
+  transform: scale(1.06);
+  background:var(--nb-avatar-bg);
+  color:var(--nb-avatar-text);
 }
 }
 
@@ -1186,7 +1246,8 @@ body.light-mode .sidebar-toggle-btn:hover {
 
 @media(max-width:480px){
   .main{padding:16px 14px 80px !important}
-  .card{padding:14px !important}
+  .card > div:first-child{padding:14px 14px 12px !important}
+  .card-status-row{padding:10px 14px 12px !important}
 }
 
 /* Slightly larger subsection (accordion) rows on mobile — the compact
@@ -1567,3 +1628,13 @@ body.light-mode .sidebar-empty-state{
 }
 .ses-title{ font-size:13px; font-weight:700; color:var(--text2); }
 .ses-desc{ font-size:11.5px; line-height:1.6; color:var(--text3); max-width:190px; }
+
+/* ── "New" ribbon badge for freshly-added topic cards — solid ink pill,
+   no color, so it still reads as a badge without breaking monochrome ── */
+.new-ribbon{
+  position:absolute; top:10px; right:10px; z-index:2;
+  font-size:9.5px; font-weight:800; letter-spacing:0.08em; text-transform:uppercase;
+  padding:3px 9px; border-radius:99px;
+  background:var(--nb-avatar-bg); color:var(--nb-avatar-text);
+  border:1px solid var(--nb-border);
+}
