@@ -351,7 +351,20 @@ const LINKED_LIST_CONTENT = `
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-ll-odd-even">
-      <div class="hbox"><strong>Goal:</strong> Group all odd-indexed nodes first, then all even-indexed nodes. Indices are 1-based. Must be done <strong>in-place in O(1) space and O(n) time</strong>.</div>
+      <p class="section-label">Problem Statement</p>
+      <div class="prob-box"><p>Given the <strong>head</strong> of a singly linked list, put all nodes at <strong>odd positions</strong> (1st, 3rd, 5th, …) first, followed by all nodes at <strong>even positions</strong> (2nd, 4th, …). Keep the original order inside each group. Positions are counted from 1 (not by node value). Do it <strong>in-place</strong> — O(n) time and O(1) extra space.</p></div>
+
+      <p class="section-label">Example</p>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>head = 1 → 2 → 3 → 4 → 5</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>1 → 3 → 5 → 2 → 4</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">Odd positions hold 1, 3, 5; even positions hold 2, 4. Odd group comes first, then even group.</span></div>
+      </div>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>head = 2 → 1 → 3 → 5 → 6 → 4 → 7</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>2 → 3 → 6 → 7 → 1 → 5 → 4</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">Grouping is by position, not by value — values 2, 3, 6, 7 sit at positions 1, 3, 5, 7.</span></div>
+      </div>
       <p class="section-label">Intuition</p>
       <div class="ybox">Maintain four pointers: <code>oddHead</code>, <code>odd</code>, <code>evenHead</code>, <code>even</code>. Each iteration, skip one node in the odd chain and one in the even chain. At end, connect odd tail → evenHead.</div>
       <p class="section-label">Java Code</p>
@@ -375,6 +388,18 @@ const LINKED_LIST_CONTENT = `
     <span class="kw">return</span> oddHead;
 }</div>
       </div>
+
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li><code>if (head == null) return head;</code> — empty list — nothing to rearrange.</li>
+        <li><code>oddHead = head, odd = head</code> — the 1st node starts the odd chain. <code>oddHead</code> remembers its start so we can return it.</li>
+        <li><code>evenHead = head.next, even = head.next</code> — the 2nd node starts the even chain. <code>evenHead</code> is saved because we must attach it at the end.</li>
+        <li><code>while (even != null &amp;&amp; even.next != null)</code> — keep going while there is at least one more odd node after the current even node.</li>
+        <li><code>odd.next = odd.next.next</code> — odd node jumps over the even node and links to the next odd node.</li>
+        <li><code>even.next = even.next.next</code> — even node jumps over the odd node and links to the next even node.</li>
+        <li><code>odd = odd.next; even = even.next</code> — move both pointers forward to the newly linked nodes.</li>
+        <li><code>odd.next = evenHead; return oddHead;</code> — join the end of the odd chain to the start of the even chain and return the new list.</li>
+      </ol>
       <div class="tbl-wrap"><table class="bit-table">
         <thead><tr><th>Input</th><th>Output</th></tr></thead>
         <tbody>
@@ -396,7 +421,20 @@ const LINKED_LIST_CONTENT = `
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-ll-012">
-      <div class="hbox"><strong>Goal:</strong> Sort a linked list containing only 0, 1, and 2 without using extra space for a new list. Dutch National Flag variant for linked lists.</div>
+      <p class="section-label">Problem Statement</p>
+      <div class="prob-box"><p>Given the <strong>head</strong> of a linked list where every node holds only <strong>0</strong>, <strong>1</strong> or <strong>2</strong>, rearrange the nodes so all 0s come first, then all 1s, then all 2s. Do not create a new list of nodes — just relink the existing ones (a linked-list version of the Dutch National Flag problem).</p></div>
+
+      <p class="section-label">Example</p>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>head = 1 → 2 → 0 → 1 → 0</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>0 → 0 → 1 → 1 → 2</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">Two 0s, two 1s and one 2, placed in sorted order.</span></div>
+      </div>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>head = 2 → 0 → 2</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>0 → 2 → 2</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">There are no 1s, so the 0 list must connect straight to the 2 list.</span></div>
+      </div>
       <p class="section-label">Approach — Three Dummy Heads</p>
       <div class="ybox">Create three dummy nodes: <code>zeroHead</code>, <code>oneHead</code>, <code>twoHead</code>. Traverse and append each node to the matching list. Finally chain: zero list → one list → two list.</div>
       <p class="section-label">Java Code</p>
@@ -427,6 +465,18 @@ const LINKED_LIST_CONTENT = `
     <span class="kw">return</span> zeroHead.next;
 }</div>
       </div>
+
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li><code>zeroHead, oneHead, twoHead = new Node(-1)</code> — three dummy (placeholder) nodes, one for each value. They give every list a fixed starting point, so we never have to check "is this list empty?".</li>
+        <li><code>zero, one, two</code> — tail pointers — always point to the last node added to each list.</li>
+        <li><code>while (temp != null)</code> — walk through the original list one node at a time.</li>
+        <li><code>if (temp.data == 0) { zero.next = temp; zero = temp; }</code> — attach the node to the end of the matching list (0, 1 or 2) and move that list's tail forward.</li>
+        <li><code>zero.next = (oneHead.next != null) ? oneHead.next : twoHead.next;</code> — join the 0 list to the 1 list. If there are no 1s, join it directly to the 2 list.</li>
+        <li><code>one.next = twoHead.next;</code> — join the 1 list to the 2 list.</li>
+        <li><code>two.next = null;</code> — end the final list, so no old link leaves a loop.</li>
+        <li><code>return zeroHead.next;</code> — skip the dummy node and return the real first node.</li>
+      </ol>
       <div class="sbox"><strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(1) — only 3 dummy nodes used regardless of input size.</div>
     </div>
   </div>
@@ -441,7 +491,20 @@ const LINKED_LIST_CONTENT = `
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-ll-remove-nth">
-      <div class="hbox"><strong>Goal:</strong> Remove the Nth node from the end of the list in <strong>one pass</strong>.</div>
+      <p class="section-label">Problem Statement</p>
+      <div class="prob-box"><p>Given the <strong>head</strong> of a linked list and a number <strong>k</strong>, remove the <strong>k-th node counting from the end</strong> and return the head of the updated list. Try to do it in <strong>one pass</strong> (without first counting the length).</p></div>
+
+      <p class="section-label">Example</p>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>head = 1 → 2 → 3 → 4 → 5, k = 2</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>1 → 2 → 3 → 5</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">Counting from the end: 5 is 1st, 4 is 2nd. So node 4 is removed.</span></div>
+      </div>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>head = 1 → 2, k = 2</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>2</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">The 2nd node from the end is the head itself, so the new head is the 2nd node.</span></div>
+      </div>
       <p class="section-label">Two Pointer Trick</p>
       <div class="ybox">Advance <code>fast</code> exactly <strong>k steps</strong> ahead. If <code>fast</code> becomes null, the head itself is the target — return <code>head.next</code>. Otherwise move both <code>slow</code> and <code>fast</code> until <code>fast.next == null</code>. Now <code>slow</code> sits just before the target — skip it.</div>
       <p class="section-label">Java Code</p>
@@ -467,6 +530,17 @@ const LINKED_LIST_CONTENT = `
     <span class="kw">return</span> head;
 }</div>
       </div>
+
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li><code>for (int i = 0; i &lt; k; i++) fast = fast.next;</code> — move <code>fast</code> k steps ahead. Now there is a gap of k nodes between the start and <code>fast</code>.</li>
+        <li><code>if (fast == null) return head.next;</code> — if <code>fast</code> fell off the list, the list has exactly k nodes, so the node to remove is the head. Return the second node.</li>
+        <li><code>Node slow = head;</code> — <code>slow</code> starts at the head, k nodes behind <code>fast</code>.</li>
+        <li><code>while (fast.next != null)</code> — move both pointers one step at a time until <code>fast</code> is on the last node.</li>
+        <li><code>slow = slow.next; fast = fast.next;</code> — the gap stays k, so when <code>fast</code> is at the last node, <code>slow</code> is right <strong>before</strong> the node to delete.</li>
+        <li><code>slow.next = slow.next.next;</code> — skip over the target node — it is now unlinked from the list.</li>
+        <li><code>return head;</code> — the head did not change, so return it.</li>
+      </ol>
       <div class="tbl-wrap"><table class="bit-table">
         <thead><tr><th>List</th><th>N</th><th>Result</th></tr></thead>
         <tbody>
@@ -474,7 +548,7 @@ const LINKED_LIST_CONTENT = `
           <tr><td>1</td><td>1</td><td>[]</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox"><strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(1) — dummy node handles edge case of deleting head.</div>
+      <div class="sbox"><strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(1) — the <code>fast == null</code> check handles the edge case of deleting the head.</div>
     </div>
   </div>
 
@@ -488,7 +562,20 @@ const LINKED_LIST_CONTENT = `
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-ll-reverse">
-      <div class="hbox"><strong>Goal:</strong> Reverse the direction of all next pointers in-place.</div>
+      <p class="section-label">Problem Statement</p>
+      <div class="prob-box"><p>Given the <strong>head</strong> of a singly linked list, reverse the list so the last node becomes the first, and return the <strong>new head</strong>. Do it in-place by changing the <code>next</code> pointers — no new nodes.</p></div>
+
+      <p class="section-label">Example</p>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>head = 1 → 2 → 3 → 4 → 5</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>5 → 4 → 3 → 2 → 1</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">Every arrow is flipped, so 5 is now the head and 1 is the tail.</span></div>
+      </div>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>head = 7</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>7</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">A single node (or an empty list) is already reversed.</span></div>
+      </div>
       <p class="section-label">Iterative (3-pointer) Approach</p>
       <div class="ybox">Keep track of <code>prev</code>, <code>curr</code>, <code>next</code>. At each step: save next, flip pointer, advance both pointers forward.</div>
       <p class="section-label">Java Code — Iterative</p>
@@ -509,6 +596,16 @@ const LINKED_LIST_CONTENT = `
     <span class="kw">return</span> prev;               <span class="cmt">// prev is new head</span>
 }</div>
       </div>
+
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li><code>if (head == null || head.next == null) return head;</code> — 0 or 1 node — nothing to reverse.</li>
+        <li><code>prev = null, cur = head</code> — <code>prev</code> is the part already reversed (empty at the start). <code>cur</code> is the node we are working on.</li>
+        <li><code>Node next = cur.next;</code> — save the rest of the list first, because the next line breaks this link.</li>
+        <li><code>cur.next = prev;</code> — flip the arrow: the current node now points backwards.</li>
+        <li><code>prev = cur; cur = next;</code> — move both pointers one step forward.</li>
+        <li><code>return prev;</code> — when <code>cur</code> becomes null, <code>prev</code> is the old last node — the new head.</li>
+      </ol>
       <p class="section-label">Java Code — Recursive</p>
       <div class="code-block">
         <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">ReverseList Recursive</span></div>
@@ -520,6 +617,15 @@ const LINKED_LIST_CONTENT = `
     <span class="kw">return</span> newHead;
 }</div>
       </div>
+
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li><code>if (head == null || head.next == null) return head;</code> — base case: the last node is returned — it will become the new head.</li>
+        <li><code>Node newHead = reverseLL(head.next);</code> — trust the recursion to reverse everything after <code>head</code>. Example: for 1 → 2 → 3, this call turns 2 → 3 into 3 → 2.</li>
+        <li><code>head.next.next = head;</code> — <code>head.next</code> (node 2) is now the tail of the reversed part, so make it point back to <code>head</code> (node 1).</li>
+        <li><code>head.next = null;</code> — cut the old forward link, so <code>head</code> becomes the new tail.</li>
+        <li><code>return newHead;</code> — the same new head (the old last node) is passed all the way up.</li>
+      </ol>
       <div class="sbox">Iterative: O(n) time, O(1) space &nbsp;|&nbsp; Recursive: O(n) time, O(n) stack space.</div>
     </div>
   </div>
@@ -534,7 +640,20 @@ const LINKED_LIST_CONTENT = `
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-ll-add-one">
-      <div class="hbox"><strong>Goal:</strong> A number is stored digit-by-digit in a linked list (most significant digit first). Add 1 and return the result as a linked list.</div>
+      <p class="section-label">Problem Statement</p>
+      <div class="prob-box"><p>A non-negative number is stored in a linked list, <strong>one digit per node</strong>, with the <strong>most significant digit at the head</strong> (e.g. 123 is 1 → 2 → 3). Add <strong>1</strong> to the number and return the head of the resulting list.</p></div>
+
+      <p class="section-label">Example</p>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>head = 1 → 2 → 3</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>1 → 2 → 4</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">123 + 1 = 124. Only the last digit changes.</span></div>
+      </div>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>head = 9 → 9 → 9</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>1 → 0 → 0 → 0</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">999 + 1 = 1000. The carry passes through every digit, so a new node 1 is added in front.</span></div>
+      </div>
 
       <p class="section-label">Approach — Recursive</p>
       <div class="ybox">Recurse all the way to the <strong>last node</strong> (base case → return carry = 1). On the way back up (stack unwinding), add carry to the current node's data. If <code>sum ≥ 10</code>, set <code>node.data = sum % 10</code> and propagate <code>carry = 1</code> up. After recursion, if carry is still 1, prepend a new node with value 1 (e.g. 999 + 1 = 1000).</div>
@@ -572,6 +691,17 @@ const LINKED_LIST_CONTENT = `
     }
 }</div>
       </div>
+
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li><code>if (node == null) return 1;</code> — we went past the last digit. Returning 1 is the "+1" we want to add — it acts as the first carry.</li>
+        <li><code>int carry = helper(node.next);</code> — go to the end of the list first. Digits are processed from right to left as the calls return.</li>
+        <li><code>int sum = node.data + carry;</code> — add the carry coming from the digit on the right.</li>
+        <li><code>node.data = sum % 10;</code> — keep only the last digit (10 becomes 0).</li>
+        <li><code>return sum / 10;</code> — pass the carry (0 or 1) to the digit on the left.</li>
+        <li><code>int carry = helper(head);</code> — in <code>addOne</code>, start the process from the head.</li>
+        <li><code>if (carry == 1) { newNode … head = newNode; }</code> — if a carry is still left after the first digit (all digits were 9), add a new node with 1 at the front.</li>
+      </ol>
 
       <p class="section-label">How Recursion Works (Stack Unwinding)</p>
       <div style="background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:8px;padding:13px 15px;margin-bottom:12px;font-size:13px;line-height:1.75;color:var(--text)">
@@ -633,7 +763,20 @@ const LINKED_LIST_CONTENT = `
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-ll-middle">
-      <div class="hbox"><strong>Goal:</strong> Return the middle node. If two middles exist (even length), return the <strong>second</strong> middle.</div>
+      <p class="section-label">Problem Statement</p>
+      <div class="prob-box"><p>Given the <strong>head</strong> of a linked list, return its <strong>middle node</strong>. If the list has an even number of nodes, there are two middles — return the <strong>second</strong> one.</p></div>
+
+      <p class="section-label">Example</p>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>head = 1 → 2 → 3 → 4 → 5</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>3</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">5 nodes — node 3 has two nodes on each side.</span></div>
+      </div>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>head = 1 → 2 → 3 → 4 → 5 → 6</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>4</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">6 nodes — the middles are 3 and 4; we return the second one, 4.</span></div>
+      </div>
       <p class="section-label">Floyd's Slow & Fast Pointer</p>
       <div class="ybox"><code>slow</code> moves 1 step, <code>fast</code> moves 2 steps. When fast reaches the end, slow is at the middle. Simple and elegant.</div>
       <p class="section-label">Java Code</p>
@@ -652,6 +795,15 @@ const LINKED_LIST_CONTENT = `
     <span class="kw">return</span> slow;
 }</div>
       </div>
+
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li><code>fast = head; slow = head;</code> — both pointers start at the first node.</li>
+        <li><code>while (fast != null &amp;&amp; fast.next != null)</code> — stop when <code>fast</code> cannot take two more steps — it has reached the end.</li>
+        <li><code>slow = slow.next;</code> — <code>slow</code> moves 1 step.</li>
+        <li><code>fast = fast.next.next;</code> — <code>fast</code> moves 2 steps, so it covers twice the distance.</li>
+        <li><code>return slow;</code> — when <code>fast</code> is at the end, <code>slow</code> has covered half — it is the middle (the second middle for even length).</li>
+      </ol>
       <div class="tbl-wrap"><table class="bit-table">
         <thead><tr><th>Input</th><th>Length</th><th>Middle</th></tr></thead>
         <tbody>
@@ -673,7 +825,20 @@ const LINKED_LIST_CONTENT = `
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-ll-detect-cycle">
-      <div class="hbox"><strong>Goal:</strong> Return <code>true</code> if the linked list contains a cycle (any node's next points back to a previous node).</div>
+      <p class="section-label">Problem Statement</p>
+      <div class="prob-box"><p>Given the <strong>head</strong> of a linked list, return <code>true</code> if the list has a <strong>cycle</strong> (loop) — meaning some node's <code>next</code> points back to an earlier node, so walking the list never ends. Otherwise return <code>false</code>. Use O(1) extra space.</p></div>
+
+      <p class="section-label">Example</p>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>head = 1 → 2 → 3 → 4 → 5, and 5 points back to 3</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>true</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">After 5 we go back to 3, then 4, 5, 3, … forever — that is a loop.</span></div>
+      </div>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>head = 1 → 2 → 3 → null</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>false</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">The list ends at null, so there is no loop.</span></div>
+      </div>
       <p class="section-label">Floyd's Cycle Detection Algorithm</p>
       <div class="ybox">Slow moves 1 step, fast moves 2 steps. If there's a cycle, fast will eventually lap slow and they will <strong>meet inside the loop</strong>. If fast reaches null → no cycle.</div>
       <p class="section-label">Java Code</p>
@@ -692,6 +857,15 @@ const LINKED_LIST_CONTENT = `
 
 <span class="kw">return false</span>;</div>
       </div>
+
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li><code>fast = head; slow = head;</code> — both pointers start at the head.</li>
+        <li><code>while (fast != null &amp;&amp; fast.next != null)</code> — if <code>fast</code> ever reaches null, the list has an end — so no cycle.</li>
+        <li><code>slow = slow.next; fast = fast.next.next;</code> — <code>slow</code> moves 1 step, <code>fast</code> moves 2 steps.</li>
+        <li><code>if (slow == fast) return true;</code> — inside a loop, <code>fast</code> gains 1 step on <code>slow</code> every round, so it must eventually land on the same node. Meeting = cycle found.</li>
+        <li><code>return false;</code> — the loop ended because <code>fast</code> hit the end — no cycle.</li>
+      </ol>
       <div class="wbox">️ Do NOT use <code>HashSet</code> for this — it uses O(n) space. Floyd's is the optimal O(1) space solution.</div>
       <div class="sbox"><strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(1)</div>
     </div>
@@ -707,7 +881,20 @@ const LINKED_LIST_CONTENT = `
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-ll-loop-length">
-      <div class="hbox"><strong>Goal:</strong> If a cycle exists, return the number of nodes in the cycle (loop length).</div>
+      <p class="section-label">Problem Statement</p>
+      <div class="prob-box"><p>Given the <strong>head</strong> of a linked list, if it has a <strong>cycle</strong>, return the <strong>number of nodes inside the cycle</strong>. If there is no cycle, return <strong>0</strong>.</p></div>
+
+      <p class="section-label">Example</p>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>head = 1 → 2 → 3 → 4 → 5, and 5 points back to 3</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>3</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">The loop is 3 → 4 → 5 → 3, which has 3 nodes.</span></div>
+      </div>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>head = 1 → 2 → 3 → null</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>0</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">No loop exists.</span></div>
+      </div>
       <p class="section-label">Approach</p>
       <div class="ybox">Step 1: Use Floyd's to find the meeting point inside the loop. Step 2: Keep one pointer fixed at the meeting point, move the other around the loop, counting steps until they meet again.</div>
       <p class="section-label">Java Code</p>
@@ -742,6 +929,15 @@ const LINKED_LIST_CONTENT = `
     }
 }</div>
       </div>
+
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li><code>while (fast != null &amp;&amp; fast.next != null) { … }</code> — normal slow/fast cycle check. If they meet, <code>break</code> — both are now on the same node inside the loop.</li>
+        <li><code>if (fast == null || fast.next == null) return 0;</code> — the loop ended because <code>fast</code> hit the end — no cycle, so length is 0.</li>
+        <li><code>int c = 1; fast = fast.next;</code> — keep <code>slow</code> fixed at the meeting point, move <code>fast</code> one step and count it.</li>
+        <li><code>while (fast != slow) { c++; fast = fast.next; }</code> — walk <code>fast</code> around the loop one step at a time, counting, until it comes back to <code>slow</code>.</li>
+        <li><code>return c;</code> — the count is the number of nodes in the loop.</li>
+      </ol>
       <div class="sbox"><strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(1)</div>
     </div>
   </div>
@@ -756,7 +952,20 @@ const LINKED_LIST_CONTENT = `
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-ll-delete-middle">
-      <div class="hbox"><strong>Goal:</strong> Delete the middle node. Middle = ⌊n/2⌋ (0-indexed). For n=5, delete index 2. For n=6, delete index 3.</div>
+      <p class="section-label">Problem Statement</p>
+      <div class="prob-box"><p>Given the <strong>head</strong> of a linked list with <strong>n</strong> nodes, delete the <strong>middle node</strong> and return the head. The middle is at index <strong>⌊n/2⌋</strong> (counting from 0) — for n = 5 delete index 2, for n = 4 delete index 2, for n = 6 delete index 3. If the list has only one node, return an empty list.</p></div>
+
+      <p class="section-label">Example</p>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>head = 1 → 2 → 3 → 4 → 5</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>1 → 2 → 4 → 5</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">n = 5, middle index = 2, which is node 3.</span></div>
+      </div>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>head = 1 → 2 → 3 → 4</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>1 → 2 → 4</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">n = 4, middle index = 2, which is node 3 (the second middle).</span></div>
+      </div>
       <p class="section-label">Slow & Fast Pointer — With Prev Tracking</p>
       <div class="ybox">Track <code>prev</code> pointer one step behind <code>slow</code>. When fast reaches the end, slow is at the middle — do <code>prev.next = slow.next</code> to remove it.</div>
       <p class="section-label">Java Code</p>
@@ -784,6 +993,16 @@ const LINKED_LIST_CONTENT = `
     <span class="kw">return</span> head;
 }</div>
       </div>
+
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li><code>if (head == null || head.next == null) return null;</code> — 0 or 1 node — deleting the middle leaves an empty list.</li>
+        <li><code>prev, front, fast = head, slow = head</code> — <code>prev</code> will be the node before the middle, <code>front</code> the node after it.</li>
+        <li><code>while (fast != null &amp;&amp; fast.next != null)</code> — same slow/fast walk as "find middle".</li>
+        <li><code>prev = slow; slow = slow.next;</code> — remember the old <code>slow</code> before moving it, so <code>prev</code> is always one step behind.</li>
+        <li><code>front = slow.next; fast = fast.next.next;</code> — save the node after <code>slow</code>, and move <code>fast</code> 2 steps.</li>
+        <li><code>prev.next = front;</code> — when the loop ends, <code>slow</code> is the middle. Linking <code>prev</code> to <code>front</code> skips it — deleted.</li>
+      </ol>
       <div class="tbl-wrap"><table class="bit-table">
         <thead><tr><th>Input</th><th>Deleted</th><th>Output</th></tr></thead>
         <tbody>
@@ -805,7 +1024,20 @@ const LINKED_LIST_CONTENT = `
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-ll-cycle-start">
-      <div class="hbox"><strong>Goal:</strong> If a cycle exists, return the node where the cycle begins (entry point of the loop).</div>
+      <p class="section-label">Problem Statement</p>
+      <div class="prob-box"><p>Given the <strong>head</strong> of a linked list, if there is a <strong>cycle</strong>, return the <strong>first node of the cycle</strong> (the node where the loop starts). In this code we return that node's <strong>value</strong>, or <strong>-1</strong> if there is no cycle.</p></div>
+
+      <p class="section-label">Example</p>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>head = 1 → 2 → 3 → 4 → 5, and 5 points back to 3</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>3</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">Walking from the head, node 3 is the first node we visit again — the loop starts there.</span></div>
+      </div>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>head = 1 → 2 → 3 → null</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>-1</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">There is no loop.</span></div>
+      </div>
       <p class="section-label">Floyd's + Reset Trick</p>
       <div class="ybox">After detecting the meeting point with Floyd's: reset <code>slow</code> back to <code>head</code>. Keep <code>fast</code> at the meeting point. Move both <strong>one step at a time</strong> — they will meet exactly at the <strong>cycle start</strong>.</div>
       <p class="section-label">Why This Works</p>
@@ -848,6 +1080,16 @@ const LINKED_LIST_CONTENT = `
     }
 }</div>
       </div>
+
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li><code>if (head == null || head.next == null) return -1;</code> — 0 or 1 node (without a self-loop) cannot form a cycle.</li>
+        <li><code>while (fast != null &amp;&amp; fast.next != null) { … if (slow == fast) break; }</code> — Floyd's check: <code>slow</code> moves 1, <code>fast</code> moves 2. If they meet, a cycle exists.</li>
+        <li><code>if (fast == null || fast.next == null) return -1;</code> — <code>fast</code> reached the end — no cycle.</li>
+        <li><code>slow = head;</code> — send <code>slow</code> back to the head, leave <code>fast</code> at the meeting point.</li>
+        <li><code>while (slow != fast) { slow = slow.next; fast = fast.next; }</code> — now move <b>both</b> one step at a time. Because head-to-start distance equals meeting-point-to-start distance, they meet exactly at the start of the loop.</li>
+        <li><code>return slow.data;</code> — the node where they meet is the cycle start.</li>
+      </ol>
       <div class="sbox"><strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(1) — most asked cycle question in interviews!</div>
     </div>
   </div>
@@ -862,7 +1104,20 @@ const LINKED_LIST_CONTENT = `
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-ll-remove-dup">
-      <div class="hbox"><strong>Goal:</strong> Given a <em>sorted</em> linked list, remove all duplicate nodes so each value appears only once.</div>
+      <p class="section-label">Problem Statement</p>
+      <div class="prob-box"><p>Given the <strong>head</strong> of a <strong>sorted</strong> linked list, delete duplicates so <strong>each value appears only once</strong>, and return the head. <strong>Variant:</strong> remove <em>every</em> node whose value is repeated, keeping only values that appeared exactly once.</p></div>
+
+      <p class="section-label">Example</p>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>head = 1 → 1 → 2 → 3 → 3</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>1 → 2 → 3</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">Keep one copy: the extra 1 and extra 3 are removed.</span></div>
+      </div>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>head = 1 → 1 → 2 → 3 → 3 (variant)</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>2</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">Remove all copies: 1 and 3 are repeated, so all of them go. Only 2 was unique.</span></div>
+      </div>
       <p class="section-label">Approach — Single Pass</p>
       <div class="ybox">Since the list is sorted, duplicates are always adjacent. Walk with <code>curr</code>: while <code>curr.val == curr.next.val</code>, skip next. Otherwise advance <code>curr</code>.</div>
       <p class="section-label">Java Code — Keep One Copy</p>
@@ -884,6 +1139,15 @@ const LINKED_LIST_CONTENT = `
     <span class="kw">return</span> head;
 }</div>
       </div>
+
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li><code>Node temp = head;</code> — start at the first node.</li>
+        <li><code>while (temp != null &amp;&amp; temp.next != null)</code> — we need a next node to compare with.</li>
+        <li><code>if (temp.data == temp.next.data) temp.next = temp.next.next;</code> — the list is sorted, so equal values sit side by side. If the next node is a copy, skip it. Do <b>not</b> move <code>temp</code> yet — the new next might also be a copy.</li>
+        <li><code>else temp = temp.next;</code> — next value is different, so it is safe to move forward.</li>
+        <li><code>return head;</code> — the head never changes (the first copy is always kept).</li>
+      </ol>
       <p class="section-label">Variant — Remove ALL copies of duplicates</p>
       <div class="code-block">
         <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">RemoveAllDuplicates.java</span></div>
@@ -901,6 +1165,16 @@ const LINKED_LIST_CONTENT = `
     <span class="kw">return</span> dummy.next;
 }</div>
       </div>
+
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li><code>dummy.next = head; prev = dummy;</code> — a dummy node before the head — needed because the head itself may be deleted.</li>
+        <li><code>ListNode curr = prev.next;</code> — <code>curr</code> is the first node of the current group of equal values.</li>
+        <li><code>while (curr.next != null &amp;&amp; curr.val == curr.next.val) curr = curr.next;</code> — move <code>curr</code> to the last node of that group.</li>
+        <li><code>if (prev.next == curr) prev = prev.next;</code> — <code>curr</code> did not move, so the value was unique — keep it and move <code>prev</code> forward.</li>
+        <li><code>else prev.next = curr.next;</code> — the value repeated — link <code>prev</code> past the whole group, removing every copy.</li>
+        <li><code>return dummy.next;</code> — return the real head (it may be different from the original head).</li>
+      </ol>
       <div class="tbl-wrap"><table class="bit-table">
         <thead><tr><th>Input</th><th>Keep One</th><th>Remove All</th></tr></thead>
         <tbody>
@@ -922,7 +1196,20 @@ const LINKED_LIST_CONTENT = `
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-ll-palindrome">
-      <div class="hbox"><strong>Goal:</strong> Check if a singly linked list is a palindrome. Must be done in <strong>O(n) time</strong> and <strong>O(1) extra space</strong> — no array copying allowed.</div>
+      <p class="section-label">Problem Statement</p>
+      <div class="prob-box"><p>Given the <strong>head</strong> of a singly linked list, check whether it is a <strong>palindrome</strong> — it reads the same forwards and backwards. Do it in <strong>O(n) time</strong> and <strong>O(1) extra space</strong> (no copying values into an array). In this code, a palindrome returns <code>head</code>; otherwise it prints "Not a Palindrome" and returns <code>null</code>.</p></div>
+
+      <p class="section-label">Example</p>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>head = 1 → 2 → 3 → 2 → 1</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>Palindrome (returns head)</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">Forwards: 1 2 3 2 1. Backwards: 1 2 3 2 1 — same.</span></div>
+      </div>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>head = 1 → 2 → 3 → 4 → 5</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>Not a Palindrome (returns null)</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">First value 1 does not match last value 5.</span></div>
+      </div>
 
       <p class="section-label">Intuition — 3-Step Approach</p>
       <div class="ybox" style="margin-bottom:10px">
@@ -968,6 +1255,18 @@ const LINKED_LIST_CONTENT = `
     <span class="kw">return</span> head;
 }</div>
       </div>
+
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li><code>if (head == null || head.next == null) return head;</code> — 0 or 1 node is always a palindrome.</li>
+        <li><code>while (fast.next != null &amp;&amp; fast.next.next != null)</code> — slow moves 1, fast moves 2. This condition stops <code>slow</code> at the <b>end of the first half</b>.</li>
+        <li><code>Node secHead = reverseLL(slow.next);</code> — the second half starts at <code>slow.next</code>. Reverse it so we can read it from the back.</li>
+        <li><code>Node firstH = head;</code> — pointer to walk the first half from the start.</li>
+        <li><code>while (secHead != null)</code> — the second half is the shorter (or equal) half, so loop until it runs out. For odd length, the middle node needs no partner.</li>
+        <li><code>if (firstH.data != secHead.data)</code> — a mismatch means it is not a palindrome — print and return <code>null</code>.</li>
+        <li><code>firstH = firstH.next; secHead = secHead.next;</code> — move both pointers to the next pair.</li>
+        <li><code>return head;</code> — every pair matched — it is a palindrome.</li>
+      </ol>
 
       <p class="section-label">Dry Run — 1 → 2 → 3 → 2 → 1</p>
       <div class="tbl-wrap"><table class="bit-table">
@@ -1023,7 +1322,20 @@ const LINKED_LIST_CONTENT = `
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-ll-add2">
-      <div class="hbox"><strong>Goal:</strong> Two numbers are stored as linked lists (LSB at head). Add them and return the sum as a linked list. Handle carry propagation.</div>
+      <p class="section-label">Problem Statement</p>
+      <div class="prob-box"><p>Two non-negative numbers are stored as linked lists, <strong>one digit per node</strong>, in <strong>reverse order</strong> — the <strong>ones digit is at the head</strong> (e.g. 342 is 2 → 4 → 3). Add the two numbers and return the sum as a linked list in the same reverse order. The lists may have different lengths.</p></div>
+
+      <p class="section-label">Example</p>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>head1 = 2 → 4 → 3, head2 = 5 → 6 → 4</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>7 → 0 → 8</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">342 + 465 = 807, stored in reverse as 7 → 0 → 8.</span></div>
+      </div>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>head1 = 9 → 9, head2 = 1</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>0 → 0 → 1</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">99 + 1 = 100. The final carry creates an extra node.</span></div>
+      </div>
 
       <p class="section-label">Intuition</p>
       <div class="ybox">Simulate grade-school addition digit by digit. Use a <code>carry</code> variable. At each step: <code>sum = carry + (head1.data if exists) + (head2.data if exists)</code>. New node gets <code>sum % 10</code>, carry becomes <code>sum / 10</code>. Continue until both lists exhausted AND carry is 0.</div>
@@ -1055,6 +1367,18 @@ const LINKED_LIST_CONTENT = `
     <span class="kw">return</span> dummy.next;
 }</div>
       </div>
+
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li><code>Node dummy = new Node(-1); cur = dummy;</code> — a placeholder start for the answer list. <code>cur</code> is its tail.</li>
+        <li><code>int carry = 0;</code> — carry from the previous digit (starts at 0).</li>
+        <li><code>while (head1 != null || head2 != null)</code> — continue while either list still has digits.</li>
+        <li><code>int sum = carry;</code> — start the digit sum with the carry.</li>
+        <li><code>if (head1 != null) { sum += head1.data; head1 = head1.next; }</code> — add the digit from list 1 if it exists (same for list 2). A finished list just adds nothing.</li>
+        <li><code>carry = sum / 10; cur.next = new Node(sum % 10);</code> — the last digit of <code>sum</code> goes into a new node; the tens part becomes the new carry.</li>
+        <li><code>if (carry != 0) cur.next = new Node(carry);</code> — after both lists end, a leftover carry needs its own node.</li>
+        <li><code>return dummy.next;</code> — skip the dummy and return the real answer.</li>
+      </ol>
 
       <p class="section-label">Dry Run — (2→4→3) + (5→6→4) = 807 (342 + 465)</p>
       <div class="tbl-wrap"><table class="bit-table">
@@ -1101,7 +1425,20 @@ const LINKED_LIST_CONTENT = `
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-ll-intersect">
-      <div class="hbox"><strong>Goal:</strong> Find the node where two singly linked lists merge into a Y-shape. Return the intersection node (by reference), or null if they don't intersect.</div>
+      <p class="section-label">Problem Statement</p>
+      <div class="prob-box"><p>Two singly linked lists start separately and may <strong>merge</strong> at some node, after which they share the same nodes (a <strong>Y shape</strong>). Return the <strong>first shared node</strong>, or <code>null</code> if they never merge. "Shared" means the <strong>same node object</strong>, not just the same value.</p></div>
+
+      <p class="section-label">Example</p>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>A = 4 → 1 → 8 → 4 → 5, B = 5 → 6 → 1 → 8 → 4 → 5 (8 → 4 → 5 is shared)</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>Node 8</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">Both lists lead into the same node 8. The two 1s are different nodes with equal values, so they do not count.</span></div>
+      </div>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>A = 2 → 6 → 4, B = 1 → 5</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>null</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">The lists never share a node.</span></div>
+      </div>
 
       <p class="section-label">Intuition — Length Difference Trick</p>
       <div class="ybox">Find the lengths of both lists. Advance the pointer of the longer list by the difference. Then move both pointers one step at a time — they will meet exactly at the intersection node.</div>
@@ -1143,6 +1480,16 @@ const LINKED_LIST_CONTENT = `
     <span class="kw">return</span> g;
 }</div>
       </div>
+
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li><code>if (l1 == null || l2 == null) return null;</code> — if either list is empty, they cannot meet.</li>
+        <li><code>while (c1 != null) { n1++; … }</code> — count the length of each list: <code>n1</code> and <code>n2</code>.</li>
+        <li><code>if (n1 &gt; n2) return collision(l1, l2, n1 - n2);</code> — call <code>collision</code> with the longer list first (<code>g</code>), the shorter list second (<code>s</code>), and the length difference.</li>
+        <li><code>while (diff &gt; 0) { g = g.next; diff--; }</code> — move the longer list forward by the difference. Now both pointers are the same distance from the end.</li>
+        <li><code>while (g != s) { g = g.next; s = s.next; }</code> — move both together one step at a time. They land on the shared node at the same moment. If there is no shared node, both become <code>null</code> together.</li>
+        <li><code>return g;</code> — the intersection node, or <code>null</code>.</li>
+      </ol>
 
       <p class="section-label">Dry Run</p>
       <div class="tbl-wrap"><table class="bit-table">
@@ -1347,7 +1694,20 @@ Window 3 : 2 + 3 + 4</div>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-sw-kadane">
-      <div class="hbox"><strong>Goal:</strong> Find the <strong>maximum sum contiguous subarray</strong> from a given array (the window size here is not fixed — it grows/shrinks on the fly, so this is the "variable size" sibling of sliding window, solved as a running-sum DP).</div>
+      <p class="section-label">Problem Statement</p>
+      <div class="prob-box"><p>You are given an array of integers (it can have negative numbers). Find the <strong>largest sum</strong> you can get by adding up a <strong>contiguous</strong> part of the array (a subarray — elements next to each other, at least one element).</p><p>Return only the sum, not the subarray itself. The window size is not fixed — it grows or restarts on the fly, so this is the "variable size" cousin of sliding window.</p></div>
+
+      <p class="section-label">Example</p>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4]</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>6</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">The subarray <code>[4, -1, 2, 1]</code> adds up to 6. No other contiguous part gives more.</span></div>
+      </div>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>arr = [-3, -1, -2]</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>-1</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">All numbers are negative, so the best we can do is pick the single biggest one: <code>-1</code>.</span></div>
+      </div>
       <p class="section-label">Intuition</p>
       <div class="ybox">At every index, we ask one question: <strong>"Is it better to extend the previous subarray, or start a fresh subarray from here?"</strong> We track two things — <code>curSum</code> (best sum ending exactly at the current index) and <code>maxSum</code> (best sum seen so far anywhere). If <code>curSum</code> ever drops below the current element itself, it's more profitable to restart the subarray at that element (drop the negative baggage).</div>
       <p class="section-label">Java Code</p>
@@ -1360,6 +1720,15 @@ Window 3 : 2 + 3 + 4</div>
     maxSum = Math.max(maxSum, curSum);           <span class="cmt">// track best-so-far</span>
 }</div>
       </div>
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li><code>curSum = arr[0]</code> — the best sum of a subarray that <strong>ends at the current index</strong>. We start with the first element.</li>
+        <li><code>maxSum = arr[0]</code> — the best sum seen anywhere so far. Starting with <code>arr[0]</code> (not 0) makes the all-negative case work.</li>
+        <li><code>for (int i = 1; ...)</code> — walk through the rest of the array one element at a time.</li>
+        <li><code>curSum = Math.max(curSum + arr[i], arr[i])</code> — choice at each step: <strong>extend</strong> the old subarray by adding <code>arr[i]</code>, or <strong>start fresh</strong> from <code>arr[i]</code> alone. If the old sum is dragging us down (negative), starting fresh wins.</li>
+        <li><code>maxSum = Math.max(maxSum, curSum)</code> — after each step, remember the biggest <code>curSum</code> we have ever seen.</li>
+        <li>When the loop ends, <code>maxSum</code> holds the answer. One pass, two variables — O(n) time, O(1) space.</li>
+      </ol>
       <p class="section-label">Dry Run</p>
       <div class="tbl-wrap"><table class="bit-table">
         <thead><tr><th>arr</th><th>curSum progression</th><th>maxSum</th></tr></thead>
@@ -1378,7 +1747,15 @@ Window 3 : 2 + 3 + 4</div>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-sw-maxsumk">
-      <div class="hbox"><strong>Goal:</strong> Given an array and a fixed window size <code>K</code>, find the maximum sum among all contiguous subarrays of exactly size <code>K</code>. This is the textbook <strong>Fixed Size Sliding Window</strong> problem.</div>
+      <p class="section-label">Problem Statement</p>
+      <div class="prob-box"><p>You are given an array of integers and a number <code>K</code>. Look at every group of <code>K</code> elements that sit next to each other (every window of size <code>K</code>) and return the <strong>largest sum</strong> among those windows.</p><p>This is the textbook <strong>Fixed Size Sliding Window</strong> problem. Assume <code>K</code> is at most the array length.</p></div>
+
+      <p class="section-label">Example</p>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>arr = [2, 1, 5, 1, 3, 2], K = 3</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>9</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">Windows are [2,1,5]=8, [1,5,1]=7, [5,1,3]=9, [1,3,2]=6. The biggest is 9.</span></div>
+      </div>
       <p class="section-label">Intuition</p>
       <div class="ybox">Compute the sum of the first <code>K</code> elements to prime the window. Then slide right one step at a time: <strong>add the new right element, subtract the outgoing left element</strong>, and update <code>maxSum</code> — no need to re-sum the whole window each time.</div>
       <p class="section-label">Java Code</p>
@@ -1411,6 +1788,16 @@ Window 3 : 2 + 3 + 4</div>
     }
 }</span></div>
       </div>
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li><code>int l = 0; int r = k;</code> — <code>l</code> is the left edge of the window, <code>r</code> is the first index <strong>just outside</strong> the window on the right.</li>
+        <li><code>for (int i = l; i &lt; r; i++) sum += arr[i];</code> — add up the first <code>K</code> elements to build the very first window.</li>
+        <li><code>maxSum = sum;</code> — the first window is our best answer so far.</li>
+        <li><code>while (r &lt; arr.length)</code> — keep sliding the window one step right until it reaches the end.</li>
+        <li><code>sum += arr[r++];</code> — the new element on the right enters the window, so add it.</li>
+        <li><code>sum -= arr[l++];</code> — the old element on the left leaves the window, so subtract it. Now <code>sum</code> is the new window sum without re-adding all <code>K</code> numbers.</li>
+        <li><code>maxSum = Math.max(sum, maxSum);</code> — keep the bigger value, then print <code>maxSum</code> at the end.</li>
+      </ol>
       <p class="section-label">Dry Run (arr = [2, 1, 5, 1, 3, 2], K = 3)</p>
       <div class="tbl-wrap"><table class="bit-table">
         <thead><tr><th>Window</th><th>Sum</th></tr></thead>
@@ -1432,7 +1819,15 @@ Window 3 : 2 + 3 + 4</div>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-sw-firstneg">
-      <div class="hbox"><strong>Goal:</strong> Given an array and a fixed window size <code>K</code>, print the <strong>first negative number</strong> in every contiguous window of size <code>K</code>. If a window has no negative number, print <code>0</code> for that window.</div>
+      <p class="section-label">Problem Statement</p>
+      <div class="prob-box"><p>You are given an array of integers and a window size <code>K</code>. For <strong>every</strong> window of <code>K</code> consecutive elements (from left to right), print the <strong>first negative number</strong> in that window.</p><p>If a window has no negative number at all, print <code>0</code> for that window. An array of size <code>n</code> has <code>n - K + 1</code> windows, so you print that many values.</p></div>
+
+      <p class="section-label">Example</p>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>arr = [12, -1, -7, 8, -15, 30, 16, 28], K = 3</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>-1 -1 -7 -15 -15 0</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">Window [12,-1,-7] → first negative is -1. [-1,-7,8] → -1. [-7,8,-15] → -7. [8,-15,30] → -15. [-15,30,16] → -15. [30,16,28] has none → 0.</span></div>
+      </div>
       <p class="section-label">Intuition</p>
       <div class="ybox">Maintain a <strong>Deque of indices</strong> that stores only the indices of negative elements currently inside the window, in order of appearance. As the window slides: <strong>push the new right index</strong> if <code>arr[j]</code> is negative, and <strong>pop the front index</strong> once it falls outside the window (i.e. equals the outgoing left index <code>i</code>). The front of the deque always holds the index of the first negative number for the current window — if the deque is empty, the window has no negatives.</div>
       <p class="section-label">Java Code</p>
@@ -1473,6 +1868,16 @@ Window 3 : 2 + 3 + 4</div>
     }
 }</span></div>
       </div>
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li><code>int i = 0, j = 0;</code> — <code>i</code> is the left edge and <code>j</code> is the right edge of the window.</li>
+        <li><code>Deque&lt;Integer&gt; dq</code> — stores the <strong>indices</strong> of negative numbers inside the current window, in the order they appear. The front is always the first negative.</li>
+        <li><code>if (arr[j] &lt; 0) dq.offerLast(j);</code> — when the new right element is negative, remember its index at the back.</li>
+        <li><code>if ((j - i + 1) &lt; k) j++;</code> — the window is still smaller than <code>K</code>, so just grow it to the right.</li>
+        <li><code>else if ((j - i + 1) == k)</code> — the window has exactly <code>K</code> elements. If <code>dq</code> is not empty, print <code>arr[dq.peekFirst()]</code> (the first negative); otherwise print <code>0</code>.</li>
+        <li><code>if (!dq.isEmpty() &amp;&amp; dq.peekFirst() == i) dq.poll();</code> — the element at <code>i</code> is about to leave the window. If it is the negative at the front, remove it.</li>
+        <li><code>i++; j++;</code> — slide the whole window one step to the right and repeat.</li>
+      </ol>
       <p class="section-label">Dry Run (arr = [12, -1, -7, 8, -15, 30, 16, 28], K = 3)</p>
       <div class="tbl-wrap"><table class="bit-table">
         <thead><tr><th>Window</th><th>First Negative</th></tr></thead>
@@ -1496,7 +1901,15 @@ Window 3 : 2 + 3 + 4</div>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-sw-countanag">
-      <div class="hbox"><strong>Goal:</strong> Given a text <code>txt</code> and a pattern <code>pat</code>, count how many <strong>contiguous substrings of <code>txt</code></strong> (window size = <code>pat.length()</code>) are an <strong>anagram</strong> of <code>pat</code> — i.e. contain the exact same characters with the exact same frequency, in any order.</div>
+      <p class="section-label">Problem Statement</p>
+      <div class="prob-box"><p>You are given a text <code>txt</code> and a pattern <code>pat</code> (lowercase letters only). Count how many substrings of <code>txt</code> with the <strong>same length as <code>pat</code></strong> are an <strong>anagram</strong> of <code>pat</code>.</p><p>An anagram uses exactly the same letters, the same number of times, in any order — e.g. "for", "orf" and "rof" are all anagrams of each other.</p></div>
+
+      <p class="section-label">Example</p>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>txt = "forxxorfxdofr", pat = "for"</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>3</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">Of all length-3 windows, only <code>"for"</code>, <code>"orf"</code> and <code>"ofr"</code> use exactly one f, one o and one r.</span></div>
+      </div>
       <p class="section-label">Intuition</p>
       <div class="ybox">Build a <strong>frequency array</strong> (size 26, for lowercase letters) of the pattern once — <code>arrPat</code>. Slide a window of size <code>pat.length()</code> across <code>txt</code>, maintaining a second frequency array <code>arrOcc</code> for the current window: <strong>add the incoming right character's count, and once the window reaches size <code>K</code>, compare the two frequency arrays with <code>Arrays.equals()</code></strong> — if they match, it's an anagram, so increment the counter. Then <strong>remove the outgoing left character's count</strong> before sliding forward.</div>
       <p class="section-label">Java Code</p>
@@ -1538,6 +1951,16 @@ Window 3 : 2 + 3 + 4</div>
     }
 }</span></div>
       </div>
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li><code>arrPat[ptr.charAt(i) - 'a']++</code> — count how many times each letter appears in the pattern. Index 0 is 'a', 1 is 'b', and so on.</li>
+        <li><code>arrOcc</code> — the same kind of letter count, but for the current window of the text.</li>
+        <li><code>arrOcc[str.charAt(j) - 'a']++</code> — the new letter at the right edge <code>j</code> enters the window, so increase its count.</li>
+        <li><code>if ((j - i + 1) &lt; ptr.length()) j++;</code> — the window is still shorter than the pattern, so keep growing it.</li>
+        <li><code>if (Arrays.equals(arrOcc, arrPat)) c++;</code> — the window has full size. If both letter counts are identical, this window is an anagram, so add 1 to <code>c</code>.</li>
+        <li><code>arrOcc[str.charAt(i) - 'a']--; i++; j++;</code> — remove the leftmost letter from the count and slide the window one step right.</li>
+        <li><code>System.out.println(c)</code> — print the total number of anagram windows.</li>
+      </ol>
       <p class="section-label">Dry Run (txt = "forxxorfxdofr", pat = "for")</p>
       <div class="tbl-wrap"><table class="bit-table">
         <thead><tr><th>Window</th><th>Anagram of "for"?</th></tr></thead>
@@ -1546,7 +1969,7 @@ Window 3 : 2 + 3 + 4</div>
           <tr><td>orx</td><td>No</td></tr>
           <tr><td>rxx</td><td>No</td></tr>
           <tr><td>xxo</td><td>No</td></tr>
-          <tr><td>xor</td><td>Yes (rearranged "for")</td></tr>
+          <tr><td>xor</td><td>No (has x, not f)</td></tr>
           <tr><td>orf</td><td>Yes (rearranged "for")</td></tr>
           <tr><td>rfx</td><td>No</td></tr>
           <tr><td>fxd</td><td>No</td></tr>
@@ -1555,10 +1978,18 @@ Window 3 : 2 + 3 + 4</div>
           <tr><td>ofr</td><td>Yes (rearranged "for")</td></tr>
         </tbody>
       </table></div>
-      <div class="sbox"><strong>Output:</strong> c = 4 &nbsp;|&nbsp; <strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(26) ≈ O(1) — two fixed-size frequency arrays; each character is added once and removed once from the window.</div>
+      <div class="sbox"><strong>Output:</strong> c = 3 &nbsp;|&nbsp; <strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(26) ≈ O(1) — two fixed-size frequency arrays; each character is added once and removed once from the window.</div>
 
       <div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:#ec4899;border-bottom:1px solid rgba(236,72,153,0.2);padding-bottom:6px"><span></span><span>LeetCode Variant — Find All Anagrams in a String</span></div>
-      <div class="hbox">Same sliding window + frequency array idea, but instead of just <strong>counting</strong> anagram windows, we <strong>collect the starting index</strong> <code>i</code> of every window whose frequency array matches the pattern's — returned as a <code>List&lt;Integer&gt;</code>.</div>
+      <p class="section-label">Problem Statement</p>
+      <div class="prob-box"><p>Given two strings <code>s</code> and <code>p</code> (lowercase letters), return a list of all <strong>starting indices</strong> in <code>s</code> where an anagram of <code>p</code> begins.</p><p>Same sliding window + letter-count idea as above — but instead of just <strong>counting</strong> anagram windows, we <strong>save the starting index</strong> <code>i</code> of every matching window.</p></div>
+
+      <p class="section-label">Example</p>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>s = "cbaebabacd", p = "abc"</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>[0, 6]</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v"><code>"cba"</code> starts at index 0 and <code>"bac"</code> starts at index 6 — both are rearrangements of "abc".</span></div>
+      </div>
       <p class="section-label">Java Code</p>
       <div class="code-block">
         <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">Solution.java — LeetCode 438</span></div>
@@ -1592,6 +2023,15 @@ Window 3 : 2 + 3 + 4</div>
     }
 }</span></div>
       </div>
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li><code>if (s.length() &lt; p.length()) return list;</code> — if <code>s</code> is shorter than <code>p</code>, no window can fit, so return an empty list.</li>
+        <li><code>arrP[p.charAt(i) - 'a']++</code> — count the letters of <code>p</code> once.</li>
+        <li><code>arrS[s.charAt(j) - 'a']++</code> — add the new right-side letter of <code>s</code> into the window count.</li>
+        <li><code>if ((j - i + 1) &lt; p.length()) j++;</code> — grow the window until it is as long as <code>p</code>.</li>
+        <li><code>if (Arrays.equals(arrS, arrP)) list.add(i);</code> — window is full size; if the counts match, save its start index <code>i</code>.</li>
+        <li><code>arrS[s.charAt(i) - 'a']--; i++; j++;</code> — drop the leftmost letter and slide right. Finally <code>return list</code>.</li>
+      </ol>
       <div class="ybox">️ <strong>Watch out:</strong> always use <code>Arrays.equals(...)</code> (with an <strong>s</strong>) to compare array contents — <code>Arrays.equal(...)</code> doesn't exist and won't compile. Also note the early return above is simply <code>return list;</code> (an empty list) when <code>s.length() &lt; p.length()</code> — no need for double-brace initialization.</div>
       <div class="sbox"><strong>TC:</strong> O(n) &nbsp;|&nbsp; <strong>SC:</strong> O(26) ≈ O(1) — identical sliding window technique as above, just storing matching start indices instead of a count.</div>
     </div>
@@ -1604,7 +2044,15 @@ Window 3 : 2 + 3 + 4</div>
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-sw-maxwindow">
-      <div class="hbox"><strong>Goal:</strong> Given an array and a fixed window size <code>K</code>, find the <strong>maximum element</strong> in every contiguous window of size <code>K</code>, in O(n) instead of the O(n × k) brute force.</div>
+      <p class="section-label">Problem Statement</p>
+      <div class="prob-box"><p>You are given an array of integers and a window size <code>K</code>. For every window of <code>K</code> consecutive elements (left to right), find the <strong>largest element</strong> in that window and return all these maximums as a list.</p><p>Goal: do it in O(n) time instead of the O(n × k) brute force that scans every window again.</p></div>
+
+      <p class="section-label">Example</p>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>arr = [1, 3, -1, -3, 5, 3, 6, 7], K = 3</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>[3, 3, 5, 5, 6, 7]</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">Windows: [1,3,-1]→3, [3,-1,-3]→3, [-1,-3,5]→5, [-3,5,3]→5, [5,3,6]→6, [3,6,7]→7.</span></div>
+      </div>
       <p class="section-label">Intuition</p>
       <div class="ybox">Maintain a <strong>Deque of indices</strong>, kept in <strong>decreasing order of their values</strong> — so the front of the deque is always the index of the current window's maximum. As <code>j</code> moves right: <strong>pop from the back</strong> every index whose value is <code>&lt;= arr[j]</code> (they can never be the max again once a bigger element shows up to their right), then <strong>push <code>j</code></strong>. Once the window hits size <code>K</code>, the <strong>front</strong> of the deque is the answer for that window — and if the front's index equals the outgoing left index <code>i</code>, pop it before sliding on, since it's about to fall outside the window.</div>
       <p class="section-label">Java Code</p>
@@ -1642,6 +2090,16 @@ Window 3 : 2 + 3 + 4</div>
     }
 }</span></div>
       </div>
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li><code>ans</code> collects the max of each window; <code>dq</code> holds <strong>indices</strong> whose values go from biggest (front) to smallest (back).</li>
+        <li><code>while (!dq.isEmpty() &amp;&amp; arr[dq.peekLast()] &lt;= arr[j]) dq.pollLast();</code> — before adding <code>arr[j]</code>, throw away smaller (or equal) values from the back. They can never be a window max again, because <code>arr[j]</code> is bigger and stays longer.</li>
+        <li><code>dq.offerLast(j);</code> — add the new index at the back.</li>
+        <li><code>if ((j - i + 1) &lt; k) j++;</code> — window not full yet, keep growing.</li>
+        <li><code>ans.add(arr[dq.peekFirst()]);</code> — window is full; the front of the deque is the biggest value, so record it.</li>
+        <li><code>if (dq.peekFirst() == i) dq.pollFirst();</code> — if that max sits at the left edge <code>i</code>, it is about to leave the window, so remove it.</li>
+        <li><code>i++; j++;</code> — slide right. When the loop ends, <code>return ans</code>.</li>
+      </ol>
       <p class="section-label">Dry Run (arr = [1, 3, -1, -3, 5, 3, 6, 7], K = 3)</p>
       <div class="tbl-wrap"><table class="bit-table">
         <thead><tr><th>Window</th><th>Deque (indices, front → back)</th><th>Max</th></tr></thead>
@@ -2936,6 +3394,20 @@ const BIT_MANIPULATION_CONTENT = `
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-d2b">
+      <p class="section-label">Problem Statement</p>
+      <div class="prob-box"><p>Given a positive whole number <code>n</code>, return its binary form as a string of 0s and 1s.</p></div>
+
+      <p class="section-label">Example</p>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>n = 13</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>"1101"</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">13 = 8 + 4 + 0 + 1, so the bits are 1, 1, 0, 1.</span></div>
+      </div>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>n = 6</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>"110"</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">6 = 4 + 2 + 0.</span></div>
+      </div>
       <div class="ybox"><strong>Key lines:</strong> <code style="font-family:'JetBrains Mono',monospace">lastBit = n &amp; 1;&nbsp;&nbsp;n = n &gt;&gt; 1;</code></div>
       <p class="section-label">Trace: 13 → binary</p>
       <div class="tbl-wrap">
@@ -2964,6 +3436,14 @@ const BIT_MANIPULATION_CONTENT = `
     <span class="kw">return</span> sb.reverse().toString();
 }</div>
       </div>
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li><code>StringBuilder sb</code> — an empty box where we collect bits one by one.</li>
+        <li><code>while (n &gt; 0)</code> — keep going until no bits are left in <code>n</code>.</li>
+        <li><code>sb.append(n &amp; 1)</code> — <code>n &amp; 1</code> gives the last bit (1 if odd, 0 if even). We save it.</li>
+        <li><code>n = n &gt;&gt; 1</code> — shift right to throw away the bit we just read (same as dividing by 2).</li>
+        <li><code>sb.reverse()</code> — we read bits from right to left, so we flip the string to get the correct order.</li>
+      </ol>
     </div>
   </div>
 
@@ -2977,6 +3457,20 @@ const BIT_MANIPULATION_CONTENT = `
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-b2d">
+      <p class="section-label">Problem Statement</p>
+      <div class="prob-box"><p>Given a binary string like <code>"1101"</code>, return the decimal (normal) number it stands for.</p></div>
+
+      <p class="section-label">Example</p>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>s = "1101"</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>13</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">1×8 + 1×4 + 0×2 + 1×1 = 13.</span></div>
+      </div>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>s = "1010"</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>10</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">1×8 + 0×4 + 1×2 + 0×1 = 10.</span></div>
+      </div>
       <div class="ybox"><strong>Key line:</strong> <code style="font-family:'JetBrains Mono',monospace">res = (res &lt;&lt; 1) + bit;</code>&nbsp;&nbsp; ≡ &nbsp;&nbsp;<code style="font-family:'JetBrains Mono',monospace">res = res * 2 + bit;</code></div>
       <p class="section-label">Trace: 1101 → decimal</p>
       <div class="tbl-wrap">
@@ -2991,6 +3485,14 @@ const BIT_MANIPULATION_CONTENT = `
         </table>
       </div>
       <div class="sbox">Output: <strong style="color:#10b981">13</strong></div>
+      <p class="section-label">Formula Explanation</p>
+      <ol class="explain-list">
+        <li>Start with <code>res = 0</code> and read the bits from <strong>left to right</strong>.</li>
+        <li><code>res &lt;&lt; 1</code> — shift <code>res</code> left by one place, which doubles it and makes room for the next bit.</li>
+        <li><code>+ bit</code> — drop the current bit (0 or 1) into that empty last place.</li>
+        <li>Repeat for every bit. After the last bit, <code>res</code> holds the decimal value.</li>
+        <li><code>(res &lt;&lt; 1) + bit</code> is the same as <code>res * 2 + bit</code> — just written with bits.</li>
+      </ol>
     </div>
   </div>
 
@@ -3004,6 +3506,20 @@ const BIT_MANIPULATION_CONTENT = `
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-pow2">
+      <p class="section-label">Problem Statement</p>
+      <div class="prob-box"><p>Given a whole number <code>n</code>, return <code>true</code> if it is a power of 2 (1, 2, 4, 8, 16, …), otherwise <code>false</code>.</p></div>
+
+      <p class="section-label">Example</p>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>n = 16</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>true</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">16 = 10000 — only one bit is 1.</span></div>
+      </div>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>n = 14</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>false</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">14 = 1110 — more than one bit is 1.</span></div>
+      </div>
       <div class="formula-card">
         <div class="formula-name">Formula</div>
         <div class="formula-val">(n &gt; 0) &amp;&amp; ((n &amp; (n-1)) == 0)</div>
@@ -3038,6 +3554,14 @@ const BIT_MANIPULATION_CONTENT = `
         </div>
       </div>
       <div class="wbox"><strong>Remember:</strong> n-1 means subtract 1 from the whole number, NOT remove the last bit.</div>
+      <p class="section-label">Formula Explanation</p>
+      <ol class="explain-list">
+        <li>A power of 2 has <strong>exactly one</strong> 1-bit in binary (e.g. 16 = 10000).</li>
+        <li><code>n &gt; 0</code> — 0 and negative numbers are never powers of 2, so rule them out first.</li>
+        <li><code>n - 1</code> — subtracting 1 turns that single 1-bit into 0 and every bit below it into 1 (10000 becomes 01111).</li>
+        <li><code>n &amp; (n - 1)</code> — the two numbers share no 1-bits, so the AND is 0.</li>
+        <li><code>== 0</code> — if the result is 0, <code>n</code> had only one 1-bit, so it is a power of 2. If not 0, it had more than one.</li>
+      </ol>
     </div>
   </div>
 
@@ -3077,6 +3601,20 @@ const BIT_MANIPULATION_CONTENT = `
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-kth">
+      <p class="section-label">Problem Statement</p>
+      <div class="prob-box"><p>Given a number <code>n</code> and a position <code>k</code> (counted from the right, starting at 0), return <code>true</code> if the bit at position <code>k</code> is 1, otherwise <code>false</code>.</p></div>
+
+      <p class="section-label">Example</p>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>n = 14, k = 2</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>true</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">14 = 1110. Bit 2 (third from right) is 1.</span></div>
+      </div>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>n = 14, k = 0</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>false</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">14 = 1110. Bit 0 (rightmost) is 0.</span></div>
+      </div>
       <div class="formula-card">
         <div class="formula-name">Formula</div>
         <div class="formula-val">(n &amp; (1 &lt;&lt; k)) != 0</div>
@@ -3091,6 +3629,12 @@ const BIT_MANIPULATION_CONTENT = `
           <div class="wbox">Check k=0 (bit NOT set)<br><code style="font-family:'JetBrains Mono',monospace">1110 &amp; 0001 = 0000 = 0</code></div>
         </div>
       </div>
+      <p class="section-label">Formula Explanation</p>
+      <ol class="explain-list">
+        <li><code>1 &lt;&lt; k</code> — builds a mask with a single 1 at position <code>k</code> (for k = 2: 0100).</li>
+        <li><code>n &amp; (1 &lt;&lt; k)</code> — AND keeps only the bit at position <code>k</code>; every other bit becomes 0.</li>
+        <li><code>!= 0</code> — if anything is left, that bit was 1 (set). If the result is 0, that bit was 0.</li>
+      </ol>
     </div>
   </div>
 
@@ -3104,6 +3648,20 @@ const BIT_MANIPULATION_CONTENT = `
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-setbit">
+      <p class="section-label">Problem Statement</p>
+      <div class="prob-box"><p>Given a number <code>n</code> and a position <code>i</code>, make the bit at position <code>i</code> equal to 1 (leave all other bits as they are) and return the new number.</p></div>
+
+      <p class="section-label">Example</p>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>n = 5, i = 1</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>7</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">5 = 101. Turning bit 1 on gives 111 = 7.</span></div>
+      </div>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>n = 7, i = 1</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>7</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">7 = 111. Bit 1 is already 1, so nothing changes.</span></div>
+      </div>
       <div class="formula-card">
         <div class="formula-name">Formula</div>
         <div class="formula-val">n = n | (1 &lt;&lt; i)</div>
@@ -3126,6 +3684,13 @@ const BIT_MANIPULATION_CONTENT = `
     <span class="kw">return</span> n | (<span class="num">1</span> &lt;&lt; i);
 }</div>
       </div>
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li><code>1 &lt;&lt; i</code> — makes a mask with only bit <code>i</code> as 1 (for i = 1: 010).</li>
+        <li><code>n | mask</code> — OR gives 1 wherever either side has a 1, so bit <code>i</code> is forced to 1.</li>
+        <li>All other mask bits are 0, and <code>x | 0 = x</code>, so the rest of <code>n</code> stays the same.</li>
+        <li><code>return</code> — send back the updated number.</li>
+      </ol>
     </div>
   </div>
 
@@ -3139,6 +3704,20 @@ const BIT_MANIPULATION_CONTENT = `
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-clearbit">
+      <p class="section-label">Problem Statement</p>
+      <div class="prob-box"><p>Given a number <code>n</code> and a position <code>i</code>, make the bit at position <code>i</code> equal to 0 (leave all other bits as they are) and return the new number.</p></div>
+
+      <p class="section-label">Example</p>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>n = 7, i = 1</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>5</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">7 = 111. Turning bit 1 off gives 101 = 5.</span></div>
+      </div>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>n = 5, i = 1</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>5</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">5 = 101. Bit 1 is already 0, so nothing changes.</span></div>
+      </div>
       <div class="formula-card">
         <div class="formula-name">Formula</div>
         <div class="formula-val">n = n &amp; ~(1 &lt;&lt; i)</div>
@@ -3161,6 +3740,13 @@ const BIT_MANIPULATION_CONTENT = `
     <span class="kw">return</span> n &amp; ~(<span class="num">1</span> &lt;&lt; i);
 }</div>
       </div>
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li><code>1 &lt;&lt; i</code> — makes a mask with only bit <code>i</code> as 1 (for i = 1: 010).</li>
+        <li><code>~(1 &lt;&lt; i)</code> — <code>~</code> flips every bit, so now bit <code>i</code> is 0 and all others are 1 (101).</li>
+        <li><code>n &amp; ...</code> — AND with 0 always gives 0, so bit <code>i</code> becomes 0.</li>
+        <li>AND with 1 keeps the bit as it was, so every other bit of <code>n</code> stays the same.</li>
+      </ol>
     </div>
   </div>
 
@@ -3174,6 +3760,20 @@ const BIT_MANIPULATION_CONTENT = `
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-toggle">
+      <p class="section-label">Problem Statement</p>
+      <div class="prob-box"><p>Given a number <code>n</code> and a position <code>k</code>, flip the bit at position <code>k</code> (1 becomes 0, 0 becomes 1) and return the new number.</p></div>
+
+      <p class="section-label">Example</p>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>n = 5, k = 1</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>7</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">5 = 101. Bit 1 is 0, flip it to 1: 111 = 7.</span></div>
+      </div>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>n = 7, k = 1</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>5</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">7 = 111. Bit 1 is 1, flip it to 0: 101 = 5.</span></div>
+      </div>
       <div class="formula-card">
         <div class="formula-name">Formula</div>
         <div class="formula-val">n = n ^ (1 &lt;&lt; k)</div>
@@ -3196,6 +3796,13 @@ const BIT_MANIPULATION_CONTENT = `
     <span class="kw">return</span> n ^ (<span class="num">1</span> &lt;&lt; k);
 }</div>
       </div>
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li><code>1 &lt;&lt; k</code> — makes a mask with only bit <code>k</code> as 1.</li>
+        <li><code>n ^ mask</code> — XOR gives 1 when the two bits are different, 0 when they are the same.</li>
+        <li>At position <code>k</code> the mask has 1, so that bit flips: 0 ^ 1 = 1 and 1 ^ 1 = 0.</li>
+        <li>Everywhere else the mask has 0, and <code>x ^ 0 = x</code>, so the other bits stay the same.</li>
+      </ol>
     </div>
   </div>
 
@@ -3209,6 +3816,20 @@ const BIT_MANIPULATION_CONTENT = `
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-removebit">
+      <p class="section-label">Problem Statement</p>
+      <div class="prob-box"><p>Given a number <code>n</code>: (a) turn off the bit at position <code>k</code>, or (b) turn off only the <strong>rightmost 1-bit</strong> (the lowest bit that is 1). Return the new number.</p></div>
+
+      <p class="section-label">Example</p>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>n = 12, remove rightmost 1</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>8</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">12 = 1100. The rightmost 1 is at position 2. Turning it off gives 1000 = 8.</span></div>
+      </div>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>n = 13, k = 0</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>12</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">13 = 1101. Turning off bit 0 gives 1100 = 12.</span></div>
+      </div>
       <div class="formula-card">
         <div class="formula-name">Formula — Remove specific k<sup>th</sup> bit</div>
         <div class="formula-val">n = n &amp; ~(1 &lt;&lt; k)</div>
@@ -3262,6 +3883,14 @@ const BIT_MANIPULATION_CONTENT = `
     <span class="kw">return</span> n &amp; (n - <span class="num">1</span>);
 }</div>
       </div>
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li><code>removeKthBit</code>: <code>~(1 &lt;&lt; k)</code> is a mask with 0 only at position <code>k</code>; AND with it turns that bit off (same as Clear).</li>
+        <li><code>removeRightmostSetBit</code>: <code>n - 1</code> turns the rightmost 1 into 0 and every 0 to its right into 1 (1100 becomes 1011).</li>
+        <li><code>n &amp; (n - 1)</code> — those changed bits now differ between <code>n</code> and <code>n - 1</code>, so AND makes them all 0 (1100 &amp; 1011 = 1000).</li>
+        <li>Bits to the left of the rightmost 1 are the same in both numbers, so they stay unchanged.</li>
+        <li>Tip: repeating <code>n = n &amp; (n - 1)</code> until <code>n</code> is 0 counts how many 1-bits <code>n</code> has.</li>
+      </ol>
     </div>
   </div>
 
@@ -3275,6 +3904,20 @@ const BIT_MANIPULATION_CONTENT = `
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-evenodd">
+      <p class="section-label">Problem Statement</p>
+      <div class="prob-box"><p>Given a whole number <code>n</code>, return <code>"Even"</code> if it is divisible by 2, otherwise <code>"Odd"</code> — using bits instead of <code>%</code>.</p></div>
+
+      <p class="section-label">Example</p>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>n = 6</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>"Even"</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">6 = 0110. Last bit is 0.</span></div>
+      </div>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>n = 7</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>"Odd"</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">7 = 0111. Last bit is 1.</span></div>
+      </div>
       <div class="formula-card">
         <div class="formula-name">Formula</div>
         <div class="formula-val">(n &amp; 1) == 0 → Even &nbsp;|&nbsp; (n &amp; 1) == 1 → Odd</div>
@@ -3320,6 +3963,12 @@ const BIT_MANIPULATION_CONTENT = `
 
 <span class="cmt">// Faster than n % 2 == 0 — no division needed!</span></div>
       </div>
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li><code>n &amp; 1</code> — AND with 1 (binary 0001) keeps only the last bit of <code>n</code>; all other bits become 0.</li>
+        <li>The last bit is the "1s place" in binary: it is 0 for every even number and 1 for every odd number.</li>
+        <li><code>== 0 ? "Even" : "Odd"</code> — if the last bit is 0 return "Even", otherwise return "Odd".</li>
+      </ol>
     </div>
   </div>
 
@@ -3860,7 +4509,20 @@ const ARRAYS_CONTENT = `
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-arr-plusone">
-      <div class="hbox"><strong>Goal:</strong> Given a large integer as a digit array (most significant digit first, no leading zeros), increment it by 1 and return the resulting array.</div>
+      <p class="section-label">Problem Statement</p>
+      <div class="prob-box"><p>You are given a large integer stored as an array <code>digits</code>, one digit per slot, with the <strong>most significant digit first</strong> (e.g. 123 is stored as <code>[1, 2, 3]</code>). There are no leading zeros.</p><p>Add <strong>1</strong> to this number and return the result as a digit array in the same format.</p></div>
+
+      <p class="section-label">Example</p>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>digits = [1, 2, 3]</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>[1, 2, 4]</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">The array means 123. 123 + 1 = 124.</span></div>
+      </div>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>digits = [9, 9, 9]</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>[1, 0, 0, 0]</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">999 + 1 = 1000. Every 9 becomes 0 and passes a carry left, so the answer needs one extra digit at the front.</span></div>
+      </div>
 
       <p class="section-label">Key Observations</p>
       <div class="ybox">
@@ -3901,6 +4563,17 @@ const ARRAYS_CONTENT = `
     }
 }</div>
       </div>
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li><code>helper(arr, id)</code> — a recursive function that first goes all the way to the end of the array, then fixes digits on the way back, returning the <strong>carry</strong>.</li>
+        <li><code>if (id == arr.length) return 1;</code> — base case: we have gone past the last digit. Return 1, which is the "+1" we want to add.</li>
+        <li><code>int carry = helper(arr, id + 1);</code> — first solve everything to the right; it tells us the carry coming into this digit.</li>
+        <li><code>int sum = carry + arr[id]; arr[id] = sum % 10;</code> — add the carry to this digit and keep only the last digit (e.g. 9 + 1 = 10 → store 0).</li>
+        <li><code>return sum / 10;</code> — send the carry (0 or 1) to the digit on the left.</li>
+        <li><code>int carry = helper(digits, 0);</code> in <code>plusOne</code> — start the recursion from the first digit and get the final carry.</li>
+        <li><code>if (carry == 1)</code> — all digits were 9, so make a new array one size bigger, put <code>1</code> at index 0 and copy the (now all-zero) digits after it.</li>
+        <li>Otherwise <code>return digits;</code> — the array was updated in place and has the same length.</li>
+      </ol>
 
       <p class="section-label">Dry Run — [1, 2, 3] → 123 + 1 = 124</p>
       <div class="tbl-wrap"><table class="bit-table">
@@ -4000,6 +4673,22 @@ const BINARY_SEARCH_CONTENT = `
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-bs-core">
+      <p class="section-label">Problem Statement</p>
+      <div class="prob-box"><p>You are given an array of numbers sorted from smallest to largest, and a number <code>target</code>. Find the position (index) of <code>target</code> in the array. If it is not there, return <code>-1</code>.</p><p>Instead of checking every element one by one, solve it in <strong>O(log n)</strong> time by cutting the search area in half at every step.</p></div>
+
+      <p class="section-label">Example</p>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>arr = [1, 3, 5, 7, 9], target = 7</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>3</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">7 sits at index 3 (counting from 0).</span></div>
+      </div>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>arr = [1, 3, 5, 7, 9], target = 4</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>-1</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">4 is not in the array, so we return -1.</span></div>
+      </div>
+
+
       <div class="hbox"><strong>When to Use:</strong> Array must be <strong>sorted</strong>. Returns the index of the target, or -1 if not found.</div>
 
       <div style="display:flex;gap:10px;flex-wrap:wrap;margin:12px 0 4px">
@@ -4029,6 +4718,17 @@ const BINARY_SEARCH_CONTENT = `
 }</div>
       </div>
 
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li><code>low = 0</code>, <code>high = arr.length - 1</code> — at the start the answer could be anywhere, so we search the whole array.</li>
+        <li><code>while (low &lt;= high)</code> — keep going while there is still at least one element left to check.</li>
+        <li><code>mid = low + (high - low) / 2</code> — pick the middle position of the current range (written this way so the sum never overflows).</li>
+        <li><code>arr[mid] == target</code> — found it, return <code>mid</code> straight away.</li>
+        <li><code>arr[mid] &lt; target</code> — the middle value is too small, so the target can only be on the right. Move <code>low = mid + 1</code>.</li>
+        <li>Otherwise the middle value is too big, so the target can only be on the left. Move <code>high = mid - 1</code>.</li>
+        <li><code>return -1</code> — the range became empty without a match, so the target is not in the array.</li>
+      </ol>
+
       <p class="section-label">Dry Run — arr = [1,3,5,7,9], target = 7</p>
       <div class="tbl-wrap"><table class="bit-table">
         <thead><tr><th>Iteration</th><th>low</th><th>high</th><th>mid</th><th>arr[mid]</th><th>Action</th></tr></thead>
@@ -4052,6 +4752,22 @@ const BINARY_SEARCH_CONTENT = `
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-bs-bounds">
+      <p class="section-label">Problem Statement</p>
+      <div class="prob-box"><p>You are given a sorted array <code>arr</code> and a number <code>x</code>.</p><p><strong>Lower Bound:</strong> return the first index where the value is <strong>greater than or equal to</strong> <code>x</code>.<br><strong>Upper Bound:</strong> return the first index where the value is <strong>strictly greater than</strong> <code>x</code>.</p><p>If no such index exists, return <code>arr.length</code> (one past the last index). Solve in O(log n).</p></div>
+
+      <p class="section-label">Example</p>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>arr = [1, 3, 3, 5, 7], x = 3</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>lowerBound = 1, upperBound = 3</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">The first value ≥ 3 is the 3 at index 1. The first value &gt; 3 is the 5 at index 3.</span></div>
+      </div>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>arr = [1, 3, 3, 5, 7], x = 8</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>lowerBound = 5, upperBound = 5</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">No value is ≥ 8, so both return <code>arr.length</code> = 5.</span></div>
+      </div>
+
+
 
       <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px">
         <div style="flex:1;min-width:220px;background:rgba(132,204,22,0.06);border:1px solid rgba(132,204,22,0.18);border-radius:8px;padding:11px 14px;font-size:12.5px">
@@ -4082,6 +4798,15 @@ const BINARY_SEARCH_CONTENT = `
 }</div>
       </div>
 
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li><code>ans = arr.length</code> — default answer for "no value is ≥ x".</li>
+        <li><code>mid = low + (high - low) / 2</code> — look at the middle of the current range.</li>
+        <li><code>arr[mid] &gt;= x</code> — this index is a possible answer, so save it in <code>ans</code>. But an even earlier index might also work, so keep looking left with <code>high = mid - 1</code>.</li>
+        <li><code>else low = mid + 1</code> — the middle value is smaller than <code>x</code>, so the answer must be further right.</li>
+        <li>When the loop ends, <code>ans</code> holds the leftmost index that passed the check — the lower bound.</li>
+      </ol>
+
       <p class="section-label">Upper Bound — Java</p>
       <div class="code-block">
         <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">UpperBound.java</span></div>
@@ -4099,6 +4824,15 @@ const BINARY_SEARCH_CONTENT = `
     <span class="kw">return</span> ans;
 }</div>
       </div>
+
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li>Same structure as Lower Bound; the only change is the check <code>arr[mid] &gt; x</code> (strictly greater, not equal).</li>
+        <li><code>ans = arr.length</code> — default answer for "no value is bigger than x".</li>
+        <li><code>arr[mid] &gt; x</code> — possible answer, save <code>ans = mid</code> and keep searching left (<code>high = mid - 1</code>) for an earlier one.</li>
+        <li><code>else low = mid + 1</code> — values equal to or smaller than <code>x</code> are skipped by moving right.</li>
+        <li>Return <code>ans</code> — the first index whose value is bigger than <code>x</code>.</li>
+      </ol>
 
       <div class="tbl-wrap"><table class="bit-table">
         <thead><tr><th>arr = [1, 3, 3, 5, 7]</th><th>x = 3</th><th>Result</th></tr></thead>
@@ -4120,6 +4854,22 @@ const BINARY_SEARCH_CONTENT = `
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-bs-floorceil">
+      <p class="section-label">Problem Statement</p>
+      <div class="prob-box"><p>You are given a sorted array <code>arr</code> and a number <code>x</code>.</p><p><strong>Floor:</strong> return the largest value in the array that is <strong>≤ x</strong>.<br><strong>Ceil:</strong> return the smallest value in the array that is <strong>≥ x</strong>.</p><p>Return the <strong>value</strong> (not the index). If no such value exists, return <code>-1</code>. Solve in O(log n).</p></div>
+
+      <p class="section-label">Example</p>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>arr = [1, 2, 8, 10, 12, 19], x = 5</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>floor = 2, ceil = 8</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">5 is not in the array. The biggest value below it is 2, the smallest value above it is 8.</span></div>
+      </div>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>arr = [1, 2, 8, 10, 12, 19], x = 0</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>floor = -1, ceil = 1</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">No value is ≤ 0, so floor is -1. The smallest value ≥ 0 is 1.</span></div>
+      </div>
+
+
 
       <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px">
         <div style="flex:1;min-width:200px;background:rgba(132,204,22,0.06);border:1px solid rgba(132,204,22,0.18);border-radius:8px;padding:11px 14px;font-size:12.5px">
@@ -4148,6 +4898,15 @@ const BINARY_SEARCH_CONTENT = `
 }</div>
       </div>
 
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li><code>ans = -1</code> — default answer if no value is ≤ <code>x</code>.</li>
+        <li><code>mid = low + (high - low) / 2</code> — check the middle value.</li>
+        <li><code>arr[mid] &lt;= x</code> — this value is a valid floor, so save it (<code>ans = arr[mid]</code>). A bigger valid floor may exist on the right, so move <code>low = mid + 1</code>.</li>
+        <li><code>else high = mid - 1</code> — the middle value is too big to be a floor, so look left.</li>
+        <li>Return <code>ans</code> — the last (largest) value that was ≤ <code>x</code>.</li>
+      </ol>
+
       <p class="section-label">Ceil Value — Java</p>
       <div class="code-block">
         <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">FloorCeil.java</span></div>
@@ -4166,6 +4925,15 @@ const BINARY_SEARCH_CONTENT = `
 }</div>
       </div>
 
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li><code>ans = -1</code> — default answer if no value is ≥ <code>x</code>.</li>
+        <li><code>mid = low + (high - low) / 2</code> — check the middle value.</li>
+        <li><code>arr[mid] &gt;= x</code> — this value is a valid ceil, so save it (<code>ans = arr[mid]</code>). A smaller valid ceil may exist on the left, so move <code>high = mid - 1</code>.</li>
+        <li><code>else low = mid + 1</code> — the middle value is too small to be a ceil, so look right.</li>
+        <li>Return <code>ans</code> — the smallest value that was ≥ <code>x</code>.</li>
+      </ol>
+
       <div class="sbox">Floor stores <code>arr[mid]</code> and moves <strong>right</strong>; Ceil stores <code>arr[mid]</code> and moves <strong>left</strong>. The direction mirrors Lower/Upper Bound (which store the index instead).</div>
     </div>
   </div>
@@ -4180,7 +4948,22 @@ const BINARY_SEARCH_CONTENT = `
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-bs-occur">
-      <div class="hbox"><strong>Goal:</strong> Find the first (or last) index of a target in a sorted array that may contain duplicates.</div>
+      <p class="section-label">Problem Statement</p>
+      <div class="prob-box"><p>You are given a sorted array that may contain <strong>repeated values</strong>, and a number <code>target</code>.</p><p>Return the index of the <strong>first</strong> time <code>target</code> appears, and the index of the <strong>last</strong> time it appears. If <code>target</code> is not in the array, return <code>-1</code>. Solve in O(log n).</p></div>
+
+      <p class="section-label">Example</p>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>arr = [1, 2, 2, 2, 3], target = 2</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>first = 1, last = 3</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">The 2s sit at indexes 1, 2 and 3. The first is at 1, the last is at 3.</span></div>
+      </div>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>arr = [1, 2, 2, 2, 3], target = 4</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>first = -1, last = -1</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">4 is not in the array.</span></div>
+      </div>
+
+
 
       <p class="section-label">First Occurrence — Java</p>
       <div class="code-block">
@@ -4200,6 +4983,16 @@ const BINARY_SEARCH_CONTENT = `
 }</div>
       </div>
 
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li><code>first = -1</code> — default answer if the target never shows up.</li>
+        <li><code>mid = low + (high - low) / 2</code> — check the middle of the current range.</li>
+        <li><code>arr[mid] == target</code> — we found a copy. Save it in <code>first</code>, but an earlier copy may still exist on the left, so keep searching with <code>high = mid - 1</code>.</li>
+        <li><code>arr[mid] &lt; target</code> — too small, move right with <code>low = mid + 1</code>.</li>
+        <li><code>else high = mid - 1</code> — too big, move left.</li>
+        <li>Return <code>first</code> — the leftmost index where the target was found.</li>
+      </ol>
+
       <p class="section-label">Last Occurrence — Java</p>
       <div class="code-block">
         <div class="code-header"><div class="code-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><span style="font-size:11px;color:var(--text3)">Occurrence.java</span></div>
@@ -4217,6 +5010,15 @@ const BINARY_SEARCH_CONTENT = `
     <span class="kw">return</span> last;
 }</div>
       </div>
+
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li>Same as First Occurrence; the only difference is which way we go after a match.</li>
+        <li><code>last = -1</code> — default answer if the target never shows up.</li>
+        <li><code>arr[mid] == target</code> — save it in <code>last</code>, then keep searching to the <strong>right</strong> (<code>low = mid + 1</code>) because a later copy may exist.</li>
+        <li><code>arr[mid] &lt; target</code> moves right, otherwise move left — normal binary search steps.</li>
+        <li>Return <code>last</code> — the rightmost index where the target was found. Tip: count of target = <code>last - first + 1</code>.</li>
+      </ol>
 
       <div class="tbl-wrap"><table class="bit-table">
         <thead><tr><th>arr = [1, 2, 2, 2, 3]</th><th>target = 2</th><th>Result</th></tr></thead>
@@ -4239,6 +5041,22 @@ const BINARY_SEARCH_CONTENT = `
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-bs-rot1">
+      <p class="section-label">Problem Statement</p>
+      <div class="prob-box"><p>A sorted array with <strong>all different values</strong> was rotated at some unknown point (for example <code>[0,1,2,4,5,6,7]</code> became <code>[4,5,6,7,0,1,2]</code>).</p><p>Given this rotated array <code>nums</code> and a number <code>target</code>, return the index of <code>target</code>, or <code>-1</code> if it is not present. Solve in O(log n). (LeetCode 33)</p></div>
+
+      <p class="section-label">Example</p>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>nums = [4, 5, 6, 7, 0, 1, 2], target = 0</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>4</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">0 is at index 4.</span></div>
+      </div>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>nums = [4, 5, 6, 7, 0, 1, 2], target = 3</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>-1</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">3 is not in the array.</span></div>
+      </div>
+
+
       <div class="ybox"><strong>Key Observation:</strong> One half is <em>always</em> sorted. Identify which half, then check if the target falls inside it.</div>
 
       <p class="section-label">Decision Pattern</p>
@@ -4252,6 +5070,14 @@ const BINARY_SEARCH_CONTENT = `
     <span class="kw">else</span>                                             high = mid - <span class="num">1</span>;
 }</div>
       </div>
+
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li><code>nums[low] &lt;= nums[mid]</code> — if the first value of the range is not bigger than the middle value, the left half (low to mid) is in proper sorted order.</li>
+        <li>Left half sorted: if <code>target</code> lies between <code>nums[low]</code> and <code>nums[mid]</code>, it must be in the left half, so <code>high = mid - 1</code>. Otherwise go right with <code>low = mid + 1</code>.</li>
+        <li><code>else</code> — the left half is not sorted, so the right half (mid to high) must be sorted.</li>
+        <li>Right half sorted: if <code>target</code> lies between <code>nums[mid]</code> and <code>nums[high]</code>, go right (<code>low = mid + 1</code>). Otherwise go left (<code>high = mid - 1</code>).</li>
+      </ol>
 
       <p class="section-label">Full Solution — LeetCode 33</p>
       <div class="code-block">
@@ -4279,6 +5105,16 @@ const BINARY_SEARCH_CONTENT = `
 }</div>
       </div>
 
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li><code>l = 0</code>, <code>h = nums.length - 1</code> — start with the whole array.</li>
+        <li><code>mid = l + (h - l) / 2</code> — check the middle; if <code>nums[mid] == target</code>, return <code>mid</code>.</li>
+        <li><code>nums[l] &lt;= nums[mid]</code> — the left half is sorted. Check <code>nums[l] &lt;= target &amp;&amp; target &lt; nums[mid]</code>: if true the target is inside it (<code>h = mid - 1</code>), else throw the left half away (<code>l = mid + 1</code>).</li>
+        <li><code>else</code> — the right half is sorted. Check <code>nums[mid] &lt; target &amp;&amp; target &lt;= nums[h]</code>: if true search right (<code>l = mid + 1</code>), else search left (<code>h = mid - 1</code>).</li>
+        <li>Each step removes half the array, because we only ever range-check the half we know is sorted.</li>
+        <li><code>return -1</code> — the range became empty, so the target is not present.</li>
+      </ol>
+
       <div class="sbox"><strong>TC:</strong> O(log n) &nbsp;|&nbsp; <strong>SC:</strong> O(1)</div>
     </div>
   </div>
@@ -4293,6 +5129,27 @@ const BINARY_SEARCH_CONTENT = `
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-bs-rot2">
+      <p class="section-label">Problem Statement</p>
+      <div class="prob-box"><p>Same as Rotated Sorted Array I, but now the array <strong>can contain repeated values</strong>.</p><p>Given the rotated array <code>arr</code> and a number <code>key</code>, return <code>true</code> if <code>key</code> is in the array, otherwise <code>false</code>. (LeetCode 81)</p></div>
+
+      <p class="section-label">Example</p>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>arr = [2, 5, 6, 0, 0, 1, 2], key = 0</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>true</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">0 appears in the array (at index 3 and 4).</span></div>
+      </div>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>arr = [1, 0, 1, 1, 1], key = 0</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>true</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">Here <code>arr[low]</code>, <code>arr[mid]</code> and <code>arr[high]</code> are all 1, so we cannot tell which half is sorted — this is why the extra "shrink both ends" step is needed.</span></div>
+      </div>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>arr = [2, 5, 6, 0, 0, 1, 2], key = 3</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>false</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">3 is not in the array.</span></div>
+      </div>
+
+
       <div class="hbox"><strong>Extra condition needed:</strong> When <code>arr[low] == arr[mid] == arr[high]</code>, we cannot determine which half is sorted. Shrink both pointers.</div>
 
       <p class="section-label">Extra Condition — Java</p>
@@ -4304,6 +5161,13 @@ const BINARY_SEARCH_CONTENT = `
     <span class="kw">continue</span>;
 }</div>
       </div>
+
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li><code>arr[low] == arr[mid] &amp;&amp; arr[mid] == arr[high]</code> — the three values we normally compare are all the same, so they give no clue which half is sorted.</li>
+        <li>We already know <code>arr[mid]</code> is not the key, so the two ends (equal to it) are not the key either. Drop them safely with <code>low++</code> and <code>high--</code>.</li>
+        <li><code>continue</code> — skip the rest of this loop round and try again with the smaller range.</li>
+      </ol>
 
       <p class="section-label">Full Solution — LeetCode 81</p>
       <div class="code-block">
@@ -4336,6 +5200,16 @@ const BINARY_SEARCH_CONTENT = `
 }</div>
       </div>
 
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li><code>low = 0</code>, <code>high = arr.length - 1</code> — start with the whole array.</li>
+        <li><code>arr[mid] == key</code> — found it, return <code>true</code>.</li>
+        <li>Duplicate check: if <code>arr[low]</code>, <code>arr[mid]</code> and <code>arr[high]</code> are all equal, shrink both ends and <code>continue</code>.</li>
+        <li><code>arr[low] &lt;= arr[mid]</code> — left half sorted. If <code>key</code> is between <code>arr[low]</code> and <code>arr[mid]</code> search left (<code>high = mid - 1</code>), else search right (<code>low = mid + 1</code>).</li>
+        <li><code>else</code> — right half sorted. If <code>key</code> is between <code>arr[mid]</code> and <code>arr[high]</code> search right (<code>low = mid + 1</code>), else search left (<code>high = mid - 1</code>).</li>
+        <li><code>return false</code> — the range became empty, so the key is not present.</li>
+      </ol>
+
       <div class="wbox"><strong>️ TC:</strong> O(log n) average, <strong>O(n) worst case</strong> when all elements are duplicates (e.g. [2,2,2,2,2]).</div>
     </div>
   </div>
@@ -4350,6 +5224,22 @@ const BINARY_SEARCH_CONTENT = `
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-bs-minrot">
+      <p class="section-label">Problem Statement</p>
+      <div class="prob-box"><p>A sorted array with <strong>all different values</strong> was rotated some number of times.</p><p><strong>Find Minimum:</strong> return the smallest value in the rotated array.<br><strong>Count Rotations:</strong> return how many times the sorted array was rotated (this equals the index of the smallest value). Solve both in O(log n).</p></div>
+
+      <p class="section-label">Example</p>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>nums = [4, 5, 6, 7, 0, 1, 2]</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>minimum = 0, rotations = 4</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">The smallest value 0 sits at index 4, so the sorted array <code>[0,1,2,4,5,6,7]</code> was rotated 4 times.</span></div>
+      </div>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>nums = [1, 2, 3, 4, 5]</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>minimum = 1, rotations = 0</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">The array is not rotated at all, so the minimum is at index 0.</span></div>
+      </div>
+
+
 
       <p class="section-label">Find Minimum — Pattern</p>
       <div class="code-block">
@@ -4362,6 +5252,15 @@ const BINARY_SEARCH_CONTENT = `
 }
 <span class="kw">return</span> nums[low];</div>
       </div>
+
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li><code>while (low &lt; high)</code> — stop when only one element is left; that element is the minimum.</li>
+        <li><code>mid = low + (high - low) / 2</code> — look at the middle value.</li>
+        <li><code>nums[mid] &gt; nums[high]</code> — the middle is bigger than the last value, so the "drop" (where the minimum is) must be to the right of <code>mid</code>. Move <code>low = mid + 1</code>.</li>
+        <li><code>else high = mid</code> — from <code>mid</code> to <code>high</code> is sorted, so the minimum is <code>mid</code> or something left of it. We keep <code>mid</code> (not <code>mid - 1</code>) because it might be the answer.</li>
+        <li><code>return nums[low]</code> — when <code>low == high</code>, that position holds the minimum.</li>
+      </ol>
 
       <div class="ybox" style="margin-bottom:12px"><strong>Observation:</strong> The minimum element is the <em>only</em> element smaller than its left neighbour. After the loop, <code>low == high</code> == index of minimum.</div>
 
@@ -4384,6 +5283,14 @@ const BINARY_SEARCH_CONTENT = `
     }
 }</div>
       </div>
+
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li>This is the exact same loop as Find Minimum.</li>
+        <li><code>low = 0</code>, <code>high = nums.length - 1</code> — search the whole array.</li>
+        <li><code>nums[mid] &gt; nums[high]</code> → minimum is to the right, so <code>low = mid + 1</code>; otherwise <code>high = mid</code>.</li>
+        <li><code>return low</code> — instead of returning the value, we return its <strong>index</strong>. The index of the minimum is the number of rotations.</li>
+      </ol>
     </div>
   </div>
 
@@ -4397,7 +5304,22 @@ const BINARY_SEARCH_CONTENT = `
       <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="accordion-body" id="body-bs-single">
-      <div class="hbox"><strong>Goal:</strong> Every element appears exactly twice, except one. Find the single element in O(log n) time and O(1) space.</div>
+      <p class="section-label">Problem Statement</p>
+      <div class="prob-box"><p>You are given a sorted array where every value appears <strong>exactly twice</strong>, except one value that appears only <strong>once</strong>.</p><p>Return that single value. Solve in O(log n) time and O(1) extra space. (LeetCode 540)</p></div>
+
+      <p class="section-label">Example</p>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>nums = [1, 1, 2, 3, 3, 4, 4, 8, 8]</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>2</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">Every other number has a pair next to it; 2 does not.</span></div>
+      </div>
+      <div class="ex-box">
+        <div class="ex-row"><span class="ex-k">Input</span><span class="ex-v"><code>nums = [3, 3, 7, 7, 10, 11, 11]</code></span></div>
+        <div class="ex-row"><span class="ex-k">Output</span><span class="ex-v"><code>10</code></span></div>
+        <div class="ex-row"><span class="ex-k">Why</span><span class="ex-v">10 is the only number without a matching neighbour.</span></div>
+      </div>
+
+
 
       <p class="section-label">Key Observation</p>
       <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px">
@@ -4447,6 +5369,17 @@ const BINARY_SEARCH_CONTENT = `
     }
 }</div>
       </div>
+
+      <p class="section-label">Code Explanation</p>
+      <ol class="explain-list">
+        <li><code>if (n == 1)</code> — only one element, so it must be the answer.</li>
+        <li><code>nums[0] != nums[1]</code> / <code>nums[n-1] != nums[n-2]</code> — check if the single value is the first or last element. Handling these first means <code>mid-1</code> and <code>mid+1</code> are always safe to read later.</li>
+        <li><code>low = 1</code>, <code>high = n - 2</code> — search only the inside of the array.</li>
+        <li><code>nums[mid] != nums[mid-1] &amp;&amp; nums[mid] != nums[mid+1]</code> — <code>mid</code> differs from both neighbours, so it is the single value. Return it.</li>
+        <li>Pattern check: before the single value, pairs start at even indexes. So if <code>mid</code> is odd and equals the one before it, or <code>mid</code> is even and equals the one after it, the pattern is still intact — the single value is to the right (<code>low = mid + 1</code>).</li>
+        <li><code>else high = mid - 1</code> — the pattern is broken, so the single value is to the left.</li>
+        <li><code>return -1</code> — only reached if the input does not follow the rules.</li>
+      </ol>
 
       <div class="sbox"><strong>TC:</strong> O(log n) &nbsp;|&nbsp; <strong>SC:</strong> O(1) — Searching only the interior [1, n-2] after handling boundary edge cases.</div>
     </div>

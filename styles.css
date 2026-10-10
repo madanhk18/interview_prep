@@ -1638,3 +1638,41 @@ body.light-mode .sidebar-empty-state{
   background:var(--nb-avatar-bg); color:var(--nb-avatar-text);
   border:1px solid var(--nb-border);
 }
+
+/* Problem layout — Problem Statement → Example → Code → Code Explanation */
+.prob-box{
+  border-radius:12px; padding:13px 16px; margin-bottom:10px;
+  font-size:13.5px; line-height:1.7;
+  background:rgba(99,102,241,0.10); color:rgba(255,255,255,0.85);
+  border-left:3px solid #818cf8;
+  border-top:1px solid rgba(255,255,255,0.08);
+  border-right:1px solid rgba(255,255,255,0.04);
+  border-bottom:1px solid rgba(0,0,0,0.10);
+}
+.prob-box p{margin:0 0 6px}
+.prob-box p:last-child{margin-bottom:0}
+.ex-box{
+  border-radius:12px; padding:10px 16px; margin-bottom:10px;
+  background:rgba(255,255,255,0.04); border:1px solid var(--border-glow);
+  font-size:13px; line-height:1.6;
+}
+.ex-box + .ex-box{margin-top:-2px}
+.ex-row{display:flex; gap:12px; padding:5px 0; align-items:baseline}
+.ex-row + .ex-row{border-top:1px dashed var(--border)}
+.ex-k{flex:0 0 74px; font-size:10.5px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--text3); padding-top:2px}
+.ex-v{flex:1; min-width:0; color:var(--text); overflow-wrap:anywhere}
+.ex-v code{font-size:12.5px}
+.explain-list{
+  margin:0 0 12px; padding:12px 16px 12px 36px; border-radius:12px;
+  background:rgba(16,185,129,0.07); border-left:3px solid #10b981;
+  font-size:13px; line-height:1.7; color:var(--text);
+}
+.explain-list li{margin:3px 0; padding-left:2px}
+.explain-list li::marker{color:#10b981; font-weight:700}
+body.light-mode .prob-box{background:rgba(99,102,241,0.08); color:rgba(0,0,0,0.78); border-top-color:rgba(255,255,255,0.60)}
+body.light-mode .ex-box{background:rgba(0,0,0,0.025)}
+body.light-mode .explain-list{background:rgba(16,185,129,0.08)}
+@media(max-width:600px){
+  .ex-row{flex-direction:column; gap:2px}
+  .ex-k{flex:none}
+}
