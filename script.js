@@ -1,4 +1,5 @@
 const CATEGORIES = {
+  dsa:             { label:'DSA',              color:'#6366f1' },
   backend:         { label:'Backend',          color:'#f59e0b' },
   devops:          { label:'DevOps',           color:'#0ea5e9' },
   database:        { label:'Database',         color:'#10b981' },
@@ -10,6 +11,11 @@ const TOPICS = [
   // New topics kept up front
   {id:'spring-boot',name:'Spring Boot',icon:'',color:'#22c55e',gradient:'',category:'frameworks',hasContent:true,isNew:true,remoteSlug:'spring-boot'},
 
+  {id:'bit-manipulation',name:'Bit Manipulation',icon:'',color:'#14b8a6',gradient:'from-teal-400 to-cyan-600',category:'dsa',hasContent:true,remoteSlug:'bit-manipulation'},
+  {id:'binary-search',name:'Binary Search',icon:'',color:'#84cc16',gradient:'',category:'dsa',hasContent:true,remoteSlug:'binary-search'},
+  {id:'sliding-window',name:'Sliding Window',icon:'',color:'#ec4899',gradient:'',category:'dsa',hasContent:true,remoteSlug:'sliding-window'},
+  {id:'arrays',name:'Arrays',icon:'',color:'#6366f1',gradient:'',category:'dsa',hasContent:true,remoteSlug:'arrays'},
+  {id:'linked-list',name:'Linked List',icon:'',color:'#8b5cf6',gradient:'',category:'dsa',hasContent:true,remoteSlug:'linked-list'},
   {id:'jdbc',name:'JDBC',icon:'️',color:'#6366f1',gradient:'',category:'backend',hasContent:true,remoteSlug:'jdbc'},
   {id:'docker',name:'Docker',icon:'',color:'#0ea5e9',gradient:'',category:'devops',hasContent:true,remoteSlug:'docker'},
   {id:'git',name:'Git & GitHub',icon:'',color:'#f97316',gradient:'',category:'devops',hasContent:true,remoteSlug:'git'},
@@ -42,10 +48,20 @@ const TOPIC_ICONS = {
   'computer-networks':  `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="9" y="2" width="6" height="4" rx="1"/><rect x="2" y="18" width="6" height="4" rx="1"/><rect x="16" y="18" width="6" height="4" rx="1"/><line x1="12" y1="6" x2="12" y2="13"/><line x1="12" y1="13" x2="5" y2="18"/><line x1="12" y1="13" x2="19" y2="18"/></svg>`,
   'operating-systems':  `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><line x1="2" y1="7" x2="22" y2="7"/></svg>`,
   'jdbc':               `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><ellipse cx="12" cy="7" rx="8" ry="3"/><path d="M4 7v5c0 1.66 3.58 3 8 3s8-1.34 8-3V7"/><path d="M4 12v5c0 1.66 3.58 3 8 3s8-1.34 8-3v-5"/></svg>`,
+  'arrays':             `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="3" height="8" rx="1"/><rect x="8" y="5" width="3" height="14" rx="1"/><rect x="13" y="8" width="3" height="8" rx="1"/><rect x="18" y="6" width="3" height="12" rx="1"/></svg>`,
+  'binary-search':      `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/><line x1="8" y1="11" x2="14" y2="11"/></svg>`,
+  'bit-manipulation':   `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><text x="2" y="16" font-size="12" font-family="monospace" fill="currentColor" stroke="none">01</text><text x="2" y="23" font-size="9" font-family="monospace" fill="currentColor" stroke="none">10</text></svg>`,
+  'sliding-window':     `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="7" width="20" height="10" rx="2"/><rect x="7" y="7" width="8" height="10" rx="1" fill="currentColor" opacity="0.2"/><line x1="7" y1="7" x2="7" y2="17"/><line x1="15" y1="7" x2="15" y2="17"/></svg>`,
+  'linked-list':        `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="9" width="6" height="6" rx="2"/><rect x="9" y="9" width="6" height="6" rx="2"/><rect x="16" y="9" width="6" height="6" rx="2"/><line x1="8" y1="12" x2="9" y2="12"/><line x1="15" y1="12" x2="16" y2="12"/></svg>`,
 };
 
 /* Per-topic accent colors — only 5% saturation, just a tint */
 const TOPIC_COLORS = {
+  'arrays':              { color:'#3b82f6', glow:'rgba(59,130,246,0.20)' },
+  'binary-search':       { color:'#8b5cf6', glow:'rgba(139,92,246,0.20)' },
+  'bit-manipulation':    { color:'#14b8a6', glow:'rgba(20,184,166,0.20)' },
+  'sliding-window':      { color:'#ec4899', glow:'rgba(236,72,153,0.20)' },
+  'linked-list':         { color:'#8b5cf6', glow:'rgba(139,92,246,0.20)' },
 };
 
 function getAccent(id) {
